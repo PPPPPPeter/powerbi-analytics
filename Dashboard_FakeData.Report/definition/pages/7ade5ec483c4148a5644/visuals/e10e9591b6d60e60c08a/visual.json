@@ -1,0 +1,75 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "e10e9591b6d60e60c08a",
+  "position": {
+    "x": 303.25123152709358,
+    "y": 9.3103448275862064,
+    "z": 10000,
+    "height": 116.58170914542728,
+    "width": 345.42728635682158,
+    "tabOrder": 10000
+  },
+  "visual": {
+    "visualType": "textSlicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCustomerNJ"
+                    }
+                  },
+                  "Property": "客户名称"
+                }
+              },
+              "queryRef": "DimCustomerNJ.客户名称",
+              "nativeQueryRef": "客户名称"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "filterOperator": [
+        {
+          "properties": {
+            "showText": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

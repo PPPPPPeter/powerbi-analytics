@@ -1,0 +1,85 @@
+table FactSalesTarget
+	lineageTag: efa0be22-2c48-4dfa-b9e0-b24f1c23fe06
+
+	measure 冰淇淋总目标 = 530000
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: b8312a21-b4e6-4cbe-8122-f0c356d57986
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 月份日期
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9351aa7b-0ede-49f7-887a-6232a544ed74
+		summarizeBy: none
+		sourceColumn: 月份日期
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column YearMonth
+		dataType: string
+		lineageTag: 1b7916f9-4988-4e64-8575-1365d1b078de
+		summarizeBy: none
+		sourceColumn: YearMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column 年份
+		dataType: string
+		lineageTag: 3deb158b-7a29-4c16-aeee-97576b8ebbfd
+		summarizeBy: none
+		sourceColumn: 年份
+
+		annotation SummarizationSetBy = Automatic
+
+	column 月份
+		dataType: string
+		lineageTag: 8aab0591-d5e1-4203-8388-474cdf81f28d
+		summarizeBy: none
+		sourceColumn: 月份
+
+		annotation SummarizationSetBy = Automatic
+
+	column 销售人员
+		dataType: string
+		lineageTag: 74310436-f7f4-4d19-ac45-ec68ae10f330
+		summarizeBy: none
+		sourceColumn: 销售人员
+
+		annotation SummarizationSetBy = Automatic
+
+	column KPI目标
+		dataType: double
+		lineageTag: da7cec04-3ee6-4099-965c-e4589c0094ca
+		summarizeBy: sum
+		sourceColumn: KPI目标
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 公司
+		dataType: string
+		lineageTag: 3e2175b1-7430-41c0-8dd4-cb8a6b01fec2
+		summarizeBy: none
+		sourceColumn: 公司
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactSalesTarget = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook((if Text.StartsWith(DataRoot, "http") then Web.Contents(DataRoot & "/sales_targets_monthly.xlsx") else File.Contents(DataRoot & "\sales_targets_monthly.xlsx")), null, true),
+				    #"SALES 0824_Sheet" = Source{[Item="KPI按月",Kind="Sheet"]}[Data],
+				    #"Promoted Headers1" = Table.PromoteHeaders(#"SALES 0824_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers1",{{"月份日期", type date}, {"KPI目标", type number}, {"公司", type text}, {"销售人员", type text}, {"YearMonth", type text}, {"年份", type text}, {"月份", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "602a889362c4c253b8f2",
+  "displayName": "清泉销售总览",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "visualInteractions": [
+    {
+      "source": "c7726209c23ec864db50",
+      "target": "d423850e598238691038",
+      "type": "DataFilter"
+    }
+  ]
+}

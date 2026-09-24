@@ -1,0 +1,33 @@
+table DimCustomerServiceTime
+	lineageTag: bf7b1408-0684-4a8e-b0f8-70313bb1f841
+
+	column 客户类型
+		dataType: string
+		lineageTag: a467f83b-1233-4922-b395-58b35240f4a9
+		summarizeBy: none
+		sourceColumn: 客户类型
+
+		annotation SummarizationSetBy = Automatic
+
+	column 单次服务分钟
+		dataType: int64
+		formatString: 0
+		lineageTag: 6cd4450f-b1d0-4b0f-9db0-ad90458abb24
+		summarizeBy: sum
+		sourceColumn: 单次服务分钟
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCustomerServiceTime = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WCs/Iz0ktTsxJLVLSUTIzUIrViVYKLi1ILcpNLMpOLdF3L8pPTi2qBEqamIIlg1JLEjNzgHxjCN8/TzegKDU3szgVpAZiQEBGIlB/MkiXMUTEVdc5Pzc3tSgZpAooFAsA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [客户类型 = _t, 单次服务分钟 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"客户类型", type text}, {"单次服务分钟", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

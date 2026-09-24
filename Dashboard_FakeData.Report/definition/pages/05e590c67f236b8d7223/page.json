@@ -1,0 +1,75 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "05e590c67f236b8d7223",
+  "displayName": "品牌 - 客户 铺货情况",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "pageBinding": {
+    "name": "015e35e568ff80edbeac",
+    "type": "Default",
+    "parameters": []
+  },
+  "objects": {
+    "outspacePane": [
+      {
+        "properties": {
+          "width": {
+            "expr": {
+              "Literal": {
+                "Value": "217L"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "1f18ffdb132d50a3d048",
+      "target": "e810b63e8b8f920702df",
+      "type": "DataFilter"
+    },
+    {
+      "source": "e810b63e8b8f920702df",
+      "target": "1f18ffdb132d50a3d048",
+      "type": "DataFilter"
+    },
+    {
+      "source": "e810b63e8b8f920702df",
+      "target": "66e0e0ae35607f296e36",
+      "type": "DataFilter"
+    },
+    {
+      "source": "e810b63e8b8f920702df",
+      "target": "ccb67a80abcb02de7b4c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "45f0bf255d8d4d3f50f3",
+      "target": "1f18ffdb132d50a3d048",
+      "type": "DataFilter"
+    },
+    {
+      "source": "e810b63e8b8f920702df",
+      "target": "e0ef56072f0391dd4223",
+      "type": "DataFilter"
+    },
+    {
+      "source": "958f71c1b8ef2857f1c2",
+      "target": "1f18ffdb132d50a3d048",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ccb67a80abcb02de7b4c",
+      "target": "1f18ffdb132d50a3d048",
+      "type": "DataFilter"
+    },
+    {
+      "source": "8d4e5336124561470cd3",
+      "target": "1f18ffdb132d50a3d048",
+      "type": "DataFilter"
+    }
+  ]
+}

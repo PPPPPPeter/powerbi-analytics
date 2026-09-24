@@ -1,0 +1,50 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "5991a9a36fa214d1745f",
+  "displayName": "品牌 - 产品 铺货情况",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "pageBinding": {
+    "name": "893613556e5b627760b4",
+    "type": "Default",
+    "parameters": []
+  },
+  "objects": {
+    "outspacePane": [
+      {
+        "properties": {
+          "width": {
+            "expr": {
+              "Literal": {
+                "Value": "195L"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "4fcac29e499fc7dd0dff",
+      "target": "92ad5e39c54f0af4b183",
+      "type": "DataFilter"
+    },
+    {
+      "source": "92ad5e39c54f0af4b183",
+      "target": "4fcac29e499fc7dd0dff",
+      "type": "DataFilter"
+    },
+    {
+      "source": "92ad5e39c54f0af4b183",
+      "target": "c7bb7867965cb3a3a7eb",
+      "type": "DataFilter"
+    },
+    {
+      "source": "135b7c33a640cd7e2ed8",
+      "target": "d933888ee716273c0bbe",
+      "type": "DataFilter"
+    }
+  ]
+}

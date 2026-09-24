@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "68f2faec47505fd9e245",
+  "displayName": "紧急库存",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "objects": {
+    "outspacePane": [
+      {
+        "properties": {
+          "width": {
+            "expr": {
+              "Literal": {
+                "Value": "182L"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "b556f86990c8d15c5a39",
+      "target": "e4136a8f9a5cc33eac00",
+      "type": "DataFilter"
+    },
+    {
+      "source": "e4136a8f9a5cc33eac00",
+      "target": "a3c0ef3183cbb674038e",
+      "type": "DataFilter"
+    },
+    {
+      "source": "225881f586c27722f406",
+      "target": "a3c0ef3183cbb674038e",
+      "type": "DataFilter"
+    }
+  ]
+}

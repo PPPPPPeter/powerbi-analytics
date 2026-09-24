@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "7ade5ec483c4148a5644",
+  "displayName": "客户详情总览",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "objects": {
+    "outspacePane": [
+      {
+        "properties": {
+          "width": {
+            "expr": {
+              "Literal": {
+                "Value": "182L"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "9be532570fa0b67fe5eb",
+      "target": "345b86441588bcdf5866",
+      "type": "DataFilter"
+    },
+    {
+      "source": "afd60ff11a2eaa89a8ab",
+      "target": "9b6617fdb76a0e1e6fb1",
+      "type": "DataFilter"
+    },
+    {
+      "source": "345b86441588bcdf5866",
+      "target": "9b6617fdb76a0e1e6fb1",
+      "type": "DataFilter"
+    }
+  ]
+}

@@ -1,0 +1,492 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "7a112bc4c5b57bd13a49",
+  "position": {
+    "x": 20.358890701468187,
+    "y": 306.94942903752036,
+    "z": 7000,
+    "height": 748.58075040783035,
+    "width": 1431.3866231647635,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ProductCatalogAll"
+                    }
+                  },
+                  "Property": "SKU"
+                }
+              },
+              "queryRef": "ProductCatalogAll.SKU",
+              "nativeQueryRef": "SKU"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ProductCatalogAll"
+                    }
+                  },
+                  "Property": "品牌"
+                }
+              },
+              "queryRef": "ProductCatalogAll.品牌",
+              "nativeQueryRef": "品牌"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ProductCatalogAll"
+                    }
+                  },
+                  "Property": "产品名称"
+                }
+              },
+              "queryRef": "ProductCatalogAll.产品名称",
+              "nativeQueryRef": "产品名称"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimProductAll"
+                    }
+                  },
+                  "Property": "当前库存数量"
+                }
+              },
+              "queryRef": "DimProductNJ.当前库存数量NJ",
+              "nativeQueryRef": "库存数量",
+              "displayName": "库存数量"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimProductAll"
+                    }
+                  },
+                  "Property": "在途采购数量NJ"
+                }
+              },
+              "queryRef": "DimProductNJ.在途采购数量NJ",
+              "nativeQueryRef": "在途数量",
+              "displayName": "在途数量",
+              "format": "0"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimProductAll"
+                    }
+                  },
+                  "Property": "近30天有效销售数量"
+                }
+              },
+              "queryRef": "DimProductNJ.近30天有效销售数量",
+              "nativeQueryRef": "近一个月销量",
+              "displayName": "近一个月销量"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimProductAll"
+                    }
+                  },
+                  "Property": "近90天有效销售数量"
+                }
+              },
+              "queryRef": "DimProductNJ.近90天有效销售数量",
+              "nativeQueryRef": "近三个月销量",
+              "displayName": "近三个月销量"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimProductAll"
+                    }
+                  },
+                  "Property": "含在途库存覆盖天数"
+                }
+              },
+              "queryRef": "DimProductNJ.含在途库存覆盖天数",
+              "nativeQueryRef": "库存覆盖天数",
+              "displayName": "库存覆盖天数",
+              "format": "0"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "SKU补货提前期"
+                }
+              },
+              "queryRef": "_Measures.SKU补货提前期",
+              "nativeQueryRef": "补货提前天数",
+              "displayName": "补货提前天数",
+              "format": "0"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimProductAll"
+                    }
+                  },
+                  "Property": "再订货点"
+                }
+              },
+              "queryRef": "DimProductNJ.再订货点",
+              "nativeQueryRef": "订货库存点",
+              "displayName": "订货库存点",
+              "format": "0"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimProductAll"
+                    }
+                  },
+                  "Property": "建议补货数量"
+                }
+              },
+              "queryRef": "DimProductNJ.建议补货数量",
+              "nativeQueryRef": "建议补货数量",
+              "format": "0"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimProductAll"
+                    }
+                  },
+                  "Property": "预计断货日期"
+                }
+              },
+              "queryRef": "DimProductNJ.预计断货日期",
+              "nativeQueryRef": "预计断货日期",
+              "format": "d"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimProductAll"
+                    }
+                  },
+                  "Property": "补货状态"
+                }
+              },
+              "queryRef": "DimProductNJ.补货状态",
+              "nativeQueryRef": "补货状态",
+              "displayName": "补货状态"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DimProductAll"
+                  }
+                },
+                "Property": "近90天有效销售数量"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "163.6862360781781D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "ProductCatalogAll.产品名称"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "86.07250473330568D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "ProductCatalogAll.品牌"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "94.15161340147452D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "ProductCatalogAll.SKU"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "91.33410642860458D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DimProductNJ.补货状态"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "97.58064865737256D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DimProductNJ.再订货点"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "82.7108192001108D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DimProductNJ.当前库存数量NJ"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "80.6868605602433D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DimProductNJ.在途采购数量NJ"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Conditional": {
+                      "Cases": [
+                        {
+                          "Condition": {
+                            "Not": {
+                              "Expression": {
+                                "Comparison": {
+                                  "ComparisonKind": 0,
+                                  "Left": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "DimProductAll"
+                                        }
+                                      },
+                                      "Property": "补货状态"
+                                    }
+                                  },
+                                  "Right": {
+                                    "Literal": {
+                                      "Value": "'库存正常'"
+                                    }
+                                  }
+                                },
+                                "Annotations": {
+                                  "PowerBI.SQExprEvaluationKind": 1,
+                                  "PowerBI.SQExprTextOperatorOption": 13
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#FF0000'"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "DimProductNJ.补货状态"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6269834f2edc5505a604",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimProductAll"
+              }
+            },
+            "Property": "SKU库存分析显示标记"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "DimProductAll",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 0,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "d"
+                        }
+                      },
+                      "Property": "SKU库存分析显示标记"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "1L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ]
+  }
+}

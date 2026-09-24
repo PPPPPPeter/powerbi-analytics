@@ -1,0 +1,553 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "91264640f1531fe5341b",
+  "position": {
+    "x": 22.610837438423644,
+    "y": 570.59113300492606,
+    "z": 9000,
+    "height": 490.78817733990144,
+    "width": 1219.655172413793,
+    "tabOrder": 9000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCustomerAll"
+                    }
+                  },
+                  "Property": "销售人员"
+                }
+              },
+              "queryRef": "DimCustomerAll.销售人员",
+              "nativeQueryRef": "销售人员",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCustomerNJ"
+                    }
+                  },
+                  "Property": "客户销售额_全部分公司"
+                }
+              },
+              "queryRef": "DimCustomer.客户销售额_全部分公司",
+              "nativeQueryRef": "销售额",
+              "displayName": "销售额"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCustomerNJ"
+                    }
+                  },
+                  "Property": "客户毛利率_全部分公司"
+                }
+              },
+              "queryRef": "DimCustomer.客户毛利率_全部分公司",
+              "nativeQueryRef": "毛利率",
+              "displayName": "毛利率",
+              "format": "0.00%;-0.00%;0.00%"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCustomerNJ"
+                    }
+                  },
+                  "Property": "销售负责客户数"
+                }
+              },
+              "queryRef": "DimCustomer.销售负责客户数",
+              "nativeQueryRef": "客户数",
+              "displayName": "客户数"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactBranchCost"
+                    }
+                  },
+                  "Property": "销售已铺货客户数"
+                }
+              },
+              "queryRef": "FactBranchCost.销售已铺货客户数",
+              "nativeQueryRef": "已铺货客户",
+              "displayName": "已铺货客户"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactBranchCost"
+                    }
+                  },
+                  "Property": "销售客户铺货率"
+                }
+              },
+              "queryRef": "FactBranchCost.销售客户铺货率",
+              "nativeQueryRef": "客户铺货率",
+              "displayName": "客户铺货率",
+              "format": "0.0%;-0.0%;0.0%"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactBranchCost"
+                    }
+                  },
+                  "Property": "销售已铺货SKU数"
+                }
+              },
+              "queryRef": "FactBranchCost.销售已铺货SKU数",
+              "nativeQueryRef": "已铺货SKU",
+              "displayName": "已铺货SKU"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCustomerNJ"
+                    }
+                  },
+                  "Property": "销售人员总周负荷"
+                }
+              },
+              "queryRef": "DimCustomer.销售人员总周负荷",
+              "nativeQueryRef": "总周负荷",
+              "displayName": "总周负荷"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCustomerNJ"
+                    }
+                  },
+                  "Property": "销售人员负荷状态"
+                }
+              },
+              "queryRef": "DimCustomer.销售人员负荷状态",
+              "nativeQueryRef": "负荷状态",
+              "displayName": "负荷状态"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCustomerAll"
+                    }
+                  },
+                  "Property": "2026年8月1日后新客户数"
+                }
+              },
+              "queryRef": "DimCustomerAll.2026年8月1日后新客户数",
+              "nativeQueryRef": "新客户数",
+              "displayName": "新客户数"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DimCustomerNJ"
+                  }
+                },
+                "Property": "客户销售额_全部分公司"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Conditional": {
+                      "Cases": [
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 1,
+                              "Left": {
+                                "Measure": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "DimCustomerNJ"
+                                    }
+                                  },
+                                  "Property": "客户毛利率_全部分公司"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "0D"
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#016E51'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 3,
+                              "Left": {
+                                "Measure": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "DimCustomerNJ"
+                                    }
+                                  },
+                                  "Property": "客户毛利率_全部分公司"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "0D"
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#FF0000'"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "DimCustomer.客户毛利率_全部分公司"
+          }
+        }
+      ],
+      "subTotals": [
+        {
+          "properties": {
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "120.27076253506004D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DimCustomer.客户毛利率_全部分公司"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "120.93023706662942D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DimCustomer.销售人员负荷状态"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "113.66649345018605D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "FactBranchCost.销售已铺货客户数"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "150.54017598458174D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DimCustomer.客户销售额_全部分公司"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "187.8747057035887D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DimCustomerAll.销售人员"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "92.48491968085477D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DimCustomerAll.2026年8月1日后新客户数"
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'销售人员信息'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Default'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.5
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "384fc79773214443369a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactBranchCost"
+              }
+            },
+            "Property": "销售已铺货客户数"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "FactBranchCost",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "f"
+                            }
+                          },
+                          "Property": "销售已铺货客户数"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

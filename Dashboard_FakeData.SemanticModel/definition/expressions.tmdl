@@ -1,0 +1,20 @@
+expression DataRoot = "https://raw.githubusercontent.com/PPPPPPeter/powerbi-analytics/main/Data" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: b4a0da26-9444-4ac8-b028-1c8e9827624a
+
+	annotation PBI_ResultType = Text
+
+	annotation PBI_NavigationStepName = Navigation
+
+expression PurchaseOrderLines =
+		let
+		    Source = Csv.Document((if Text.StartsWith(DataRoot, "http") then Web.Contents(DataRoot & "/purchase_order_lines.csv") else File.Contents(DataRoot & "\purchase_order_lines.csv")),[Delimiter=",", Columns=13, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+		    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"订单行/订单关联", type text}, {"订单行/产品", type text}, {"订单行/单价", type number}, {"订单行/数量", Int64.Type}, {"订单行/已接收数量", Int64.Type}, {"订单行/小计", type number}, {"订单行/确认日期", type datetime}, {"订单行/预计到货时间", type datetime}, {"订单行/合作伙伴", type text}, {"订单行/公司", type text}, {"订单行/创建人", type text}, {"订单行/状态", type text}, {"订单行/订单关联/实际发货日期", type date}})
+		in
+		    #"Changed Type"
+	lineageTag: f3d4ac19-141e-4fef-b649-7157a952f68d
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

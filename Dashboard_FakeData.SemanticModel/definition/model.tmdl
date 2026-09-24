@@ -1,0 +1,57 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["DataRoot","PurchaseOrderLines","FactSalesTarget","FactSalesAll","FactInventoryLot","_Measures","FactBranchCost","FactInventoryAll","FactPurchaseOrder","PurchaseSupplement","FactPurchaseLeadTime","DimCustomerServiceTime"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table FactSalesTarget
+ref table DateTableTemplate_401ea9f9-ba92-4313-8205-a5351f40007e
+ref table FactSalesAll
+ref table FactInventoryLot
+ref table LocalDateTable_cbdd9f09-e630-4f65-b4e5-17481f8142bc
+ref table DimDate
+ref table DimProductAll
+ref table DimSalesperson
+ref table DimCreator
+ref table DimCustomerNJ
+ref table _Measures
+ref table FactBranchCost
+ref table ProductCatalog
+ref table FactInventoryAll
+ref table LocalDateTable_35eb8bdd-026e-4ae6-8be0-0ffea8af5df2
+ref table DimCustomerGrade
+ref table DimVisitCycle
+ref table ProductCatalogAll
+ref table DimCustomerAll
+ref table LocalDateTable_3f18ea92-57f6-46b8-bec8-769ab1e7ab9f
+ref table LocalDateTable_72cebef0-949b-483f-8d5b-30d0dbb027fb
+ref table FactPurchaseOrder
+ref table LocalDateTable_f7066da2-9c07-4515-b867-b9e457b5c538
+ref table LocalDateTable_f1e76bae-a9ad-4d6f-9264-eeb2c1929e05
+ref table LocalDateTable_386c7b45-d32c-4bf3-9fa3-d11c0d8264c0
+ref table PurchaseSupplement
+ref table LocalDateTable_a7ee464b-b7ac-4b49-a112-d36d906344f4
+ref table LocalDateTable_9d622cf0-4654-4ef3-b293-18d0ebb8dd0c
+ref table LocalDateTable_940fa20f-0f6e-4ac3-bbc1-a6a4b46d9ba1
+ref table LocalDateTable_a4b66483-c236-4cc3-8084-5e5cda2f0387
+ref table LocalDateTable_8375bf58-4851-4d14-b0b6-8c2dc4bb969d
+ref table FactPurchaseLeadTime
+ref table LocalDateTable_fef2350d-8b3e-4a81-a008-0ad4412bedb5
+ref table LocalDateTable_0218d3a2-b738-4a5d-be70-bfff97eb7439
+ref table LocalDateTable_c5d63006-5b33-46b9-9e7c-789a88d28cf5
+ref table LocalDateTable_045e5c35-79d3-4290-901e-f3a740b02b19
+ref table LocalDateTable_4ab586c8-8cee-4663-9c2f-376669771f0b
+ref table DimCustomerServiceTime
+ref table DimCompany
+
+ref cultureInfo en-US
+

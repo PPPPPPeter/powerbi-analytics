@@ -1,0 +1,107 @@
+table DimDate
+	lineageTag: 195b5ca3-946d-4be1-9b81-4103c3cc6561
+	dataCategory: Time
+
+	column Date
+		isKey
+		formatString: General Date
+		lineageTag: 112e66ef-520f-4a3b-a82a-b4a9d4a4f27b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 年份
+		formatString: 0
+		lineageTag: 4941b25b-e3e5-4ab2-a8e2-332c244008eb
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [年份]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 月份序号
+		formatString: 0
+		lineageTag: b6a103f6-2b3e-491d-9b92-0221ee03e755
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [月份序号]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 月份
+		lineageTag: c6888649-48a5-4e7e-8a51-086f0305eac5
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [月份]
+		sortByColumn: 月份序号
+
+		annotation SummarizationSetBy = Automatic
+
+	column 年月
+		lineageTag: e03f0cb3-21af-498f-97cf-367667695018
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [年月]
+		sortByColumn: 年月排序
+
+		annotation SummarizationSetBy = Automatic
+
+	column 季度
+		lineageTag: c5c02061-68e4-4f06-8d82-3d6890e0e61b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [季度]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 年月排序
+		formatString: 0
+		lineageTag: fd855960-89da-4413-9475-45b5a08d44f9
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [年月排序]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 年周 =
+			
+			YEAR(DimDate[Date]) * 100
+			    + WEEKNUM(DimDate[Date], 2)
+		formatString: 0
+		lineageTag: dd761a44-501e-46ab-9d7d-6896662ca7cc
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimDate = calculated
+		mode: import
+		source =
+				
+				VAR MinDate =
+				    MINX(
+				        ALL(FactBranchCost),
+				        FactBranchCost[Invoice Date]
+				    )
+				VAR MaxDate =
+				    MAXX(
+				        ALL(FactBranchCost),
+				        FactBranchCost[Invoice Date]
+				    )
+				RETURN
+				    ADDCOLUMNS(
+				        CALENDAR(
+				            DATE(YEAR(MinDate), 1, 1),
+				            DATE(YEAR(MaxDate), 12, 31)
+				        ),
+				        "年份", YEAR([Date]),
+				        "月份序号", MONTH([Date]),
+				        "月份", FORMAT([Date], "MMM"),
+				        "年月", FORMAT([Date], "yyyy-MM"),
+				        "年月排序", YEAR([Date]) * 100 + MONTH([Date]),
+				        "季度", "Q" & FORMAT([Date], "Q")
+				    )
+
+	annotation PBI_Id = 396643d11ee74d3a93afac8b0e19cbbd
+

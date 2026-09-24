@@ -1,0 +1,190 @@
+relationship 77f8dfae-ac84-4c3f-8996-d357afd9942a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactInventoryLot.有效期
+	toColumn: LocalDateTable_cbdd9f09-e630-4f65-b4e5-17481f8142bc.Date
+
+relationship 7bed634b-6ba3-2a23-5d1b-dd13ccc0c117
+	fromColumn: FactBranchCost.'Ref Num'
+	toColumn: ProductCatalog.SKU
+
+relationship 04ba6dfa-7980-436e-bcf1-4849b355100b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactInventoryAll.有效期
+	toColumn: LocalDateTable_35eb8bdd-026e-4ae6-8be0-0ffea8af5df2.Date
+
+relationship 96ba6443-548d-c857-da56-626d3e7cedac
+	fromColumn: FactBranchCost.'Invoice Date'
+	toColumn: DimDate.Date
+
+relationship 5655c0c5-4ac4-bc3a-bf5f-4dcd6946c1b4
+	fromColumn: FactBranchCost.'Ref Num'
+	toColumn: ProductCatalogAll.SKU
+
+relationship 8625bb64-d3b1-4878-bf95-878995f72f65
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimCustomerAll.客户首次下单日期
+	toColumn: LocalDateTable_3f18ea92-57f6-46b8-bec8-769ab1e7ab9f.Date
+
+relationship a7aa527f-7246-6fa9-6223-32bb3606586c
+	fromColumn: FactBranchCost.订单创建人
+	toColumn: DimCreator.订单创建人
+
+relationship b8bc7a19-f46c-7946-3afd-259de1351abc
+	isActive: false
+	fromColumn: FactSalesAll.订单创建人_显示
+	toColumn: DimCreator.订单创建人
+
+relationship 256d517d-f004-0957-80dc-a702e9d6fb5f
+	fromColumn: FactSalesAll.销售订单行/创建人
+	toColumn: DimCreator.订单创建人
+
+relationship c6da74b8-ec94-3837-7131-d6fb873c1608
+	fromColumn: FactSalesAll.发票/账单日期
+	toColumn: DimDate.Date
+
+relationship 3fbc02fd-9404-8103-06c9-45a23b6c69b7
+	fromColumn: FactBranchCost.客户公司Key
+	toColumn: DimCustomerAll.客户公司Key
+
+relationship 9cb936f7-13cd-928b-2370-58c1a3f51e7d
+	fromColumn: FactSalesAll.销售订单行/销售人员
+	toColumn: DimSalesperson.销售人员
+
+relationship b61b22b9-7872-3932-b86b-33ee26e307dd
+	fromColumn: FactBranchCost.salesperson
+	toColumn: DimSalesperson.销售人员
+
+relationship 749a9d7b-5c3d-c550-a74a-b5cead726610
+	fromColumn: FactSalesTarget.月份日期
+	toColumn: DimDate.Date
+
+relationship 4141134e-a2fa-32b7-dca1-067e5b6583b8
+	fromColumn: FactSalesTarget.销售人员
+	toColumn: DimSalesperson.销售人员
+
+relationship 1e5307ac-40e0-04a0-c03f-bfe48c3db02b
+	fromColumn: FactSalesTarget.销售人员
+	toColumn: DimCreator.订单创建人
+
+relationship f7d36921-c625-40a0-a44b-0279706c07fa
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimCustomerNJ.客户首次下单日期
+	toColumn: LocalDateTable_72cebef0-949b-483f-8d5b-30d0dbb027fb.Date
+
+relationship 22d00cc3-b58d-4a1b-90c7-f4ae3a4dff73
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactPurchaseOrder.订单行/确认日期
+	toColumn: LocalDateTable_f7066da2-9c07-4515-b867-b9e457b5c538.Date
+
+relationship 4cf92213-27d5-48bb-bb5e-d475c2ede5bd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactPurchaseOrder.订单行/预计到货时间
+	toColumn: LocalDateTable_f1e76bae-a9ad-4d6f-9264-eeb2c1929e05.Date
+
+relationship a279a163-2daf-4f4e-9ea0-9e20ce826a88
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactPurchaseOrder.订单行/订单关联/实际发货日期
+	toColumn: LocalDateTable_386c7b45-d32c-4bf3-9fa3-d11c0d8264c0.Date
+
+relationship 94a49b70-07d1-40eb-a2db-e32d66319703
+	joinOnDateBehavior: datePartOnly
+	fromColumn: PurchaseSupplement.采购创建日期
+	toColumn: LocalDateTable_a7ee464b-b7ac-4b49-a112-d36d906344f4.Date
+
+relationship 084c7935-57b5-4962-a391-8c6927025377
+	joinOnDateBehavior: datePartOnly
+	fromColumn: PurchaseSupplement.实际发货日期
+	toColumn: LocalDateTable_9d622cf0-4654-4ef3-b293-18d0ebb8dd0c.Date
+
+relationship 50d9dfbc-a091-4ba8-9458-d08ce4ba1743
+	joinOnDateBehavior: datePartOnly
+	fromColumn: PurchaseSupplement.实际到达日期
+	toColumn: LocalDateTable_940fa20f-0f6e-4ac3-bbc1-a6a4b46d9ba1.Date
+
+relationship 0bb4f8c9-690a-4b02-b293-c20449543e29
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactPurchaseOrder.实际发货日期
+	toColumn: LocalDateTable_a4b66483-c236-4cc3-8084-5e5cda2f0387.Date
+
+relationship 42ef53b9-2b06-4f4a-8a28-dab3045a36ff
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactPurchaseOrder.实际到达日期
+	toColumn: LocalDateTable_8375bf58-4851-4d14-b0b6-8c2dc4bb969d.Date
+
+relationship c2390acd-2ab7-4564-a11a-0b3c433cd178
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactPurchaseLeadTime.订单行/确认日期
+	toColumn: LocalDateTable_fef2350d-8b3e-4a81-a008-0ad4412bedb5.Date
+
+relationship 6c81eb1d-8bea-4b9a-a990-ddb44f1caafb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactPurchaseLeadTime.实际到达日期
+	toColumn: LocalDateTable_0218d3a2-b738-4a5d-be70-bfff97eb7439.Date
+
+relationship dc241fa7-233e-4133-8c6a-4fad2868a274
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactPurchaseLeadTime.订单行/预计到货时间
+	toColumn: LocalDateTable_c5d63006-5b33-46b9-9e7c-789a88d28cf5.Date
+
+relationship 1ff3d3f8-ec1d-2ee9-903e-09fc5c3ea126
+	fromColumn: FactPurchaseOrder.SKU
+	toColumn: ProductCatalogAll.SKU
+
+relationship 2bd6dc3b-a6eb-e1ac-7048-95d572f8dd7c
+	fromColumn: FactPurchaseLeadTime.SKU
+	toColumn: ProductCatalogAll.SKU
+
+relationship 71725ef9-0e46-455d-a57c-e2b86232baaa
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactPurchaseOrder.最终实际发货日期
+	toColumn: LocalDateTable_045e5c35-79d3-4290-901e-f3a740b02b19.Date
+
+relationship dedee0b2-8ac3-4856-8a2d-856b6eb25b07
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactPurchaseLeadTime.最终实际发货日期
+	toColumn: LocalDateTable_4ab586c8-8cee-4663-9c2f-376669771f0b.Date
+
+relationship cfd56c3d-c929-0739-b208-9d3d953e337b
+	fromColumn: FactSalesAll.合作伙伴/参考
+	toColumn: DimCustomerNJ.客户编号
+
+relationship a9e8491e-3981-f723-a504-70edd5fc4c9f
+	fromColumn: FactBranchCost.customer_no
+	toColumn: DimCustomerNJ.客户编号
+
+relationship f2b4e1f3-70eb-197f-3a77-58d93809a994
+	fromColumn: FactSalesAll.产品/内部参考号
+	toColumn: DimProductAll.SKU
+
+relationship d5af470b-dd47-6e81-bc1c-f33acf98b713
+	fromColumn: FactInventoryLot.产品/内部参考号
+	toColumn: DimProductAll.SKU
+
+relationship d185ab50-3f6e-7d29-69f2-40702ed34e21
+	fromColumn: FactBranchCost.'Ref Num'
+	toColumn: DimProductAll.SKU
+
+relationship 130e887e-bf01-d974-2df6-1623fed2daae
+	fromColumn: FactInventoryLot.公司
+	toColumn: DimCompany.公司
+
+relationship 941cb927-20c8-71c4-ea4f-8a027bf70f67
+	fromColumn: FactBranchCost.company
+	toColumn: DimCompany.公司
+
+relationship d0b26a4d-216b-1489-34ef-2e87ec3a68a2
+	fromColumn: FactPurchaseOrder.订单行/公司
+	toColumn: DimCompany.公司
+
+relationship e07616eb-12bf-1d32-218d-4192f6f5c088
+	fromColumn: FactPurchaseLeadTime.订单行/公司
+	toColumn: DimCompany.公司
+
+relationship 4676a929-5f38-3774-d639-3fb2f9237a89
+	fromColumn: FactInventoryLot.产品/内部参考号
+	toColumn: ProductCatalogAll.SKU
+
+relationship 2a7c8584-7835-46eb-a3d3-280fa3ddb8cb
+	fromColumn: FactSalesTarget.公司
+	toColumn: DimCompany.公司
+

@@ -1,0 +1,106 @@
+table PurchaseSupplement
+	lineageTag: 0ea54abe-3ec0-4b88-8fca-16f6c548c413
+
+	column 采购订单ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 75fa5331-831b-466b-a0c4-54f7ddca18b8
+		summarizeBy: count
+		sourceColumn: 采购订单ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 订单关联
+		dataType: string
+		lineageTag: 71b57956-7a8e-43bd-b500-a88df1e7136d
+		summarizeBy: none
+		sourceColumn: 订单关联
+
+		annotation SummarizationSetBy = Automatic
+
+	column 采购创建日期
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 32ba5bd6-1a8e-428f-b844-68bde6b7c426
+		summarizeBy: none
+		sourceColumn: 采购创建日期
+
+		variation Variation
+			isDefault
+			relationship: 94a49b70-07d1-40eb-a2db-e32d66319703
+			defaultHierarchy: LocalDateTable_a7ee464b-b7ac-4b49-a112-d36d906344f4.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 实际发货日期
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b423996a-90fe-4b73-a78a-decf8798d4ef
+		summarizeBy: none
+		sourceColumn: 实际发货日期
+
+		variation Variation
+			isDefault
+			relationship: 084c7935-57b5-4962-a391-8c6927025377
+			defaultHierarchy: LocalDateTable_9d622cf0-4654-4ef3-b293-18d0ebb8dd0c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 实际到达日期
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2e3a041e-3188-4d05-b825-3e35ad1a90bd
+		summarizeBy: none
+		sourceColumn: 实际到达日期
+
+		variation Variation
+			isDefault
+			relationship: 50d9dfbc-a091-4ba8-9458-d08ce4ba1743
+			defaultHierarchy: LocalDateTable_940fa20f-0f6e-4ac3-bbc1-a6a4b46d9ba1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 采购订单号_标准
+		dataType: string
+		lineageTag: 2b456126-5690-4188-b1f2-d39ae34bf713
+		summarizeBy: none
+		sourceColumn: 采购订单号_标准
+
+		annotation SummarizationSetBy = Automatic
+
+	column 到达状态
+		dataType: string
+		lineageTag: fe7228f1-2b52-46e5-b217-ae40559c2fa7
+		summarizeBy: none
+		sourceColumn: 到达状态
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PurchaseSupplement = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document((if Text.StartsWith(DataRoot, "http") then Web.Contents(DataRoot & "/purchase_tracking.csv") else File.Contents(DataRoot & "\purchase_tracking.csv")),[Delimiter=",", Columns=5, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"ID", Int64.Type}, {"订单关联", type text}, {"创建日期", type datetime}, {"实际发货日期", type date}, {"到达", type datetime}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type", "采购订单号_标准", each let
+				    OrderText = Text.Trim([订单关联])
+				in
+				    Text.Trim(
+				        if Text.Contains(OrderText, "(")
+				        then Text.BeforeDelimiter(OrderText, "(")
+				        else OrderText
+				    )),
+				    #"Added Custom1" = Table.AddColumn(#"Added Custom", "到达状态", each if [到达] <> null then "已到达"
+				else if [实际发货日期] <> null then "运输中"
+				else "未发货或未维护"),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Custom1",{{"ID", "采购订单ID"}, {"创建日期", "采购创建日期"}, {"到达", "实际到达日期"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

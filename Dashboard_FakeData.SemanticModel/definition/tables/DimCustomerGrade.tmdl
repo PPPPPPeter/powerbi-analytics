@@ -1,0 +1,39 @@
+table DimCustomerGrade
+	lineageTag: a0deea28-df61-401d-9d22-0fb90ad587fa
+
+	column 客户等级
+		lineageTag: 92286d50-e4f4-49a2-9634-dca494f6d574
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [客户等级]
+		sortByColumn: 等级排序
+
+		annotation SummarizationSetBy = Automatic
+
+	column 等级排序
+		formatString: 0
+		lineageTag: a9c1eda8-414f-47dd-b60d-d40d0c67744e
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [等级排序]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCustomerGrade = calculated
+		mode: import
+		source =
+				
+				DATATABLE (
+				    "客户等级", STRING,
+				    "等级排序", INTEGER,
+				    {
+				        { "A", 1 },
+				        { "B", 2 },
+				        { "C", 3 },
+				        { "D", 4 },
+				        { "未评级", 5 }
+				    }
+				)
+
+	annotation PBI_Id = ce52eeb8ba774747bd9e306d59b1f6fb
+

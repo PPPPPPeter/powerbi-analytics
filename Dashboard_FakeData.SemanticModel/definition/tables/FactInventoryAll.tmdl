@@ -1,0 +1,202 @@
+table FactInventoryAll
+	lineageTag: 4d989e90-6f9a-46c6-bdd8-9e0aace5f87f
+
+	measure 库存分析基准日 =
+			
+			CALCULATE (
+			    MAX ( FactBranchCost[Invoice Date] ),
+			    REMOVEFILTERS ( DimDate ),
+			    REMOVEFILTERS ( FactBranchCost[Invoice Date] )
+			)
+		formatString: General Date
+		lineageTag: 77457e98-c62b-4f0a-beac-e83338fd1edc
+
+	measure 近一个月销量 =
+			
+			VAR EndDate =
+			    CALCULATE (
+			        MAX ( FactBranchCost[Invoice Date] ),
+			        REMOVEFILTERS ( DimDate )
+			    )
+			RETURN
+			    CALCULATE (
+			        SUM ( FactBranchCost[quantity] ),
+			        REMOVEFILTERS ( DimDate ),
+			        DATESBETWEEN (
+			            DimDate[Date],
+			            EndDate - 29,
+			            EndDate
+			        )
+			    )
+		lineageTag: 405a5377-2e62-48cb-b9f6-bd0c751cb405
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 近三个月销量 =
+			
+			VAR EndDate =
+			    CALCULATE (
+			        MAX ( FactBranchCost[Invoice Date] ),
+			        REMOVEFILTERS ( DimDate )
+			    )
+			RETURN
+			    CALCULATE (
+			        SUM ( FactBranchCost[quantity] ),
+			        REMOVEFILTERS ( DimDate ),
+			        DATESBETWEEN (
+			            DimDate[Date],
+			            EDATE ( EndDate, -3 ) + 1,
+			            EndDate
+			        )
+			    )
+		lineageTag: 3994c3d9-6aa1-4134-b7ae-948201aba737
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 近30天销售数量 =
+			
+			VAR EndDate =
+			    [库存分析基准日]
+			
+			VAR SelectedSKUs =
+			    VALUES ( ProductCatalogAll[SKU] )
+			
+			RETURN
+			    CALCULATE (
+			        SUM ( FactBranchCost[quantity] ),
+			        REMOVEFILTERS ( DimDate ),
+			        DATESBETWEEN (
+			            DimDate[Date],
+			            EndDate - 29,
+			            EndDate
+			        ),
+			        TREATAS (
+			            SelectedSKUs,
+			            FactBranchCost[Ref Num]
+			        )
+			    )
+		lineageTag: d6f1ccc1-4f71-4986-a6e6-22023cbc411a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 近90天销售数量 =
+			
+			VAR EndDate =
+			    [库存分析基准日]
+			
+			VAR SelectedSKUs =
+			    VALUES ( ProductCatalogAll[SKU] )
+			
+			RETURN
+			    CALCULATE (
+			        SUM ( FactBranchCost[quantity] ),
+			        REMOVEFILTERS ( DimDate ),
+			        DATESBETWEEN (
+			            DimDate[Date],
+			            EndDate - 89,
+			            EndDate
+			        ),
+			        TREATAS (
+			            SelectedSKUs,
+			            FactBranchCost[Ref Num]
+			        )
+			    )
+		lineageTag: 0942f08c-4b11-40f9-8721-39ba631ff8d5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 分公司仓库
+		dataType: string
+		lineageTag: 3b82581c-1082-4cac-8aba-8c782e484c84
+		summarizeBy: none
+		sourceColumn: 分公司仓库
+
+		annotation SummarizationSetBy = Automatic
+
+	column 产品/名称
+		dataType: string
+		lineageTag: 1ba5088c-7224-413f-8318-7ae9f5e631f9
+		summarizeBy: none
+		sourceColumn: 产品/名称
+
+		annotation SummarizationSetBy = Automatic
+
+	column 有效期
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9700b948-4da9-4444-88ef-1cd2a5108147
+		summarizeBy: none
+		sourceColumn: 有效期
+
+		variation Variation
+			isDefault
+			relationship: 04ba6dfa-7980-436e-bcf1-4849b355100b
+			defaultHierarchy: LocalDateTable_35eb8bdd-026e-4ae6-8be0-0ffea8af5df2.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 库存数量
+		dataType: int64
+		formatString: 0
+		lineageTag: e4662d63-7c8f-4add-a58f-c9075c89c7fc
+		summarizeBy: sum
+		sourceColumn: 库存数量
+
+		annotation SummarizationSetBy = Automatic
+
+	column Brand
+		dataType: string
+		lineageTag: 9fb9dbb3-899b-4ffe-b0c3-864effa1e2c0
+		summarizeBy: none
+		sourceColumn: Brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column SKU
+		dataType: string
+		lineageTag: 1d714d62-c7c6-4c25-bc75-f352c3004d76
+		summarizeBy: none
+		sourceColumn: SKU
+
+		annotation SummarizationSetBy = Automatic
+
+	column year_month
+		dataType: string
+		lineageTag: fda725c5-e620-4476-8f37-e769f3ecb7e9
+		summarizeBy: none
+		sourceColumn: year_month
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactInventoryAll = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook((if Text.StartsWith(DataRoot, "http") then Web.Contents(DataRoot & "/branch_inventory.xlsx") else File.Contents(DataRoot & "\branch_inventory.xlsx")), null, true),
+				    库存明细_Sheet = Source{[Item="库存明细",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(库存明细_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"位置/仓库", type text}, {"Brand", type text}, {"产品/名称", type text}, {"Ref Num", type text}, {"批次/序列号码/有效期", type date}, {"year_month", type text}, {"数量1", Int64.Type}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Ref Num", "SKU"}, {"数量1", "库存数量"}, {"位置/仓库", "分公司仓库"}, {"批次/序列号码/有效期", "有效期"}}),
+				    Custom1 = Table.TransformColumns(
+				    #"Renamed Columns",
+				    {
+				        {
+				            "SKU",
+				            each Text.Upper(
+				                Text.Trim(
+				                    Text.Clean(Text.From(_))
+				                )
+				            ),
+				            type text
+				        }
+				    }
+				)
+				in
+				    Custom1
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

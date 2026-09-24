@@ -1,0 +1,321 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 986,
+        "y": 188
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 758,
+            "y": 0
+          },
+          "nodeIndex": "FactInventoryLot",
+          "nodeLineageTag": "ed3bf3c8-065d-4a32-aa21-e863113dc28f",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 26
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 347.9375
+          },
+          "nodeIndex": "FactSalesTarget",
+          "nodeLineageTag": "efa0be22-2c48-4dfa-b9e0-b24f1c23fe06",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 17
+        },
+        {
+          "location": {
+            "x": 990,
+            "y": 171.84375
+          },
+          "nodeIndex": "DimDate",
+          "nodeLineageTag": "195b5ca3-946d-4be1-9b81-4103c3cc6561",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 21
+        },
+        {
+          "location": {
+            "x": 23,
+            "y": 693.421875
+          },
+          "nodeIndex": "DimSalesperson",
+          "nodeLineageTag": "675e571f-3a1e-4552-8c24-ab9edb31b78b",
+          "size": {
+            "height": 200,
+            "width": 227
+          },
+          "zIndex": 14
+        },
+        {
+          "location": {
+            "x": 322,
+            "y": 760.421875
+          },
+          "nodeIndex": "DimCreator",
+          "nodeLineageTag": "41905e57-3837-4dab-8f6d-0e338ef4e658",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 20
+        },
+        {
+          "location": {
+            "x": 1003,
+            "y": 0
+          },
+          "nodeIndex": "_Measures",
+          "nodeLineageTag": "c34ed5fc-0efd-4fd2-b0b9-ff8bfbe6158f",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 13
+        },
+        {
+          "location": {
+            "x": 256,
+            "y": 351.6875
+          },
+          "nodeIndex": "FactPostedSales",
+          "nodeLineageTag": "313b0dbd-6ce8-4338-a1c9-755e8bee7871",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 15
+        },
+        {
+          "location": {
+            "x": 756,
+            "y": 340.6875
+          },
+          "nodeIndex": "FactSalesAll",
+          "nodeLineageTag": "d09fedcd-1dea-46b6-a82a-513ed602ec48",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 22
+        },
+        {
+          "location": {
+            "x": 997,
+            "y": 751.7109375
+          },
+          "nodeIndex": "DimInvoice",
+          "nodeLineageTag": "3282bdca-321e-4063-a4b8-612790b2251e",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 16
+        },
+        {
+          "location": {
+            "x": 158,
+            "y": 0
+          },
+          "nodeIndex": "FactBranchCost",
+          "nodeLineageTag": "2d687104-897e-4783-80af-f70bdeb39b8e",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 19
+        },
+        {
+          "location": {
+            "x": 723,
+            "y": 866.60546875
+          },
+          "nodeIndex": "ProductCatalog",
+          "nodeLineageTag": "20553535-ff46-43a2-99b5-b91c94c91cd9",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 18
+        },
+        {
+          "location": {
+            "x": 1336,
+            "y": 646.60546875
+          },
+          "nodeIndex": "DimCustomerGrade",
+          "nodeLineageTag": "a0deea28-df61-401d-9d22-0fb90ad587fa",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 1326,
+            "y": 415.60546875
+          },
+          "nodeIndex": "DimVisitCycle",
+          "nodeLineageTag": "008fd124-c176-4b2c-a149-6927f2df4cb7",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 1530,
+            "y": 51.60546875
+          },
+          "nodeIndex": "ProductCatalogAll",
+          "nodeLineageTag": "6f7bf495-9c39-4563-938c-2e0e879ee66f",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 1096,
+            "y": 1294.421875
+          },
+          "nodeIndex": "DimCustomerNJ",
+          "nodeLineageTag": "89555466-c50d-4df2-8ff2-ced8c2e8b8ac",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 23
+        },
+        {
+          "location": {
+            "x": 347,
+            "y": 996.60546875
+          },
+          "nodeIndex": "DimCustomerAll",
+          "nodeLineageTag": "154e64a2-fbb2-4aca-8368-4358deb404f2",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 1025.60546875
+          },
+          "nodeIndex": "FactInventoryAll",
+          "nodeLineageTag": "4d989e90-6f9a-46c6-bdd8-9e0aace5f87f",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 1051,
+            "y": 400.802734375
+          },
+          "nodeIndex": "FactPurchaseOrder",
+          "nodeLineageTag": "39e1441f-73c2-44b1-b932-4261d38a470f",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 1904,
+            "y": 657.802734375
+          },
+          "nodeIndex": "PurchaseSupplement",
+          "nodeLineageTag": "0ea54abe-3ec0-4b88-8fca-16f6c548c413",
+          "size": {
+            "height": 258,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 1250,
+            "y": 20.802734375
+          },
+          "nodeIndex": "FactPurchaseLeadTime",
+          "nodeLineageTag": "5bed6c1b-ddb9-4922-9728-6da1d42e5d1b",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 1519,
+            "y": 1454.9013671875
+          },
+          "nodeIndex": "DimCustomerServiceTime",
+          "nodeLineageTag": "bf7b1408-0684-4a8e-b0f8-70313bb1f841",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 470,
+            "y": 0
+          },
+          "nodeIndex": "DimProductAll",
+          "nodeLineageTag": "a28afcbc-c3c5-4b90-af31-67223d06166b",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 25
+        },
+        {
+          "location": {
+            "x": 463,
+            "y": 216.9013671875
+          },
+          "nodeIndex": "DimCompany",
+          "nodeLineageTag": "b0f859d7-ec78-473c-a2ff-353273394b90",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 1
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

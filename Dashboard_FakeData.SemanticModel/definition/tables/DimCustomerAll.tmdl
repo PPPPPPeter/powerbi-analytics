@@ -1,0 +1,289 @@
+table DimCustomerAll
+	lineageTag: 154e64a2-fbb2-4aca-8368-4358deb404f2
+
+	measure 2026年8月1日后新客户数 =
+			
+			CALCULATE (
+			    DISTINCTCOUNT ( DimCustomerAll[客户编号] ),
+			    DimCustomerAll[2026年8月1日后新客户标记] = 1
+			)
+		formatString: 0
+		lineageTag: 75f13859-a6be-4774-a0ca-7549077db358
+
+	measure 全部分公司上月销售额 =
+			
+			CALCULATE (
+			    [客户销售额_全部分公司],
+			    DATEADD ( DimDate[Date], -1, MONTH )
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: d2d33f89-6de6-4280-a9ff-33de58d49246
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 全部分公司月环比 =
+			
+			VAR CurrentSales =
+			    [客户销售额_全部分公司]
+			VAR PreviousSales =
+			    [全部分公司上月销售额]
+			RETURN
+			    IF (
+			        ISBLANK ( PreviousSales ) || PreviousSales = 0,
+			        BLANK (),
+			        DIVIDE (
+			            CurrentSales - PreviousSales,
+			            PreviousSales
+			        )
+			    )
+		lineageTag: 389764ed-1187-45c6-b50a-ef592526b94b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 分公司客户上次下单日期 =
+			
+			CALCULATE (
+			    MAX ( FactBranchCost[Invoice Date] ),
+			    REMOVEFILTERS ( DimDate )
+			)
+		formatString: Short Date
+		lineageTag: adf8d569-76a6-4bbe-99f0-1ac67a29cbcc
+
+	measure 距离上次下单天数 =
+			
+			VAR LastInv = [分公司客户上次下单日期]
+			RETURN
+			    IF ( NOT ISBLANK ( LastInv ), DATEDIFF ( LastInv, TODAY (), DAY ) )
+		formatString: 0
+		lineageTag: bff3182a-83f1-4177-8370-085951daf462
+
+	column 客户编号
+		lineageTag: d433d418-0b0d-4101-8be1-89456873fe7d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [客户编号]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 客户名称
+		lineageTag: 6790447e-d557-4b36-82d8-9ecd84bed385
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [客户名称]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 客户类型
+		lineageTag: 4eedf02b-5ef3-46c7-aca2-ed94e5ad6e77
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [客户类型]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 城市
+		lineageTag: 5954928d-cb54-496c-a60d-13b9870a4ecc
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [城市]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 省州
+		lineageTag: 28636d63-9270-4fcf-9c03-ee413a0c8e3b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [省州]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 种族
+		lineageTag: 053a1e93-3613-4624-bf45-ee5082f1a533
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [种族]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 销售人员
+		lineageTag: 7d42001f-5629-47a8-a893-35c842269535
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [销售人员]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 销售主管
+		lineageTag: e6736d8e-6f47-4c22-90b0-fc59f9faa68b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [销售主管]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 业务代表
+		lineageTag: 07a0fc9b-ab5c-40e5-9d18-4997760889d3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [业务代表]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 2026年8月1日后新客户标记 =
+			
+			IF(
+			    NOT ISBLANK(DimCustomerAll[客户首次下单日期])
+			        && DimCustomerAll[客户首次下单日期] > DATE(2026, 8, 1),
+			    1,
+			    0
+			)
+		lineageTag: 7e3cf246-e8db-4079-8d58-dee1f8554200
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 客户首次下单日期 =
+			
+			VAR CurrentCustomer =
+			    TRIM ( COALESCE ( DimCustomerAll[客户编号], "" ) )
+			RETURN
+			    IF (
+			        CurrentCustomer = "",
+			        BLANK (),
+			        MINX (
+			            FILTER (
+			                ALL ( FactBranchCost ),
+			                TRIM (
+			                    COALESCE ( FactBranchCost[customer_no], "" )
+			                ) = CurrentCustomer
+			            ),
+			            FactBranchCost[Invoice Date]
+			        )
+			    )
+		formatString: General Date
+		lineageTag: a433c3e7-e7c9-40bc-84a1-7d6ed289ec15
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: 8625bb64-d3b1-4878-bf95-878995f72f65
+			defaultHierarchy: LocalDateTable_3f18ea92-57f6-46b8-bec8-769ab1e7ab9f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 公司
+		lineageTag: 95b73039-3076-4499-9e62-215549a8d91f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [公司]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 客户等级列 =
+			
+			VAR CustomerID =
+			    DimCustomerAll[客户编号]
+			
+			VAR Grade =
+			    CALCULATE ( [客户等级] )
+			
+			RETURN
+			    IF (
+			        ISBLANK ( CustomerID ),
+			        BLANK (),
+			        COALESCE ( Grade, "未评级" )
+			    )
+		lineageTag: 4f62bae4-c550-441b-9af6-cb80e7a258cc
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 客户等级排序 =
+			
+			SWITCH (
+			    DimCustomerAll[客户等级列],
+			    "A", 1,
+			    "B", 2,
+			    "C", 3,
+			    "D", 4,
+			    "未评级", 5,
+			    99
+			)
+		formatString: 0
+		lineageTag: 85347c65-4256-4ccb-98f7-85de992e432a
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 客户公司Key
+		lineageTag: 0830ceb1-d7a5-4933-95db-eb3431c33579
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [客户公司Key]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCustomerAll = calculated
+		mode: import
+		source =
+				
+				VAR CustomerData =
+				    FILTER (
+				        FactBranchCost,
+				        NOT ISBLANK ( FactBranchCost[customer_no] )
+				            && TRIM ( FactBranchCost[customer_no] & "" ) <> ""
+				            && NOT ISBLANK ( FactBranchCost[company] )
+				            && TRIM ( FactBranchCost[company] & "" ) <> ""
+				    )
+				
+				RETURN
+				SELECTCOLUMNS (
+				    SUMMARIZE (
+				        CustomerData,
+				        FactBranchCost[customer_no],
+				        FactBranchCost[company],
+				
+				        "客户名称汇总",
+				            CALCULATE ( MAX ( FactBranchCost[customer_name] ) ),
+				
+				        "客户类型汇总",
+				            CALCULATE ( MAX ( FactBranchCost[customer_type] ) ),
+				
+				        "城市汇总",
+				            CALCULATE ( MAX ( FactBranchCost[city] ) ),
+				
+				        "省州汇总",
+				            CALCULATE ( MAX ( FactBranchCost[state] ) ),
+				
+				        "种族汇总",
+				            CALCULATE ( MAX ( FactBranchCost[race] ) ),
+				
+				        "销售人员汇总",
+				            CALCULATE ( MAX ( FactBranchCost[salesperson] ) ),
+				
+				        "销售主管汇总",
+				            CALCULATE ( MAX ( FactBranchCost[sales leader] ) ),
+				
+				        "业务代表汇总",
+				            CALCULATE ( MAX ( FactBranchCost[rep] ) )
+				    ),
+				
+				    "客户公司Key",
+				        TRIM ( FactBranchCost[customer_no] & "" )
+				            & "|"
+				            & TRIM ( FactBranchCost[company] & "" ),
+				
+				    "客户编号", FactBranchCost[customer_no],
+				    "客户名称", [客户名称汇总],
+				    "客户类型", [客户类型汇总],
+				    "城市", [城市汇总],
+				    "省州", [省州汇总],
+				    "种族", [种族汇总],
+				    "销售人员", [销售人员汇总],
+				    "销售主管", [销售主管汇总],
+				    "业务代表", [业务代表汇总],
+				    "公司", FactBranchCost[company]
+				)
+
+	annotation PBI_Id = 71e45fc5d75546c09a28295ae0d2b710
+

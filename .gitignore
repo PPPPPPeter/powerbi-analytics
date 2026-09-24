@@ -1,0 +1,9 @@
+# Power BI local cache and per-machine settings (the cache holds a copy of the loaded data)
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+
+# Saved binary reports and scratch files
+*.pbix
+*.bak
+*.tmp
+__pycache__/

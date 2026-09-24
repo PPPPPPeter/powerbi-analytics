@@ -1,0 +1,34 @@
+table DimCompany
+	lineageTag: b0f859d7-ec78-473c-a2ff-353273394b90
+
+	column 公司
+		lineageTag: d0222e2c-6e4b-4572-a44b-b397f567611d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [公司]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCompany = calculated
+		mode: import
+		source =
+				
+				DISTINCT (
+				    UNION (
+				        SELECTCOLUMNS (
+				            FactBranchCost,
+				            "公司", FactBranchCost[company]
+				        ),
+				        SELECTCOLUMNS (
+				            FactInventoryLot,
+				            "公司", FactInventoryLot[公司]
+				        ),
+				        SELECTCOLUMNS (
+				            FactPurchaseOrder,
+				            "公司", FactPurchaseOrder[订单行/公司]
+				        )
+				    )
+				)
+
+	annotation PBI_Id = c2149cb8cdac4e9c87c209280fba1a0b
+

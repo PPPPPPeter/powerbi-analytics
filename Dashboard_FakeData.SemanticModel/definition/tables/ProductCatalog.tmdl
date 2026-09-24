@@ -1,0 +1,69 @@
+table ProductCatalog
+	lineageTag: 20553535-ff46-43a2-99b5-b91c94c91cd9
+
+	column SKU
+		lineageTag: b204f030-8d95-482d-94ed-85259298fb12
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [SKU]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 产品名称
+		lineageTag: d484106a-2c7c-4bf6-9924-9d6b98dea071
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [产品名称]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 品牌
+		lineageTag: 639d4f24-ffde-483e-90ac-7d819551a226
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [品牌]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 产品大类
+		lineageTag: 27a47e74-0195-4f75-a16f-044d2318ee0d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [产品大类]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 产品类别
+		lineageTag: 9d3a4d10-dbf0-4f1d-bc84-e9da235e0372
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [产品类别]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 计量单位
+		lineageTag: 403a8927-9602-410b-b226-1a1ce7a47049
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [计量单位]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ProductCatalog = calculated
+		mode: import
+		source =
+				
+				DISTINCT(
+				    SELECTCOLUMNS(
+				        DimProductAll,
+				        "SKU", DimProductAll[SKU],
+				        "产品名称", DimProductAll[产品名称],
+				        "品牌", DimProductAll[品牌],
+				        "产品大类", DimProductAll[产品大类],
+				        "产品类别", DimProductAll[产品类别],
+				        "计量单位", DimProductAll[计量单位]
+				    )
+				)
+
+	annotation PBI_Id = fdef46abc37f41b1b690bc626a1644dc
+

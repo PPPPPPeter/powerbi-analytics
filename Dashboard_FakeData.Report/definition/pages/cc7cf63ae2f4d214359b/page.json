@@ -1,0 +1,25 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "cc7cf63ae2f4d214359b",
+  "displayName": "总览",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "pageBinding": {
+    "name": "4f8147a699289eceda92",
+    "type": "Default",
+    "parameters": []
+  },
+  "visualInteractions": [
+    {
+      "source": "5e141a52a6c8f480759d",
+      "target": "d23e9c6b07b1ab202414",
+      "type": "DataFilter"
+    },
+    {
+      "source": "74dc6e335e8b5bbe866d",
+      "target": "d23e9c6b07b1ab202414",
+      "type": "NoFilter"
+    }
+  ]
+}

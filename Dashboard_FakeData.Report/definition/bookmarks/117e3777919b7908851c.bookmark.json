@@ -1,0 +1,33 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "初始报表",
+  "name": "117e3777919b7908851c",
+  "options": {
+    "targetVisualNames": [
+      "c25c4e1fbbac9e1fd49e"
+    ]
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "cc7cf63ae2f4d214359b",
+    "sections": {
+      "cc7cf63ae2f4d214359b": {
+        "visualContainers": {
+          "3c34f7fb3e83dc854f66": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "c25c4e1fbbac9e1fd49e": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          }
+        }
+      }
+    },
+    "objects": {}
+  }
+}

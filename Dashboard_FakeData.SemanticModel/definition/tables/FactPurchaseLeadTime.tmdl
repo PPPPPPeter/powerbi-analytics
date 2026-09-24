@@ -1,0 +1,231 @@
+table FactPurchaseLeadTime
+	lineageTag: 5bed6c1b-ddb9-4922-9728-6da1d42e5d1b
+
+	measure 提前期有效样本数 =
+			
+			COUNTROWS ( FactPurchaseLeadTime )
+		formatString: 0
+		lineageTag: abf94cad-0aae-4057-9cbf-992d3f9ce744
+
+	measure 实际提前期P80 =
+			
+			CALCULATE (
+			    PERCENTILEX.INC (
+			        FILTER (
+			            FactPurchaseLeadTime,
+			            NOT ISBLANK (
+			                FactPurchaseLeadTime[实际总提前期天数]
+			            )
+			        ),
+			        FactPurchaseLeadTime[实际总提前期天数],
+			        0.8
+			    )
+			)
+		formatString: 0.0
+		lineageTag: 3f443dcb-d89f-4e4a-9907-eee0a78f3060
+
+	measure SKU提前期样本数 =
+			
+			CALCULATE (
+			    [提前期有效样本数],
+			    REMOVEFILTERS (
+			        FactPurchaseLeadTime[供应商]
+			    )
+			)
+		formatString: 0
+		lineageTag: eb40867d-ba3a-470c-88f1-050207e8cd2b
+
+	measure SKU实际提前期P80 =
+			
+			CALCULATE (
+			    [实际提前期P80],
+			    REMOVEFILTERS (
+			        FactPurchaseLeadTime[供应商]
+			    )
+			)
+		lineageTag: e3af3a52-e4f7-42a1-991e-38e0340e514e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 公司整体实际提前期P80 =
+			
+			CALCULATE (
+			    [实际提前期P80],
+			    REMOVEFILTERS ( ProductCatalogAll ),
+			    REMOVEFILTERS ( FactPurchaseLeadTime[供应商] )
+			)
+		lineageTag: 73791c46-2316-4b93-86ae-8d9821d67f08
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 提前期记录有效
+		dataType: string
+		lineageTag: 376c2f38-a15d-43d7-a8a3-4bed84c73759
+		summarizeBy: none
+		sourceColumn: 提前期记录有效
+
+		annotation SummarizationSetBy = Automatic
+
+	column 采购订单SKU键
+		dataType: string
+		lineageTag: 424b8d61-ca08-44a0-9944-d17348a4eb47
+		summarizeBy: none
+		sourceColumn: 采购订单SKU键
+
+		annotation SummarizationSetBy = Automatic
+
+	column 采购订单号_标准
+		dataType: string
+		lineageTag: a73f6b6c-f135-4906-83ed-d82cfd096e3c
+		summarizeBy: none
+		sourceColumn: 采购订单号_标准
+
+		annotation SummarizationSetBy = Automatic
+
+	column SKU
+		dataType: string
+		lineageTag: 4cd4eed6-750a-4e3a-9bfc-c19358425a1f
+		summarizeBy: none
+		sourceColumn: SKU
+
+		annotation SummarizationSetBy = Automatic
+
+	column 供应商
+		dataType: string
+		lineageTag: 1c983efb-2b05-475a-a77b-d80c3a009996
+		summarizeBy: none
+		sourceColumn: 供应商
+
+		annotation SummarizationSetBy = Automatic
+
+	column 订单行/公司
+		dataType: string
+		lineageTag: 35f5f020-8d4b-4cf7-b681-85b3d7d04292
+		summarizeBy: none
+		sourceColumn: 订单行/公司
+
+		annotation SummarizationSetBy = Automatic
+
+	column 订单行/确认日期
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 416dc827-fe13-4a64-adbf-9624d1c528a5
+		summarizeBy: none
+		sourceColumn: 订单行/确认日期
+
+		variation Variation
+			isDefault
+			relationship: c2390acd-2ab7-4564-a11a-0b3c433cd178
+			defaultHierarchy: LocalDateTable_fef2350d-8b3e-4a81-a008-0ad4412bedb5.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 最终实际发货日期
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: da7ffd17-d8ab-4af5-9420-8b083c6795cf
+		summarizeBy: none
+		sourceColumn: 最终实际发货日期
+
+		variation Variation
+			isDefault
+			relationship: dedee0b2-8ac3-4856-8a2d-856b6eb25b07
+			defaultHierarchy: LocalDateTable_4ab586c8-8cee-4663-9c2f-376669771f0b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 实际到达日期
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a19796b8-176b-480a-a2c7-5770096df002
+		summarizeBy: none
+		sourceColumn: 实际到达日期
+
+		variation Variation
+			isDefault
+			relationship: 6c81eb1d-8bea-4b9a-a990-ddb44f1caafb
+			defaultHierarchy: LocalDateTable_0218d3a2-b738-4a5d-be70-bfff97eb7439.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 订单行/预计到货时间
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c71d71ae-bc85-405e-bc4a-498cec07f5cd
+		summarizeBy: none
+		sourceColumn: 订单行/预计到货时间
+
+		variation Variation
+			isDefault
+			relationship: dc241fa7-233e-4133-8c6a-4fad2868a274
+			defaultHierarchy: LocalDateTable_c5d63006-5b33-46b9-9e7c-789a88d28cf5.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 预计提前期天数
+		dataType: double
+		lineageTag: c6314674-1020-4d74-893d-e9bd98fce416
+		summarizeBy: sum
+		sourceColumn: 预计提前期天数
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 实际总提前期天数
+		dataType: double
+		lineageTag: 8661cb0d-8b0e-4a40-a83e-a5e51c5adb5d
+		summarizeBy: sum
+		sourceColumn: 实际总提前期天数
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 实际运输天数
+		dataType: double
+		lineageTag: e3c9d2c3-74c5-45eb-b1eb-e96f22b3ad5b
+		summarizeBy: sum
+		sourceColumn: 实际运输天数
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 到货延误天数
+		dataType: double
+		lineageTag: ecdb3519-1059-44bd-877b-44b52b8311db
+		summarizeBy: sum
+		sourceColumn: 到货延误天数
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SKU供应商键
+		dataType: string
+		lineageTag: ba5c2878-af81-4dae-977f-d6359e1218d4
+		summarizeBy: none
+		sourceColumn: SKU供应商键
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactPurchaseLeadTime = m
+		mode: import
+		source =
+				let
+				    Source = FactPurchaseOrder,
+				    #"Filtered Rows" = Table.SelectRows(Source, each ([提前期记录有效] = 1)),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Filtered Rows",{"提前期记录有效", "采购订单SKU键", "采购订单号_标准", "SKU", "订单行/合作伙伴", "订单行/公司", "订单行/确认日期", "最终实际发货日期", "实际到达日期", "订单行/预计到货时间", "预计提前期天数", "实际总提前期天数", "实际运输天数", "到货延误天数"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns", {"采购订单SKU键"}),
+				    #"Added Custom" = Table.AddColumn(#"Removed Duplicates", "SKU供应商键", each [SKU] & "|" & [#"订单行/合作伙伴"]),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Custom",{{"订单行/合作伙伴", "供应商"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

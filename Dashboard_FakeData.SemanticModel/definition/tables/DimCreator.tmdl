@@ -1,0 +1,56 @@
+table DimCreator
+	lineageTag: 41905e57-3837-4dab-8f6d-0e338ef4e658
+
+	measure 平均月环比 =
+			
+			AVERAGEX(VALUES(DimDate[年月]), CALCULATE([月环比]))
+		lineageTag: 0040d177-bceb-4a75-917e-406e174aad9d
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "AveragePerCategory"
+				}
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '分公司月环比 average per 年月' =
+			
+			AVERAGEX(KEEPFILTERS(VALUES('DimDate'[年月])), CALCULATE([分公司月环比]))
+		lineageTag: 99821af4-653d-4908-a23e-d079e631a561
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "AveragePerCategory"
+				}
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 订单创建人
+		lineageTag: 1da5dd1c-d4ea-4528-807a-7850ea0aa6d9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [订单创建人]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCreator = calculated
+		mode: import
+		source =
+				
+				DISTINCT (
+				    UNION (
+				        SELECTCOLUMNS (
+				            FactBranchCost,
+				            "订单创建人", FactBranchCost[订单创建人]
+				        ),
+				        SELECTCOLUMNS (
+				            FactSalesTarget,
+				            "订单创建人", FactSalesTarget[销售人员]
+				        )
+				    )
+				)
+
+	annotation PBI_Id = a91fdf1c793448a398a21bdda13ad035
+

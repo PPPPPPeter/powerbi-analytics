@@ -1,0 +1,1263 @@
+table FactBranchCost
+	lineageTag: 2d687104-897e-4783-80af-f70bdeb39b8e
+
+	measure 分公司销售额（不含运费和服务费） =
+			
+			CALCULATE (
+			    SUM ( FactBranchCost[amount] ),
+			    KEEPFILTERS (
+			        NOT (
+			            FactBranchCost[Ref Num]
+			                IN { "RDC", "SHH", "Service Fee", "C-1" }
+			        )
+			    )
+			)
+		lineageTag: 31c7a2ac-2b31-482f-a5c2-9182255fe320
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 分公司销售占比 =
+			
+			VAR CurrentSales =
+			    [分公司销售额（不含运费和服务费）]
+			VAR AllCompanySales =
+			    CALCULATE(
+			        [分公司销售额（不含运费和服务费）],
+			        REMOVEFILTERS(FactBranchCost[company]),
+			        REMOVEFILTERS(DimCustomerAll[客户名称])
+			    )
+			RETURN
+			    DIVIDE(CurrentSales, AllCompanySales)
+		lineageTag: 26ae6f25-1f93-48fb-99f0-af53b7637fe6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 分公司上月销售额 =
+			
+			COALESCE(
+			    CALCULATE(
+			        [分公司销售额（不含运费和服务费）],
+			        DATEADD(DimDate[Date], -1, MONTH)
+			    ),
+			    0
+			)
+		lineageTag: b4cb9dfd-f9d6-4137-980b-1d5125286825
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 分公司月环比 =
+			
+			DIVIDE(
+			    [分公司销售额（不含运费和服务费）] - [分公司上月销售额],
+			    [分公司上月销售额],
+			    0
+			)
+		lineageTag: b1b497c8-dd4e-44e7-b4ea-12ae90dfa78b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 分公司上年同期销售额 =
+			
+			CALCULATE(
+			    [分公司销售额（不含运费和服务费）],
+			    DATEADD(
+			        DimDate[Date],
+			        -1,
+			        YEAR
+			    )
+			)
+		lineageTag: fe2d26c3-fdc8-494b-a86d-7a537e84ff3b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 分公司销售同比 =
+			
+			DIVIDE(
+			    [分公司销售额（不含运费和服务费）] - [分公司上年同期销售额],
+			    [分公司上年同期销售额],
+			    0
+			)
+		lineageTag: f38cf50e-73f3-4e78-98eb-9968792427b1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 分公司活跃客户 =
+			
+			COUNTROWS(
+			    FILTER(
+			        VALUES(FactBranchCost[customer_no]),
+			        NOT ISBLANK(FactBranchCost[customer_no])
+			            && FactBranchCost[customer_no] <> ""
+			            && CALCULATE([分公司销售额（不含运费和服务费）]) > 0
+			    )
+			)
+		formatString: 0
+		lineageTag: 289acafb-7c4f-41d5-aaae-7973838e9942
+
+	measure 分公司订单数 =
+			
+			DISTINCTCOUNT(FactBranchCost[分公司订单键])
+		formatString: 0
+		lineageTag: fd7f78bd-2fbe-4636-9d55-d07e7ffb74a0
+
+	measure 分公司活跃SKU =
+			
+			COUNTROWS(
+			    FILTER(
+			        VALUES(FactBranchCost[Ref Num]),
+			        NOT ISBLANK(FactBranchCost[Ref Num])
+			            && FactBranchCost[Ref Num] <> ""
+			            && CALCULATE([分公司销售额（不含运费和服务费）]) > 0
+			    )
+			)
+		formatString: 0
+		lineageTag: 38c886af-66ad-437b-938a-008b8ccce47f
+
+	measure 分公司品牌销售占比 =
+			
+			VAR CurrentBrandSales =
+			    [分公司销售额（不含运费和服务费）]
+			VAR BranchTotalSales =
+			    CALCULATE(
+			        [分公司销售额（不含运费和服务费）],
+			        REMOVEFILTERS(ProductCatalogAll[品牌])
+			    )
+			RETURN
+			    DIVIDE(
+			        CurrentBrandSales,
+			        BranchTotalSales,
+			        0
+			    )
+		lineageTag: 8959a041-64bd-4675-a98b-e147b86bc761
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 分公司基准成本 =
+			
+			SUM(FactBranchCost[基准成本])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 20c436c7-566d-46dc-9705-d41d06eefe42
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 产品价格_毛利 = ```
+			
+			    [分公司销售额（不含运费和服务费）]
+			        - [产品价格_基准成本]
+			```
+		lineageTag: bf7f6306-5c52-4d8a-be31-951ed0dea3f6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 产品价格_毛利率 =
+			
+			DIVIDE (
+			    [产品价格_毛利],
+			    [分公司销售额（不含运费和服务费）],
+			    BLANK ()
+			)
+		lineageTag: 5806a4df-f4f8-4450-b9ba-c88ad48ac190
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 分公司销售数量 =
+			
+			CALCULATE (
+			    SUM ( FactBranchCost[quantity] ),
+			    KEEPFILTERS (
+			        NOT (
+			            FactBranchCost[Ref Num]
+			                IN { "RDC", "SHH", "Service Fee", "C-1" }
+			        )
+			    )
+			)
+		lineageTag: 1a6ba313-1055-4b06-b117-806b8bc6f299
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 产品价格_加权平均成交价 =
+			
+			VAR SalesAmount =
+			    [分公司销售额（不含运费和服务费）]
+			
+			VAR SalesQuantity =
+			    [分公司销售数量]
+			
+			RETURN
+			    IF (
+			        SalesQuantity > 0,
+			        DIVIDE ( SalesAmount, SalesQuantity ),
+			        BLANK ()
+			    )
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 743a6cea-db4c-4c93-ac78-3b0ef3e32bbd
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 分公司上月销售数量 =
+			
+			VAR CurrentDate =
+			    MAX(DimDate[Date])
+			VAR CurrentMonthStart =
+			    DATE(YEAR(CurrentDate), MONTH(CurrentDate), 1)
+			VAR PreviousMonthStart =
+			    EDATE(CurrentMonthStart, -1)
+			VAR PreviousMonthEnd =
+			    CurrentMonthStart - 1
+			RETURN
+			    CALCULATE(
+			        [分公司销售数量],
+			        REMOVEFILTERS(DimDate),
+			        DATESBETWEEN(
+			            DimDate[Date],
+			            PreviousMonthStart,
+			            PreviousMonthEnd
+			        )
+			    )
+		lineageTag: b292b627-f82c-48d6-ae92-cb0055827f7e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 分公司销量月环比 =
+			
+			VAR CurrentQuantity =
+			    [分公司销售数量]
+			VAR PreviousQuantity =
+			    [分公司上月销售数量]
+			RETURN
+			    IF(
+			        ISBLANK(PreviousQuantity)
+			            || PreviousQuantity = 0,
+			        BLANK(),
+			        DIVIDE(
+			            CurrentQuantity - PreviousQuantity,
+			            PreviousQuantity
+			        )
+			    )
+		lineageTag: 2ee33397-cefe-497e-a910-7bb2261362f5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 所选品牌订单数 =
+			
+			VAR SelectedBrands =
+			    VALUES ( ProductCatalogAll[品牌] )
+			RETURN
+			CALCULATE (
+			    [分公司订单数],
+			
+			    REMOVEFILTERS ( ProductCatalogAll ),
+			    REMOVEFILTERS ( ProductCatalog ),
+			    REMOVEFILTERS ( DimProductAll ),
+			
+			    TREATAS (
+			        SelectedBrands,
+			        FactBranchCost[brand_cn_name]
+			    )
+			)
+		formatString: 0
+		lineageTag: 0ebd1e1f-af22-46a4-a382-c7dc599c7a0e
+
+	measure 客户本期订单数 =
+			
+			CALCULATE (
+			    [分公司订单数],
+			
+			    REMOVEFILTERS ( ProductCatalogAll ),
+			    REMOVEFILTERS ( ProductCatalog ),
+			    REMOVEFILTERS ( DimProductAll ),
+			
+			    REMOVEFILTERS ( FactBranchCost[brand_cn_name] ),
+			    REMOVEFILTERS ( FactBranchCost[brand_name] ),
+			    REMOVEFILTERS ( FactBranchCost[Ref Num] ),
+			    REMOVEFILTERS ( FactBranchCost[product_name] )
+			)
+		formatString: 0
+		lineageTag: c98551a1-95fa-4e3e-9c4c-0d13b8f311a6
+
+	measure 品牌未铺货客户标记 =
+			
+			VAR HasBrand =
+			    HASONEVALUE ( ProductCatalogAll[品牌] )
+			
+			VAR CustomerOrders =
+			    COALESCE ( [客户本期订单数], 0 )
+			
+			VAR BrandOrders =
+			    COALESCE ( [所选品牌订单数], 0 )
+			
+			RETURN
+			IF (
+			    NOT HasBrand || CustomerOrders <= 0,
+			    BLANK (),
+			    IF ( BrandOrders = 0, 1, 0 )
+			)
+		formatString: 0
+		lineageTag: d0d94949-2707-4d51-b3c9-e5a32198f23a
+
+	measure 分公司上月订单数 =
+			
+			CALCULATE(
+			    [分公司订单数],
+			    DATEADD(DimDate[Date], -1, MONTH)
+			)
+		formatString: 0
+		lineageTag: 63aae6c1-fb18-4725-a088-7148d3e2c159
+
+	measure 分公司订单数月环比 =
+			
+			VAR CurrentOrders =
+			    [分公司订单数]
+			VAR PreviousOrders =
+			    [分公司上月订单数]
+			RETURN
+			    IF(
+			        ISBLANK(PreviousOrders)
+			            || PreviousOrders = 0,
+			        BLANK(),
+			        DIVIDE(
+			            CurrentOrders - PreviousOrders,
+			            PreviousOrders
+			        )
+			    )
+		lineageTag: d44afcac-8d9e-4a6e-8137-83d992b50fbd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 品牌已铺货客户标记 =
+			
+			VAR HasBrand =
+			    HASONEVALUE ( ProductCatalogAll[品牌] )
+			
+			VAR CustomerOrders =
+			    COALESCE ( [客户本期订单数], 0 )
+			
+			VAR BrandOrders =
+			    COALESCE ( [所选品牌订单数], 0 )
+			
+			RETURN
+			IF (
+			    NOT HasBrand || CustomerOrders <= 0,
+			    BLANK (),
+			    IF ( BrandOrders > 0, 1, 0 )
+			)
+		formatString: 0
+		lineageTag: 9bd20f3e-a0ad-4e76-a460-7137cc1df58d
+
+	measure 销售已铺货客户数 =
+			
+			COUNTROWS(
+			    FILTER(
+			        VALUES(DimCustomerAll[客户编号]),
+			        CALCULATE([分公司销售额（不含运费和服务费）]) > 0
+			    )
+			)
+		formatString: 0
+		lineageTag: e6add068-024c-4c7c-8231-5220bcc1401d
+
+	measure 销售已铺货SKU数 =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(FactBranchCost[Ref Num]),
+			    FactBranchCost[amount] > 0,
+			    FactBranchCost[Ref Num] <> BLANK()
+			)
+		formatString: 0
+		lineageTag: b0c6f272-d63a-4011-9b89-b555cee1083f
+
+	measure 销售客户铺货率 =
+			
+			DIVIDE(
+			    [销售已铺货客户数],
+			    [销售负责客户数],
+			    0
+			)
+		lineageTag: e2017523-74cb-4fc6-aacb-32837f123846
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 本期目标客户数 =
+			
+			VAR CustomerList =
+			    CALCULATETABLE (
+			        VALUES ( DimCustomerAll[客户编号] ),
+			        REMOVEFILTERS ( ProductCatalogAll ),
+			        REMOVEFILTERS ( ProductCatalog ),
+			        REMOVEFILTERS ( DimProductAll )
+			    )
+			RETURN
+			SUMX (
+			    CustomerList,
+			    IF (
+			        CALCULATE ( [客户本期订单数] ) > 0,
+			        1,
+			        0
+			    )
+			)
+		formatString: 0
+		lineageTag: bee9c0ce-ed10-48bf-aef1-d03546a670f8
+
+	measure 公司经营SKU标记 =
+			
+			VAR SelectedCompanies =
+			    VALUES ( DimCustomerAll[公司] )
+			
+			VAR HistoricalSales =
+			    CALCULATE (
+			        COUNTROWS ( FactBranchCost ),
+			
+			        FactBranchCost[Ref Num] <> BLANK (),
+			        FactBranchCost[amount] > 0,
+			
+			        -- 清除客户维度筛选
+			        REMOVEFILTERS ( DimCustomerAll ),
+			        REMOVEFILTERS ( DimCustomerNJ ),
+			
+			        -- 清除事实表中的客户和销售人员筛选
+			        REMOVEFILTERS (
+			            FactBranchCost[customer_no],
+			            FactBranchCost[customer_name],
+			            FactBranchCost[customer_type],
+			            FactBranchCost[race],
+			            FactBranchCost[salesperson],
+			            FactBranchCost[sales leader],
+			            FactBranchCost[rep]
+			        ),
+			
+			        -- 不受日期筛选影响
+			        REMOVEFILTERS ( DimDate ),
+			
+			        REMOVEFILTERS (
+			            FactBranchCost[Invoice Date],
+			            FactBranchCost[month],
+			            FactBranchCost[week],
+			            FactBranchCost[year]
+			        ),
+			
+			        -- 恢复公司选择
+			        TREATAS (
+			            SelectedCompanies,
+			            FactBranchCost[company]
+			        )
+			    )
+			
+			RETURN
+			    IF ( HistoricalSales > 0, 1, 0 )
+		formatString: 0
+		lineageTag: 3accec6d-53ec-4bb2-99c5-a7eea11da07c
+
+	measure 公司经营SKU总数 =
+			
+			SUMX (
+			    VALUES ( FactBranchCost[Ref Num] ),
+			    [公司经营SKU标记]
+			)
+		formatString: 0
+		lineageTag: fdf22673-6d4b-4a22-aac7-349e6111b2a7
+
+	measure 本期已铺货SKU标记 =
+			
+			VAR SelectedCompanies =
+			    VALUES ( DimCustomerAll[公司] )
+			
+			VAR SelectedCustomers =
+			    VALUES ( FactBranchCost[customer_no] )
+			
+			VAR SelectedSKUs =
+			    VALUES ( FactBranchCost[Ref Num] )
+			
+			VAR IsCompanySKU =
+			    CALCULATE (
+			        [公司经营SKU标记],
+			
+			        REMOVEFILTERS ( DimCustomerAll ),
+			        REMOVEFILTERS ( DimCustomerNJ ),
+			
+			        TREATAS (
+			            SelectedCompanies,
+			            FactBranchCost[company]
+			        )
+			    )
+			
+			VAR CurrentQuantity =
+			    CALCULATE (
+			        SUM ( FactSalesAll[数量_1] ),
+			
+			        REMOVEFILTERS ( DimCustomerAll ),
+			        REMOVEFILTERS ( DimCustomerNJ ),
+			
+			        TREATAS (
+			            SelectedCompanies,
+			            FactSalesAll[公司]
+			        ),
+			
+			        TREATAS (
+			            SelectedCustomers,
+			            FactSalesAll[合作伙伴/参考]
+			        ),
+			
+			        TREATAS (
+			            SelectedSKUs,
+			            FactSalesAll[产品/内部参考号]
+			        )
+			    )
+			
+			RETURN
+			    IF (
+			        IsCompanySKU <> 1,
+			        BLANK (),
+			        IF ( COALESCE ( CurrentQuantity, 0 ) > 0, 1, 0 )
+			    )
+		formatString: 0
+		lineageTag: 89233c9f-c9bd-4723-bd68-bee803d0304f
+
+	measure 本期未铺货SKU标记 =
+			
+			VAR SelectedCompanies =
+			    VALUES ( DimCustomerAll[公司] )
+			
+			VAR SelectedCustomers =
+			    VALUES ( FactBranchCost[customer_no] )
+			
+			VAR SelectedSKUs =
+			    VALUES ( FactBranchCost[Ref Num] )
+			
+			VAR IsCompanySKU =
+			    CALCULATE (
+			        [公司经营SKU标记],
+			
+			        REMOVEFILTERS ( DimCustomerAll ),
+			        REMOVEFILTERS ( DimCustomerNJ ),
+			
+			        TREATAS (
+			            SelectedCompanies,
+			            FactBranchCost[company]
+			        )
+			    )
+			
+			VAR CurrentQuantity =
+			    CALCULATE (
+			        SUM ( FactSalesAll[数量_1] ),
+			
+			        REMOVEFILTERS ( DimCustomerAll ),
+			        REMOVEFILTERS ( DimCustomerNJ ),
+			
+			        TREATAS (
+			            SelectedCompanies,
+			            FactSalesAll[公司]
+			        ),
+			
+			        TREATAS (
+			            SelectedCustomers,
+			            FactSalesAll[合作伙伴/参考]
+			        ),
+			
+			        TREATAS (
+			            SelectedSKUs,
+			            FactSalesAll[产品/内部参考号]
+			        )
+			    )
+			
+			RETURN
+			    IF (
+			        IsCompanySKU <> 1,
+			        BLANK (),
+			        IF ( COALESCE ( CurrentQuantity, 0 ) <= 0, 1, 0 )
+			    )
+		formatString: 0
+		lineageTag: bfaf6737-0ab4-4933-ad14-501ccbe1f83f
+
+	measure 毛利率趋势_近3月 =
+			
+			VAR CurrentMonthKey =
+			    MAX ( DimDate[年月排序] )
+			
+			VAR VisibleMonths =
+			    SUMMARIZE (
+			        ALLSELECTED ( DimDate ),
+			        DimDate[年月],
+			        DimDate[年月排序]
+			    )
+			
+			VAR Last3VisibleMonths =
+			    TOPN (
+			        3,
+			        FILTER (
+			            VisibleMonths,
+			            DimDate[年月排序] <= CurrentMonthKey
+			        ),
+			        DimDate[年月排序],
+			        DESC
+			    )
+			
+			RETURN
+			    AVERAGEX (
+			        Last3VisibleMonths,
+			        CALCULATE ( [产品价格_毛利率] )
+			    )
+		lineageTag: f1852e99-e562-40ea-a74c-690315100deb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 分公司销售数量趋势_近3月 =
+			
+			VAR CurrentMonthKey =
+			    MAX ( DimDate[年月排序] )
+			
+			VAR VisibleMonths =
+			    SUMMARIZE (
+			        ALLSELECTED ( DimDate ),
+			        DimDate[年月],
+			        DimDate[年月排序]
+			    )
+			
+			VAR Last3VisibleMonths =
+			    TOPN (
+			        3,
+			        FILTER (
+			            VisibleMonths,
+			            DimDate[年月排序] <= CurrentMonthKey
+			        ),
+			        DimDate[年月排序],
+			        DESC
+			    )
+			
+			RETURN
+			    AVERAGEX (
+			        Last3VisibleMonths,
+			        CALCULATE ( [分公司销售数量] )
+			    )
+		lineageTag: c5362be3-895e-4e5e-a0c6-0d7044408283
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 产品价格_基准成本 =
+			
+			CALCULATE (
+			    SUM ( FactBranchCost[基准成本] ),
+			    KEEPFILTERS (
+			        NOT (
+			            FactBranchCost[Ref Num]
+			                IN { "RDC", "SHH", "Service Fee", "C-1" }
+			        )
+			    )
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 638c7655-c6ee-453a-960f-596a194441c2
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure State销售占比 =
+			
+			DIVIDE (
+			    [分公司销售额（不含运费和服务费）],
+			    CALCULATE (
+			        [分公司销售额（不含运费和服务费）],
+			        REMOVEFILTERS ( FactBranchCost[state] )
+			    )
+			)
+		formatString: 0.0%
+		lineageTag: 1d41c76f-a07a-4800-940e-8884f4b71eb9
+
+	column 'Invoice No'
+		dataType: string
+		lineageTag: 022d3eed-19c1-4b88-a29a-ef01fc0b97a5
+		summarizeBy: none
+		sourceColumn: Invoice No
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Invoice Date'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 55b239c2-b3e3-4b16-a50f-035b6f4cb353
+		summarizeBy: none
+		sourceColumn: Invoice Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Ref Num'
+		dataType: string
+		lineageTag: 076dfd23-65f0-429b-a79e-2fa6114f5dd9
+		summarizeBy: none
+		sourceColumn: Ref Num
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_name
+		dataType: string
+		lineageTag: 4ca0bf1e-bbcd-400e-9fba-016481679a8b
+		summarizeBy: none
+		sourceColumn: product_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column in_charge
+		dataType: string
+		lineageTag: 40643ca4-06c8-44cd-b715-8b069efe65d5
+		summarizeBy: none
+		sourceColumn: in_charge
+
+		annotation SummarizationSetBy = Automatic
+
+	column brand_cn_name
+		dataType: string
+		lineageTag: 4f4a6b0c-629b-4155-a7fe-e79890bc835c
+		summarizeBy: none
+		sourceColumn: brand_cn_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column brand_name
+		dataType: string
+		lineageTag: d98e1e4e-a445-4eb0-bb69-a3e85a2d8f4b
+		summarizeBy: none
+		sourceColumn: brand_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Category (CN)'
+		dataType: string
+		lineageTag: 2d0dada9-dcad-48e4-9f95-1e15535d3844
+		summarizeBy: none
+		sourceColumn: Category (CN)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub-Category (CN)'
+		dataType: string
+		lineageTag: 20740dab-746f-47d7-89eb-fa6c5955687a
+		summarizeBy: none
+		sourceColumn: Sub-Category (CN)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'shelf life'
+		dataType: int64
+		formatString: 0
+		lineageTag: 82f85227-03c1-4da7-a31a-c40ebaf5b5c4
+		summarizeBy: sum
+		sourceColumn: shelf life
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_name
+		dataType: string
+		lineageTag: 0fecc2e5-8085-4a32-b4bc-c2d03d2b6a05
+		summarizeBy: none
+		sourceColumn: customer_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_no
+		dataType: string
+		lineageTag: b1484e77-708c-42ad-ba76-9e6ebd95a703
+		summarizeBy: none
+		sourceColumn: customer_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'sales leader'
+		dataType: string
+		lineageTag: 7dbc27b8-439e-4d34-b4d1-c1d9b129bc55
+		summarizeBy: none
+		sourceColumn: sales leader
+
+		annotation SummarizationSetBy = Automatic
+
+	column salesperson
+		dataType: string
+		lineageTag: 1e2761f8-1d97-45b3-ab23-991b85842fc2
+		summarizeBy: none
+		sourceColumn: salesperson
+
+		annotation SummarizationSetBy = Automatic
+
+	column rep
+		dataType: string
+		lineageTag: c50a1a37-8071-4c3f-ac31-300ad28e22f7
+		summarizeBy: none
+		sourceColumn: rep
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_type
+		dataType: string
+		lineageTag: 6d80daa5-66d7-43e7-9c03-aea364b4720b
+		summarizeBy: none
+		sourceColumn: customer_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 08391e89-8016-42ae-a60f-5a2d49da2988
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column state
+		dataType: string
+		lineageTag: 460a4b0b-738b-440b-9ef4-689c62c8f4e0
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Create User'
+		dataType: string
+		lineageTag: 1e465811-3e91-4963-bd7c-9bf63c972919
+		summarizeBy: none
+		sourceColumn: Create User
+
+		annotation SummarizationSetBy = Automatic
+
+	column race
+		dataType: string
+		lineageTag: d148c4c8-71d4-4a3f-bc4b-1fea00a5a69b
+		summarizeBy: none
+		sourceColumn: race
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantity
+		dataType: double
+		lineageTag: f4642cfa-1ee1-4628-929c-952abb65c2e3
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column discount_price
+		dataType: double
+		lineageTag: 5e1cc58e-6ad1-4e56-94b2-e2e188250324
+		summarizeBy: sum
+		sourceColumn: discount_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column amount
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: ec2cb454-4b67-4e7e-84b8-822a04f1bcbc
+		summarizeBy: sum
+		sourceColumn: amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 基准成本单价
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: aeac6c7d-e7aa-48f9-85cf-3d454866b7eb
+		summarizeBy: sum
+		sourceColumn: 基准成本单价
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 基准成本
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: a9fced5f-661b-4db6-a240-af39cea6219f
+		summarizeBy: sum
+		sourceColumn: 基准成本
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 基准毛利额
+		dataType: decimal
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 44ea3998-ca9e-4613-9a3d-64d15d9c2cea
+		summarizeBy: sum
+		sourceColumn: 基准毛利额
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 基准毛利率
+		dataType: double
+		lineageTag: 840ced2f-9a1b-4d5d-b626-0e38c8850cda
+		summarizeBy: sum
+		sourceColumn: 基准毛利率
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column month
+		dataType: int64
+		formatString: 0
+		lineageTag: a9dd569b-f7c7-46c5-9fe9-ba37cd55005c
+		summarizeBy: sum
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	column week
+		dataType: int64
+		formatString: 0
+		lineageTag: dc92bbd9-232a-4b07-9e24-d734f46f6017
+		summarizeBy: sum
+		sourceColumn: week
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: 2a90df14-24c8-43c2-88a6-5440b84c61e6
+		summarizeBy: sum
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column company
+		dataType: string
+		lineageTag: 74b09c3c-c400-4d39-b9b3-0970dca86162
+		summarizeBy: none
+		sourceColumn: company
+
+		annotation SummarizationSetBy = Automatic
+
+	column Warehouse
+		dataType: string
+		lineageTag: 8cca3726-203c-4f74-88aa-aa23911e6b0f
+		summarizeBy: none
+		sourceColumn: Warehouse
+
+		annotation SummarizationSetBy = Automatic
+
+	column 客户地址 =
+			
+			VAR CustomerCity =
+			    TRIM(
+			        COALESCE(
+			            FactBranchCost[city],
+			            ""
+			        )
+			    )
+			VAR CustomerState =
+			    TRIM(
+			        COALESCE(
+			            FactBranchCost[state],
+			            ""
+			        )
+			    )
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        CustomerCity = "" && CustomerState = "", BLANK(),
+			        CustomerCity = "", CustomerState,
+			        CustomerState = "", CustomerCity,
+			        CustomerCity & ", " & CustomerState
+			    )
+		lineageTag: be571570-e164-4c5a-b95e-a8c9b9ee3f11
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 客户渠道 =
+			
+			VAR SalespersonName =
+			    UPPER(
+			        TRIM(
+			            COALESCE(
+			                FactBranchCost[salesperson],
+			                ""
+			            )
+			        )
+			    )
+			VAR CustomerName =
+			    UPPER(
+			        TRIM(
+			            COALESCE(
+			                FactBranchCost[customer_name],
+			                ""
+			            )
+			        )
+			    )
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        SalespersonName = "MAINSTREAM", "主流",
+			        CustomerName IN {
+			            "Harbor Spice Co",
+			            "Summit Seasoning, LLC"
+			        }, "代理",
+			        "亚裔"
+			    )
+		lineageTag: 41df5686-1f13-427d-827f-30933834c9d1
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 分公司订单键 =
+			
+			VAR CompanyName =
+			    TRIM(COALESCE(FactBranchCost[company], ""))
+			VAR InvoiceNumber =
+			    TRIM(COALESCE(FactBranchCost[Invoice No], ""))
+			RETURN
+			    IF(
+			        CompanyName = "" || InvoiceNumber = "",
+			        BLANK(),
+			        COMBINEVALUES("|", CompanyName, InvoiceNumber)
+			    )
+		lineageTag: f0d6c80c-3c0d-4caa-ba2c-e8699e8cf312
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 客户公司Key =
+			
+			VAR CustomerNumber =
+			    TRIM (
+			        COALESCE (
+			            FactBranchCost[customer_no] & "",
+			            ""
+			        )
+			    )
+			
+			VAR CompanyName =
+			    TRIM (
+			        COALESCE (
+			            FactBranchCost[company] & "",
+			            ""
+			        )
+			    )
+			
+			RETURN
+			    IF (
+			        CustomerNumber = ""
+			            || CompanyName = "",
+			        BLANK (),
+			        CustomerNumber & "|" & CompanyName
+			    )
+		lineageTag: d775ec6e-c849-4928-a972-b54b53a4e9c9
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 订单创建人
+		dataType: string
+		lineageTag: fc26795d-f923-49b9-87a2-15b7b94c6326
+		summarizeBy: none
+		sourceColumn: 订单创建人
+
+		annotation SummarizationSetBy = Automatic
+
+	column 订单参考号
+		dataType: string
+		lineageTag: f08f3f92-0db5-4832-8060-50ff1cf48fb6
+		summarizeBy: none
+		sourceColumn: 订单参考号
+
+		annotation SummarizationSetBy = Automatic
+
+	column 完整地址
+		dataType: string
+		lineageTag: d2f68418-aafb-4fc6-ba3f-291a64f994f8
+		dataCategory: Address
+		summarizeBy: none
+		sourceColumn: 完整地址
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactBranchCost = m
+		mode: import
+		source =
+				let
+				    FiniteNumber = (ValueToConvert as any) as nullable number =>
+				        let
+				            Converted = try Number.From(ValueToConvert, "en-US") otherwise null
+				        in
+				            if Converted = null
+				                or Converted = Number.PositiveInfinity
+				                or Converted = Number.NegativeInfinity
+				                or Number.IsNaN(Converted)
+				            then null
+				            else Converted,
+				
+				    Source =
+				        Csv.Document(
+				            (if Text.StartsWith(DataRoot, "http") then Web.Contents(DataRoot & "/branch_sales.csv") else File.Contents(DataRoot & "\branch_sales.csv")),
+				            [
+				                Delimiter = ",",
+				                Encoding = 65001,
+				                QuoteStyle = QuoteStyle.Csv
+				            ]
+				        ),
+				
+				    PromotedHeaders =
+				        Table.PromoteHeaders(
+				            Source,
+				            [PromoteAllScalars = true]
+				        ),
+				
+				    // 将 CSV 字段名转换为 FactBranchCost 使用的标准字段名
+				    RenamedColumns =
+				        Table.RenameColumns(
+				            PromotedHeaders,
+				            {
+				                {"lnvoice No", "Invoice No"},
+				                {"purchase_price", "基准成本单价"},
+				                {"cogs", "基准成本"},
+				                {"Gross Profit", "基准毛利额"},
+				                {"Gross Margin", "基准毛利率"},
+				                {"Sales Order Line / Created By", "订单创建人"},
+				                {"Sales Order Line / Order Reference", "订单参考号"},
+				                {"Partner / Complete Address","完整地址"}
+				            },
+				            MissingField.Ignore
+				        ),
+				
+				    StandardColumns = {
+				        "Invoice No", "Invoice Date", "Ref Num", "product_name",
+				        "in_charge", "brand_cn_name", "brand_name", "Category (CN)",
+				        "Sub-Category (CN)", "shelf life", "customer_name", "customer_no",
+				        "sales leader", "salesperson", "rep", "customer_type", "city",
+				        "state", "Create User", "race", "quantity", "discount_price",
+				        "amount", "基准成本单价", "基准成本", "基准毛利额", "基准毛利率",
+				        "month", "week", "year", "company", "Warehouse","订单创建人","订单参考号","完整地址"
+				    },
+				
+				    SelectedColumns =
+				        Table.SelectColumns(
+				            RenamedColumns,
+				            StandardColumns,
+				            MissingField.UseNull
+				        ),
+				
+				    RemovedEmptyRows =
+				        Table.SelectRows(
+				            SelectedColumns,
+				            each [Invoice No] <> null
+				                or [Invoice Date] <> null
+				                or [Ref Num] <> null
+				        ),
+				
+				    CleanedText =
+				        Table.TransformColumns(
+				            RemovedEmptyRows,
+				            List.Transform(
+				                {
+				                    "Invoice No", "Ref Num", "product_name", "in_charge",
+				                    "brand_cn_name", "brand_name", "Category (CN)",
+				                    "Sub-Category (CN)", "customer_name", "customer_no",
+				                    "sales leader", "salesperson", "rep", "customer_type",
+				                    "city", "state", "Create User", "race", "company",
+				                    "Warehouse","订单创建人","订单参考号","完整地址"
+				                },
+				                (ColumnName as text) =>
+				                    {
+				                        ColumnName,
+				                        each
+				                            if _ = null
+				                            then null
+				                            else Text.Clean(Text.Trim(Text.From(_))),
+				                        type text
+				                    }
+				            )
+				        ),
+				
+				    SanitizedNumbers =
+				        Table.TransformColumns(
+				            CleanedText,
+				            List.Transform(
+				                {
+				                    "shelf life", "quantity", "discount_price", "amount",
+				                    "基准成本单价", "基准成本", "基准毛利额", "基准毛利率",
+				                    "month", "week", "year"
+				                },
+				                (ColumnName as text) =>
+				                    {
+				                        ColumnName,
+				                        each FiniteNumber(_),
+				                        type nullable number
+				                    }
+				            )
+				        ),
+				
+				    ParsedInvoiceDate =
+				        Table.TransformColumns(
+				            SanitizedNumbers,
+				            {
+				                {
+				                    "Invoice Date",
+				                    each
+				                        if _ = null or Text.Trim(Text.From(_)) = ""
+				                        then null
+				                        else
+				                            try Date.From(_)
+				                            otherwise
+				                                try Date.FromText(
+				                                    Text.Start(Text.From(_), 10),
+				                                    [Culture = "en-US"]
+				                                )
+				                                otherwise null,
+				                    type nullable date
+				                }
+				            }
+				        ),
+				
+				    ChangedTypes =
+				        Table.TransformColumnTypes(
+				            ParsedInvoiceDate,
+				            {
+				                {"Invoice No", type text},
+				                {"Invoice Date", type date},
+				                {"Ref Num", type text},
+				                {"product_name", type text},
+				                {"in_charge", type text},
+				                {"brand_cn_name", type text},
+				                {"brand_name", type text},
+				                {"Category (CN)", type text},
+				                {"Sub-Category (CN)", type text},
+				                {"shelf life", Int64.Type},
+				                {"customer_name", type text},
+				                {"customer_no", type text},
+				                {"sales leader", type text},
+				                {"salesperson", type text},
+				                {"rep", type text},
+				                {"customer_type", type text},
+				                {"city", type text},
+				                {"state", type text},
+				                {"Create User", type text},
+				                {"race", type text},
+				                {"quantity", type number},
+				                {"discount_price", type number},
+				                {"amount", Currency.Type},
+				                {"基准成本单价", Currency.Type},
+				                {"基准成本", Currency.Type},
+				                {"基准毛利额", Currency.Type},
+				                {"基准毛利率", Percentage.Type},
+				                {"month", Int64.Type},
+				                {"week", Int64.Type},
+				                {"year", Int64.Type},
+				                {"company", type text},
+				                {"Warehouse", type text}
+				            },
+				            "en-US"
+				        ),
+				    #"Filtered Rows" = Table.SelectRows(ChangedTypes, each not Text.Contains([customer_name], "Employee")),
+				    #"Trimmed Text" = Table.TransformColumns(#"Filtered Rows",{{"完整地址", Text.Trim, type text}})
+				in
+				    #"Trimmed Text"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

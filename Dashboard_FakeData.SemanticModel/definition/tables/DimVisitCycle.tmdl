@@ -1,0 +1,50 @@
+table DimVisitCycle
+	lineageTag: 008fd124-c176-4b2c-a149-6927f2df4cb7
+
+	column 周期周数
+		formatString: 0
+		lineageTag: cddc2b82-2e9b-4ff3-8627-b867bd4652cb
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [周期周数]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 周型
+		lineageTag: e4cc9fcf-6e53-4bc0-ba06-c2162407677f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [周型]
+		sortByColumn: 排序
+
+		annotation SummarizationSetBy = Automatic
+
+	column 排序
+		formatString: 0
+		lineageTag: 45ca2957-2b5b-4edb-8955-1c31ea089120
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [排序]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimVisitCycle = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "周期周数", INTEGER,
+				    "周型", STRING,
+				    "排序", INTEGER,
+				    {
+				        {1, "每周型", 1},
+				        {2, "2周型", 2},
+				        {3, "3周型", 3},
+				        {4, "4周型", 4},
+				        {6, "6周型", 5},
+				        {8, "8周型", 6}
+				    }
+				)
+
+	annotation PBI_Id = 495f3778fd94440ea55b87afaaf3766a
+

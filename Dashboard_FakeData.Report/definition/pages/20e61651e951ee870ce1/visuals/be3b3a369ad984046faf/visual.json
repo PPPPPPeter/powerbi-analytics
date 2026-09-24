@@ -1,0 +1,445 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "be3b3a369ad984046faf",
+  "position": {
+    "x": 20.659971305595409,
+    "y": 145.99713055954089,
+    "z": 7000,
+    "height": 330.55954088952655,
+    "width": 893.88809182209468,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "InforiverFilterF39DAE8D57A743EF89F5C3809DEE2B69",
+    "query": {
+      "queryState": {
+        "measure": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactBranchCost"
+                    }
+                  },
+                  "Property": "分公司销售额（不含运费和服务费）"
+                }
+              },
+              "queryRef": "FactBranchCost.分公司销售额",
+              "nativeQueryRef": "分公司销售额"
+            }
+          ]
+        },
+        "column": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ProductCatalogAll"
+                    }
+                  },
+                  "Property": "产品类别"
+                }
+              },
+              "queryRef": "ProductCatalogAll.产品类别",
+              "nativeQueryRef": "产品类别"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ProductCatalogAll"
+                    }
+                  },
+                  "Property": "品牌"
+                }
+              },
+              "queryRef": "ProductCatalogAll.品牌",
+              "nativeQueryRef": "品牌"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "migration": [
+        {
+          "properties": {
+            "hasToMigrate": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "migrationSettings": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"v1_0_0_0\":{\"hierarchyStyle\":{\"isResolved\":true}},\"v2_0_0_0\":{\"appearance\":{\"isResolved\":true}},\"v5_7_0_0\":{\"appearance\":{\"isResolved\":true}}}'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "uniqueId": {
+              "expr": {
+                "Literal": {
+                  "Value": "'UID-1788184021047'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "appearance": [
+        {
+          "properties": {
+            "filterNoData": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "dateTooltip": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "measureTooltip": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "varianceTooltip": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableCanvasMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "defaultSelectionByMes": {
+              "expr": {
+                "Literal": {
+                  "Value": "'none'"
+                }
+              }
+            },
+            "sideDetailView": {
+              "expr": {
+                "Literal": {
+                  "Value": "'FactBranchCost.分公司销售额_ind_0'"
+                }
+              }
+            },
+            "clearSearchAfterSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "customScale": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "visualName": {
+              "expr": {
+                "Literal": {
+                  "Value": "'FCV_1788184046985'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "filter": [
+        {
+          "properties": {
+            "customCategoryLabels": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{}'"
+                }
+              }
+            },
+            "isMassMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "isFilterContextDisabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "enableToolbar": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "presets": [
+        {
+          "properties": {
+            "enablePreset": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dateCard": [
+        {
+          "properties": {
+            "enableDateRange": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "defaultDateRangeSelection": {
+              "expr": {
+                "Literal": {
+                  "Value": "'user_defined'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "panelMode": [
+        {
+          "properties": {
+            "enablePanelMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "commonFilterType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "measureFilter": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "playAxis": [
+        {
+          "properties": {
+            "enablePlayAxis": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "hierarchyStyle": [
+        {
+          "properties": {
+            "hierarchyType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'tree'"
+                }
+              }
+            },
+            "hierarchyFilterType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'checkbox'"
+                }
+              }
+            },
+            "enableCategoryCustomize": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "enableDropdown": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "removeSingleChildren": {
+              "expr": {
+                "Literal": {
+                  "Value": "'normal'"
+                }
+              }
+            },
+            "rootNodeFontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "23D"
+                }
+              }
+            },
+            "parentNodeFontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "21D"
+                }
+              }
+            },
+            "childNodeFontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
+                }
+              }
+            },
+            "level": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "sortAndRank": [
+        {
+          "properties": {
+            "topNApplyTo": {
+              "expr": {
+                "Literal": {
+                  "Value": "'all'"
+                }
+              }
+            },
+            "topNMeasure": {
+              "expr": {
+                "Literal": {
+                  "Value": "'FactBranchCost.分公司销售额'"
+                }
+              }
+            },
+            "sortBy": {
+              "expr": {
+                "Literal": {
+                  "Value": "'FactBranchCost.分公司销售额'"
+                }
+              }
+            },
+            "sortAs": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Descending'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'品牌选择'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

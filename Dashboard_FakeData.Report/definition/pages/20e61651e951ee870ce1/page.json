@@ -1,0 +1,25 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "20e61651e951ee870ce1",
+  "displayName": "产品价格",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "visualInteractions": [
+    {
+      "source": "5142a8007ea8950e64fc",
+      "target": "be3b3a369ad984046faf",
+      "type": "DataFilter"
+    },
+    {
+      "source": "5142a8007ea8950e64fc",
+      "target": "914342aea4c90b9be350",
+      "type": "DataFilter"
+    },
+    {
+      "source": "5142a8007ea8950e64fc",
+      "target": "4bf00dad6dc0d0e97eb0",
+      "type": "DataFilter"
+    }
+  ]
+}
