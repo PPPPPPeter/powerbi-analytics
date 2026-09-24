@@ -37,11 +37,11 @@
                       "Entity": "ProductCatalogAll"
                     }
                   },
-                  "Property": "品牌"
+                  "Property": "Brand"
                 }
               },
-              "queryRef": "ProductCatalogAll.品牌",
-              "nativeQueryRef": "品牌"
+              "queryRef": "ProductCatalogAll.Brand",
+              "nativeQueryRef": "Brand"
             },
             {
               "field": {
@@ -51,11 +51,11 @@
                       "Entity": "ProductCatalogAll"
                     }
                   },
-                  "Property": "产品名称"
+                  "Property": "Product Name"
                 }
               },
-              "queryRef": "ProductCatalogAll.产品名称",
-              "nativeQueryRef": "产品名称"
+              "queryRef": "ProductCatalogAll.Product Name",
+              "nativeQueryRef": "Product Name"
             },
             {
               "field": {
@@ -65,12 +65,12 @@
                       "Entity": "DimProductAll"
                     }
                   },
-                  "Property": "当前库存数量"
+                  "Property": "Current Stock Qty"
                 }
               },
-              "queryRef": "DimProductNJ.当前库存数量NJ",
-              "nativeQueryRef": "库存数量",
-              "displayName": "库存数量"
+              "queryRef": "DimProductNJ.Current Stock Qty NJ",
+              "nativeQueryRef": "Stock Qty",
+              "displayName": "Stock Qty"
             },
             {
               "field": {
@@ -80,12 +80,12 @@
                       "Entity": "DimProductAll"
                     }
                   },
-                  "Property": "在途采购数量NJ"
+                  "Property": "In Transit Purchase Qty NJ"
                 }
               },
-              "queryRef": "DimProductNJ.在途采购数量NJ",
-              "nativeQueryRef": "在途数量",
-              "displayName": "在途数量",
+              "queryRef": "DimProductNJ.In Transit Purchase Qty NJ",
+              "nativeQueryRef": "In Transit Qty",
+              "displayName": "In Transit Qty",
               "format": "0"
             },
             {
@@ -96,12 +96,12 @@
                       "Entity": "DimProductAll"
                     }
                   },
-                  "Property": "近30天有效销售数量"
+                  "Property": "Last 30 Days Net Sales Qty"
                 }
               },
-              "queryRef": "DimProductNJ.近30天有效销售数量",
-              "nativeQueryRef": "近一个月销量",
-              "displayName": "近一个月销量"
+              "queryRef": "DimProductNJ.Last 30 Days Net Sales Qty",
+              "nativeQueryRef": "Last Month Volume",
+              "displayName": "Last Month Volume"
             },
             {
               "field": {
@@ -111,12 +111,12 @@
                       "Entity": "DimProductAll"
                     }
                   },
-                  "Property": "近90天有效销售数量"
+                  "Property": "Last 90 Days Net Sales Qty"
                 }
               },
-              "queryRef": "DimProductNJ.近90天有效销售数量",
-              "nativeQueryRef": "近三个月销量",
-              "displayName": "近三个月销量"
+              "queryRef": "DimProductNJ.Last 90 Days Net Sales Qty",
+              "nativeQueryRef": "Last 3 Months Volume",
+              "displayName": "Last 3 Months Volume"
             },
             {
               "field": {
@@ -126,12 +126,12 @@
                       "Entity": "DimProductAll"
                     }
                   },
-                  "Property": "含在途库存覆盖天数"
+                  "Property": "Stock Cover Days Incl In Transit"
                 }
               },
-              "queryRef": "DimProductNJ.含在途库存覆盖天数",
-              "nativeQueryRef": "库存覆盖天数",
-              "displayName": "库存覆盖天数",
+              "queryRef": "DimProductNJ.Stock Cover Days Incl In Transit",
+              "nativeQueryRef": "Stock Cover Days",
+              "displayName": "Stock Cover Days",
               "format": "0"
             },
             {
@@ -142,12 +142,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "SKU补货提前期"
+                  "Property": "SKU Reorder Lead Time"
                 }
               },
-              "queryRef": "_Measures.SKU补货提前期",
-              "nativeQueryRef": "补货提前天数",
-              "displayName": "补货提前天数",
+              "queryRef": "_Measures.SKU Reorder Lead Time",
+              "nativeQueryRef": "Reorder Lead Days",
+              "displayName": "Reorder Lead Days",
               "format": "0"
             },
             {
@@ -158,12 +158,12 @@
                       "Entity": "DimProductAll"
                     }
                   },
-                  "Property": "再订货点"
+                  "Property": "Reorder Point"
                 }
               },
-              "queryRef": "DimProductNJ.再订货点",
-              "nativeQueryRef": "订货库存点",
-              "displayName": "订货库存点",
+              "queryRef": "DimProductNJ.Reorder Point",
+              "nativeQueryRef": "Order Stock Point",
+              "displayName": "Order Stock Point",
               "format": "0"
             },
             {
@@ -174,11 +174,11 @@
                       "Entity": "DimProductAll"
                     }
                   },
-                  "Property": "建议补货数量"
+                  "Property": "Suggested Order Qty"
                 }
               },
-              "queryRef": "DimProductNJ.建议补货数量",
-              "nativeQueryRef": "建议补货数量",
+              "queryRef": "DimProductNJ.Suggested Order Qty",
+              "nativeQueryRef": "Suggested Order Qty",
               "format": "0"
             },
             {
@@ -189,11 +189,11 @@
                       "Entity": "DimProductAll"
                     }
                   },
-                  "Property": "预计断货日期"
+                  "Property": "Projected Stockout Date"
                 }
               },
-              "queryRef": "DimProductNJ.预计断货日期",
-              "nativeQueryRef": "预计断货日期",
+              "queryRef": "DimProductNJ.Projected Stockout Date",
+              "nativeQueryRef": "Projected Stockout Date",
               "format": "d"
             },
             {
@@ -204,12 +204,12 @@
                       "Entity": "DimProductAll"
                     }
                   },
-                  "Property": "补货状态"
+                  "Property": "Reorder Status"
                 }
               },
-              "queryRef": "DimProductNJ.补货状态",
-              "nativeQueryRef": "补货状态",
-              "displayName": "补货状态"
+              "queryRef": "DimProductNJ.Reorder Status",
+              "nativeQueryRef": "Reorder Status",
+              "displayName": "Reorder Status"
             }
           ]
         }
@@ -224,7 +224,7 @@
                     "Entity": "DimProductAll"
                   }
                 },
-                "Property": "近90天有效销售数量"
+                "Property": "Last 90 Days Net Sales Qty"
               }
             },
             "direction": "Descending"
@@ -245,7 +245,7 @@
             }
           },
           "selector": {
-            "metadata": "ProductCatalogAll.产品名称"
+            "metadata": "ProductCatalogAll.Product Name"
           }
         },
         {
@@ -259,7 +259,7 @@
             }
           },
           "selector": {
-            "metadata": "ProductCatalogAll.品牌"
+            "metadata": "ProductCatalogAll.Brand"
           }
         },
         {
@@ -287,7 +287,7 @@
             }
           },
           "selector": {
-            "metadata": "DimProductNJ.补货状态"
+            "metadata": "DimProductNJ.Reorder Status"
           }
         },
         {
@@ -301,7 +301,7 @@
             }
           },
           "selector": {
-            "metadata": "DimProductNJ.再订货点"
+            "metadata": "DimProductNJ.Reorder Point"
           }
         },
         {
@@ -315,7 +315,7 @@
             }
           },
           "selector": {
-            "metadata": "DimProductNJ.当前库存数量NJ"
+            "metadata": "DimProductNJ.Current Stock Qty NJ"
           }
         },
         {
@@ -329,7 +329,7 @@
             }
           },
           "selector": {
-            "metadata": "DimProductNJ.在途采购数量NJ"
+            "metadata": "DimProductNJ.In Transit Purchase Qty NJ"
           }
         }
       ],
@@ -392,12 +392,12 @@
                                           "Entity": "DimProductAll"
                                         }
                                       },
-                                      "Property": "补货状态"
+                                      "Property": "Reorder Status"
                                     }
                                   },
                                   "Right": {
                                     "Literal": {
-                                      "Value": "'库存正常'"
+                                      "Value": "'Stock Normal'"
                                     }
                                   }
                                 },
@@ -429,7 +429,7 @@
                 }
               }
             ],
-            "metadata": "DimProductNJ.补货状态"
+            "metadata": "DimProductNJ.Reorder Status"
           }
         }
       ]
@@ -447,7 +447,7 @@
                 "Entity": "DimProductAll"
               }
             },
-            "Property": "SKU库存分析显示标记"
+            "Property": "SKU Inventory Analysis Display Flag"
           }
         },
         "type": "Advanced",
@@ -472,7 +472,7 @@
                           "Source": "d"
                         }
                       },
-                      "Property": "SKU库存分析显示标记"
+                      "Property": "SKU Inventory Analysis Display Flag"
                     }
                   },
                   "Right": {

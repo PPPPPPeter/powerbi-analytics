@@ -23,11 +23,11 @@
                       "Entity": "DimProductAll"
                     }
                   },
-                  "Property": "紧急补货SKU数"
+                  "Property": "Urgent Reorder SKU Count"
                 }
               },
-              "queryRef": "DimProductNJ.紧急补货SKU数",
-              "nativeQueryRef": "紧急补货SKU数",
+              "queryRef": "DimProductNJ.Urgent Reorder SKU Count",
+              "nativeQueryRef": "Urgent Reorder SKU Count",
               "format": "G"
             },
             {
@@ -38,12 +38,12 @@
                       "Entity": "DimProductAll"
                     }
                   },
-                  "Property": "未来60天可能断货SKU数"
+                  "Property": "Next 60 Days Possible Stockout SKU Count"
                 }
               },
-              "queryRef": "DimProductNJ.未来14天可能断货SKU数",
-              "nativeQueryRef": "60天可能断货SKU数",
-              "displayName": "60天可能断货SKU数"
+              "queryRef": "DimProductNJ.Next 14 Days Possible Stockout SKU Count",
+              "nativeQueryRef": "60-Day Possible Stockout SKU Count",
+              "displayName": "60-Day Possible Stockout SKU Count"
             },
             {
               "field": {
@@ -53,11 +53,11 @@
                       "Entity": "DimProductAll"
                     }
                   },
-                  "Property": "积压SKU数"
+                  "Property": "Overstock SKU Count"
                 }
               },
-              "queryRef": "DimProductNJ.积压SKU数",
-              "nativeQueryRef": "积压SKU数"
+              "queryRef": "DimProductNJ.Overstock SKU Count",
+              "nativeQueryRef": "Overstock SKU Count"
             },
             {
               "field": {
@@ -67,11 +67,11 @@
                       "Entity": "DimProductAll"
                     }
                   },
-                  "Property": "临期风险SKU数"
+                  "Property": "Near Expiry Risk SKU Count"
                 }
               },
-              "queryRef": "DimProductNJ.临期风险SKU数",
-              "nativeQueryRef": "临期风险SKU数"
+              "queryRef": "DimProductNJ.Near Expiry Risk SKU Count",
+              "nativeQueryRef": "Near Expiry Risk SKU Count"
             },
             {
               "field": {
@@ -81,11 +81,11 @@
                       "Entity": "DimProductAll"
                     }
                   },
-                  "Property": "风险库存金额"
+                  "Property": "At-Risk Stock Value"
                 }
               },
-              "queryRef": "DimProductNJ.风险库存金额",
-              "nativeQueryRef": "风险库存金额",
+              "queryRef": "DimProductNJ.At-Risk Stock Value",
+              "nativeQueryRef": "At-Risk Stock Value",
               "format": "#,0.00"
             }
           ]
@@ -101,7 +101,7 @@
                     "Entity": "DimProductAll"
                   }
                 },
-                "Property": "紧急补货SKU数"
+                "Property": "Urgent Reorder SKU Count"
               }
             },
             "direction": "Descending"
@@ -178,7 +178,7 @@
             }
           },
           "selector": {
-            "metadata": "DimProductNJ.积压SKU数"
+            "metadata": "DimProductNJ.Overstock SKU Count"
           }
         },
         {
@@ -206,7 +206,7 @@
             }
           },
           "selector": {
-            "metadata": "DimProductNJ.风险库存金额"
+            "metadata": "DimProductNJ.At-Risk Stock Value"
           }
         }
       ],

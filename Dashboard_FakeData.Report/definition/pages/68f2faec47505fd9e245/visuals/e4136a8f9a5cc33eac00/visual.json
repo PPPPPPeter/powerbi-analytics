@@ -23,11 +23,11 @@
                       "Entity": "DimProductAll"
                     }
                   },
-                  "Property": "品牌"
+                  "Property": "Brand"
                 }
               },
-              "queryRef": "DimProductNJ.品牌",
-              "nativeQueryRef": "品牌"
+              "queryRef": "DimProductNJ.Brand",
+              "nativeQueryRef": "Brand"
             },
             {
               "field": {
@@ -51,11 +51,11 @@
                       "Entity": "DimProductAll"
                     }
                   },
-                  "Property": "产品名称"
+                  "Property": "Product Name"
                 }
               },
-              "queryRef": "DimProduct.产品名称",
-              "nativeQueryRef": "产品名称"
+              "queryRef": "DimProduct.Product Name",
+              "nativeQueryRef": "Product Name"
             },
             {
               "field": {
@@ -65,11 +65,11 @@
                       "Entity": "FactInventoryLot"
                     }
                   },
-                  "Property": "有效期"
+                  "Property": "Expiry Date"
                 }
               },
-              "queryRef": "FactInventoryLot.有效期",
-              "nativeQueryRef": "有效期"
+              "queryRef": "FactInventoryLot.Expiry Date",
+              "nativeQueryRef": "Expiry Date"
             },
             {
               "field": {
@@ -79,11 +79,11 @@
                       "Entity": "FactInventoryLot"
                     }
                   },
-                  "Property": "距有效期天数"
+                  "Property": "Days to Expiry"
                 }
               },
-              "queryRef": "FactInventoryLot.距有效期天数",
-              "nativeQueryRef": "距有效期天数"
+              "queryRef": "FactInventoryLot.Days to Expiry",
+              "nativeQueryRef": "Days to Expiry"
             },
             {
               "field": {
@@ -93,12 +93,12 @@
                       "Entity": "FactInventoryLot"
                     }
                   },
-                  "Property": "有效期状态"
+                  "Property": "Expiry Status"
                 }
               },
-              "queryRef": "FactInventoryLot.有效期状态",
-              "nativeQueryRef": "产品状态",
-              "displayName": "产品状态"
+              "queryRef": "FactInventoryLot.Expiry Status",
+              "nativeQueryRef": "Product Status",
+              "displayName": "Product Status"
             },
             {
               "field": {
@@ -110,15 +110,15 @@
                           "Entity": "FactInventoryLot"
                         }
                       },
-                      "Property": "在手数量"
+                      "Property": "On Hand Qty"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(FactInventoryLot.在手数量)",
-              "nativeQueryRef": "在手数量",
-              "displayName": "在手数量"
+              "queryRef": "Sum(FactInventoryLot.On Hand Qty)",
+              "nativeQueryRef": "On Hand Qty",
+              "displayName": "On Hand Qty"
             },
             {
               "field": {
@@ -130,15 +130,15 @@
                           "Entity": "FactInventoryLot"
                         }
                       },
-                      "Property": "产品/有效期"
+                      "Property": "Product/Expiry Date"
                     }
                   },
                   "Function": 1
                 }
               },
-              "queryRef": "Sum(FactInventoryLot.产品/有效期)",
-              "nativeQueryRef": "Average of 产品/有效期",
-              "displayName": "保质期"
+              "queryRef": "Sum(FactInventoryLot.Product/Expiry Date)",
+              "nativeQueryRef": "Average of Product/Expiry Date",
+              "displayName": "Shelf Life"
             },
             {
               "field": {
@@ -148,11 +148,11 @@
                       "Entity": "FactInventoryLot"
                     }
                   },
-                  "Property": "预计损失金额"
+                  "Property": "Estimated Loss Value"
                 }
               },
-              "queryRef": "FactInventoryLot.预计损失金额",
-              "nativeQueryRef": "预计损失金额",
+              "queryRef": "FactInventoryLot.Estimated Loss Value",
+              "nativeQueryRef": "Estimated Loss Value",
               "format": "\\$#,0.00;(\\$#,0.00);\\$#,0.00"
             },
             {
@@ -165,15 +165,15 @@
                           "Entity": "FactInventoryLot"
                         }
                       },
-                      "Property": "保质期进度"
+                      "Property": "Shelf Life Progress"
                     }
                   },
                   "Function": 1
                 }
               },
-              "queryRef": "Sum(FactInventoryLot.剩余保质期比例)",
-              "nativeQueryRef": "Average of 保质期进度",
-              "displayName": "保质期进度",
+              "queryRef": "Sum(FactInventoryLot.Remaining Shelf Life Ratio)",
+              "nativeQueryRef": "Average of Shelf Life Progress",
+              "displayName": "Shelf Life Progress",
               "format": "0.00%;-0.00%;0.00%"
             }
           ]
@@ -189,7 +189,7 @@
                     "Entity": "FactInventoryLot"
                   }
                 },
-                "Property": "预计损失金额"
+                "Property": "Estimated Loss Value"
               }
             },
             "direction": "Descending"
@@ -236,7 +236,7 @@
             }
           },
           "selector": {
-            "metadata": "DimProduct.产品名称"
+            "metadata": "DimProduct.Product Name"
           }
         },
         {
@@ -250,7 +250,7 @@
             }
           },
           "selector": {
-            "metadata": "FactInventoryLot.预计损失金额"
+            "metadata": "FactInventoryLot.Estimated Loss Value"
           }
         },
         {
@@ -264,7 +264,7 @@
             }
           },
           "selector": {
-            "metadata": "FactInventoryLot.距有效期天数"
+            "metadata": "FactInventoryLot.Days to Expiry"
           }
         },
         {
@@ -278,7 +278,7 @@
             }
           },
           "selector": {
-            "metadata": "Sum(FactInventoryLot.在手数量)"
+            "metadata": "Sum(FactInventoryLot.On Hand Qty)"
           }
         },
         {
@@ -292,7 +292,7 @@
             }
           },
           "selector": {
-            "metadata": "FactInventoryLot.有效期"
+            "metadata": "FactInventoryLot.Expiry Date"
           }
         },
         {
@@ -306,7 +306,7 @@
             }
           },
           "selector": {
-            "metadata": "Sum(FactInventoryLot.剩余保质期比例)"
+            "metadata": "Sum(FactInventoryLot.Remaining Shelf Life Ratio)"
           }
         },
         {
@@ -334,7 +334,7 @@
             }
           },
           "selector": {
-            "metadata": "DimProductNJ.品牌"
+            "metadata": "DimProductNJ.Brand"
           }
         }
       ],
@@ -372,7 +372,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'紧急处理产品'"
+                  "Value": "'Products Needing Urgent Action'"
                 }
               }
             },
@@ -440,7 +440,7 @@
                     "Entity": "FactInventoryLot"
                   }
                 },
-                "Property": "在手数量"
+                "Property": "On Hand Qty"
               }
             },
             "Function": 0
@@ -470,7 +470,7 @@
                               "Source": "f1"
                             }
                           },
-                          "Property": "在手数量"
+                          "Property": "On Hand Qty"
                         }
                       },
                       "Function": 0
@@ -496,7 +496,7 @@
                 "Entity": "FactInventoryLot"
               }
             },
-            "Property": "距有效期天数"
+            "Property": "Days to Expiry"
           }
         },
         "type": "Advanced",
@@ -521,7 +521,7 @@
                           "Source": "f"
                         }
                       },
-                      "Property": "距有效期天数"
+                      "Property": "Days to Expiry"
                     }
                   },
                   "Right": {

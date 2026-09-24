@@ -42,11 +42,11 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "分公司销售额（不含运费和服务费）"
+                  "Property": "Branch Sales (Excl Freight and Service Fees)"
                 }
               },
-              "queryRef": "FactBranchCost.分公司销售额",
-              "nativeQueryRef": "分公司销售额（不含运费和服务费）"
+              "queryRef": "FactBranchCost.Branch Sales",
+              "nativeQueryRef": "Branch Sales (Excl Freight and Service Fees)"
             }
           ]
         }
@@ -61,7 +61,7 @@
                     "Entity": "FactBranchCost"
                   }
                 },
-                "Property": "分公司销售额（不含运费和服务费）"
+                "Property": "Branch Sales (Excl Freight and Service Fees)"
               }
             },
             "direction": "Descending"
@@ -130,7 +130,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'客户类型占比'"
+                  "Value": "'Customer Type Share'"
                 }
               }
             },

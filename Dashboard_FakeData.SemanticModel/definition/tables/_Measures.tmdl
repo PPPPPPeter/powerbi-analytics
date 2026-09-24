@@ -1,12 +1,12 @@
 table _Measures
 	lineageTag: c34ed5fc-0efd-4fd2-b0b9-ff8bfbe6158f
 
-	measure 订单创建人销售占比 =
+	measure 'Order Creator Sales Share' =
 			
 			DIVIDE (
-			    [订单创建人销售额],
+			    [Order Creator Sales],
 			    CALCULATE (
-			        [订单创建人销售额],
+			        [Order Creator Sales],
 			        REMOVEFILTERS ( DimCreator )
 			    ),
 			    0
@@ -15,73 +15,73 @@ table _Measures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 订单创建人销售额 =
+	measure 'Order Creator Sales' =
 			
 			CALCULATE (
-			    [分公司销售额（不含运费和服务费）],
+			    [Branch Sales (Excl Freight and Service Fees)],
 			    REMOVEFILTERS ( DimSalesperson )
 			)
 		lineageTag: 6bc30090-db02-4fff-9001-fe118eb9b1af
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 销售人员销售额 =
+	measure 'Salesperson Sales' =
 			
 			CALCULATE (
-			    [分公司销售额（不含运费和服务费）],
+			    [Branch Sales (Excl Freight and Service Fees)],
 			    REMOVEFILTERS ( DimCreator )
 			)
 		lineageTag: 428be1e5-13a9-4654-89d7-13460ad7bf84
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 销售人员目标 =
+	measure 'Salesperson Target' =
 			
 			CALCULATE(
-			    SUM(FactSalesTarget[KPI目标]),
+			    SUM(FactSalesTarget[KPI Target]),
 			    REMOVEFILTERS(DimCreator)
 			)
 		lineageTag: 5d31167f-254b-46d0-bd54-7d443c71e78c
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 订单创建人目标 =
+	measure 'Order Creator Target' =
 			
 			CALCULATE(
-			    SUM(FactSalesTarget[KPI目标]),
+			    SUM(FactSalesTarget[KPI Target]),
 			    REMOVEFILTERS(DimSalesperson)
 			)
 		lineageTag: fbd38c71-b6e0-4bac-b59d-8f53cc67fee8
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 销售人员完成率 =
+	measure 'Salesperson Completion Rate' =
 			
 			DIVIDE(
-			    [销售人员销售额],
-			    [销售人员目标],
+			    [Salesperson Sales],
+			    [Salesperson Target],
 			    0
 			)
 		lineageTag: 3c7fd6b8-f68a-47a7-9f90-0bb43b8131ab
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 订单创建人完成率 =
+	measure 'Order Creator Completion Rate' =
 			
 			DIVIDE (
-			    [订单创建人销售额],
-			    [订单创建人目标]
+			    [Order Creator Sales],
+			    [Order Creator Target]
 			)
 		lineageTag: 33a2b91d-b2d0-42d9-a563-9b8193200d9e
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 销售人员销售占比 =
+	measure 'Salesperson Sales Share' =
 			
 			DIVIDE(
-			    [销售人员销售额],
+			    [Salesperson Sales],
 			    CALCULATE(
-			        [销售人员销售额],
+			        [Salesperson Sales],
 			        REMOVEFILTERS(DimSalesperson)
 			    ),
 			    0
@@ -90,17 +90,17 @@ table _Measures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 总销售完成率 =
+	measure 'Total Sales Completion Rate' =
 			
 			VAR TotalActual =
 			    CALCULATE(
-			        [订单创建人销售额],
+			        [Order Creator Sales],
 			        REMOVEFILTERS(DimSalesperson),
 			        REMOVEFILTERS(DimCreator)
 			    )
 			VAR TotalTarget =
 			    CALCULATE(
-			        SUM(FactSalesTarget[KPI目标]),
+			        SUM(FactSalesTarget[KPI Target]),
 			        REMOVEFILTERS(DimSalesperson),
 			        REMOVEFILTERS(DimCreator)
 			    )
@@ -119,39 +119,39 @@ table _Measures
 			VAR SalesTable =
 			    ADDCOLUMNS(
 			        FILTER(
-			            ALLSELECTED(DimCreator[订单创建人]),
-			            NOT ISBLANK(DimCreator[订单创建人])
-			                && DimCreator[订单创建人] <> "未知人员"
+			            ALLSELECTED(DimCreator[Order Creator]),
+			            NOT ISBLANK(DimCreator[Order Creator])
+			                && DimCreator[Order Creator] <> "Unknown Person"
 			        ),
-			        "@SalesAmount", [订单创建人销售额]
+			        "@SalesAmount", [Order Creator Sales]
 			    )
 			VAR TopPerson =
 			    TOPN(
 			        1,
 			        SalesTable,
 			        [@SalesAmount], DESC,
-			        DimCreator[订单创建人], ASC
+			        DimCreator[Order Creator], ASC
 			    )
 			RETURN
 			    CONCATENATEX(
 			        TopPerson,
-			        DimCreator[订单创建人],
+			        DimCreator[Order Creator],
 			        ""
 			    )
 		lineageTag: 3bfa9fe4-69df-4b4c-a102-27de9616425d
 
-	measure 总销售额距离目标 =
+	measure 'Total Sales Gap to Target' =
 			
 			VAR TotalActual =
 			    CALCULATE (
-			        [订单创建人销售额],
+			        [Order Creator Sales],
 			        REMOVEFILTERS ( DimSalesperson ),
 			        REMOVEFILTERS ( DimCreator )
 			    )
 			
 			VAR TotalTarget =
 			    CALCULATE (
-			        SUM ( FactSalesTarget[KPI目标] ),
+			        SUM ( FactSalesTarget[KPI Target] ),
 			        REMOVEFILTERS ( DimSalesperson ),
 			        REMOVEFILTERS ( DimCreator )
 			    )
@@ -162,16 +162,16 @@ table _Measures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Top Sale 占比' =
+	measure 'Top Sale Share' =
 			
 			VAR SalesTable =
 			    ADDCOLUMNS(
 			        FILTER(
-			            ALLSELECTED(DimCreator[订单创建人]),
-			            NOT ISBLANK(DimCreator[订单创建人])
-			                && DimCreator[订单创建人] <> "未知人员"
+			            ALLSELECTED(DimCreator[Order Creator]),
+			            NOT ISBLANK(DimCreator[Order Creator])
+			                && DimCreator[Order Creator] <> "Unknown Person"
 			        ),
-			        "@SalesAmount", [订单创建人销售额]
+			        "@SalesAmount", [Order Creator Sales]
 			    )
 			VAR TopSalesAmount =
 			    MAXX(
@@ -180,8 +180,8 @@ table _Measures
 			    )
 			VAR TotalSalesAmount =
 			    CALCULATE(
-			        [订单创建人销售额],
-			        ALLSELECTED(DimCreator[订单创建人])
+			        [Order Creator Sales],
+			        ALLSELECTED(DimCreator[Order Creator])
 			    )
 			RETURN
 			    DIVIDE(
@@ -193,39 +193,39 @@ table _Measures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 选定年份销售额 =
+	measure 'Selected Year Sales' =
 			
 			VAR SelectedYear =
-			    SELECTEDVALUE(DimDate[年份])
+			    SELECTEDVALUE(DimDate[Year])
 			RETURN
 			    IF(
 			        NOT ISBLANK(SelectedYear),
 			        CALCULATE(
-			            [订单创建人销售额],
+			            [Order Creator Sales],
 			            REMOVEFILTERS(DimDate),
-			            DimDate[年份] = SelectedYear
+			            DimDate[Year] = SelectedYear
 			        )
 			    )
 		lineageTag: b98ca89d-5c42-4f87-a0da-2f63a1c929b4
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 上年同期销售额 =
+	measure 'Last Year Same Period Sales' =
 			
 			CALCULATE(
-			    [订单创建人销售额],
+			    [Order Creator Sales],
 			    SAMEPERIODLASTYEAR(DimDate[Date])
 			)
 		lineageTag: 6ee401e8-9c57-4683-8cdf-87529296f18a
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 往年同期同比 =
+	measure 'Prior Year Same Period YoY' =
 			
 			VAR CurrentSales =
-			    [订单创建人销售额]
+			    [Order Creator Sales]
 			VAR PreviousYearSales =
-			    [上年同期销售额]
+			    [Last Year Same Period Sales]
 			RETURN
 			    IF(
 			        ISBLANK(PreviousYearSales)
@@ -240,13 +240,13 @@ table _Measures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 品牌销售占比 =
+	measure 'Brand Sales Share' =
 			
 			DIVIDE(
-			    [分公司销售额（不含运费和服务费）],
+			    [Branch Sales (Excl Freight and Service Fees)],
 			    CALCULATE(
-			        [分公司销售额（不含运费和服务费）],
-			        REMOVEFILTERS(ProductCatalogAll[品牌])
+			        [Branch Sales (Excl Freight and Service Fees)],
+			        REMOVEFILTERS(ProductCatalogAll[Brand])
 			    ),
 			    0
 			)
@@ -254,10 +254,10 @@ table _Measures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 上月销售额 =
+	measure 'Last Month Sales' =
 			
 			CALCULATE(
-			    [订单创建人销售额],
+			    [Order Creator Sales],
 			    DATEADD(
 			        DimDate[Date],
 			        -1,
@@ -268,18 +268,18 @@ table _Measures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 月环比 =
+	measure MoM =
 			
 			DIVIDE(
-			    [订单创建人销售额] - [上月销售额],
-			    [上月销售额],
+			    [Order Creator Sales] - [Last Month Sales],
+			    [Last Month Sales],
 			    0
 			)
 		lineageTag: 79871ea4-823d-486d-8ce0-d8e50fd3430d
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 销售额（不含运费和服务费） =
+	measure 'Sales (Excl Freight and Service Fees)' =
 			
 			CALCULATE (
 			    SUMX (
@@ -287,7 +287,7 @@ table _Measures
 			        VAR InvoiceType =
 			            FactSalesAll[Type]
 			        VAR LineSubtotal =
-			            FactSalesAll[小计]
+			            FactSalesAll[Subtotal]
 			        RETURN
 			            SWITCH (
 			                InvoiceType,
@@ -299,7 +299,7 @@ table _Measures
 			
 			    KEEPFILTERS (
 			        NOT (
-			            FactSalesAll[产品/内部参考号]
+			            FactSalesAll[Product/Internal Reference]
 			                IN { "SHH", "Service Fee", "RDC", "C-1" }
 			        )
 			    )
@@ -308,18 +308,18 @@ table _Measures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 总销售额距离目标颜色 =
+	measure 'Total Sales Gap Color' =
 			
 			VAR TotalActual =
 			    CALCULATE (
-			        [订单创建人销售额],
+			        [Order Creator Sales],
 			        REMOVEFILTERS ( DimSalesperson ),
 			        REMOVEFILTERS ( DimCreator )
 			    )
 			
 			VAR TotalTarget =
 			    CALCULATE (
-			        SUM ( FactSalesTarget[KPI目标]),
+			        SUM ( FactSalesTarget[KPI Target]),
 			        REMOVEFILTERS ( DimSalesperson ),
 			        REMOVEFILTERS ( DimCreator )
 			    )
@@ -327,100 +327,100 @@ table _Measures
 			RETURN
 			    IF (
 			        TotalActual >= TotalTarget,
-			        "#2E8B57",   -- 达到或超过目标：绿色
-			        "#C94C4C"    -- 尚未达到目标：红色
+			        "#2E8B57",   -- At or above target: green
+			        "#C94C4C"    -- Below target: red
 			    )
 		formatString: 0
 		lineageTag: 11388750-5dde-474b-8a40-d10b93e878e0
 
-	measure 销售完成度Gauge颜色 =
+	measure 'Sales Completion Gauge Color' =
 			
 			VAR ActualSales =
-			    [订单创建人销售额]
+			    [Order Creator Sales]
 			
 			VAR AugustTarget =
-			    SUM ( FactSalesTarget[KPI目标] )
+			    SUM ( FactSalesTarget[KPI Target] )
 			
 			RETURN
 			    SWITCH (
 			        TRUE (),
 			        ISBLANK ( AugustTarget ) || AugustTarget <= 0, "#9E9E9E",
-			        ActualSales >= AugustTarget, "#2E8B57",  -- 绿色
-			        "#C94C4C"                              -- 红色
+			        ActualSales >= AugustTarget, "#2E8B57",  -- Green
+			        "#C94C4C"                              -- Red
 			    )
 		formatString: 0
 		lineageTag: eb7d093f-d8b2-4b65-8082-3e394e3e85e9
 
-	measure 销售完成率颜色 =
+	measure 'Sales Completion Color' =
 			
 			IF (
-			    [总销售完成率] >= 1,
-			    "#2E8B57",   -- ≥100%：绿色
-			    "#C94C4C"    -- <100%：红色
+			    [Total Sales Completion Rate] >= 1,
+			    "#2E8B57",   -- ≥100%: Green
+			    "#C94C4C"    -- <100%: Red
 			)
 		lineageTag: a45a1ba6-d175-4bfe-8bbf-595e63b7709a
 
-	measure 往年同比颜色 =
+	measure 'Prior Year YoY Color' =
 			
 			IF (
-			    [往年同期同比] >= 0,
-			    "#2E8B57",   -- ≥0%：绿色
-			    "#C94C4C"    -- <0%：红色
+			    [Prior Year Same Period YoY] >= 0,
+			    "#2E8B57",   -- ≥0%: Green
+			    "#C94C4C"    -- <0%: Red
 			)
 		lineageTag: 337852f1-2aa7-44d3-8e48-ddef18dd9869
 
-	measure 冰淇淋销售额 =
+	measure 'Ice Cream Sales' =
 			
 			CALCULATE (
-			    [订单创建人销售额],
+			    [Order Creator Sales],
 			    REMOVEFILTERS ( DimProductAll ),
-			    DimProductAll[产品分类] = "冰淇淋"
+			    DimProductAll[Product Class] = "Ice Cream"
 			)
 		lineageTag: 9df694da-ade9-4ed6-bfda-4d85562fc565
 
-	measure 冰淇淋完成率 =
+	measure 'Ice Cream Completion Rate' =
 			
 			DIVIDE (
-			    [冰淇淋销售额],
-			    [冰淇淋总目标],
+			    [Ice Cream Sales],
+			    [Ice Cream Total Target],
 			    0
 			)
 		lineageTag: 32ca83a7-2ba0-4355-a853-6113e83607f0
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 本期已铺货SKU数量 =
+	measure 'Current Period Distributed SKU Qty' =
 			
 			SUMX (
 			    VALUES ( FactBranchCost[Ref Num] ),
-			    [本期已铺货SKU标记]
+			    [Current Period Distributed SKU Flag]
 			)
 		formatString: 0
 		lineageTag: 9a4bd095-4a05-470d-9b6a-25804a057f57
 
-	measure 本期未铺货SKU数量 =
+	measure 'Current Period Undistributed SKU Qty' =
 			
 			SUMX (
 			    VALUES ( FactBranchCost[Ref Num] ),
-			    [本期未铺货SKU标记]
+			    [Current Period Undistributed SKU Flag]
 			)
 		formatString: 0
 		lineageTag: ad0c6da7-7f7d-494a-b6de-10eaf3a6ac2b
 
-	measure SKU铺货率 =
+	measure 'SKU Distribution Rate' =
 			
 			DIVIDE (
-			    [本期已铺货SKU数量],
-			    [公司经营SKU总数]
+			    [Current Period Distributed SKU Qty],
+			    [Company SKU Total]
 			)
 		lineageTag: 144cedee-022b-4f68-bd7c-640759917793
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 月环比颜色 =
+	measure 'MoM Color' =
 			
 			VAR MoM =
-			    [月环比]
+			    [MoM]
 			RETURN
 			    SWITCH(
 			        TRUE(),
@@ -431,29 +431,29 @@ table _Measures
 			    )
 		lineageTag: 14e1b3e5-a79c-4360-80d5-c8b385d58065
 
-	measure 冰淇淋完成率标签 =
+	measure 'Ice Cream Completion Label' =
 			
-			VAR Rate = [冰淇淋完成率]
+			VAR Rate = [Ice Cream Completion Rate]
 			RETURN
-			    "冰淇淋完成率：" &
+			    "Ice Cream Completion: " &
 			    IF(ISBLANK(Rate), "—", FORMAT(Rate, "0.0%"))
 		lineageTag: 5c8e8447-21e1-49d6-bfec-d1318c7374ae
 
-	measure 非冰淇淋完成率标签 =
+	measure 'Non-Ice Cream Completion Label' =
 			
-			VAR Rate = [总销售完成率]
+			VAR Rate = [Total Sales Completion Rate]
 			RETURN
-			    "非冰淇淋完成率：" &
+			    "Non-Ice Cream Completion: " &
 			    IF(ISBLANK(Rate), "—", FORMAT(Rate, "0.0%"))
 		lineageTag: c4dfc136-b3b9-4904-af49-54affdedc16c
 
-	measure 品牌毛利贡献占比 =
+	measure 'Brand Gross Profit Contribution Share' =
 			
 			DIVIDE (
-			    [产品价格_毛利],
+			    [Product Price_Gross Profit],
 			    CALCULATE (
-			        [产品价格_毛利],
-			        REMOVEFILTERS ( ProductCatalogAll[品牌] )
+			        [Product Price_Gross Profit],
+			        REMOVEFILTERS ( ProductCatalogAll[Brand] )
 			    ),
 			    0
 			)
@@ -461,18 +461,18 @@ table _Measures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure SKU主要供应商 =
+	measure 'SKU Main Supplier' =
 			
 			VAR SupplierTable =
 			    ADDCOLUMNS (
 			        CALCULATETABLE (
-			            VALUES ( FactPurchaseLeadTime[供应商] ),
+			            VALUES ( FactPurchaseLeadTime[Supplier] ),
 			            REMOVEFILTERS (
-			                FactPurchaseLeadTime[供应商]
+			                FactPurchaseLeadTime[Supplier]
 			            )
 			        ),
 			        "@OrderCount",
-			            CALCULATE ( [提前期有效样本数] )
+			            CALCULATE ( [Valid Lead Time Samples] )
 			    )
 			
 			VAR TopSupplier =
@@ -480,57 +480,57 @@ table _Measures
 			        1,
 			        SupplierTable,
 			        [@OrderCount], DESC,
-			        FactPurchaseLeadTime[供应商], ASC
+			        FactPurchaseLeadTime[Supplier], ASC
 			    )
 			
 			RETURN
 			    CONCATENATEX (
 			        TopSupplier,
-			        FactPurchaseLeadTime[供应商],
+			        FactPurchaseLeadTime[Supplier],
 			        ""
 			    )
 		lineageTag: 65d6c1be-1b77-43ef-8495-de641eb6caf4
 
-	measure SKU主要供应商样本数 =
+	measure 'SKU Main Supplier Samples' =
 			
 			VAR MainSupplier =
-			    [SKU主要供应商]
+			    [SKU Main Supplier]
 			
 			RETURN
 			    IF (
 			        NOT ISBLANK ( MainSupplier ),
 			        CALCULATE (
-			            [提前期有效样本数],
+			            [Valid Lead Time Samples],
 			            REMOVEFILTERS ( ProductCatalogAll ),
 			            REMOVEFILTERS (
-			                FactPurchaseLeadTime[供应商]
+			                FactPurchaseLeadTime[Supplier]
 			            ),
 			            TREATAS (
 			                { MainSupplier },
-			                FactPurchaseLeadTime[供应商]
+			                FactPurchaseLeadTime[Supplier]
 			            )
 			        )
 			    )
 		formatString: 0
 		lineageTag: 0bb410d9-f3aa-45d0-b850-c9330af86ad2
 
-	measure SKU主要供应商P80 =
+	measure 'SKU Main Supplier P80' =
 			
 			VAR MainSupplier =
-			    [SKU主要供应商]
+			    [SKU Main Supplier]
 			
 			RETURN
 			    IF (
 			        NOT ISBLANK ( MainSupplier ),
 			        CALCULATE (
-			            [实际提前期P80],
+			            [Actual Lead Time P80],
 			            REMOVEFILTERS ( ProductCatalogAll ),
 			            REMOVEFILTERS (
-			                FactPurchaseLeadTime[供应商]
+			                FactPurchaseLeadTime[Supplier]
 			            ),
 			            TREATAS (
 			                { MainSupplier },
-			                FactPurchaseLeadTime[供应商]
+			                FactPurchaseLeadTime[Supplier]
 			            )
 			        )
 			    )
@@ -538,22 +538,22 @@ table _Measures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure SKU补货提前期 =
+	measure 'SKU Reorder Lead Time' =
 			
 			VAR SKUSamples =
-			    [SKU提前期样本数]
+			    [SKU Lead Time Samples]
 			
 			VAR SKULeadTime =
-			    [SKU实际提前期P80]
+			    [SKU Actual Lead Time P80]
 			
 			VAR MainSupplierSamples =
-			    [SKU主要供应商样本数]
+			    [SKU Main Supplier Samples]
 			
 			VAR MainSupplierLeadTime =
-			    [SKU主要供应商P80]
+			    [SKU Main Supplier P80]
 			
 			VAR CompanyLeadTime =
-			    [公司整体实际提前期P80]
+			    [Company Actual Lead Time P80]
 			
 			RETURN
 			    SWITCH (
@@ -576,32 +576,32 @@ table _Measures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 铺货分析_在手数量 =
+	measure 'Distribution Analysis_On Hand Qty' =
 			
 			VAR SelectedSKUs =
 			    VALUES ( ProductCatalogAll[SKU] )
 			RETURN
 			    CALCULATE (
-			        SUM ( FactInventoryLot[在手数量] ),
+			        SUM ( FactInventoryLot[On Hand Qty] ),
 			
-			        -- 避免另一个产品维度与当前SKU产生交叉干扰
+			        -- prevent another product dimension from interfering with the current SKU
 			        REMOVEFILTERS ( DimProductAll ),
 			
 			        TREATAS (
 			            SelectedSKUs,
-			            FactInventoryLot[产品/内部参考号]
+			            FactInventoryLot[Product/Internal Reference]
 			        )
 			    )
 		formatString: 0
 		lineageTag: 6af45c84-a59e-4a77-bd2f-a537729f5aa2
 
-	measure 铺货分析_本期销售额 =
+	measure 'Distribution Analysis_Current Period Sales' =
 			
 			VAR SelectedSKUs =
 			    VALUES ( ProductCatalogAll[SKU] )
 			RETURN
 			    CALCULATE (
-			        [分公司销售额（不含运费和服务费）],
+			        [Branch Sales (Excl Freight and Service Fees)],
 			
 			        KEEPFILTERS (
 			            TREATAS (
@@ -615,13 +615,13 @@ table _Measures
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 铺货分析_库存SKU标记 =
+	measure 'Distribution Analysis_Stock SKU Flag' =
 			
 			VAR CurrentSKU =
 			    SELECTEDVALUE ( ProductCatalogAll[SKU] )
 			
 			VAR InventoryQty =
-			    COALESCE ( [铺货分析_在手数量], 0 )
+			    COALESCE ( [Distribution Analysis_On Hand Qty], 0 )
 			
 			RETURN
 			    IF (
@@ -633,16 +633,16 @@ table _Measures
 		formatString: 0
 		lineageTag: d13971a0-221b-434e-9abe-3f58b7130876
 
-	measure 铺货分析_已铺货SKU标记 =
+	measure 'Distribution Analysis_Distributed SKU Flag' =
 			
 			VAR CurrentSKU =
 			    SELECTEDVALUE ( ProductCatalogAll[SKU] )
 			
 			VAR InventoryQty =
-			    COALESCE ( [铺货分析_在手数量], 0 )
+			    COALESCE ( [Distribution Analysis_On Hand Qty], 0 )
 			
 			VAR CurrentSales =
-			    COALESCE ( [铺货分析_本期销售额], 0 )
+			    COALESCE ( [Distribution Analysis_Current Period Sales], 0 )
 			
 			RETURN
 			    IF (
@@ -655,16 +655,16 @@ table _Measures
 		formatString: 0
 		lineageTag: 02b1c516-8784-4927-b967-195c861d037f
 
-	measure 铺货分析_未铺货SKU标记 =
+	measure 'Distribution Analysis_Undistributed SKU Flag' =
 			
 			VAR CurrentSKU =
 			    SELECTEDVALUE ( ProductCatalogAll[SKU] )
 			
 			VAR InventoryQty =
-			    COALESCE ( [铺货分析_在手数量], 0 )
+			    COALESCE ( [Distribution Analysis_On Hand Qty], 0 )
 			
 			VAR CurrentSales =
-			    COALESCE ( [铺货分析_本期销售额], 0 )
+			    COALESCE ( [Distribution Analysis_Current Period Sales], 0 )
 			
 			RETURN
 			    IF (
@@ -677,59 +677,59 @@ table _Measures
 		formatString: 0
 		lineageTag: df070885-a902-4792-aa3e-55ff69fc5b35
 
-	measure 铺货分析_库存SKU总数 =
+	measure 'Distribution Analysis_Stock SKU Total' =
 			
 			COUNTROWS (
 			    FILTER (
 			        VALUES ( ProductCatalogAll[SKU] ),
-			        [铺货分析_库存SKU标记] = 1
+			        [Distribution Analysis_Stock SKU Flag] = 1
 			    )
 			)
 		formatString: 0
 		lineageTag: e423c472-df94-4ba8-acbd-4c45f6756048
 
-	measure 铺货分析_已铺货SKU数量 =
+	measure 'Distribution Analysis_Distributed SKU Qty' =
 			
 			COUNTROWS (
 			    FILTER (
 			        VALUES ( ProductCatalogAll[SKU] ),
-			        [铺货分析_已铺货SKU标记] = 1
+			        [Distribution Analysis_Distributed SKU Flag] = 1
 			    )
 			)
 		formatString: 0
 		lineageTag: a5c94de9-8236-4a9e-9852-313f9537d87d
 
-	measure 铺货分析_未铺货SKU数量 =
+	measure 'Distribution Analysis_Undistributed SKU Qty' =
 			
 			COUNTROWS (
 			    FILTER (
 			        VALUES ( ProductCatalogAll[SKU] ),
-			        [铺货分析_未铺货SKU标记] = 1
+			        [Distribution Analysis_Undistributed SKU Flag] = 1
 			    )
 			)
 		formatString: 0
 		lineageTag: 2cc3bfdc-70cf-41ca-95fe-2e79607c98dd
 
-	measure 铺货分析_SKU数量核对 =
+	measure 'Distribution Analysis_SKU Qty Check' =
 			
 			VAR TotalSKU =
-			    [铺货分析_库存SKU总数]
+			    [Distribution Analysis_Stock SKU Total]
 			
 			VAR StockedSKU =
-			    [铺货分析_已铺货SKU数量]
+			    [Distribution Analysis_Distributed SKU Qty]
 			
 			VAR UnstockedSKU =
-			    [铺货分析_未铺货SKU数量]
+			    [Distribution Analysis_Undistributed SKU Qty]
 			
 			RETURN
 			    TotalSKU - StockedSKU - UnstockedSKU
 		formatString: 0
 		lineageTag: 787dd2bb-0196-4d91-9562-e5268bd1012e
 
-	measure 品牌客户_客户本期总销售额 =
+	measure 'Brand Customer_Customer Current Period Sales' =
 			
 			CALCULATE (
-			    [分公司销售额（不含运费和服务费）],
+			    [Branch Sales (Excl Freight and Service Fees)],
 			
 			    REMOVEFILTERS ( ProductCatalogAll ),
 			    REMOVEFILTERS ( ProductCatalog ),
@@ -747,25 +747,25 @@ table _Measures
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 品牌客户_所选品牌有库存SKU数 =
+	measure 'Brand Customer_Selected Brand In-Stock SKUs' =
 			
 			IF (
-			    HASONEVALUE ( ProductCatalogAll[品牌] ),
-			    [铺货分析_库存SKU总数],
+			    HASONEVALUE ( ProductCatalogAll[Brand] ),
+			    [Distribution Analysis_Stock SKU Total],
 			    BLANK ()
 			)
 		formatString: 0
 		lineageTag: d203f764-65b4-44b0-a406-5a2cab56fe43
 
-	measure 品牌客户_所选品牌本期销售额 =
+	measure 'Brand Customer_Selected Brand Current Period Sales' =
 			
 			VAR HasOneBrand =
-			    HASONEVALUE ( ProductCatalogAll[品牌] )
+			    HASONEVALUE ( ProductCatalogAll[Brand] )
 			
 			VAR InStockSKUs =
 			    FILTER (
 			        VALUES ( ProductCatalogAll[SKU] ),
-			        [铺货分析_库存SKU标记] = 1
+			        [Distribution Analysis_Stock SKU Flag] = 1
 			    )
 			
 			RETURN
@@ -773,7 +773,7 @@ table _Measures
 			        NOT HasOneBrand,
 			        BLANK (),
 			        CALCULATE (
-			            [分公司销售额（不含运费和服务费）],
+			            [Branch Sales (Excl Freight and Service Fees)],
 			
 			            REMOVEFILTERS ( ProductCatalogAll ),
 			            REMOVEFILTERS ( ProductCatalog ),
@@ -797,21 +797,21 @@ table _Measures
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 品牌客户_目标客户标记 =
+	measure 'Brand Customer_Target Customer Flag' =
 			
 			VAR CurrentCustomerKey =
-			    SELECTEDVALUE ( DimCustomerAll[客户公司Key] )
+			    SELECTEDVALUE ( DimCustomerAll[Customer Company Key] )
 			
 			VAR AvailableSKUCount =
-			    COALESCE ( [品牌客户_所选品牌有库存SKU数], 0 )
+			    COALESCE ( [Brand Customer_Selected Brand In-Stock SKUs], 0 )
 			
 			VAR CustomerTotalSales =
-			    COALESCE ( [品牌客户_客户本期总销售额], 0 )
+			    COALESCE ( [Brand Customer_Customer Current Period Sales], 0 )
 			
 			RETURN
 			    IF (
 			        NOT ISBLANK ( CurrentCustomerKey )
-			            && HASONEVALUE ( ProductCatalogAll[品牌] )
+			            && HASONEVALUE ( ProductCatalogAll[Brand] )
 			            && AvailableSKUCount > 0
 			            && CustomerTotalSales > 0,
 			        1,
@@ -820,13 +820,13 @@ table _Measures
 		formatString: 0
 		lineageTag: 94413e27-5f20-420d-b672-f054955ac44c
 
-	measure 品牌客户_已铺货客户标记 =
+	measure 'Brand Customer_Distributed Customer Flag' =
 			
 			VAR IsTargetCustomer =
-			    [品牌客户_目标客户标记]
+			    [Brand Customer_Target Customer Flag]
 			
 			VAR BrandSales =
-			    COALESCE ( [品牌客户_所选品牌本期销售额], 0 )
+			    COALESCE ( [Brand Customer_Selected Brand Current Period Sales], 0 )
 			
 			RETURN
 			    IF (
@@ -838,51 +838,51 @@ table _Measures
 		formatString: 0
 		lineageTag: 5404080e-61b8-4110-873d-dd35b94813cb
 
-	measure 品牌客户_目标客户数 =
+	measure 'Brand Customer_Target Customers' =
 			
 			COUNTROWS (
 			    FILTER (
-			        VALUES ( DimCustomerAll[客户公司Key] ),
-			        [品牌客户_目标客户标记] = 1
+			        VALUES ( DimCustomerAll[Customer Company Key] ),
+			        [Brand Customer_Target Customer Flag] = 1
 			    )
 			)
 		formatString: 0
 		lineageTag: 203beab9-816b-47f9-af98-c2cc52101834
 
-	measure 品牌客户_已铺货客户数 =
+	measure 'Brand Customer_Distributed Customers' =
 			
 			COUNTROWS (
 			    FILTER (
-			        VALUES ( DimCustomerAll[客户公司Key] ),
-			        [品牌客户_已铺货客户标记] = 1
+			        VALUES ( DimCustomerAll[Customer Company Key] ),
+			        [Brand Customer_Distributed Customer Flag] = 1
 			    )
 			)
 		formatString: 0
 		lineageTag: 4776429c-e32f-4d90-ac57-f905242e48e3
 
-	measure 品牌客户_未铺货客户数 =
+	measure 'Brand Customer_Undistributed Customers' =
 			
 			COUNTROWS (
 			    FILTER (
-			        VALUES ( DimCustomerAll[客户公司Key] ),
-			        [品牌客户_已铺货客户标记] = 0
+			        VALUES ( DimCustomerAll[Customer Company Key] ),
+			        [Brand Customer_Distributed Customer Flag] = 0
 			    )
 			)
 		formatString: 0
 		lineageTag: e0f001c0-1647-480b-9604-7a8e0407a356
 
-	measure 品牌客户_铺货率 =
+	measure 'Brand Customer_Distribution Rate' =
 			
 			DIVIDE (
-			    [品牌客户_已铺货客户数],
-			    [品牌客户_目标客户数],
+			    [Brand Customer_Distributed Customers],
+			    [Brand Customer_Target Customers],
 			    0
 			)
 		lineageTag: 981cf156-2dc8-4c86-b85b-d4e3454fa4b5
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 1
+	column '1'
 		dataType: string
 		lineageTag: 2897ed68-ec07-44d3-8113-270827447399
 		summarizeBy: none

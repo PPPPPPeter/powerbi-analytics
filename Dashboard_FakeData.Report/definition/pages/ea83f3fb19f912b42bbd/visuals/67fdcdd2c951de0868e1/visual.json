@@ -23,11 +23,11 @@
                       "Entity": "DimProductAll"
                     }
                   },
-                  "Property": "产品分类"
+                  "Property": "Product Class"
                 }
               },
-              "queryRef": "DimProductNJ.产品分类",
-              "nativeQueryRef": "产品分类",
+              "queryRef": "DimProductNJ.Product Class",
+              "nativeQueryRef": "Product Class",
               "active": true
             }
           ]
@@ -82,7 +82,7 @@
                                       "Source": "d"
                                     }
                                   },
-                                  "Property": "产品分类"
+                                  "Property": "Product Class"
                                 }
                               }
                             ],
@@ -90,7 +90,7 @@
                               [
                                 {
                                   "Literal": {
-                                    "Value": "'冰淇淋'"
+                                    "Value": "'Ice Cream'"
                                   }
                                 }
                               ]
@@ -199,7 +199,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'产品种类'"
+                  "Value": "'Product Variety'"
                 }
               }
             },

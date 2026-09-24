@@ -1,7 +1,7 @@
 table FactInventoryAll
 	lineageTag: 4d989e90-6f9a-46c6-bdd8-9e0aace5f87f
 
-	measure 库存分析基准日 =
+	measure 'Inventory As-of Date' =
 			
 			CALCULATE (
 			    MAX ( FactBranchCost[Invoice Date] ),
@@ -11,7 +11,7 @@ table FactInventoryAll
 		formatString: General Date
 		lineageTag: 77457e98-c62b-4f0a-beac-e83338fd1edc
 
-	measure 近一个月销量 =
+	measure 'Last Month Volume' =
 			
 			VAR EndDate =
 			    CALCULATE (
@@ -32,7 +32,7 @@ table FactInventoryAll
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 近三个月销量 =
+	measure 'Last 3 Months Volume' =
 			
 			VAR EndDate =
 			    CALCULATE (
@@ -53,10 +53,10 @@ table FactInventoryAll
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 近30天销售数量 =
+	measure 'Last 30 Days Sales Qty' =
 			
 			VAR EndDate =
-			    [库存分析基准日]
+			    [Inventory As-of Date]
 			
 			VAR SelectedSKUs =
 			    VALUES ( ProductCatalogAll[SKU] )
@@ -79,10 +79,10 @@ table FactInventoryAll
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 近90天销售数量 =
+	measure 'Last 90 Days Sales Qty' =
 			
 			VAR EndDate =
-			    [库存分析基准日]
+			    [Inventory As-of Date]
 			
 			VAR SelectedSKUs =
 			    VALUES ( ProductCatalogAll[SKU] )
@@ -105,28 +105,28 @@ table FactInventoryAll
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 分公司仓库
+	column 'Branch Warehouse'
 		dataType: string
 		lineageTag: 3b82581c-1082-4cac-8aba-8c782e484c84
 		summarizeBy: none
-		sourceColumn: 分公司仓库
+		sourceColumn: Branch Warehouse
 
 		annotation SummarizationSetBy = Automatic
 
-	column 产品/名称
+	column 'Product/Name'
 		dataType: string
 		lineageTag: 1ba5088c-7224-413f-8318-7ae9f5e631f9
 		summarizeBy: none
-		sourceColumn: 产品/名称
+		sourceColumn: Product/Name
 
 		annotation SummarizationSetBy = Automatic
 
-	column 有效期
+	column 'Expiry Date'
 		dataType: dateTime
 		formatString: Long Date
 		lineageTag: 9700b948-4da9-4444-88ef-1cd2a5108147
 		summarizeBy: none
-		sourceColumn: 有效期
+		sourceColumn: Expiry Date
 
 		variation Variation
 			isDefault
@@ -137,12 +137,12 @@ table FactInventoryAll
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	column 库存数量
+	column 'Stock Qty'
 		dataType: int64
 		formatString: 0
 		lineageTag: e4662d63-7c8f-4add-a58f-c9075c89c7fc
 		summarizeBy: sum
-		sourceColumn: 库存数量
+		sourceColumn: Stock Qty
 
 		annotation SummarizationSetBy = Automatic
 
@@ -175,10 +175,10 @@ table FactInventoryAll
 		source =
 				let
 				    Source = Excel.Workbook((if Text.StartsWith(DataRoot, "http") then Web.Contents(DataRoot & "/branch_inventory.xlsx") else File.Contents(DataRoot & "\branch_inventory.xlsx")), null, true),
-				    库存明细_Sheet = Source{[Item="库存明细",Kind="Sheet"]}[Data],
-				    #"Promoted Headers" = Table.PromoteHeaders(库存明细_Sheet, [PromoteAllScalars=true]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"位置/仓库", type text}, {"Brand", type text}, {"产品/名称", type text}, {"Ref Num", type text}, {"批次/序列号码/有效期", type date}, {"year_month", type text}, {"数量1", Int64.Type}}),
-				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Ref Num", "SKU"}, {"数量1", "库存数量"}, {"位置/仓库", "分公司仓库"}, {"批次/序列号码/有效期", "有效期"}}),
+				    InventoryDetail_Sheet = Source{[Item="Inventory Detail",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(InventoryDetail_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Location/Warehouse", type text}, {"Brand", type text}, {"Product/Name", type text}, {"Ref Num", type text}, {"Lot/Serial Number/Expiry Date", type date}, {"year_month", type text}, {"Quantity1", Int64.Type}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Ref Num", "SKU"}, {"Quantity1", "Stock Qty"}, {"Location/Warehouse", "Branch Warehouse"}, {"Lot/Serial Number/Expiry Date", "Expiry Date"}}),
 				    Custom1 = Table.TransformColumns(
 				    #"Renamed Columns",
 				    {

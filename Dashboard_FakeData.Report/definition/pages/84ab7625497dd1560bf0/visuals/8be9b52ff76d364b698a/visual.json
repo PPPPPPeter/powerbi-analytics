@@ -23,11 +23,11 @@
                       "Entity": "DimCustomerAll"
                     }
                   },
-                  "Property": "客户名称"
+                  "Property": "Customer Name"
                 }
               },
-              "queryRef": "DimCustomerAll.客户名称",
-              "nativeQueryRef": "客户名称1",
+              "queryRef": "DimCustomerAll.Customer Name",
+              "nativeQueryRef": "Customer Name1",
               "active": true
             }
           ]
@@ -42,12 +42,12 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "客户销售额_全部分公司"
+                  "Property": "Customer Sales_All Branches"
                 }
               },
-              "queryRef": "DimCustomer.客户销售额_全部分公司",
-              "nativeQueryRef": "本期销售额",
-              "displayName": "本期销售额",
+              "queryRef": "DimCustomer.Customer Sales_All Branches",
+              "nativeQueryRef": "Current Period Sales",
+              "displayName": "Current Period Sales",
               "format": "\\$#,0.00;(\\$#,0.00);\\$#,0.00"
             },
             {
@@ -58,12 +58,12 @@
                       "Entity": "DimCustomerAll"
                     }
                   },
-                  "Property": "全部分公司月环比"
+                  "Property": "All Branches MoM"
                 }
               },
-              "queryRef": "DimCustomerAll.全部分公司月环比",
-              "nativeQueryRef": "月环比",
-              "displayName": "月环比",
+              "queryRef": "DimCustomerAll.All Branches MoM",
+              "nativeQueryRef": "MoM",
+              "displayName": "MoM",
               "format": "0.00%;-0.00%;0.00%"
             },
             {
@@ -74,12 +74,12 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "客户毛利率_全部分公司"
+                  "Property": "Customer Gross Margin_All Branches"
                 }
               },
-              "queryRef": "DimCustomer.客户毛利率_全部分公司",
-              "nativeQueryRef": "毛利率",
-              "displayName": "毛利率",
+              "queryRef": "DimCustomer.Customer Gross Margin_All Branches",
+              "nativeQueryRef": "Gross Margin",
+              "displayName": "Gross Margin",
               "format": "0.00%;-0.00%;0.00%"
             },
             {
@@ -90,12 +90,12 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "客户净购买SKU数量_全部分公司"
+                  "Property": "Customer Net SKU Qty_All Branches"
                 }
               },
-              "queryRef": "DimCustomer.客户净购买SKU数量_全部分公司",
-              "nativeQueryRef": "SKU数",
-              "displayName": "SKU数"
+              "queryRef": "DimCustomer.Customer Net SKU Qty_All Branches",
+              "nativeQueryRef": "SKU Count",
+              "displayName": "SKU Count"
             },
             {
               "field": {
@@ -105,12 +105,12 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "客户拜访频率标签"
+                  "Property": "Customer Visit Frequency Label"
                 }
               },
-              "queryRef": "DimCustomer.客户拜访频率标签",
-              "nativeQueryRef": "客户类型",
-              "displayName": "客户类型"
+              "queryRef": "DimCustomer.Customer Visit Frequency Label",
+              "nativeQueryRef": "Customer Type",
+              "displayName": "Customer Type"
             },
             {
               "field": {
@@ -122,15 +122,15 @@
                           "Entity": "DimCustomerAll"
                         }
                       },
-                      "Property": "客户等级列"
+                      "Property": "Customer Grade Col"
                     }
                   },
                   "Function": 3
                 }
               },
-              "queryRef": "Min(DimCustomerAll.客户等级列)",
-              "nativeQueryRef": "客户等级",
-              "displayName": "客户等级"
+              "queryRef": "Min(DimCustomerAll.Customer Grade Col)",
+              "nativeQueryRef": "Customer Grade",
+              "displayName": "Customer Grade"
             }
           ]
         }
@@ -145,7 +145,7 @@
                     "Entity": "DimCustomerNJ"
                   }
                 },
-                "Property": "客户销售额_全部分公司"
+                "Property": "Customer Sales_All Branches"
               }
             },
             "direction": "Descending"
@@ -161,7 +161,7 @@
         "levels": [
           {
             "queryRefs": [
-              "DimCustomerAll.客户名称"
+              "DimCustomerAll.Customer Name"
             ],
             "isCollapsed": true,
             "isPinned": true
@@ -215,7 +215,7 @@
                                       "Entity": "DimCustomerAll"
                                     }
                                   },
-                                  "Property": "全部分公司月环比"
+                                  "Property": "All Branches MoM"
                                 }
                               },
                               "Right": {
@@ -246,7 +246,7 @@
                 }
               }
             ],
-            "metadata": "DimCustomerAll.全部分公司月环比"
+            "metadata": "DimCustomerAll.All Branches MoM"
           }
         },
         {
@@ -268,7 +268,7 @@
                                       "Entity": "DimCustomerNJ"
                                     }
                                   },
-                                  "Property": "客户毛利率_全部分公司"
+                                  "Property": "Customer Gross Margin_All Branches"
                                 }
                               },
                               "Right": {
@@ -295,7 +295,7 @@
                                       "Entity": "DimCustomerNJ"
                                     }
                                   },
-                                  "Property": "客户毛利率_全部分公司"
+                                  "Property": "Customer Gross Margin_All Branches"
                                 }
                               },
                               "Right": {
@@ -326,7 +326,7 @@
                 }
               }
             ],
-            "metadata": "DimCustomer.客户毛利率_全部分公司"
+            "metadata": "DimCustomer.Customer Gross Margin_All Branches"
           }
         }
       ],
@@ -355,7 +355,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomer.客户拜访频率标签"
+            "metadata": "DimCustomer.Customer Visit Frequency Label"
           }
         },
         {
@@ -369,7 +369,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomerAll.客户名称"
+            "metadata": "DimCustomerAll.Customer Name"
           }
         },
         {
@@ -383,7 +383,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomer.客户净购买SKU数量_全部分公司"
+            "metadata": "DimCustomer.Customer Net SKU Qty_All Branches"
           }
         },
         {
@@ -397,7 +397,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomer.客户毛利率_全部分公司"
+            "metadata": "DimCustomer.Customer Gross Margin_All Branches"
           }
         },
         {
@@ -411,7 +411,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomerAll.全部分公司月环比"
+            "metadata": "DimCustomerAll.All Branches MoM"
           }
         },
         {
@@ -425,7 +425,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomer.客户销售额_全部分公司"
+            "metadata": "DimCustomer.Customer Sales_All Branches"
           }
         }
       ],
@@ -470,7 +470,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'客户信息'"
+                  "Value": "'Customer Info'"
                 }
               }
             },
@@ -556,7 +556,7 @@
                 "Entity": "DimCustomerNJ"
               }
             },
-            "Property": "客户销售额_全部分公司"
+            "Property": "Customer Sales_All Branches"
           }
         },
         "type": "Advanced",
@@ -585,7 +585,7 @@
                                   "Source": "d"
                                 }
                               },
-                              "Property": "客户销售额_全部分公司"
+                              "Property": "Customer Sales_All Branches"
                             }
                           },
                           "Right": {
@@ -607,7 +607,7 @@
                               "Source": "d"
                             }
                           },
-                          "Property": "客户销售额_全部分公司"
+                          "Property": "Customer Sales_All Branches"
                         }
                       },
                       "Right": {

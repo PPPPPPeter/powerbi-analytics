@@ -1,10 +1,10 @@
 table DimCustomerNJ
 	lineageTag: 89555466-c50d-4df2-8ff2-ced8c2e8b8ac
 
-	measure 客户销售额_全部分公司 =
+	measure 'Customer Sales_All Branches' =
 			
 			CALCULATE (
-			    [分公司销售额（不含运费和服务费）],
+			    [Branch Sales (Excl Freight and Service Fees)],
 			    REMOVEFILTERS ( FactBranchCost[company] )
 			)
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
@@ -12,10 +12,10 @@ table DimCustomerNJ
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 客户毛利_全部分公司 =
+	measure 'Customer Gross Profit_All Branches' =
 			
 			CALCULATE (
-			    [产品价格_毛利],
+			    [Product Price_Gross Profit],
 			    REMOVEFILTERS ( FactBranchCost[company] )
 			)
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
@@ -23,16 +23,16 @@ table DimCustomerNJ
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 客户购买频率_全部分公司 =
+	measure 'Customer Purchase Frequency_All Branches' =
 			
 			CALCULATE (
-			    [分公司订单数],
+			    [Branch Order Count],
 			    REMOVEFILTERS ( FactBranchCost[company] )
 			)
 		formatString: 0
 		lineageTag: c2f9128c-9e2d-4300-9903-98b5709eb456
 
-	measure 客户净购买SKU数量_全部分公司 =
+	measure 'Customer Net SKU Qty_All Branches' =
 			
 			VAR SKUList =
 			    CALCULATETABLE (
@@ -53,10 +53,10 @@ table DimCustomerNJ
 		formatString: 0
 		lineageTag: 04441ba3-f2b2-4afa-a1c2-9ff2bf526e03
 
-	measure 客户正向销售额_全部分公司 =
+	measure 'Customer Positive Sales_All Branches' =
 			
 			CALCULATE (
-			    [分公司销售额（不含运费和服务费）],
+			    [Branch Sales (Excl Freight and Service Fees)],
 			    FactBranchCost[amount] > 0,
 			    REMOVEFILTERS ( FactBranchCost[company] )
 			)
@@ -65,11 +65,11 @@ table DimCustomerNJ
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 客户退货金额_全部分公司 =
+	measure 'Customer Return Amount_All Branches' =
 			
 			ABS (
 			    CALCULATE (
-			        [分公司销售额（不含运费和服务费）],
+			        [Branch Sales (Excl Freight and Service Fees)],
 			        FactBranchCost[amount] < 0,
 			        REMOVEFILTERS ( FactBranchCost[company] )
 			    )
@@ -79,44 +79,44 @@ table DimCustomerNJ
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 客户退货率 =
+	measure 'Customer Return Rate' =
 			
 			DIVIDE (
-			    [客户退货金额_全部分公司],
-			    [客户正向销售额_全部分公司],
+			    [Customer Return Amount_All Branches],
+			    [Customer Positive Sales_All Branches],
 			    0
 			)
 		lineageTag: e579e12a-356e-415b-86e5-f8cfd0507773
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 客户销售额得分 =
+	measure 'Customer Sales Score' =
 			
 			VAR CurrentCustomer =
-			    SELECTEDVALUE ( DimCustomerAll[客户编号] )
+			    SELECTEDVALUE ( DimCustomerAll[Customer ID] )
 			
 			VAR CurrentType =
-			    SELECTEDVALUE ( DimCustomerAll[客户类型] )
+			    SELECTEDVALUE ( DimCustomerAll[Customer Type] )
 			
 			VAR IsWholesaler =
 			    CurrentType = "Wholesaler"
 			
 			VAR CurrentValue =
-			    [评级销售额]
+			    [Graded Sales]
 			
 			VAR CustomerStats =
 			    CALCULATETABLE (
 			        ADDCOLUMNS (
 			            SUMMARIZE (
 			                DimCustomerAll,
-			                DimCustomerAll[客户编号],
-			                DimCustomerAll[客户类型]
+			                DimCustomerAll[Customer ID],
+			                DimCustomerAll[Customer Type]
 			            ),
 			            "@MetricValue",
-			                CALCULATE ( [评级销售额] )
+			                CALCULATE ( [Graded Sales] )
 			        ),
 			
-			        -- 清除当前客户，建立完整的客户比较池
+			        -- clear the current customer to build the full customer comparison pool
 			        REMOVEFILTERS ( DimCustomerAll ),
 			
 			        REMOVEFILTERS ( FactBranchCost[customer_no] ),
@@ -131,7 +131,7 @@ table DimCustomerNJ
 			    FILTER (
 			        CustomerStats,
 			        VAR PoolType =
-			            DimCustomerAll[客户类型]
+			            DimCustomerAll[Customer Type]
 			        VAR PoolValue =
 			            [@MetricValue]
 			        RETURN
@@ -180,33 +180,33 @@ table DimCustomerNJ
 		formatString: 0
 		lineageTag: 023a3a72-93fc-4204-849e-27d151b56933
 
-	measure 客户毛利得分 =
+	measure 'Customer Gross Profit Score' =
 			
 			VAR CurrentCustomer =
-			    SELECTEDVALUE ( DimCustomerAll[客户编号] )
+			    SELECTEDVALUE ( DimCustomerAll[Customer ID] )
 			
 			VAR CurrentType =
-			    SELECTEDVALUE ( DimCustomerAll[客户类型] )
+			    SELECTEDVALUE ( DimCustomerAll[Customer Type] )
 			
 			VAR IsWholesaler =
 			    CurrentType = "Wholesaler"
 			
 			VAR CurrentValue =
-			    [评级毛利]
+			    [Graded Gross Profit]
 			
 			VAR CustomerStats =
 			    CALCULATETABLE (
 			        ADDCOLUMNS (
 			            SUMMARIZE (
 			                DimCustomerAll,
-			                DimCustomerAll[客户编号],
-			                DimCustomerAll[客户类型]
+			                DimCustomerAll[Customer ID],
+			                DimCustomerAll[Customer Type]
 			            ),
 			            "@MetricValue",
-			                CALCULATE ( [评级毛利] )
+			                CALCULATE ( [Graded Gross Profit] )
 			        ),
 			
-			        -- 清除当前客户和销售人员，建立完整比较池
+			        -- clear the current customer and salesperson to build the full comparison pool
 			        REMOVEFILTERS ( DimCustomerAll ),
 			        REMOVEFILTERS ( FactBranchCost[customer_no] ),
 			        REMOVEFILTERS ( FactBranchCost[customer_name] ),
@@ -220,7 +220,7 @@ table DimCustomerNJ
 			    FILTER (
 			        CustomerStats,
 			        VAR PoolType =
-			            DimCustomerAll[客户类型]
+			            DimCustomerAll[Customer Type]
 			        VAR PoolValue =
 			            [@MetricValue]
 			        RETURN
@@ -269,33 +269,33 @@ table DimCustomerNJ
 		formatString: 0
 		lineageTag: 10bad47e-aa05-41f6-96bb-c2b6ce75fec6
 
-	measure 客户SKU数量得分 =
+	measure 'Customer SKU Qty Score' =
 			
 			VAR CurrentCustomer =
-			    SELECTEDVALUE ( DimCustomerAll[客户编号] )
+			    SELECTEDVALUE ( DimCustomerAll[Customer ID] )
 			
 			VAR CurrentType =
-			    SELECTEDVALUE ( DimCustomerAll[客户类型] )
+			    SELECTEDVALUE ( DimCustomerAll[Customer Type] )
 			
 			VAR IsWholesaler =
 			    CurrentType = "Wholesaler"
 			
 			VAR CurrentValue =
-			    [评级SKU数量]
+			    [Graded SKU Qty]
 			
 			VAR CustomerStats =
 			    CALCULATETABLE (
 			        ADDCOLUMNS (
 			            SUMMARIZE (
 			                DimCustomerAll,
-			                DimCustomerAll[客户编号],
-			                DimCustomerAll[客户类型]
+			                DimCustomerAll[Customer ID],
+			                DimCustomerAll[Customer Type]
 			            ),
 			            "@MetricValue",
-			                CALCULATE ( [评级SKU数量] )
+			                CALCULATE ( [Graded SKU Qty] )
 			        ),
 			
-			        -- 清除当前客户，建立全部非批发客户比较池
+			        -- clear the current customer to build the non-wholesale comparison pool
 			        REMOVEFILTERS ( DimCustomerAll ),
 			        REMOVEFILTERS ( FactBranchCost[customer_no] ),
 			        REMOVEFILTERS ( FactBranchCost[customer_name] ),
@@ -309,7 +309,7 @@ table DimCustomerNJ
 			    FILTER (
 			        CustomerStats,
 			        VAR PoolType =
-			            DimCustomerAll[客户类型]
+			            DimCustomerAll[Customer Type]
 			        VAR PoolValue =
 			            [@MetricValue]
 			        RETURN
@@ -344,7 +344,7 @@ table DimCustomerNJ
 			        ISBLANK ( CurrentType ),
 			            BLANK (),
 			
-			        -- 批发客户不计算SKU得分
+			        -- wholesale customers get no SKU score
 			        IsWholesaler,
 			            BLANK (),
 			
@@ -364,30 +364,30 @@ table DimCustomerNJ
 		formatString: 0
 		lineageTag: 8d7f6d40-ef51-4eb1-9660-99d324901802
 
-	measure 客户购买频率得分 =
+	measure 'Customer Purchase Frequency Score' =
 			
 			VAR CurrentCustomer =
-			    SELECTEDVALUE ( DimCustomerAll[客户编号] )
+			    SELECTEDVALUE ( DimCustomerAll[Customer ID] )
 			
 			VAR CurrentType =
-			    SELECTEDVALUE ( DimCustomerAll[客户类型] )
+			    SELECTEDVALUE ( DimCustomerAll[Customer Type] )
 			
 			VAR IsWholesaler =
 			    CurrentType = "Wholesaler"
 			
 			VAR CurrentValue =
-			    [评级购买频率]
+			    [Graded Purchase Frequency]
 			
 			VAR CustomerStats =
 			    CALCULATETABLE (
 			        ADDCOLUMNS (
 			            SUMMARIZE (
 			                DimCustomerAll,
-			                DimCustomerAll[客户编号],
-			                DimCustomerAll[客户类型]
+			                DimCustomerAll[Customer ID],
+			                DimCustomerAll[Customer Type]
 			            ),
 			            "@MetricValue",
-			                CALCULATE ( [评级购买频率] )
+			                CALCULATE ( [Graded Purchase Frequency] )
 			        ),
 			        REMOVEFILTERS ( DimCustomerAll ),
 			        REMOVEFILTERS ( FactBranchCost[customer_no] ),
@@ -402,7 +402,7 @@ table DimCustomerNJ
 			    FILTER (
 			        CustomerStats,
 			        VAR PoolType =
-			            DimCustomerAll[客户类型]
+			            DimCustomerAll[Customer Type]
 			        VAR PoolValue =
 			            [@MetricValue]
 			        RETURN
@@ -451,44 +451,44 @@ table DimCustomerNJ
 		formatString: 0
 		lineageTag: 1a3a9a4b-dacd-4ac1-a396-0c38febb7690
 
-	measure 客户退货表现得分 =
+	measure 'Customer Return Performance Score' =
 			
 			VAR CurrentCustomer =
-			    SELECTEDVALUE ( DimCustomerAll[客户编号] )
+			    SELECTEDVALUE ( DimCustomerAll[Customer ID] )
 			
 			VAR CurrentType =
 			    TRIM (
-			        SELECTEDVALUE ( DimCustomerAll[客户类型], "" )
+			        SELECTEDVALUE ( DimCustomerAll[Customer Type], "" )
 			    )
 			
 			VAR PositiveSales =
-			    [评级正向销售额]
+			    [Graded Positive Sales]
 			
 			VAR ReturnRate =
-			    [评级退货率]
+			    [Graded Return Rate]
 			
 			RETURN
 			    SWITCH (
 			        TRUE (),
 			
-			        -- 当前不是单一客户
+			        -- current context is not a single customer
 			        ISBLANK ( CurrentCustomer ),
 			            BLANK (),
 			
-			        -- 没有客户类型
+			        -- no customer type
 			        CurrentType = "",
 			            BLANK (),
 			
-			        -- 批发客户不计算退货得分
+			        -- wholesale customers get no return score
 			        CurrentType = "Wholesaler",
 			            BLANK (),
 			
-			        -- 没有正向销售
+			        -- no positive sales
 			        ISBLANK ( PositiveSales )
 			            || PositiveSales <= 0,
 			            BLANK (),
 			
-			        -- 按退货率评分
+			        -- score by return rate
 			        ReturnRate <= 0, 100,
 			        ReturnRate <= 0.01, 90,
 			        ReturnRate <= 0.03, 75,
@@ -499,33 +499,33 @@ table DimCustomerNJ
 		formatString: 0
 		lineageTag: 770142d6-0239-4df3-acb0-7fcc830d30c6
 
-	measure 客户综合评分 =
+	measure 'Customer Overall Score' =
 			
 			VAR CurrentCustomer =
-			    SELECTEDVALUE ( DimCustomerAll[客户编号] )
+			    SELECTEDVALUE ( DimCustomerAll[Customer ID] )
 			
 			VAR CustomerType =
 			    TRIM (
-			        SELECTEDVALUE ( DimCustomerAll[客户类型], "" )
+			        SELECTEDVALUE ( DimCustomerAll[Customer Type], "" )
 			    )
 			
 			VAR IsWholesaler =
 			    CustomerType = "Wholesaler"
 			
 			VAR SalesScore =
-			    [客户销售额得分]
+			    [Customer Sales Score]
 			
 			VAR GrossProfitScore =
-			    [客户毛利得分]
+			    [Customer Gross Profit Score]
 			
 			VAR SKUScore =
-			    [客户SKU数量得分]
+			    [Customer SKU Qty Score]
 			
 			VAR FrequencyScore =
-			    [客户购买频率得分]
+			    [Customer Purchase Frequency Score]
 			
 			VAR ReturnScore =
-			    [客户退货表现得分]
+			    [Customer Return Performance Score]
 			
 			VAR RetailComplete =
 			    NOT ISBLANK ( SalesScore )
@@ -576,16 +576,16 @@ table DimCustomerNJ
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 客户等级 =
+	measure 'Customer Grade' =
 			
 			VAR CurrentCustomer =
-			    SELECTEDVALUE ( DimCustomerAll[客户编号] )
+			    SELECTEDVALUE ( DimCustomerAll[Customer ID] )
 			
 			VAR Score =
-			    [客户综合评分]
+			    [Customer Overall Score]
 			
 			VAR GrossProfit =
-			    [评级毛利]
+			    [Graded Gross Profit]
 			
 			RETURN
 			    SWITCH (
@@ -600,7 +600,7 @@ table DimCustomerNJ
 			        ISBLANK ( GrossProfit ),
 			            BLANK (),
 			
-			        -- 毛利不大于0，即使达到80分，最高只能是B
+			        -- gross profit <= 0 caps the grade at B even with a score of 80+
 			        GrossProfit <= 0 && Score >= 80,
 			            "B",
 			
@@ -611,13 +611,13 @@ table DimCustomerNJ
 			    )
 		lineageTag: 7fe141d3-73d5-4af4-a69d-7005f8fa0847
 
-	measure 销售人员评级客户数 =
+	measure 'Salesperson Graded Customers' =
 			
 			COUNTROWS (
 			    FILTER (
-			        VALUES ( DimCustomerAll[客户编号] ),
+			        VALUES ( DimCustomerAll[Customer ID] ),
 			        VAR CustomerGrade =
-			            CALCULATE ( [客户等级] )
+			            CALCULATE ( [Customer Grade] )
 			        RETURN
 			            NOT ISBLANK ( CustomerGrade )
 			    )
@@ -625,11 +625,11 @@ table DimCustomerNJ
 		formatString: 0
 		lineageTag: 09ead6d3-7254-4a1a-884e-8ca29dfe2639
 
-	measure 评级销售额 =
+	measure 'Graded Sales' =
 			
 			CALCULATE (
-			    [客户销售额_全部分公司],
-			    REMOVEFILTERS ( DimCustomerAll[销售人员] ),
+			    [Customer Sales_All Branches],
+			    REMOVEFILTERS ( DimCustomerAll[Salesperson] ),
 			    REMOVEFILTERS ( FactBranchCost[salesperson] ),
 			    REMOVEFILTERS ( DimSalesperson ),
 			    REMOVEFILTERS ( DimCreator )
@@ -639,11 +639,11 @@ table DimCustomerNJ
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 评级毛利 =
+	measure 'Graded Gross Profit' =
 			
 			CALCULATE (
-			    [客户毛利_全部分公司],
-			    REMOVEFILTERS ( DimCustomerAll[销售人员] ),
+			    [Customer Gross Profit_All Branches],
+			    REMOVEFILTERS ( DimCustomerAll[Salesperson] ),
 			    REMOVEFILTERS ( FactBranchCost[salesperson] ),
 			    REMOVEFILTERS ( DimSalesperson ),
 			    REMOVEFILTERS ( DimCreator )
@@ -653,22 +653,22 @@ table DimCustomerNJ
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 评级SKU数量 =
+	measure 'Graded SKU Qty' =
 			
 			CALCULATE (
-			    [客户净购买SKU数量_全部分公司],
+			    [Customer Net SKU Qty_All Branches],
 			    REMOVEFILTERS ( DimSalesperson ),
 			    REMOVEFILTERS ( DimCreator ),
 			    REMOVEFILTERS ( FactBranchCost[salesperson] ),
-			    REMOVEFILTERS(DimCustomerAll[销售人员])
+			    REMOVEFILTERS(DimCustomerAll[Salesperson])
 			)
 		formatString: 0
 		lineageTag: b6d15b82-1825-463d-902b-dd019ebaded3
 
-	measure 评级购买频率 =
+	measure 'Graded Purchase Frequency' =
 			
 			VAR FirstOrderDate =
-			    SELECTEDVALUE ( DimCustomerAll[客户首次下单日期] )
+			    SELECTEDVALUE ( DimCustomerAll[Customer First Order Date] )
 			
 			VAR LastDataDate =
 			    CALCULATE (
@@ -701,10 +701,10 @@ table DimCustomerNJ
 			
 			VAR TotalOrders =
 			    CALCULATE (
-			        [分公司订单数],
+			        [Branch Order Count],
 			        REMOVEFILTERS ( DimDate ),
 			        REMOVEFILTERS ( FactBranchCost[company] ),
-			        REMOVEFILTERS ( DimCustomerAll[销售人员] ),
+			        REMOVEFILTERS ( DimCustomerAll[Salesperson] ),
 			        REMOVEFILTERS ( FactBranchCost[salesperson] ),
 			        REMOVEFILTERS ( DimSalesperson ),
 			        REMOVEFILTERS ( DimCreator )
@@ -719,11 +719,11 @@ table DimCustomerNJ
 		formatString: 0
 		lineageTag: c2a80841-ccba-4aae-9ef4-8b2e4d956e5d
 
-	measure 评级正向销售额 =
+	measure 'Graded Positive Sales' =
 			
 			CALCULATE (
-			    [客户正向销售额_全部分公司],
-			    REMOVEFILTERS ( DimCustomerAll[销售人员] ),
+			    [Customer Positive Sales_All Branches],
+			    REMOVEFILTERS ( DimCustomerAll[Salesperson] ),
 			    REMOVEFILTERS ( FactBranchCost[salesperson] ),
 			    REMOVEFILTERS ( DimSalesperson ),
 			    REMOVEFILTERS ( DimCreator )
@@ -733,48 +733,48 @@ table DimCustomerNJ
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 评级退货金额 =
+	measure 'Graded Return Amount' =
 			
 			CALCULATE (
-			    [客户退货金额_全部分公司],
+			    [Customer Return Amount_All Branches],
 			    REMOVEFILTERS ( DimSalesperson ),
 			    REMOVEFILTERS ( DimCreator ),
 			    REMOVEFILTERS ( FactBranchCost[salesperson] ),
-			    REMOVEFILTERS(DimCustomerAll[销售人员])
+			    REMOVEFILTERS(DimCustomerAll[Salesperson])
 			)
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: d358c81f-b655-4902-924a-0033fe185082
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 评级退货率 =
+	measure 'Graded Return Rate' =
 			
 			DIVIDE (
-			    [评级退货金额],
-			    [评级正向销售额],
+			    [Graded Return Amount],
+			    [Graded Positive Sales],
 			    0
 			)
 		lineageTag: fa139c32-024e-4f07-a39c-6426f78ffe76
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 客户毛利率_全部分公司 =
+	measure 'Customer Gross Margin_All Branches' =
 			
 			DIVIDE(
-			    [客户毛利_全部分公司],
-			    [客户销售额_全部分公司]
+			    [Customer Gross Profit_All Branches],
+			    [Customer Sales_All Branches]
 			)
 		lineageTag: 5637aa36-5c42-4d64-8885-4223dcdad94d
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 客户活跃周数 =
+	measure 'Customer Active Weeks' =
 			
 			COUNTROWS (
 			    FILTER (
-			        VALUES ( DimDate[年周] ),
+			        VALUES ( DimDate[Year Week] ),
 			        CALCULATE (
-			            [分公司订单数],
+			            [Branch Order Count],
 			            REMOVEFILTERS ( FactBranchCost[company] )
 			        ) > 0
 			    )
@@ -782,20 +782,20 @@ table DimCustomerNJ
 		formatString: 0
 		lineageTag: cd0350ca-7683-47ea-9ee7-c122a28490a1
 
-	measure 客户自然订货间隔 =
+	measure 'Customer Natural Order Interval' =
 			
 			DIVIDE (
-			    [客户有效覆盖周数],
-			    [客户活跃周数]
+			    [Customer Effective Coverage Weeks],
+			    [Customer Active Weeks]
 			)
 		lineageTag: b1fea63e-8f7a-414f-a68e-3750efcca512
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 客户建议拜访周期 =
+	measure 'Customer Suggested Visit Cycle' =
 			
 			VAR NaturalInterval =
-			    [客户自然订货间隔]
+			    [Customer Natural Order Interval]
 			RETURN
 			    SWITCH (
 			        TRUE (),
@@ -810,28 +810,28 @@ table DimCustomerNJ
 		formatString: 0
 		lineageTag: 474273a3-7b31-4705-b250-10235e267c34
 
-	measure 客户拜访频率标签 =
+	measure 'Customer Visit Frequency Label' =
 			
 			VAR Cycle =
-			    [客户建议拜访周期]
+			    [Customer Suggested Visit Cycle]
 			RETURN
 			    SWITCH(
 			        Cycle,
-			        1, "每周型",
-			        2, "2周型",
-			        3, "3周型",
-			        4, "4周型",
-			        5, "5周型",
-			        6, "6周型",
-			        8, "8周型",
+			        1, "Every-Week Type",
+			        2, "2-Week Type",
+			        3, "3-Week Type",
+			        4, "4-Week Type",
+			        5, "5-Week Type",
+			        6, "6-Week Type",
+			        8, "8-Week Type",
 			        "Inactive/Review"
 			    )
 		lineageTag: 8a5f3712-cbac-4de0-b1c3-14bd8c1d3309
 
-	measure 客户拜访系数 =
+	measure 'Customer Visit Factor' =
 			
 			VAR CustomerType =
-			    SELECTEDVALUE ( DimCustomerAll[客户类型] )
+			    SELECTEDVALUE ( DimCustomerAll[Customer Type] )
 			RETURN
 			    SWITCH (
 			        CustomerType,
@@ -847,13 +847,13 @@ table DimCustomerNJ
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 客户周期周负荷 =
+	measure 'Customer Cycle Weekly Load' =
 			
 			VAR Cycle =
-			    [客户建议拜访周期]
+			    [Customer Suggested Visit Cycle]
 			RETURN
 			    IF(
-			        [客户销售额_全部分公司] > 0
+			        [Customer Sales_All Branches] > 0
 			            && NOT ISBLANK(Cycle),
 			        DIVIDE(1, Cycle),
 			        0
@@ -862,42 +862,42 @@ table DimCustomerNJ
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 客户调整后周负荷 =
+	measure 'Customer Adjusted Weekly Load' =
 			
-			[客户周期周负荷]
-			    * [客户拜访系数]
+			[Customer Cycle Weekly Load]
+			    * [Customer Visit Factor]
 		lineageTag: 50f723c7-569c-4875-8b9e-154f09e665a8
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 销售人员总周负荷 =
+	measure 'Salesperson Total Weekly Load' =
 			
 			SUMX(
-			    VALUES(DimCustomerAll[客户编号]),
-			    CALCULATE([客户调整后周负荷])
+			    VALUES(DimCustomerAll[Customer ID]),
+			    CALCULATE([Customer Adjusted Weekly Load])
 			)
 		lineageTag: 5c37fd75-7254-435c-ab81-ea74ebcbb257
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 销售人员产能利用率 =
+	measure 'Salesperson Capacity Utilization' =
 			
-			DIVIDE ( [销售人员总周负荷], 20 )
+			DIVIDE ( [Salesperson Total Weekly Load], 20 )
 		lineageTag: 429bad10-cb5a-4b02-a431-f909f9fb6ba0
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 销售人员负荷状态 =
+	measure 'Salesperson Load Status' =
 			
 			VAR ActiveCustomerCount =
 			    COUNTROWS(
 			        FILTER(
-			            VALUES(DimCustomerAll[客户编号]),
-			            CALCULATE([客户调整后周负荷]) > 0
+			            VALUES(DimCustomerAll[Customer ID]),
+			            CALCULATE([Customer Adjusted Weekly Load]) > 0
 			        )
 			    )
 			VAR CapacityRate =
-			    [销售人员产能利用率]
+			    [Salesperson Capacity Utilization]
 			RETURN
 			    SWITCH(
 			        TRUE(),
@@ -910,10 +910,10 @@ table DimCustomerNJ
 			    )
 		lineageTag: 73b888d9-9d4e-4157-b9f0-d07ba7e6319e
 
-	measure 销售人员产能颜色 =
+	measure 'Salesperson Capacity Color' =
 			
 			VAR CapacityRate =
-			    [销售人员产能利用率]
+			    [Salesperson Capacity Utilization]
 			RETURN
 			    SWITCH(
 			        TRUE(),
@@ -926,19 +926,19 @@ table DimCustomerNJ
 			    )
 		lineageTag: 174c4291-3a49-4cd2-89dc-acdaee4d5b60
 
-	measure 销售负责客户数 =
+	measure 'Salesperson Customer Count' =
 			
 			CALCULATE(
-			    DISTINCTCOUNT(DimCustomerAll[客户编号]),
-			    DimCustomerAll[客户编号] <> BLANK()
+			    DISTINCTCOUNT(DimCustomerAll[Customer ID]),
+			    DimCustomerAll[Customer ID] <> BLANK()
 			)
 		formatString: 0
 		lineageTag: 0dd93492-ff7c-495b-ba42-7e1501ea6b35
 
-	measure 客户有效覆盖周数 =
+	measure 'Customer Effective Coverage Weeks' =
 			
 			VAR FirstOrderDate =
-			    SELECTEDVALUE ( DimCustomerAll[客户首次下单日期] )
+			    SELECTEDVALUE ( DimCustomerAll[Customer First Order Date] )
 			
 			VAR SelectedStartDate =
 			    MIN ( DimDate[Date] )
@@ -958,7 +958,7 @@ table DimCustomerNJ
 			        ISBLANK ( FirstOrderDate ),
 			        BLANK (),
 			        CALCULATE (
-			            COUNTROWS ( VALUES ( DimDate[年周] ) ),
+			            COUNTROWS ( VALUES ( DimDate[Year Week] ) ),
 			            DATESBETWEEN (
 			                DimDate[Date],
 			                EffectiveStartDate,
@@ -969,10 +969,10 @@ table DimCustomerNJ
 		formatString: 0
 		lineageTag: 96882d12-7fbb-4fb8-b6e4-1b003079fd5c
 
-	measure 路线客户拜访系数 =
+	measure 'Route Customer Visit Factor' =
 			
 			VAR CustomerType =
-			    SELECTEDVALUE ( DimCustomerNJ[客户类型] )
+			    SELECTEDVALUE ( DimCustomerNJ[Customer Type] )
 			RETURN
 			    SWITCH (
 			        CustomerType,
@@ -990,14 +990,14 @@ table DimCustomerNJ
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 路线客户每周拜访次数 =
+	measure 'Route Customer Weekly Visits' =
 			
 			VAR Cycle =
-			    [路线客户建议拜访周期]
+			    [Route Customer Suggested Visit Cycle]
 			VAR VisitFactor =
-			    [路线客户拜访系数]
+			    [Route Customer Visit Factor]
 			VAR CustomerSales =
-			    [路线客户销售额]
+			    [Route Customer Sales]
 			RETURN
 			    IF (
 			        CustomerSales > 0
@@ -1013,14 +1013,14 @@ table DimCustomerNJ
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 路线客户单次服务分钟 =
+	measure 'Route Customer Minutes per Visit' =
 			
 			VAR CustomerType =
-			    SELECTEDVALUE ( DimCustomerNJ[客户类型] )
+			    SELECTEDVALUE ( DimCustomerNJ[Customer Type] )
 			VAR ServiceMinutes =
 			    LOOKUPVALUE (
-			        DimCustomerServiceTime[单次服务分钟],
-			        DimCustomerServiceTime[客户类型],
+			        DimCustomerServiceTime[Minutes per Visit],
+			        DimCustomerServiceTime[Customer Type],
 			        CustomerType
 			    )
 			RETURN
@@ -1032,69 +1032,69 @@ table DimCustomerNJ
 		formatString: 0
 		lineageTag: 20593d9c-09b8-4a91-83e9-55203282ac65
 
-	measure 路线客户预计每周服务分钟 =
+	measure 'Route Customer Expected Weekly Minutes' =
 			
-			[路线客户每周拜访次数]
-			    * [路线客户单次服务分钟]
+			[Route Customer Weekly Visits]
+			    * [Route Customer Minutes per Visit]
 		lineageTag: fb3bff2a-0c0f-4e1c-97ca-fe5528269b03
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 客户编号
+	column 'Customer ID'
 		lineageTag: a76cf8fa-7e1e-4917-97d6-e3b0b14680a5
 		summarizeBy: none
-		sourceColumn: FactSalesAll[合作伙伴/参考]
+		sourceColumn: FactSalesAll[Partner/Reference]
 
 		annotation SummarizationSetBy = Automatic
 
-	column 客户名称
+	column 'Customer Name'
 		lineageTag: 63f82dcf-ab06-4de8-b5c9-27aa6b280794
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [客户名称]
+		sourceColumn: [Customer Name]
 
 		annotation SummarizationSetBy = Automatic
 
-	column 客户类型
+	column 'Customer Type'
 		lineageTag: 97b0dec8-dc0c-43a0-bd09-4b91f0a2e428
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [客户类型]
+		sourceColumn: [Customer Type]
 
 		annotation SummarizationSetBy = Automatic
 
-	column 完整地址
+	column 'Full Address'
 		lineageTag: 945e5a2a-36d2-4b40-aca4-a01ea9f7bf03
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [完整地址]
+		sourceColumn: [Full Address]
 
 		annotation SummarizationSetBy = Automatic
 
-	column 城市
+	column City
 		lineageTag: a14de378-f942-4c49-8b5d-c193181cb023
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [城市]
+		sourceColumn: [City]
 
 		annotation SummarizationSetBy = Automatic
 
-	column 省州
+	column State
 		lineageTag: a7ef3dbf-2321-43ac-96e0-fc96176e6203
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [省州]
+		sourceColumn: [State]
 
 		annotation SummarizationSetBy = Automatic
 
-	column 地图地址 =
+	column 'Map Address' =
 			
 			VAR FullAddress =
-			    TRIM ( DimCustomerNJ[完整地址] )
+			    TRIM ( DimCustomerNJ[Full Address] )
 			VAR City =
-			    TRIM ( DimCustomerNJ[城市] )
+			    TRIM ( DimCustomerNJ[City] )
 			VAR StateName =
-			    TRIM ( DimCustomerNJ[省州] )
+			    TRIM ( DimCustomerNJ[State] )
 			RETURN
 			    IF (
 			        FullAddress = "",
@@ -1118,35 +1118,35 @@ table DimCustomerNJ
 
 		annotation SummarizationSetBy = Automatic
 
-	column 负责销售人员 =
+	column 'Responsible Salesperson' =
 			
 			VAR CurrentCustomer =
-			    DimCustomerNJ[客户编号]
+			    DimCustomerNJ[Customer ID]
 			VAR LatestCustomerRecord =
 			    TOPN(
 			        1,
 			        FILTER(
 			            ALL(FactSalesAll),
-			            FactSalesAll[合作伙伴/参考] = CurrentCustomer
-			                && NOT ISBLANK(FactSalesAll[合作伙伴/销售员])
-			                && FactSalesAll[合作伙伴/销售员] <> ""
+			            FactSalesAll[Partner/Reference] = CurrentCustomer
+			                && NOT ISBLANK(FactSalesAll[Partner/Sales Rep])
+			                && FactSalesAll[Partner/Sales Rep] <> ""
 			        ),
-			        FactSalesAll[发票/账单日期], DESC
+			        FactSalesAll[Invoice/Bill Date], DESC
 			    )
 			RETURN
 			    MAXX(
 			        LatestCustomerRecord,
-			        FactSalesAll[合作伙伴/销售员]
+			        FactSalesAll[Partner/Sales Rep]
 			    )
 		lineageTag: e0eb6f9d-6118-4ba5-9bb4-de03fe267753
 		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 
-	column 客户首次下单日期 =
+	column 'Customer First Order Date' =
 			
 			VAR CurrentCustomer =
-			    DimCustomerNJ[客户编号]
+			    DimCustomerNJ[Customer ID]
 			
 			VAR FirstDateBranchCost =
 			    MINX(
@@ -1161,9 +1161,9 @@ table DimCustomerNJ
 			    MINX(
 			        FILTER(
 			            ALL(FactSalesAll),
-			            FactSalesAll[合作伙伴/参考] = CurrentCustomer
+			            FactSalesAll[Partner/Reference] = CurrentCustomer
 			        ),
-			        FactSalesAll[发票/账单日期]
+			        FactSalesAll[Invoice/Bill Date]
 			    )
 			
 			RETURN
@@ -1184,13 +1184,13 @@ table DimCustomerNJ
 
 		annotation SummarizationSetBy = Automatic
 
-	column 地址可用标记 =
+	column 'Address Usable Flag' =
 			
 			IF (
-			    NOT ISBLANK ( DimCustomerNJ[客户编号] )
-			        && NOT ISBLANK ( DimCustomerNJ[完整地址] )
-			        && NOT ISBLANK ( DimCustomerNJ[城市] )
-			        && NOT ISBLANK ( DimCustomerNJ[省州] ),
+			    NOT ISBLANK ( DimCustomerNJ[Customer ID] )
+			        && NOT ISBLANK ( DimCustomerNJ[Full Address] )
+			        && NOT ISBLANK ( DimCustomerNJ[City] )
+			        && NOT ISBLANK ( DimCustomerNJ[State] ),
 			    1,
 			    0
 			)
@@ -1200,48 +1200,48 @@ table DimCustomerNJ
 
 		annotation SummarizationSetBy = Automatic
 
-	column 地址状态 =
+	column 'Address Status' =
 			
 			SWITCH (
 			    TRUE (),
-			    ISBLANK ( DimCustomerNJ[完整地址] ), "缺少街道地址",
-			    ISBLANK ( DimCustomerNJ[城市] ), "缺少城市",
-			    ISBLANK ( DimCustomerNJ[省州] ), "缺少州",
-			    "地址完整"
+			    ISBLANK ( DimCustomerNJ[Full Address] ), "Missing Street Address",
+			    ISBLANK ( DimCustomerNJ[City] ), "Missing City",
+			    ISBLANK ( DimCustomerNJ[State] ), "Missing State",
+			    "Address Complete"
 			)
 		lineageTag: 39e02c17-0b65-42b7-864d-eafda43f8f53
 		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 
-	column 路线数据状态 =
+	column 'Route Data Status' =
 			
 			SWITCH (
 			    TRUE (),
-			    ISBLANK ( DimCustomerNJ[客户编号] ), "缺少客户编号",
-			    ISBLANK ( DimCustomerNJ[完整地址] )
-			        || TRIM ( DimCustomerNJ[完整地址] ) = "", "缺少详细地址",
-			    ISBLANK ( DimCustomerNJ[城市] )
-			        || TRIM ( DimCustomerNJ[城市] ) = "", "缺少城市",
-			    ISBLANK ( DimCustomerNJ[省州] )
-			        || TRIM ( DimCustomerNJ[省州] ) = "", "缺少州",
-			    ISBLANK ( DimCustomerNJ[负责销售人员] )
-			        || TRIM ( DimCustomerNJ[负责销售人员] ) = "", "缺少销售人员",
-			    "可以计算路线"
+			    ISBLANK ( DimCustomerNJ[Customer ID] ), "Missing Customer ID",
+			    ISBLANK ( DimCustomerNJ[Full Address] )
+			        || TRIM ( DimCustomerNJ[Full Address] ) = "", "Missing Detailed Address",
+			    ISBLANK ( DimCustomerNJ[City] )
+			        || TRIM ( DimCustomerNJ[City] ) = "", "Missing City",
+			    ISBLANK ( DimCustomerNJ[State] )
+			        || TRIM ( DimCustomerNJ[State] ) = "", "Missing State",
+			    ISBLANK ( DimCustomerNJ[Responsible Salesperson] )
+			        || TRIM ( DimCustomerNJ[Responsible Salesperson] ) = "", "Missing Salesperson",
+			    "Route Can Be Calculated"
 			)
 		lineageTag: df639dcb-ac37-42b9-b61a-1ff45c5e34a3
 		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 
-	column 路线计算可用标记 =
+	column 'Route Calculation Usable Flag' =
 			
 			IF (
-			    NOT ISBLANK ( DimCustomerNJ[客户编号] )
-			        && NOT ISBLANK ( DimCustomerNJ[路线地址] )
-			        && TRIM ( DimCustomerNJ[路线地址] ) <> ""
-			        && NOT ISBLANK ( DimCustomerNJ[负责销售人员] )
-			        && TRIM ( DimCustomerNJ[负责销售人员] ) <> "",
+			    NOT ISBLANK ( DimCustomerNJ[Customer ID] )
+			        && NOT ISBLANK ( DimCustomerNJ[Route Address] )
+			        && TRIM ( DimCustomerNJ[Route Address] ) <> ""
+			        && NOT ISBLANK ( DimCustomerNJ[Responsible Salesperson] )
+			        && TRIM ( DimCustomerNJ[Responsible Salesperson] ) <> "",
 			    1,
 			    0
 			)
@@ -1250,18 +1250,18 @@ table DimCustomerNJ
 
 		annotation SummarizationSetBy = Automatic
 
-	column 路线地址 =
+	column 'Route Address' =
 			
-			TRIM ( DimCustomerNJ[完整地址] )
+			TRIM ( DimCustomerNJ[Full Address] )
 		lineageTag: 22204501-c7c6-4210-99ec-d6d6197176fe
 		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 
-	column 路线单次服务分钟 =
+	column 'Route Minutes per Visit' =
 			
 			SWITCH (
-			    DimCustomerNJ[客户类型],
+			    DimCustomerNJ[Customer Type],
 			    "Wholesaler", 60,
 			    "Supermarket/Grocery", 45,
 			    "Retail", 35,
@@ -1283,28 +1283,28 @@ table DimCustomerNJ
 				VAR CustomerData =
 				    FILTER (
 				        FactSalesAll,
-				        NOT ISBLANK ( FactSalesAll[合作伙伴/参考] )
-				            && FactSalesAll[合作伙伴/参考] <> ""
+				        NOT ISBLANK ( FactSalesAll[Partner/Reference] )
+				            && FactSalesAll[Partner/Reference] <> ""
 				    )
 				RETURN
 				    SUMMARIZE (
 				        CustomerData,
-				        FactSalesAll[合作伙伴/参考],
+				        FactSalesAll[Partner/Reference],
 				
-				        "客户名称",
-				            MAX ( FactSalesAll[合作伙伴] ),
+				        "Customer Name",
+				            MAX ( FactSalesAll[Partner] ),
 				
-				        "客户类型",
-				            MAX ( FactSalesAll[合作伙伴/客户类型] ),
+				        "Customer Type",
+				            MAX ( FactSalesAll[Partner/Customer Type] ),
 				
-				        "完整地址",
-				            MAX ( FactSalesAll[合作伙伴/完整地址] ),
+				        "Full Address",
+				            MAX ( FactSalesAll[Partner/Full Address] ),
 				
-				        "城市",
-				            MAX ( FactSalesAll[合作伙伴/城市] ),
+				        "City",
+				            MAX ( FactSalesAll[Partner/City] ),
 				
-				        "省州",
-				            MAX ( FactSalesAll[合作伙伴/省/州] )
+				        "State",
+				            MAX ( FactSalesAll[Partner/Province/State] )
 				    )
 
 	annotation PBI_Id = 74fb8766a3954789bc9bf4c94f9b4aee

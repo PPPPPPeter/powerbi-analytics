@@ -27,8 +27,8 @@
                 }
               },
               "queryRef": "FactBranchCost.customer_name",
-              "nativeQueryRef": "客户",
-              "displayName": "客户"
+              "nativeQueryRef": "Customer",
+              "displayName": "Customer"
             },
             {
               "field": {
@@ -38,12 +38,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "分公司销售额（不含运费和服务费）"
+                  "Property": "Branch Sales (Excl Freight and Service Fees)"
                 }
               },
-              "queryRef": "FactBranchCost.分公司销售额（不含运费和服务费）",
-              "nativeQueryRef": "销售额",
-              "displayName": "销售额",
+              "queryRef": "FactBranchCost.Branch Sales (Excl Freight and Service Fees)",
+              "nativeQueryRef": "Sales",
+              "displayName": "Sales",
               "format": "\\$#,0.00;(\\$#,0.00);\\$#,0.00"
             },
             {
@@ -54,12 +54,12 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "客户毛利_全部分公司"
+                  "Property": "Customer Gross Profit_All Branches"
                 }
               },
-              "queryRef": "DimCustomerNJ.客户毛利_全部分公司",
-              "nativeQueryRef": "客户毛利",
-              "displayName": "客户毛利",
+              "queryRef": "DimCustomerNJ.Customer Gross Profit_All Branches",
+              "nativeQueryRef": "Customer Gross Profit",
+              "displayName": "Customer Gross Profit",
               "format": "\\$#,0.00;(\\$#,0.00);\\$#,0.00"
             }
           ]
@@ -75,7 +75,7 @@
                     "Entity": "FactBranchCost"
                   }
                 },
-                "Property": "分公司销售额（不含运费和服务费）"
+                "Property": "Branch Sales (Excl Freight and Service Fees)"
               }
             },
             "direction": "Descending"
@@ -110,7 +110,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.分公司销售额（不含运费和服务费）"
+            "metadata": "FactBranchCost.Branch Sales (Excl Freight and Service Fees)"
           }
         },
         {
@@ -124,7 +124,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomerNJ.客户毛利_全部分公司"
+            "metadata": "DimCustomerNJ.Customer Gross Profit_All Branches"
           }
         }
       ],
@@ -279,7 +279,7 @@
                 "Entity": "FactBranchCost"
               }
             },
-            "Property": "分公司销售额（不含运费和服务费）"
+            "Property": "Branch Sales (Excl Freight and Service Fees)"
           }
         },
         "type": "Advanced"
@@ -293,7 +293,7 @@
                 "Entity": "DimCustomerNJ"
               }
             },
-            "Property": "客户毛利_全部分公司"
+            "Property": "Customer Gross Profit_All Branches"
           }
         },
         "type": "Advanced"

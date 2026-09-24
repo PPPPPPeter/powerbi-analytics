@@ -23,11 +23,11 @@
                       "Entity": "DimCustomerAll"
                     }
                   },
-                  "Property": "公司"
+                  "Property": "Company"
                 }
               },
-              "queryRef": "DimCustomerAll.公司",
-              "nativeQueryRef": "公司",
+              "queryRef": "DimCustomerAll.Company",
+              "nativeQueryRef": "Company",
               "active": true
             }
           ]
@@ -73,7 +73,7 @@
                                   "Source": "d"
                                 }
                               },
-                              "Property": "公司"
+                              "Property": "Company"
                             }
                           }
                         ],
@@ -188,7 +188,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'公司'"
+                  "Value": "'Company'"
                 }
               }
             },

@@ -1,177 +1,177 @@
 table FactSalesAll
 	lineageTag: d09fedcd-1dea-46b6-a82a-513ed602ec48
 
-	column 发票编号
+	column 'Invoice Number'
 		dataType: string
 		lineageTag: 071a860c-db4b-413b-9f45-cf0f45dd6ca3
 		summarizeBy: none
-		sourceColumn: 发票编号
+		sourceColumn: Invoice Number
 
 		annotation SummarizationSetBy = Automatic
 
-	column 产品/内部参考号
+	column 'Product/Internal Reference'
 		dataType: string
 		lineageTag: 304240f6-63c4-439f-b0a2-c9740a9a1112
 		summarizeBy: none
-		sourceColumn: 产品/内部参考号
+		sourceColumn: Product/Internal Reference
 
 		annotation SummarizationSetBy = Automatic
 
-	column 产品/名称
+	column 'Product/Name'
 		dataType: string
 		lineageTag: 315d6afd-402e-4f57-bdba-5234faaaef9e
 		summarizeBy: none
-		sourceColumn: 产品/名称
+		sourceColumn: Product/Name
 
 		annotation SummarizationSetBy = Automatic
 
-	column '产品/CN 品牌'
+	column 'Product/CN Brand'
 		dataType: string
 		lineageTag: 2e6ec8c4-13ce-4041-bf73-5a9f09a437f9
 		summarizeBy: none
-		sourceColumn: 产品/CN 品牌
+		sourceColumn: Product/CN Brand
 
 		annotation SummarizationSetBy = Automatic
 
-	column 产品/产品类别/中文名称
+	column 'Product/Product Category/Category Name'
 		dataType: string
 		lineageTag: 7145420d-c116-4885-876d-da730d056b4f
 		summarizeBy: none
-		sourceColumn: 产品/产品类别/中文名称
+		sourceColumn: Product/Product Category/Category Name
 
 		annotation SummarizationSetBy = Automatic
 
-	column 产品/产品类别/上级名称
+	column 'Product/Product Category/Parent Name'
 		dataType: string
 		lineageTag: 2c9fbb8b-6fee-456c-a40a-6fea33083ec9
 		summarizeBy: none
-		sourceColumn: 产品/产品类别/上级名称
+		sourceColumn: Product/Product Category/Parent Name
 
 		annotation SummarizationSetBy = Automatic
 
-	column 产品/计量单位
+	column 'Product/Unit of Measure'
 		dataType: string
 		lineageTag: 20c7504e-b879-4611-a796-4e918b75c908
 		summarizeBy: none
-		sourceColumn: 产品/计量单位
+		sourceColumn: Product/Unit of Measure
 
 		annotation SummarizationSetBy = Automatic
 
-	column 合作伙伴
+	column Partner
 		dataType: string
 		lineageTag: 7dc1b2bf-ca0d-4781-a548-ee33bb0ad567
 		summarizeBy: none
-		sourceColumn: 合作伙伴
+		sourceColumn: Partner
 
 		annotation SummarizationSetBy = Automatic
 
-	column 合作伙伴/参考
+	column 'Partner/Reference'
 		dataType: string
 		lineageTag: be1cd5ca-cff1-421a-b8bf-0c9730689a10
 		summarizeBy: none
-		sourceColumn: 合作伙伴/参考
+		sourceColumn: Partner/Reference
 
 		annotation SummarizationSetBy = Automatic
 
-	column 合作伙伴/销售员
+	column 'Partner/Sales Rep'
 		dataType: string
 		lineageTag: 8d77ae84-3762-46ff-9332-14b9910da845
 		summarizeBy: none
-		sourceColumn: 合作伙伴/销售员
+		sourceColumn: Partner/Sales Rep
 
 		annotation SummarizationSetBy = Automatic
 
-	column 合作伙伴/客户类型
+	column 'Partner/Customer Type'
 		dataType: string
 		lineageTag: ca1b338f-0931-4fc7-8182-7f7713e538c2
 		summarizeBy: none
-		sourceColumn: 合作伙伴/客户类型
+		sourceColumn: Partner/Customer Type
 
 		annotation SummarizationSetBy = Automatic
 
-	column 合作伙伴/完整地址
+	column 'Partner/Full Address'
 		dataType: string
 		lineageTag: 28090ffc-bead-4254-a322-802d99e0abd3
 		summarizeBy: none
-		sourceColumn: 合作伙伴/完整地址
+		sourceColumn: Partner/Full Address
 
 		annotation SummarizationSetBy = Automatic
 
-	column 合作伙伴/城市
+	column 'Partner/City'
 		dataType: string
 		lineageTag: d973d85e-74b3-4d04-8fa5-3ab100d5c323
 		summarizeBy: none
-		sourceColumn: 合作伙伴/城市
+		sourceColumn: Partner/City
 
 		annotation SummarizationSetBy = Automatic
 
-	column 合作伙伴/省/州
+	column 'Partner/Province/State'
 		dataType: string
 		lineageTag: 046f8bce-4d9b-4e58-8739-ca95067ab83a
 		summarizeBy: none
-		sourceColumn: 合作伙伴/省/州
+		sourceColumn: Partner/Province/State
 
 		annotation SummarizationSetBy = Automatic
 
-	column 销售订单行/销售人员
+	column 'Sales Order Line/Salesperson'
 		dataType: string
 		lineageTag: 0bfd4aad-ef12-4b3a-a0b4-6b6b80431552
 		summarizeBy: none
-		sourceColumn: 销售订单行/销售人员
+		sourceColumn: Sales Order Line/Salesperson
 
 		annotation SummarizationSetBy = Automatic
 
-	column 销售订单行/创建人
+	column 'Sales Order Line/Created By'
 		dataType: string
 		lineageTag: a2f74487-18cf-417d-912a-06107ea99e6a
 		summarizeBy: none
-		sourceColumn: 销售订单行/创建人
+		sourceColumn: Sales Order Line/Created By
 
 		annotation SummarizationSetBy = Automatic
 
-	column 单价
+	column 'Unit Price'
 		dataType: double
 		lineageTag: 81409efa-3e6a-4d73-9636-a3c555b7a317
 		summarizeBy: sum
-		sourceColumn: 单价
+		sourceColumn: Unit Price
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 小计
+	column Subtotal
 		dataType: double
 		lineageTag: 835c524a-9964-4b20-99f7-d2f1957d442f
 		summarizeBy: sum
-		sourceColumn: 小计
+		sourceColumn: Subtotal
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 产品/基准成本
+	column 'Product/Base Cost'
 		dataType: double
 		lineageTag: fafb9e3c-31c6-44ea-83c1-69a1d4a2e5f3
 		summarizeBy: sum
-		sourceColumn: 产品/基准成本
+		sourceColumn: Product/Base Cost
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 公司
+	column Company
 		dataType: string
 		lineageTag: f00bf6bb-8cab-494a-862c-0b30b180aa4c
 		summarizeBy: none
-		sourceColumn: 公司
+		sourceColumn: Company
 
 		annotation SummarizationSetBy = Automatic
 
-	column 销售订单行/仓库
+	column 'Sales Order Line/Warehouse'
 		dataType: string
 		lineageTag: 8acb42c7-de73-41fc-a57c-eff6703a5fa0
 		summarizeBy: none
-		sourceColumn: 销售订单行/仓库
+		sourceColumn: Sales Order Line/Warehouse
 
 		annotation SummarizationSetBy = Automatic
 
@@ -183,15 +183,15 @@ table FactSalesAll
 
 		annotation SummarizationSetBy = Automatic
 
-	column 产品分类 =
+	column 'Product Class' =
 			
 			IF(
-			    'FactSalesAll'[产品/产品类别/中文名称] = "冰淇淋",
-			    "冰淇淋",
+			    'FactSalesAll'[Product/Product Category/Category Name] = "Ice Cream",
+			    "Ice Cream",
 			    IF(
-			        'FactSalesAll'[产品/产品类别/上级名称] = "美容 & 健康 & 居家",
-			        "美妆",
-			        "其他"
+			        'FactSalesAll'[Product/Product Category/Parent Name] = "Beauty & Health & Home",
+			        "Beauty",
+			        "Other"
 			    )
 			)
 		lineageTag: 3c64fd6a-d591-4d67-8625-ac31eed87740
@@ -199,19 +199,19 @@ table FactSalesAll
 
 		annotation SummarizationSetBy = Automatic
 
-	column 订单创建人_显示 =
+	column 'Order Creator_Display' =
 			
 			VAR CreatorName =
 			    TRIM (
 			        COALESCE (
-			            FactSalesAll[销售订单行/创建人],
+			            FactSalesAll[Sales Order Line/Created By],
 			            ""
 			        )
 			    )
 			RETURN
 			    IF (
 			        CreatorName = "",
-			        "未知人员",
+			        "Unknown Person",
 			        CreatorName
 			    )
 		lineageTag: 7b6b687b-63ca-4653-baf6-be3a91e883d7
@@ -219,58 +219,58 @@ table FactSalesAll
 
 		annotation SummarizationSetBy = Automatic
 
-	column 发票/账单日期
+	column 'Invoice/Bill Date'
 		dataType: dateTime
 		formatString: Long Date
 		lineageTag: aefb2506-e5eb-4e51-bb81-d158021db647
 		summarizeBy: none
-		sourceColumn: 发票/账单日期
+		sourceColumn: Invoice/Bill Date
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	column 销售订单行/订单参考号
+	column 'Sales Order Line/Order Reference No'
 		dataType: string
 		lineageTag: fe62c2fe-0f17-46e8-baf3-29f9259dd14f
 		summarizeBy: none
-		sourceColumn: 销售订单行/订单参考号
+		sourceColumn: Sales Order Line/Order Reference No
 
 		annotation SummarizationSetBy = Automatic
 
-	column 销售订单行/客户
+	column 'Sales Order Line/Customer'
 		dataType: string
 		lineageTag: a74f39e5-408c-43ac-9315-6462346dca89
 		summarizeBy: none
-		sourceColumn: 销售订单行/客户
+		sourceColumn: Sales Order Line/Customer
 
 		annotation SummarizationSetBy = Automatic
 
-	column 折扣后单价
+	column 'Discounted Unit Price'
 		dataType: double
 		lineageTag: 69f5c96a-0079-492c-b4e6-6d29a2fb1615
 		summarizeBy: sum
-		sourceColumn: 折扣后单价
+		sourceColumn: Discounted Unit Price
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 会计科目/类型
+	column 'Account/Type'
 		dataType: string
 		lineageTag: 1769e0ea-ab07-4f0c-b5a3-593239465771
 		summarizeBy: none
-		sourceColumn: 会计科目/类型
+		sourceColumn: Account/Type
 
 		annotation SummarizationSetBy = Automatic
 
-	column 客户渠道 =
+	column 'Customer Channel' =
 			
 			VAR SalespersonName =
 			    UPPER(
 			        TRIM(
 			            COALESCE(
-			                FactSalesAll[销售订单行/创建人],
+			                FactSalesAll[Sales Order Line/Created By],
 			                ""
 			            )
 			        )
@@ -279,7 +279,7 @@ table FactSalesAll
 			    UPPER(
 			        TRIM(
 			            COALESCE(
-			                FactSalesAll[合作伙伴],
+			                FactSalesAll[Partner],
 			                ""
 			            )
 			        )
@@ -287,23 +287,23 @@ table FactSalesAll
 			RETURN
 			    SWITCH(
 			        TRUE(),
-			        SalespersonName = "MAINSTREAM", "主流",
+			        SalespersonName = "MAINSTREAM", "Mainstream",
 			        CustomerName IN {
 			            "Harbor Spice Co",
 			            "Summit Seasoning, LLC"
-			        }, "代理",
-			        "亚裔"
+			        }, "Agent",
+			        "Asian"
 			    )
 		lineageTag: 9f934f39-82d2-4b8e-8eab-64b657cd6269
 		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 
-	column 数量_1
+	column Quantity_1
 		dataType: double
 		lineageTag: 6a40eb99-f9a3-40dc-a92d-e4e0bfe1f4f4
 		summarizeBy: sum
-		sourceColumn: 数量_1
+		sourceColumn: Quantity_1
 
 		annotation SummarizationSetBy = Automatic
 
@@ -315,13 +315,13 @@ table FactSalesAll
 				let
 				    Source = Csv.Document((if Text.StartsWith(DataRoot, "http") then Web.Contents(DataRoot & "/sales_invoice_lines.csv") else File.Contents(DataRoot & "\sales_invoice_lines.csv")),[Delimiter=",", Columns=28, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
 				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"数量", type text}, {"发票/账单日期", type date}, {"产品/内部参考号", type text}, {"产品/名称", type text}, {"产品/CN 品牌", type text}, {"产品/产品类别/中文名称", type text}, {"产品/产品类别/上级名称", type text}, {"产品/计量单位", type text}, {"合作伙伴", type text}, {"合作伙伴/参考", type text}, {"合作伙伴/销售员", type text}, {"合作伙伴/客户类型", type text}, {"合作伙伴/完整地址", type text}, {"合作伙伴/城市", type text}, {"合作伙伴/省/州", type text}, {"销售订单行/销售人员", type text}, {"销售订单行/创建人", type text}, {"数量_1", type number}, {"单价", type number}, {"小计", type number}, {"产品/基准成本", type number}, {"公司", type text}, {"销售订单行/仓库", type text}, {"Type", type text}, {"折扣后单价", type number}}),
-				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each ([#"会计科目/类型"] = "收入")),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Quantity", type text}, {"Invoice/Bill Date", type date}, {"Product/Internal Reference", type text}, {"Product/Name", type text}, {"Product/CN Brand", type text}, {"Product/Product Category/Category Name", type text}, {"Product/Product Category/Parent Name", type text}, {"Product/Unit of Measure", type text}, {"Partner", type text}, {"Partner/Reference", type text}, {"Partner/Sales Rep", type text}, {"Partner/Customer Type", type text}, {"Partner/Full Address", type text}, {"Partner/City", type text}, {"Partner/Province/State", type text}, {"Sales Order Line/Salesperson", type text}, {"Sales Order Line/Created By", type text}, {"Quantity_1", type number}, {"Unit Price", type number}, {"Subtotal", type number}, {"Product/Base Cost", type number}, {"Company", type text}, {"Sales Order Line/Warehouse", type text}, {"Type", type text}, {"Discounted Unit Price", type number}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each ([#"Account/Type"] = "Revenue")),
 				    #"Clean Personnel" = Table.TransformColumns(
 				        #"Filtered Rows",
 				        {
 				            {
-				                "销售订单行/销售人员",
+				                "Sales Order Line/Salesperson",
 				                each
 				                    let
 				                        Name =
@@ -330,12 +330,12 @@ table FactSalesAll
 				                            else Text.Trim(Text.From(_))
 				                    in
 				                        if Name = ""
-				                        then "未知人员"
+				                        then "Unknown Person"
 				                        else Name,
 				                type text
 				            },
 				            {
-				                "销售订单行/创建人",
+				                "Sales Order Line/Created By",
 				                each
 				                    let
 				                        Name =
@@ -344,30 +344,30 @@ table FactSalesAll
 				                            else Text.Trim(Text.From(_))
 				                    in
 				                        if Name = ""
-				                        then "未知人员"
+				                        then "Unknown Person"
 				                        else Name,
 				                type text
 				            }
 				        }
 				    ),
-				    #"删除期初数据SKU" =
+				    #"RemoveOpeningBalanceSKU" =
 				    Table.SelectRows(
 				        #"Filtered Rows",
 				        each
 				            Text.Upper(
 				                Text.Trim(
 				                    Text.From(
-				                        [#"产品/内部参考号"]
+				                        [#"Product/Internal Reference"]
 				                    )
 				                )
 				            ) <> "INITIALIZE"
 				            and Text.Trim(
 				                Text.From(
-				                    [#"产品/名称"]
+				                    [#"Product/Name"]
 				                )
-				            ) <> "期初数据SKU"
+				            ) <> "Opening Balance SKU"
 				    ),
-				    #"Renamed Columns" = Table.RenameColumns(删除期初数据SKU,{{"数量", "发票编号"}})
+				    #"Renamed Columns" = Table.RenameColumns(RemoveOpeningBalanceSKU,{{"Quantity", "Invoice Number"}})
 				in
 				    #"Renamed Columns"
 

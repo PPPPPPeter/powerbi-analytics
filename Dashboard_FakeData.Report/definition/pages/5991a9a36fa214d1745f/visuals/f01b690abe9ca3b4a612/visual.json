@@ -37,11 +37,11 @@
                       "Entity": "ProductCatalogAll"
                     }
                   },
-                  "Property": "产品名称"
+                  "Property": "Product Name"
                 }
               },
-              "queryRef": "ProductCatalogAll.产品名称",
-              "nativeQueryRef": "产品名称1"
+              "queryRef": "ProductCatalogAll.Product Name",
+              "nativeQueryRef": "Product Name1"
             },
             {
               "field": {
@@ -51,12 +51,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "分公司销售额（不含运费和服务费）"
+                  "Property": "Branch Sales (Excl Freight and Service Fees)"
                 }
               },
-              "queryRef": "FactBranchCost.分公司销售额",
-              "nativeQueryRef": "销售额",
-              "displayName": "销售额"
+              "queryRef": "FactBranchCost.Branch Sales",
+              "nativeQueryRef": "Sales",
+              "displayName": "Sales"
             }
           ]
         }
@@ -71,7 +71,7 @@
                     "Entity": "FactBranchCost"
                   }
                 },
-                "Property": "分公司销售额（不含运费和服务费）"
+                "Property": "Branch Sales (Excl Freight and Service Fees)"
               }
             },
             "direction": "Descending"
@@ -132,7 +132,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.分公司销售额"
+            "metadata": "FactBranchCost.Branch Sales"
           }
         },
         {
@@ -146,7 +146,7 @@
             }
           },
           "selector": {
-            "metadata": "ProductCatalogAll.产品名称"
+            "metadata": "ProductCatalogAll.Product Name"
           }
         },
         {
@@ -177,7 +177,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'已铺货产品'"
+                  "Value": "'Distributed Products'"
                 }
               }
             },
@@ -243,7 +243,7 @@
                 "Entity": "_Measures"
               }
             },
-            "Property": "铺货分析_已铺货SKU标记"
+            "Property": "Distribution Analysis_Distributed SKU Flag"
           }
         },
         "type": "Advanced",
@@ -268,7 +268,7 @@
                           "Source": "_"
                         }
                       },
-                      "Property": "铺货分析_已铺货SKU标记"
+                      "Property": "Distribution Analysis_Distributed SKU Flag"
                     }
                   },
                   "Right": {

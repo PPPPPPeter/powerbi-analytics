@@ -23,11 +23,11 @@
                       "Entity": "DimProductAll"
                     }
                   },
-                  "Property": "产品大类"
+                  "Property": "Product Group"
                 }
               },
-              "queryRef": "DimProductAll.产品大类",
-              "nativeQueryRef": "产品大类",
+              "queryRef": "DimProductAll.Product Group",
+              "nativeQueryRef": "Product Group",
               "active": true
             },
             {
@@ -38,11 +38,11 @@
                       "Entity": "DimProductAll"
                     }
                   },
-                  "Property": "产品类别"
+                  "Property": "Product Category"
                 }
               },
-              "queryRef": "DimProductAll.产品类别",
-              "nativeQueryRef": "产品类别",
+              "queryRef": "DimProductAll.Product Category",
+              "nativeQueryRef": "Product Category",
               "active": true
             }
           ]
@@ -57,7 +57,7 @@
         "levels": [
           {
             "queryRefs": [
-              "DimProductAll.产品大类"
+              "DimProductAll.Product Group"
             ],
             "isCollapsed": true,
             "identityKeys": [
@@ -68,7 +68,7 @@
                       "Entity": "DimProductAll"
                     }
                   },
-                  "Property": "产品大类"
+                  "Property": "Product Group"
                 }
               }
             ],
@@ -76,7 +76,7 @@
           },
           {
             "queryRefs": [
-              "DimProductAll.产品类别"
+              "DimProductAll.Product Category"
             ],
             "isCollapsed": true,
             "isPinned": true
@@ -88,7 +88,7 @@
               "identityValues": [
                 {
                   "Literal": {
-                    "Value": "'冷冻和冷藏食品'"
+                    "Value": "'Frozen & Chilled Foods'"
                   }
                 }
               ],
@@ -217,7 +217,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'产品类型'"
+                  "Value": "'Product Type'"
                 }
               }
             },

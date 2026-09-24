@@ -23,11 +23,11 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "完整地址"
+                  "Property": "Full Address"
                 }
               },
-              "queryRef": "FactBranchCost.完整地址",
-              "nativeQueryRef": "完整地址",
+              "queryRef": "FactBranchCost.Full Address",
+              "nativeQueryRef": "Full Address",
               "active": true
             }
           ]
@@ -42,11 +42,11 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "分公司销售额（不含运费和服务费）"
+                  "Property": "Branch Sales (Excl Freight and Service Fees)"
                 }
               },
-              "queryRef": "FactBranchCost.分公司销售额",
-              "nativeQueryRef": "分公司销售额（不含运费和服务费）"
+              "queryRef": "FactBranchCost.Branch Sales",
+              "nativeQueryRef": "Branch Sales (Excl Freight and Service Fees)"
             }
           ]
         },
@@ -306,7 +306,7 @@
                               "Entity": "_Measures"
                             }
                           },
-                          "Property": "订单创建人销售额"
+                          "Property": "Order Creator Sales"
                         }
                       },
                       "FillRule": {
@@ -441,7 +441,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'客户分布热力图'"
+                  "Value": "'Customer Heat Map'"
                 }
               }
             },

@@ -27,8 +27,8 @@
                 }
               },
               "queryRef": "FactBranchCost.Invoice No",
-              "nativeQueryRef": "发票编号",
-              "displayName": "发票编号"
+              "nativeQueryRef": "Invoice Number",
+              "displayName": "Invoice Number"
             },
             {
               "field": {
@@ -61,8 +61,8 @@
                 }
               },
               "queryRef": "Sum(FactBranchCost.discount_price)",
-              "nativeQueryRef": "平均单价",
-              "displayName": "平均单价"
+              "nativeQueryRef": "Avg Unit Price",
+              "displayName": "Avg Unit Price"
             },
             {
               "field": {
@@ -72,12 +72,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "分公司销售数量"
+                  "Property": "Branch Sales Qty"
                 }
               },
-              "queryRef": "FactBranchCost.分公司销售数量",
-              "nativeQueryRef": "销售数量",
-              "displayName": "销售数量"
+              "queryRef": "FactBranchCost.Branch Sales Qty",
+              "nativeQueryRef": "Sales Qty",
+              "displayName": "Sales Qty"
             }
           ]
         }
@@ -92,7 +92,7 @@
                     "Entity": "FactBranchCost"
                   }
                 },
-                "Property": "分公司销售数量"
+                "Property": "Branch Sales Qty"
               }
             },
             "direction": "Descending"
@@ -164,7 +164,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'客户'"
+                  "Value": "'Customer'"
                 }
               }
             },
@@ -212,7 +212,7 @@
                 "Entity": "DimProductAll"
               }
             },
-            "Property": "品牌"
+            "Property": "Brand"
           }
         },
         "type": "Categorical",
@@ -237,7 +237,7 @@
                             "Source": "d"
                           }
                         },
-                        "Property": "品牌"
+                        "Property": "Brand"
                       }
                     }
                   ],
@@ -245,7 +245,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'清泉'"
+                          "Value": "'QINGQUAN'"
                         }
                       }
                     ]
@@ -266,7 +266,7 @@
                 "Entity": "DimProductAll"
               }
             },
-            "Property": "计量单位"
+            "Property": "Unit of Measure"
           }
         },
         "type": "Categorical",
@@ -291,7 +291,7 @@
                             "Source": "d"
                           }
                         },
-                        "Property": "计量单位"
+                        "Property": "Unit of Measure"
                       }
                     }
                   ],
@@ -320,7 +320,7 @@
                 "Entity": "FactBranchCost"
               }
             },
-            "Property": "分公司销售数量"
+            "Property": "Branch Sales Qty"
           }
         },
         "type": "Advanced",
@@ -345,7 +345,7 @@
                           "Source": "f1"
                         }
                       },
-                      "Property": "分公司销售数量"
+                      "Property": "Branch Sales Qty"
                     }
                   },
                   "Right": {
@@ -399,7 +399,7 @@
                       },
                       "Right": {
                         "Literal": {
-                          "Value": "'茉莉'"
+                          "Value": "'Jasmine'"
                         }
                       }
                     }

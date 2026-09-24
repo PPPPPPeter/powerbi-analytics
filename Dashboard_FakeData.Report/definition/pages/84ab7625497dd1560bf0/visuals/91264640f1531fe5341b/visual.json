@@ -23,11 +23,11 @@
                       "Entity": "DimCustomerAll"
                     }
                   },
-                  "Property": "销售人员"
+                  "Property": "Salesperson"
                 }
               },
-              "queryRef": "DimCustomerAll.销售人员",
-              "nativeQueryRef": "销售人员",
+              "queryRef": "DimCustomerAll.Salesperson",
+              "nativeQueryRef": "Salesperson",
               "active": true
             }
           ]
@@ -42,12 +42,12 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "客户销售额_全部分公司"
+                  "Property": "Customer Sales_All Branches"
                 }
               },
-              "queryRef": "DimCustomer.客户销售额_全部分公司",
-              "nativeQueryRef": "销售额",
-              "displayName": "销售额"
+              "queryRef": "DimCustomer.Customer Sales_All Branches",
+              "nativeQueryRef": "Sales",
+              "displayName": "Sales"
             },
             {
               "field": {
@@ -57,12 +57,12 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "客户毛利率_全部分公司"
+                  "Property": "Customer Gross Margin_All Branches"
                 }
               },
-              "queryRef": "DimCustomer.客户毛利率_全部分公司",
-              "nativeQueryRef": "毛利率",
-              "displayName": "毛利率",
+              "queryRef": "DimCustomer.Customer Gross Margin_All Branches",
+              "nativeQueryRef": "Gross Margin",
+              "displayName": "Gross Margin",
               "format": "0.00%;-0.00%;0.00%"
             },
             {
@@ -73,12 +73,12 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "销售负责客户数"
+                  "Property": "Salesperson Customer Count"
                 }
               },
-              "queryRef": "DimCustomer.销售负责客户数",
-              "nativeQueryRef": "客户数",
-              "displayName": "客户数"
+              "queryRef": "DimCustomer.Salesperson Customer Count",
+              "nativeQueryRef": "Customer Count",
+              "displayName": "Customer Count"
             },
             {
               "field": {
@@ -88,12 +88,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "销售已铺货客户数"
+                  "Property": "Sales Distributed Customer Count"
                 }
               },
-              "queryRef": "FactBranchCost.销售已铺货客户数",
-              "nativeQueryRef": "已铺货客户",
-              "displayName": "已铺货客户"
+              "queryRef": "FactBranchCost.Sales Distributed Customer Count",
+              "nativeQueryRef": "Distributed Customers",
+              "displayName": "Distributed Customers"
             },
             {
               "field": {
@@ -103,12 +103,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "销售客户铺货率"
+                  "Property": "Sales Customer Distribution Rate"
                 }
               },
-              "queryRef": "FactBranchCost.销售客户铺货率",
-              "nativeQueryRef": "客户铺货率",
-              "displayName": "客户铺货率",
+              "queryRef": "FactBranchCost.Sales Customer Distribution Rate",
+              "nativeQueryRef": "Customer Distribution Rate",
+              "displayName": "Customer Distribution Rate",
               "format": "0.0%;-0.0%;0.0%"
             },
             {
@@ -119,12 +119,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "销售已铺货SKU数"
+                  "Property": "Sales Distributed SKU Count"
                 }
               },
-              "queryRef": "FactBranchCost.销售已铺货SKU数",
-              "nativeQueryRef": "已铺货SKU",
-              "displayName": "已铺货SKU"
+              "queryRef": "FactBranchCost.Sales Distributed SKU Count",
+              "nativeQueryRef": "Distributed SKUs",
+              "displayName": "Distributed SKUs"
             },
             {
               "field": {
@@ -134,12 +134,12 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "销售人员总周负荷"
+                  "Property": "Salesperson Total Weekly Load"
                 }
               },
-              "queryRef": "DimCustomer.销售人员总周负荷",
-              "nativeQueryRef": "总周负荷",
-              "displayName": "总周负荷"
+              "queryRef": "DimCustomer.Salesperson Total Weekly Load",
+              "nativeQueryRef": "Total Weekly Load",
+              "displayName": "Total Weekly Load"
             },
             {
               "field": {
@@ -149,12 +149,12 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "销售人员负荷状态"
+                  "Property": "Salesperson Load Status"
                 }
               },
-              "queryRef": "DimCustomer.销售人员负荷状态",
-              "nativeQueryRef": "负荷状态",
-              "displayName": "负荷状态"
+              "queryRef": "DimCustomer.Salesperson Load Status",
+              "nativeQueryRef": "Load Status",
+              "displayName": "Load Status"
             },
             {
               "field": {
@@ -164,12 +164,12 @@
                       "Entity": "DimCustomerAll"
                     }
                   },
-                  "Property": "2026年8月1日后新客户数"
+                  "Property": "New Customers Since 2026-08-01"
                 }
               },
-              "queryRef": "DimCustomerAll.2026年8月1日后新客户数",
-              "nativeQueryRef": "新客户数",
-              "displayName": "新客户数"
+              "queryRef": "DimCustomerAll.New Customers Since 2026-08-01",
+              "nativeQueryRef": "New Customers",
+              "displayName": "New Customers"
             }
           ]
         }
@@ -184,7 +184,7 @@
                     "Entity": "DimCustomerNJ"
                   }
                 },
-                "Property": "客户销售额_全部分公司"
+                "Property": "Customer Sales_All Branches"
               }
             },
             "direction": "Descending"
@@ -250,7 +250,7 @@
                                       "Entity": "DimCustomerNJ"
                                     }
                                   },
-                                  "Property": "客户毛利率_全部分公司"
+                                  "Property": "Customer Gross Margin_All Branches"
                                 }
                               },
                               "Right": {
@@ -277,7 +277,7 @@
                                       "Entity": "DimCustomerNJ"
                                     }
                                   },
-                                  "Property": "客户毛利率_全部分公司"
+                                  "Property": "Customer Gross Margin_All Branches"
                                 }
                               },
                               "Right": {
@@ -308,7 +308,7 @@
                 }
               }
             ],
-            "metadata": "DimCustomer.客户毛利率_全部分公司"
+            "metadata": "DimCustomer.Customer Gross Margin_All Branches"
           }
         }
       ],
@@ -344,7 +344,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomer.客户毛利率_全部分公司"
+            "metadata": "DimCustomer.Customer Gross Margin_All Branches"
           }
         },
         {
@@ -358,7 +358,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomer.销售人员负荷状态"
+            "metadata": "DimCustomer.Salesperson Load Status"
           }
         },
         {
@@ -372,7 +372,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.销售已铺货客户数"
+            "metadata": "FactBranchCost.Sales Distributed Customer Count"
           }
         },
         {
@@ -386,7 +386,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomer.客户销售额_全部分公司"
+            "metadata": "DimCustomer.Customer Sales_All Branches"
           }
         },
         {
@@ -400,7 +400,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomerAll.销售人员"
+            "metadata": "DimCustomerAll.Salesperson"
           }
         },
         {
@@ -414,7 +414,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomerAll.2026年8月1日后新客户数"
+            "metadata": "DimCustomerAll.New Customers Since 2026-08-01"
           }
         }
       ],
@@ -439,7 +439,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'销售人员信息'"
+                  "Value": "'Salesperson Info'"
                 }
               }
             },
@@ -505,7 +505,7 @@
                 "Entity": "FactBranchCost"
               }
             },
-            "Property": "销售已铺货客户数"
+            "Property": "Sales Distributed Customer Count"
           }
         },
         "type": "Advanced",
@@ -532,7 +532,7 @@
                               "Source": "f"
                             }
                           },
-                          "Property": "销售已铺货客户数"
+                          "Property": "Sales Distributed Customer Count"
                         }
                       },
                       "Right": {

@@ -1,66 +1,66 @@
 table FactPurchaseOrder
 	lineageTag: 39e1441f-73c2-44b1-b932-4261d38a470f
 
-	column 订单行/订单关联
+	column 'Order Line/Order Reference'
 		dataType: string
 		lineageTag: 1c04dced-3c3d-42ff-b9a4-567fa9aeff06
 		summarizeBy: none
-		sourceColumn: 订单行/订单关联
+		sourceColumn: Order Line/Order Reference
 
 		annotation SummarizationSetBy = Automatic
 
-	column 订单行/产品
+	column 'Order Line/Product'
 		dataType: string
 		lineageTag: c94238d5-b726-49e1-abd3-5eacc73b69cb
 		summarizeBy: none
-		sourceColumn: 订单行/产品
+		sourceColumn: Order Line/Product
 
 		annotation SummarizationSetBy = Automatic
 
-	column 订单行/单价
+	column 'Order Line/Unit Price'
 		dataType: double
 		lineageTag: 86610a6e-1853-49ff-8b63-82d5784eb09d
 		summarizeBy: sum
-		sourceColumn: 订单行/单价
+		sourceColumn: Order Line/Unit Price
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 订单行/数量
+	column 'Order Line/Quantity'
 		dataType: int64
 		formatString: 0
 		lineageTag: a47d0e3f-bdeb-4a57-bc91-c33cc0f30bc4
 		summarizeBy: sum
-		sourceColumn: 订单行/数量
+		sourceColumn: Order Line/Quantity
 
 		annotation SummarizationSetBy = Automatic
 
-	column 订单行/已接收数量
+	column 'Order Line/Received Qty'
 		dataType: int64
 		formatString: 0
 		lineageTag: ebf37e26-88ed-494f-9fd0-dd5f0bd9c7b8
 		summarizeBy: sum
-		sourceColumn: 订单行/已接收数量
+		sourceColumn: Order Line/Received Qty
 
 		annotation SummarizationSetBy = Automatic
 
-	column 订单行/小计
+	column 'Order Line/Subtotal'
 		dataType: double
 		lineageTag: 95fd53da-ef69-4365-be40-be9dccda53a6
 		summarizeBy: sum
-		sourceColumn: 订单行/小计
+		sourceColumn: Order Line/Subtotal
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 订单行/确认日期
+	column 'Order Line/Confirmed Date'
 		dataType: dateTime
 		formatString: General Date
 		lineageTag: 0b24c79d-5405-4113-8228-b2a6cc089a3c
 		summarizeBy: none
-		sourceColumn: 订单行/确认日期
+		sourceColumn: Order Line/Confirmed Date
 
 		variation Variation
 			isDefault
@@ -69,12 +69,12 @@ table FactPurchaseOrder
 
 		annotation SummarizationSetBy = Automatic
 
-	column 订单行/预计到货时间
+	column 'Order Line/Expected Arrival Time'
 		dataType: dateTime
 		formatString: General Date
 		lineageTag: bd6efa2c-9509-4f6c-9259-0db137ca2456
 		summarizeBy: none
-		sourceColumn: 订单行/预计到货时间
+		sourceColumn: Order Line/Expected Arrival Time
 
 		variation Variation
 			isDefault
@@ -83,44 +83,44 @@ table FactPurchaseOrder
 
 		annotation SummarizationSetBy = Automatic
 
-	column 订单行/合作伙伴
+	column 'Order Line/Partner'
 		dataType: string
 		lineageTag: e90cd6c6-864e-4b99-a376-a06807a57d5a
 		summarizeBy: none
-		sourceColumn: 订单行/合作伙伴
+		sourceColumn: Order Line/Partner
 
 		annotation SummarizationSetBy = Automatic
 
-	column 订单行/公司
+	column 'Order Line/Company'
 		dataType: string
 		lineageTag: 97f028df-dd3d-44e1-a031-34af80af7830
 		summarizeBy: none
-		sourceColumn: 订单行/公司
+		sourceColumn: Order Line/Company
 
 		annotation SummarizationSetBy = Automatic
 
-	column 订单行/创建人
+	column 'Order Line/Created By'
 		dataType: string
 		lineageTag: 1ab81375-dfa9-47b8-a429-060942d74e2d
 		summarizeBy: none
-		sourceColumn: 订单行/创建人
+		sourceColumn: Order Line/Created By
 
 		annotation SummarizationSetBy = Automatic
 
-	column 订单行/状态
+	column 'Order Line/Status'
 		dataType: string
 		lineageTag: ee56b0b6-8b98-42eb-998b-a12910cc601e
 		summarizeBy: none
-		sourceColumn: 订单行/状态
+		sourceColumn: Order Line/Status
 
 		annotation SummarizationSetBy = Automatic
 
-	column 订单行/订单关联/实际发货日期
+	column 'Order Line/Order Reference/Actual Ship Date'
 		dataType: dateTime
 		formatString: Long Date
 		lineageTag: a1f28f7a-9c6f-4796-9c1e-b911c043e19b
 		summarizeBy: none
-		sourceColumn: 订单行/订单关联/实际发货日期
+		sourceColumn: Order Line/Order Reference/Actual Ship Date
 
 		variation Variation
 			isDefault
@@ -131,11 +131,11 @@ table FactPurchaseOrder
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	column 采购订单号_标准
+	column 'Purchase Order No_Std'
 		dataType: string
 		lineageTag: cb806833-cf76-4183-8577-9e2d999f4ecf
 		summarizeBy: none
-		sourceColumn: 采购订单号_标准
+		sourceColumn: Purchase Order No_Std
 
 		annotation SummarizationSetBy = Automatic
 
@@ -147,37 +147,37 @@ table FactPurchaseOrder
 
 		annotation SummarizationSetBy = Automatic
 
-	column 采购订单SKU键
+	column 'Purchase Order SKU Key'
 		dataType: string
 		lineageTag: 9f736d6b-f62a-4f56-b9a8-d474668b5043
 		summarizeBy: none
-		sourceColumn: 采购订单SKU键
+		sourceColumn: Purchase Order SKU Key
 
 		annotation SummarizationSetBy = Automatic
 
-	column 采购记录类型
+	column 'Purchase Record Type'
 		dataType: string
 		lineageTag: 2bdb82e5-9a0a-4099-b8c6-c69c1fe5d6c7
 		summarizeBy: none
-		sourceColumn: 采购记录类型
+		sourceColumn: Purchase Record Type
 
 		annotation SummarizationSetBy = Automatic
 
-	column 采购订单ID
+	column 'Purchase Order ID'
 		dataType: int64
 		formatString: 0
 		lineageTag: 5c99b327-1195-48b3-9085-6964dd086af9
 		summarizeBy: count
-		sourceColumn: 采购订单ID
+		sourceColumn: Purchase Order ID
 
 		annotation SummarizationSetBy = Automatic
 
-	column 实际发货日期
+	column 'Actual Ship Date'
 		dataType: dateTime
 		formatString: Long Date
 		lineageTag: 9e44d2c0-a822-46bc-ae76-f22b1498147f
 		summarizeBy: none
-		sourceColumn: 实际发货日期
+		sourceColumn: Actual Ship Date
 
 		variation Variation
 			isDefault
@@ -188,12 +188,12 @@ table FactPurchaseOrder
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	column 实际到达日期
+	column 'Actual Arrival Date'
 		dataType: dateTime
 		formatString: General Date
 		lineageTag: 82ce6ac3-36df-488e-ba09-70429861c2cd
 		summarizeBy: none
-		sourceColumn: 实际到达日期
+		sourceColumn: Actual Arrival Date
 
 		variation Variation
 			isDefault
@@ -202,20 +202,20 @@ table FactPurchaseOrder
 
 		annotation SummarizationSetBy = Automatic
 
-	column 到达状态
+	column 'Arrival Status'
 		dataType: string
 		lineageTag: 9805f1af-79b6-427f-80db-ed17958077c6
 		summarizeBy: none
-		sourceColumn: 到达状态
+		sourceColumn: Arrival Status
 
 		annotation SummarizationSetBy = Automatic
 
-	column 最终实际发货日期
+	column 'Final Actual Ship Date'
 		dataType: dateTime
 		formatString: Long Date
 		lineageTag: 8d09d181-821a-474e-b5d0-fc75e148366a
 		summarizeBy: none
-		sourceColumn: 最终实际发货日期
+		sourceColumn: Final Actual Ship Date
 
 		variation Variation
 			isDefault
@@ -226,78 +226,78 @@ table FactPurchaseOrder
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	column 未接收数量
+	column 'Unreceived Qty'
 		dataType: double
 		lineageTag: 1f9907b8-3ac4-4904-b18c-fe0740507688
 		summarizeBy: sum
-		sourceColumn: 未接收数量
+		sourceColumn: Unreceived Qty
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 预计提前期天数
+	column 'Expected Lead Time Days'
 		dataType: double
 		lineageTag: b9d71443-3714-4f1b-9fb3-91899edd6002
 		summarizeBy: sum
-		sourceColumn: 预计提前期天数
+		sourceColumn: Expected Lead Time Days
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 实际总提前期天数
+	column 'Actual Total Lead Time Days'
 		dataType: double
 		lineageTag: c145b1ac-c201-4e43-884f-48898a769cda
 		summarizeBy: sum
-		sourceColumn: 实际总提前期天数
+		sourceColumn: Actual Total Lead Time Days
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 实际运输天数
+	column 'Actual Transit Days'
 		dataType: double
 		lineageTag: 5de24ed5-0e7a-4ecd-9b84-094b41632be5
 		summarizeBy: sum
-		sourceColumn: 实际运输天数
+		sourceColumn: Actual Transit Days
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 到货延误天数
+	column 'Arrival Delay Days'
 		dataType: double
 		lineageTag: d28fbe35-2a49-4f05-8970-e3dca3d36333
 		summarizeBy: sum
-		sourceColumn: 到货延误天数
+		sourceColumn: Arrival Delay Days
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 是否逾期未到
+	column 'Is Overdue'
 		dataType: int64
 		formatString: 0
 		lineageTag: 635d6a57-d2df-4079-adbf-1c5b51edb68c
 		summarizeBy: sum
-		sourceColumn: 是否逾期未到
+		sourceColumn: Is Overdue
 
 		annotation SummarizationSetBy = Automatic
 
-	column 采购状态分类
+	column 'Purchase Status Class'
 		dataType: string
 		lineageTag: b6821ade-3788-4d50-a785-17385cfe64ae
 		summarizeBy: none
-		sourceColumn: 采购状态分类
+		sourceColumn: Purchase Status Class
 
 		annotation SummarizationSetBy = Automatic
 
-	column 提前期记录有效
+	column 'Lead Time Record Valid'
 		dataType: string
 		lineageTag: 7b0fdd1f-7679-4df5-996a-607865550ded
 		summarizeBy: none
-		sourceColumn: 提前期记录有效
+		sourceColumn: Lead Time Record Valid
 
 		annotation SummarizationSetBy = Automatic
 
@@ -306,8 +306,8 @@ table FactPurchaseOrder
 		source =
 				let
 				    #"Changed Type" = PurchaseOrderLines,
-				    #"Added Custom" = Table.AddColumn(#"Changed Type", "采购订单号_标准", each let
-				    OrderText = Text.Trim([#"订单行/订单关联"])
+				    #"Added Custom" = Table.AddColumn(#"Changed Type", "Purchase Order No_Std", each let
+				    OrderText = Text.Trim([#"Order Line/Order Reference"])
 				in
 				    Text.Trim(
 				        if Text.Contains(OrderText, "(")
@@ -317,34 +317,34 @@ table FactPurchaseOrder
 				    #"Added Custom1" = Table.AddColumn(#"Added Custom", "SKU", each try
 				    Text.Trim(
 				        Text.BetweenDelimiters(
-				            [#"订单行/产品"],
+				            [#"Order Line/Product"],
 				            "[",
 				            "]"
 				        )
 				    )
 				otherwise
 				    null),
-				    #"Added Custom2" = Table.AddColumn(#"Added Custom1", "采购订单SKU键", each [采购订单号_标准] & "|" & [SKU]),
-				    #"Added Custom3" = Table.AddColumn(#"Added Custom2", "采购记录类型", each if [#"订单行/数量"] > 0 then "正常采购"
-				else if [#"订单行/数量"] < 0 then "退货或冲销"
-				else "零数量"),
-				    #"Merged Queries" = Table.NestedJoin(#"Added Custom3", {"采购订单号_标准"}, PurchaseSupplement, {"采购订单号_标准"}, "PurchaseSupplement", JoinKind.LeftOuter),
-				    #"Expanded PurchaseSupplement" = Table.ExpandTableColumn(#"Merged Queries", "PurchaseSupplement", {"采购订单ID", "实际发货日期", "实际到达日期", "到达状态"}, {"PurchaseSupplement.采购订单ID", "PurchaseSupplement.实际发货日期", "PurchaseSupplement.实际到达日期", "PurchaseSupplement.到达状态"}),
-				    #"Renamed Columns" = Table.RenameColumns(#"Expanded PurchaseSupplement",{{"PurchaseSupplement.采购订单ID", "采购订单ID"}, {"PurchaseSupplement.实际发货日期", "实际发货日期"}, {"PurchaseSupplement.实际到达日期", "实际到达日期"}, {"PurchaseSupplement.到达状态", "到达状态"}}),
-				    #"Added Custom4" = Table.AddColumn(#"Renamed Columns", "最终实际发货日期", each if [实际发货日期] <> null then
-				    [实际发货日期]
+				    #"Added Custom2" = Table.AddColumn(#"Added Custom1", "Purchase Order SKU Key", each [Purchase Order No_Std] & "|" & [SKU]),
+				    #"Added Custom3" = Table.AddColumn(#"Added Custom2", "Purchase Record Type", each if [#"Order Line/Quantity"] > 0 then "Normal Purchase"
+				else if [#"Order Line/Quantity"] < 0 then "Return or Reversal"
+				else "Zero Quantity"),
+				    #"Merged Queries" = Table.NestedJoin(#"Added Custom3", {"Purchase Order No_Std"}, PurchaseSupplement, {"Purchase Order No_Std"}, "PurchaseSupplement", JoinKind.LeftOuter),
+				    #"Expanded PurchaseSupplement" = Table.ExpandTableColumn(#"Merged Queries", "PurchaseSupplement", {"Purchase Order ID", "Actual Ship Date", "Actual Arrival Date", "Arrival Status"}, {"PurchaseSupplement.Purchase Order ID", "PurchaseSupplement.Actual Ship Date", "PurchaseSupplement.Actual Arrival Date", "PurchaseSupplement.Arrival Status"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Expanded PurchaseSupplement",{{"PurchaseSupplement.Purchase Order ID", "Purchase Order ID"}, {"PurchaseSupplement.Actual Ship Date", "Actual Ship Date"}, {"PurchaseSupplement.Actual Arrival Date", "Actual Arrival Date"}, {"PurchaseSupplement.Arrival Status", "Arrival Status"}}),
+				    #"Added Custom4" = Table.AddColumn(#"Renamed Columns", "Final Actual Ship Date", each if [Actual Ship Date] <> null then
+				    [Actual Ship Date]
 				else
-				    [#"订单行/订单关联/实际发货日期"]),
-				    #"Added Custom5" = Table.AddColumn(#"Added Custom4", "未接收数量", each let
+				    [#"Order Line/Order Reference/Actual Ship Date"]),
+				    #"Added Custom5" = Table.AddColumn(#"Added Custom4", "Unreceived Qty", each let
 				    PurchaseQty =
-				        if [#"订单行/数量"] = null
+				        if [#"Order Line/Quantity"] = null
 				        then 0
-				        else [#"订单行/数量"],
+				        else [#"Order Line/Quantity"],
 				
 				    ReceivedQty =
-				        if [#"订单行/已接收数量"] = null
+				        if [#"Order Line/Received Qty"] = null
 				        then 0
-				        else [#"订单行/已接收数量"],
+				        else [#"Order Line/Received Qty"],
 				
 				    RemainingQty =
 				        PurchaseQty - ReceivedQty
@@ -355,9 +355,9 @@ table FactPurchaseOrder
 				        RemainingQty
 				    else
 				        0),
-				    #"Added Custom6" = Table.AddColumn(#"Added Custom5", "预计提前期天数", each let
-				    ConfirmDate = [#"订单行/确认日期"],
-				    ExpectedDate = [#"订单行/预计到货时间"]
+				    #"Added Custom6" = Table.AddColumn(#"Added Custom5", "Expected Lead Time Days", each let
+				    ConfirmDate = [#"Order Line/Confirmed Date"],
+				    ExpectedDate = [#"Order Line/Expected Arrival Time"]
 				in
 				    if ConfirmDate = null or ExpectedDate = null then
 				        null
@@ -365,10 +365,10 @@ table FactPurchaseOrder
 				        null
 				    else
 				        Duration.TotalDays(ExpectedDate - ConfirmDate)),
-				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom6",{{"预计提前期天数", type number}}),
-				    #"Added Custom7" = Table.AddColumn(#"Changed Type1", "实际总提前期天数", each let
-				    StartDate = [#"订单行/确认日期"],
-				    ArrivalDate = [实际到达日期]
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom6",{{"Expected Lead Time Days", type number}}),
+				    #"Added Custom7" = Table.AddColumn(#"Changed Type1", "Actual Total Lead Time Days", each let
+				    StartDate = [#"Order Line/Confirmed Date"],
+				    ArrivalDate = [Actual Arrival Date]
 				in
 				    if StartDate = null or ArrivalDate = null then
 				        null
@@ -376,14 +376,14 @@ table FactPurchaseOrder
 				        null
 				    else
 				        Duration.TotalDays(ArrivalDate - StartDate)),
-				    #"Changed Type2" = Table.TransformColumnTypes(#"Added Custom7",{{"实际总提前期天数", type number}}),
-				    #"Added Custom8" = Table.AddColumn(#"Changed Type2", "实际运输天数", each let
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Added Custom7",{{"Actual Total Lead Time Days", type number}}),
+				    #"Added Custom8" = Table.AddColumn(#"Changed Type2", "Actual Transit Days", each let
 				    ShipDate =
-				        try DateTime.From([最终实际发货日期])
+				        try DateTime.From([Final Actual Ship Date])
 				        otherwise null,
 				
 				    ArrivalDate =
-				        try DateTime.From([实际到达日期])
+				        try DateTime.From([Actual Arrival Date])
 				        otherwise null
 				in
 				    if ShipDate = null or ArrivalDate = null then
@@ -394,18 +394,18 @@ table FactPurchaseOrder
 				        Duration.TotalDays(
 				            ArrivalDate - ShipDate
 				        )),
-				    #"Added Custom9" = Table.AddColumn(#"Added Custom8", "到货延误天数", each let
-				    ExpectedDate = [#"订单行/预计到货时间"],
-				    ArrivalDate = [实际到达日期]
+				    #"Added Custom9" = Table.AddColumn(#"Added Custom8", "Arrival Delay Days", each let
+				    ExpectedDate = [#"Order Line/Expected Arrival Time"],
+				    ArrivalDate = [Actual Arrival Date]
 				in
 				    if ExpectedDate = null or ArrivalDate = null then
 				        null
 				    else
 				        Duration.TotalDays(ArrivalDate - ExpectedDate)),
-				    #"Added Custom10" = Table.AddColumn(#"Added Custom9", "是否逾期未到", each let
-				    ExpectedDate = [#"订单行/预计到货时间"],
-				    ArrivalDate = [实际到达日期],
-				    RemainingQty = [未接收数量]
+				    #"Added Custom10" = Table.AddColumn(#"Added Custom9", "Is Overdue", each let
+				    ExpectedDate = [#"Order Line/Expected Arrival Time"],
+				    ArrivalDate = [Actual Arrival Date],
+				    RemainingQty = [Unreceived Qty]
 				in
 				    if ExpectedDate = null then
 				        0
@@ -416,41 +416,41 @@ table FactPurchaseOrder
 				        1
 				    else
 				        0),
-				    #"Added Custom11" = Table.AddColumn(#"Added Custom10", "采购状态分类", each let
+				    #"Added Custom11" = Table.AddColumn(#"Added Custom10", "Purchase Status Class", each let
 				    PurchaseQty =
-				        if [#"订单行/数量"] = null
+				        if [#"Order Line/Quantity"] = null
 				        then 0
-				        else [#"订单行/数量"],
+				        else [#"Order Line/Quantity"],
 				
 				    ReceivedQty =
-				        if [#"订单行/已接收数量"] = null
+				        if [#"Order Line/Received Qty"] = null
 				        then 0
-				        else [#"订单行/已接收数量"],
+				        else [#"Order Line/Received Qty"],
 				
-				    ArrivalDate = [实际到达日期]
+				    ArrivalDate = [Actual Arrival Date]
 				in
 				    if PurchaseQty < 0 then
-				        "退货或冲销"
+				        "Return or Reversal"
 				    else if PurchaseQty = 0 then
-				        "零数量"
+				        "Zero Quantity"
 				    else if ReceivedQty >= PurchaseQty then
-				        "全部接收"
+				        "Fully Received"
 				    else if ReceivedQty > 0 then
-				        "部分接收"
+				        "Partially Received"
 				    else if ArrivalDate <> null then
-				        "已到达未登记接收"
+				        "Arrived Not Received"
 				    else
-				        "未接收"),
-				    #"Added Custom12" = Table.AddColumn(#"Added Custom11", "提前期记录有效", each let
+				        "Not Received"),
+				    #"Added Custom12" = Table.AddColumn(#"Added Custom11", "Lead Time Record Valid", each let
 				    PurchaseQty =
-				        if [#"订单行/数量"] = null
+				        if [#"Order Line/Quantity"] = null
 				        then 0
-				        else [#"订单行/数量"],
+				        else [#"Order Line/Quantity"],
 				
 				    OrderStatus =
-				        if [#"订单行/状态"] = null
+				        if [#"Order Line/Status"] = null
 				        then ""
-				        else Text.Lower(Text.Trim([#"订单行/状态"])),
+				        else Text.Lower(Text.Trim([#"Order Line/Status"])),
 				
 				    SKUValue =
 				        if [SKU] = null
@@ -458,33 +458,33 @@ table FactPurchaseOrder
 				        else Text.Trim([SKU]),
 				
 				    OrderNumber =
-				        if [采购订单号_标准] = null
+				        if [Purchase Order No_Std] = null
 				        then ""
-				        else Text.Trim([采购订单号_标准]),
+				        else Text.Trim([Purchase Order No_Std]),
 				
-				    LeadDays = [实际总提前期天数]
+				    LeadDays = [Actual Total Lead Time Days]
 				in
 				    if PurchaseQty <= 0 then 0
 				    else if SKUValue = "" then 0
 				    else if OrderNumber = "" then 0
 				    else if OrderStatus <> "done" then 0
-				    else if [采购创建日期] = null then 0
-				    else if [实际到达日期] = null then 0
+				    else if [Purchase Created Date] = null then 0
+				    else if [Actual Arrival Date] = null then 0
 				    else if LeadDays = null then 0
 				    else if LeadDays < 0 then 0
 				    else if LeadDays > 365 then 0
 				    else 1),
-				    #"Removed Columns" = Table.RemoveColumns(#"Added Custom12",{"提前期记录有效"}),
-				    #"Added Custom13" = Table.AddColumn(#"Removed Columns", "提前期记录有效", each let
+				    #"Removed Columns" = Table.RemoveColumns(#"Added Custom12",{"Lead Time Record Valid"}),
+				    #"Added Custom13" = Table.AddColumn(#"Removed Columns", "Lead Time Record Valid", each let
 				    PurchaseQty =
-				        if [#"订单行/数量"] = null
+				        if [#"Order Line/Quantity"] = null
 				        then 0
-				        else [#"订单行/数量"],
+				        else [#"Order Line/Quantity"],
 				
 				    OrderStatus =
-				        if [#"订单行/状态"] = null
+				        if [#"Order Line/Status"] = null
 				        then ""
-				        else Text.Lower(Text.Trim([#"订单行/状态"])),
+				        else Text.Lower(Text.Trim([#"Order Line/Status"])),
 				
 				    SKUValue =
 				        if [SKU] = null
@@ -492,23 +492,23 @@ table FactPurchaseOrder
 				        else Text.Trim([SKU]),
 				
 				    OrderNumber =
-				        if [采购订单号_标准] = null
+				        if [Purchase Order No_Std] = null
 				        then ""
-				        else Text.Trim([采购订单号_标准]),
+				        else Text.Trim([Purchase Order No_Std]),
 				
-				    LeadDays = [实际总提前期天数]
+				    LeadDays = [Actual Total Lead Time Days]
 				in
 				    if PurchaseQty <= 0 then 0
 				    else if SKUValue = "" then 0
 				    else if OrderNumber = "" then 0
 				    else if OrderStatus <> "done" then 0
-				    else if [#"订单行/确认日期"] = null then 0
-				    else if [实际到达日期] = null then 0
+				    else if [#"Order Line/Confirmed Date"] = null then 0
+				    else if [Actual Arrival Date] = null then 0
 				    else if LeadDays = null then 0
 				    else if LeadDays < 0 then 0
 				    else if LeadDays > 365 then 0
 				    else 1),
-				    #"Changed Type3" = Table.TransformColumnTypes(#"Added Custom13",{{"未接收数量", type number}, {"最终实际发货日期", type date}, {"实际运输天数", type number}, {"实际总提前期天数", type number}, {"预计提前期天数", type number}, {"到货延误天数", type number}, {"是否逾期未到", Int64.Type}, {"采购状态分类", type text}, {"采购记录类型", type text}, {"采购订单SKU键", type text}, {"SKU", type text}, {"采购订单号_标准", type text}, {"订单行/状态", type text}, {"订单行/创建人", type text}, {"订单行/公司", type text}, {"订单行/合作伙伴", type text}, {"订单行/数量", Int64.Type}, {"订单行/已接收数量", Int64.Type}})
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Added Custom13",{{"Unreceived Qty", type number}, {"Final Actual Ship Date", type date}, {"Actual Transit Days", type number}, {"Actual Total Lead Time Days", type number}, {"Expected Lead Time Days", type number}, {"Arrival Delay Days", type number}, {"Is Overdue", Int64.Type}, {"Purchase Status Class", type text}, {"Purchase Record Type", type text}, {"Purchase Order SKU Key", type text}, {"SKU", type text}, {"Purchase Order No_Std", type text}, {"Order Line/Status", type text}, {"Order Line/Created By", type text}, {"Order Line/Company", type text}, {"Order Line/Partner", type text}, {"Order Line/Quantity", Int64.Type}, {"Order Line/Received Qty", Int64.Type}})
 				in
 				    #"Changed Type3"
 

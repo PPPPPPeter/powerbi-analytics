@@ -23,11 +23,11 @@
                       "Entity": "DimCustomerAll"
                     }
                   },
-                  "Property": "2026年8月1日后新客户标记"
+                  "Property": "New Customer Since 2026-08-01 Flag"
                 }
               },
-              "queryRef": "DimCustomerAll.2026年8月1日后新客户标记",
-              "nativeQueryRef": "2026年8月1日后新客户标记",
+              "queryRef": "DimCustomerAll.New Customer Since 2026-08-01 Flag",
+              "nativeQueryRef": "New Customer Since 2026-08-01 Flag",
               "active": true
             }
           ]
@@ -94,7 +94,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'8/1后新客户'"
+                  "Value": "'8/1+ New Customers'"
                 }
               }
             },

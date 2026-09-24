@@ -37,11 +37,11 @@
                       "Entity": "ProductCatalogAll"
                     }
                   },
-                  "Property": "产品名称"
+                  "Property": "Product Name"
                 }
               },
-              "queryRef": "ProductCatalogAll.产品名称",
-              "nativeQueryRef": "产品名称"
+              "queryRef": "ProductCatalogAll.Product Name",
+              "nativeQueryRef": "Product Name"
             }
           ]
         }
@@ -114,7 +114,7 @@
             }
           },
           "selector": {
-            "metadata": "ProductCatalogAll.产品名称"
+            "metadata": "ProductCatalogAll.Product Name"
           }
         }
       ]
@@ -131,7 +131,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'未铺货产品'"
+                  "Value": "'Undistributed Products'"
                 }
               }
             },
@@ -197,7 +197,7 @@
                 "Entity": "_Measures"
               }
             },
-            "Property": "铺货分析_未铺货SKU标记"
+            "Property": "Distribution Analysis_Undistributed SKU Flag"
           }
         },
         "type": "Advanced",
@@ -222,7 +222,7 @@
                           "Source": "_"
                         }
                       },
-                      "Property": "铺货分析_未铺货SKU标记"
+                      "Property": "Distribution Analysis_Undistributed SKU Flag"
                     }
                   },
                   "Right": {

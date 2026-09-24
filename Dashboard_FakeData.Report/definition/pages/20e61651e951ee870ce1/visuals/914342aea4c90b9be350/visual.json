@@ -23,11 +23,11 @@
                       "Entity": "DimDate"
                     }
                   },
-                  "Property": "年月"
+                  "Property": "Year Month"
                 }
               },
-              "queryRef": "DimDate.年月",
-              "nativeQueryRef": "年月",
+              "queryRef": "DimDate.Year Month",
+              "nativeQueryRef": "Year Month",
               "active": true
             }
           ]
@@ -42,11 +42,11 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "产品价格_毛利"
+                  "Property": "Product Price_Gross Profit"
                 }
               },
-              "queryRef": "FactBranchCost.分公司毛利",
-              "nativeQueryRef": "产品价格_毛利"
+              "queryRef": "FactBranchCost.Branch Gross Profit",
+              "nativeQueryRef": "Product Price_Gross Profit"
             }
           ]
         },
@@ -60,12 +60,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "产品价格_加权平均成交价"
+                  "Property": "Product Price_Weighted Avg Selling Price"
                 }
               },
-              "queryRef": "FactBranchCost.分公司加权平均成交价",
-              "nativeQueryRef": "加权平均成交价",
-              "displayName": "加权平均成交价",
+              "queryRef": "FactBranchCost.Branch Weighted Avg Selling Price",
+              "nativeQueryRef": "Weighted Avg Selling Price",
+              "displayName": "Weighted Avg Selling Price",
               "format": "\\$#,0.00;(\\$#,0.00);\\$#,0.00"
             }
           ]
@@ -80,11 +80,11 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "毛利率趋势_近3月"
+                  "Property": "Gross Margin Trend_Last 3 Months"
                 }
               },
-              "queryRef": "FactBranchCost.毛利率趋势_近3月",
-              "nativeQueryRef": "毛利率趋势_近3月",
+              "queryRef": "FactBranchCost.Gross Margin Trend_Last 3 Months",
+              "nativeQueryRef": "Gross Margin Trend_Last 3 Months",
               "format": "0.00%;-0.00%;0.00%"
             },
             {
@@ -95,12 +95,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "产品价格_毛利率"
+                  "Property": "Product Price_Gross Margin"
                 }
               },
-              "queryRef": "FactBranchCost.分公司毛利率",
-              "nativeQueryRef": "毛利率",
-              "displayName": "毛利率",
+              "queryRef": "FactBranchCost.Branch Gross Margin",
+              "nativeQueryRef": "Gross Margin",
+              "displayName": "Gross Margin",
               "format": "0.00%;-0.00%;0.00%"
             }
           ]
@@ -116,7 +116,7 @@
                     "Entity": "DimDate"
                   }
                 },
-                "Property": "年月"
+                "Property": "Year Month"
               }
             },
             "direction": "Ascending"
@@ -189,7 +189,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.分公司加权平均成交价"
+            "metadata": "FactBranchCost.Branch Weighted Avg Selling Price"
           }
         },
         {
@@ -234,7 +234,7 @@
                                       "Entity": "FactBranchCost"
                                     }
                                   },
-                                  "Property": "产品价格_毛利率"
+                                  "Property": "Product Price_Gross Margin"
                                 }
                               },
                               "Right": {
@@ -261,7 +261,7 @@
                                       "Entity": "FactBranchCost"
                                     }
                                   },
-                                  "Property": "产品价格_毛利率"
+                                  "Property": "Product Price_Gross Margin"
                                 }
                               },
                               "Right": {
@@ -292,7 +292,7 @@
                 }
               }
             ],
-            "metadata": "FactBranchCost.分公司毛利率"
+            "metadata": "FactBranchCost.Branch Gross Margin"
           }
         },
         {
@@ -314,7 +314,7 @@
                                       "Entity": "FactBranchCost"
                                     }
                                   },
-                                  "Property": "毛利率趋势_近3月"
+                                  "Property": "Gross Margin Trend_Last 3 Months"
                                 }
                               },
                               "Right": {
@@ -341,7 +341,7 @@
                                       "Entity": "FactBranchCost"
                                     }
                                   },
-                                  "Property": "毛利率趋势_近3月"
+                                  "Property": "Gross Margin Trend_Last 3 Months"
                                 }
                               },
                               "Right": {
@@ -372,7 +372,7 @@
                 }
               }
             ],
-            "metadata": "FactBranchCost.毛利率趋势_近3月"
+            "metadata": "FactBranchCost.Gross Margin Trend_Last 3 Months"
           }
         },
         {
@@ -386,7 +386,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.分公司毛利率"
+            "metadata": "FactBranchCost.Branch Gross Margin"
           }
         },
         {
@@ -400,7 +400,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.毛利率趋势_近3月"
+            "metadata": "FactBranchCost.Gross Margin Trend_Last 3 Months"
           }
         }
       ],
@@ -434,7 +434,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.毛利率趋势_近3月"
+            "metadata": "FactBranchCost.Gross Margin Trend_Last 3 Months"
           }
         }
       ]
@@ -446,7 +446,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'产品毛利率 vs 平均成交价'"
+                  "Value": "'Product Gross Margin vs Avg Selling Price'"
                 }
               }
             },

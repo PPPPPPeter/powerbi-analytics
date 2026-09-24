@@ -1,84 +1,84 @@
 table FactPurchaseLeadTime
 	lineageTag: 5bed6c1b-ddb9-4922-9728-6da1d42e5d1b
 
-	measure 提前期有效样本数 =
+	measure 'Valid Lead Time Samples' =
 			
 			COUNTROWS ( FactPurchaseLeadTime )
 		formatString: 0
 		lineageTag: abf94cad-0aae-4057-9cbf-992d3f9ce744
 
-	measure 实际提前期P80 =
+	measure 'Actual Lead Time P80' =
 			
 			CALCULATE (
 			    PERCENTILEX.INC (
 			        FILTER (
 			            FactPurchaseLeadTime,
 			            NOT ISBLANK (
-			                FactPurchaseLeadTime[实际总提前期天数]
+			                FactPurchaseLeadTime[Actual Total Lead Time Days]
 			            )
 			        ),
-			        FactPurchaseLeadTime[实际总提前期天数],
+			        FactPurchaseLeadTime[Actual Total Lead Time Days],
 			        0.8
 			    )
 			)
 		formatString: 0.0
 		lineageTag: 3f443dcb-d89f-4e4a-9907-eee0a78f3060
 
-	measure SKU提前期样本数 =
+	measure 'SKU Lead Time Samples' =
 			
 			CALCULATE (
-			    [提前期有效样本数],
+			    [Valid Lead Time Samples],
 			    REMOVEFILTERS (
-			        FactPurchaseLeadTime[供应商]
+			        FactPurchaseLeadTime[Supplier]
 			    )
 			)
 		formatString: 0
 		lineageTag: eb40867d-ba3a-470c-88f1-050207e8cd2b
 
-	measure SKU实际提前期P80 =
+	measure 'SKU Actual Lead Time P80' =
 			
 			CALCULATE (
-			    [实际提前期P80],
+			    [Actual Lead Time P80],
 			    REMOVEFILTERS (
-			        FactPurchaseLeadTime[供应商]
+			        FactPurchaseLeadTime[Supplier]
 			    )
 			)
 		lineageTag: e3af3a52-e4f7-42a1-991e-38e0340e514e
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 公司整体实际提前期P80 =
+	measure 'Company Actual Lead Time P80' =
 			
 			CALCULATE (
-			    [实际提前期P80],
+			    [Actual Lead Time P80],
 			    REMOVEFILTERS ( ProductCatalogAll ),
-			    REMOVEFILTERS ( FactPurchaseLeadTime[供应商] )
+			    REMOVEFILTERS ( FactPurchaseLeadTime[Supplier] )
 			)
 		lineageTag: 73791c46-2316-4b93-86ae-8d9821d67f08
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 提前期记录有效
+	column 'Lead Time Record Valid'
 		dataType: string
 		lineageTag: 376c2f38-a15d-43d7-a8a3-4bed84c73759
 		summarizeBy: none
-		sourceColumn: 提前期记录有效
+		sourceColumn: Lead Time Record Valid
 
 		annotation SummarizationSetBy = Automatic
 
-	column 采购订单SKU键
+	column 'Purchase Order SKU Key'
 		dataType: string
 		lineageTag: 424b8d61-ca08-44a0-9944-d17348a4eb47
 		summarizeBy: none
-		sourceColumn: 采购订单SKU键
+		sourceColumn: Purchase Order SKU Key
 
 		annotation SummarizationSetBy = Automatic
 
-	column 采购订单号_标准
+	column 'Purchase Order No_Std'
 		dataType: string
 		lineageTag: a73f6b6c-f135-4906-83ed-d82cfd096e3c
 		summarizeBy: none
-		sourceColumn: 采购订单号_标准
+		sourceColumn: Purchase Order No_Std
 
 		annotation SummarizationSetBy = Automatic
 
@@ -90,28 +90,28 @@ table FactPurchaseLeadTime
 
 		annotation SummarizationSetBy = Automatic
 
-	column 供应商
+	column Supplier
 		dataType: string
 		lineageTag: 1c983efb-2b05-475a-a77b-d80c3a009996
 		summarizeBy: none
-		sourceColumn: 供应商
+		sourceColumn: Supplier
 
 		annotation SummarizationSetBy = Automatic
 
-	column 订单行/公司
+	column 'Order Line/Company'
 		dataType: string
 		lineageTag: 35f5f020-8d4b-4cf7-b681-85b3d7d04292
 		summarizeBy: none
-		sourceColumn: 订单行/公司
+		sourceColumn: Order Line/Company
 
 		annotation SummarizationSetBy = Automatic
 
-	column 订单行/确认日期
+	column 'Order Line/Confirmed Date'
 		dataType: dateTime
 		formatString: General Date
 		lineageTag: 416dc827-fe13-4a64-adbf-9624d1c528a5
 		summarizeBy: none
-		sourceColumn: 订单行/确认日期
+		sourceColumn: Order Line/Confirmed Date
 
 		variation Variation
 			isDefault
@@ -120,12 +120,12 @@ table FactPurchaseLeadTime
 
 		annotation SummarizationSetBy = Automatic
 
-	column 最终实际发货日期
+	column 'Final Actual Ship Date'
 		dataType: dateTime
 		formatString: Long Date
 		lineageTag: da7ffd17-d8ab-4af5-9420-8b083c6795cf
 		summarizeBy: none
-		sourceColumn: 最终实际发货日期
+		sourceColumn: Final Actual Ship Date
 
 		variation Variation
 			isDefault
@@ -136,12 +136,12 @@ table FactPurchaseLeadTime
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	column 实际到达日期
+	column 'Actual Arrival Date'
 		dataType: dateTime
 		formatString: General Date
 		lineageTag: a19796b8-176b-480a-a2c7-5770096df002
 		summarizeBy: none
-		sourceColumn: 实际到达日期
+		sourceColumn: Actual Arrival Date
 
 		variation Variation
 			isDefault
@@ -150,12 +150,12 @@ table FactPurchaseLeadTime
 
 		annotation SummarizationSetBy = Automatic
 
-	column 订单行/预计到货时间
+	column 'Order Line/Expected Arrival Time'
 		dataType: dateTime
 		formatString: General Date
 		lineageTag: c71d71ae-bc85-405e-bc4a-498cec07f5cd
 		summarizeBy: none
-		sourceColumn: 订单行/预计到货时间
+		sourceColumn: Order Line/Expected Arrival Time
 
 		variation Variation
 			isDefault
@@ -164,51 +164,51 @@ table FactPurchaseLeadTime
 
 		annotation SummarizationSetBy = Automatic
 
-	column 预计提前期天数
+	column 'Expected Lead Time Days'
 		dataType: double
 		lineageTag: c6314674-1020-4d74-893d-e9bd98fce416
 		summarizeBy: sum
-		sourceColumn: 预计提前期天数
+		sourceColumn: Expected Lead Time Days
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 实际总提前期天数
+	column 'Actual Total Lead Time Days'
 		dataType: double
 		lineageTag: 8661cb0d-8b0e-4a40-a83e-a5e51c5adb5d
 		summarizeBy: sum
-		sourceColumn: 实际总提前期天数
+		sourceColumn: Actual Total Lead Time Days
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 实际运输天数
+	column 'Actual Transit Days'
 		dataType: double
 		lineageTag: e3c9d2c3-74c5-45eb-b1eb-e96f22b3ad5b
 		summarizeBy: sum
-		sourceColumn: 实际运输天数
+		sourceColumn: Actual Transit Days
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 到货延误天数
+	column 'Arrival Delay Days'
 		dataType: double
 		lineageTag: ecdb3519-1059-44bd-877b-44b52b8311db
 		summarizeBy: sum
-		sourceColumn: 到货延误天数
+		sourceColumn: Arrival Delay Days
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column SKU供应商键
+	column 'SKU Supplier Key'
 		dataType: string
 		lineageTag: ba5c2878-af81-4dae-977f-d6359e1218d4
 		summarizeBy: none
-		sourceColumn: SKU供应商键
+		sourceColumn: SKU Supplier Key
 
 		annotation SummarizationSetBy = Automatic
 
@@ -217,11 +217,11 @@ table FactPurchaseLeadTime
 		source =
 				let
 				    Source = FactPurchaseOrder,
-				    #"Filtered Rows" = Table.SelectRows(Source, each ([提前期记录有效] = 1)),
-				    #"Removed Other Columns" = Table.SelectColumns(#"Filtered Rows",{"提前期记录有效", "采购订单SKU键", "采购订单号_标准", "SKU", "订单行/合作伙伴", "订单行/公司", "订单行/确认日期", "最终实际发货日期", "实际到达日期", "订单行/预计到货时间", "预计提前期天数", "实际总提前期天数", "实际运输天数", "到货延误天数"}),
-				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns", {"采购订单SKU键"}),
-				    #"Added Custom" = Table.AddColumn(#"Removed Duplicates", "SKU供应商键", each [SKU] & "|" & [#"订单行/合作伙伴"]),
-				    #"Renamed Columns" = Table.RenameColumns(#"Added Custom",{{"订单行/合作伙伴", "供应商"}})
+				    #"Filtered Rows" = Table.SelectRows(Source, each ([Lead Time Record Valid] = 1)),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Filtered Rows",{"Lead Time Record Valid", "Purchase Order SKU Key", "Purchase Order No_Std", "SKU", "Order Line/Partner", "Order Line/Company", "Order Line/Confirmed Date", "Final Actual Ship Date", "Actual Arrival Date", "Order Line/Expected Arrival Time", "Expected Lead Time Days", "Actual Total Lead Time Days", "Actual Transit Days", "Arrival Delay Days"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns", {"Purchase Order SKU Key"}),
+				    #"Added Custom" = Table.AddColumn(#"Removed Duplicates", "SKU Supplier Key", each [SKU] & "|" & [#"Order Line/Partner"]),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Custom",{{"Order Line/Partner", "Supplier"}})
 				in
 				    #"Renamed Columns"
 

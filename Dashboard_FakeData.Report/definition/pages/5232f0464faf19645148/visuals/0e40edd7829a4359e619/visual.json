@@ -23,11 +23,11 @@
                       "Entity": "DimCustomerAll"
                     }
                   },
-                  "Property": "客户等级列"
+                  "Property": "Customer Grade Col"
                 }
               },
-              "queryRef": "DimCustomerAll.客户等级列",
-              "nativeQueryRef": "First 客户等级列",
+              "queryRef": "DimCustomerAll.Customer Grade Col",
+              "nativeQueryRef": "First Customer Grade Col",
               "active": true
             }
           ]
@@ -42,11 +42,11 @@
                       "Entity": "DimCustomerAll"
                     }
                   },
-                  "Property": "销售人员"
+                  "Property": "Salesperson"
                 }
               },
-              "queryRef": "DimCustomerAll.销售人员",
-              "nativeQueryRef": "销售人员",
+              "queryRef": "DimCustomerAll.Salesperson",
+              "nativeQueryRef": "Salesperson",
               "active": true
             }
           ]
@@ -61,11 +61,11 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "销售人员评级客户数"
+                  "Property": "Salesperson Graded Customers"
                 }
               },
-              "queryRef": "DimCustomerNJ.销售人员评级客户数",
-              "nativeQueryRef": "销售人员评级客户数"
+              "queryRef": "DimCustomerNJ.Salesperson Graded Customers",
+              "nativeQueryRef": "Salesperson Graded Customers"
             }
           ]
         }
@@ -80,7 +80,7 @@
                     "Entity": "DimCustomerNJ"
                   }
                 },
-                "Property": "销售人员评级客户数"
+                "Property": "Salesperson Graded Customers"
               }
             },
             "direction": "Descending"
@@ -165,7 +165,7 @@
                             "Entity": "DimCustomerNJ"
                           }
                         },
-                        "Property": "客户等级列"
+                        "Property": "Customer Grade Col"
                       }
                     },
                     "Right": {
@@ -202,7 +202,7 @@
                             "Entity": "DimCustomerNJ"
                           }
                         },
-                        "Property": "客户等级列"
+                        "Property": "Customer Grade Col"
                       }
                     },
                     "Right": {
@@ -239,7 +239,7 @@
                             "Entity": "DimCustomerNJ"
                           }
                         },
-                        "Property": "客户等级列"
+                        "Property": "Customer Grade Col"
                       }
                     },
                     "Right": {
@@ -276,7 +276,7 @@
                             "Entity": "DimCustomerNJ"
                           }
                         },
-                        "Property": "客户等级列"
+                        "Property": "Customer Grade Col"
                       }
                     },
                     "Right": {
@@ -311,7 +311,7 @@
                           "Entity": "DimCustomerNJ"
                         }
                       },
-                      "Property": "客户等级列"
+                      "Property": "Customer Grade Col"
                     }
                   }
                 ]
@@ -342,7 +342,7 @@
                             "Entity": "DimCustomerAll"
                           }
                         },
-                        "Property": "客户等级列"
+                        "Property": "Customer Grade Col"
                       }
                     },
                     "Right": {
@@ -379,7 +379,7 @@
                             "Entity": "DimCustomerAll"
                           }
                         },
-                        "Property": "客户等级列"
+                        "Property": "Customer Grade Col"
                       }
                     },
                     "Right": {
@@ -416,7 +416,7 @@
                             "Entity": "DimCustomerAll"
                           }
                         },
-                        "Property": "客户等级列"
+                        "Property": "Customer Grade Col"
                       }
                     },
                     "Right": {
@@ -453,7 +453,7 @@
                             "Entity": "DimCustomerAll"
                           }
                         },
-                        "Property": "客户等级列"
+                        "Property": "Customer Grade Col"
                       }
                     },
                     "Right": {
@@ -476,7 +476,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'销售负责客户'"
+                  "Value": "'Customers by Salesperson'"
                 }
               }
             },

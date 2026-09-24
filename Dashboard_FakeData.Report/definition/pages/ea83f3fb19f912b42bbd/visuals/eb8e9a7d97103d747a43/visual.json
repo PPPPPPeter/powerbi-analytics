@@ -23,11 +23,11 @@
                       "Entity": "DimSalesperson"
                     }
                   },
-                  "Property": "销售人员"
+                  "Property": "Salesperson"
                 }
               },
-              "queryRef": "DimSalesperson.销售人员",
-              "nativeQueryRef": "销售人员"
+              "queryRef": "DimSalesperson.Salesperson",
+              "nativeQueryRef": "Salesperson"
             },
             {
               "field": {
@@ -37,11 +37,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "销售人员销售额"
+                  "Property": "Salesperson Sales"
                 }
               },
-              "queryRef": "_Measures.销售人员销售额",
-              "nativeQueryRef": "销售人员销售额"
+              "queryRef": "_Measures.Salesperson Sales",
+              "nativeQueryRef": "Salesperson Sales"
             },
             {
               "field": {
@@ -51,11 +51,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "销售人员销售占比"
+                  "Property": "Salesperson Sales Share"
                 }
               },
-              "queryRef": "_Measures.销售人员销售占比",
-              "nativeQueryRef": "销售人员销售占比",
+              "queryRef": "_Measures.Salesperson Sales Share",
+              "nativeQueryRef": "Salesperson Sales Share",
               "format": "0.00%;-0.00%;0.00%"
             },
             {
@@ -66,12 +66,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "销售人员目标"
+                  "Property": "Salesperson Target"
                 }
               },
-              "queryRef": "_Measures.销售人员8月目标",
-              "nativeQueryRef": "KPI目标",
-              "displayName": "KPI目标",
+              "queryRef": "_Measures.Salesperson Aug Target",
+              "nativeQueryRef": "KPI Target",
+              "displayName": "KPI Target",
               "format": "\\$#,0;(\\$#,0);\\$#,0"
             },
             {
@@ -82,11 +82,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "销售人员完成率"
+                  "Property": "Salesperson Completion Rate"
                 }
               },
-              "queryRef": "_Measures.销售人员完成率",
-              "nativeQueryRef": "销售人员完成率",
+              "queryRef": "_Measures.Salesperson Completion Rate",
+              "nativeQueryRef": "Salesperson Completion Rate",
               "format": "0.00%;-0.00%;0.00%"
             }
           ]
@@ -102,7 +102,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "销售人员销售额"
+                "Property": "Salesperson Sales"
               }
             },
             "direction": "Descending"
@@ -155,7 +155,7 @@
                                       "Entity": "_Measures"
                                     }
                                   },
-                                  "Property": "销售人员完成率"
+                                  "Property": "Salesperson Completion Rate"
                                 }
                               },
                               "Right": {
@@ -182,7 +182,7 @@
                                       "Entity": "_Measures"
                                     }
                                   },
-                                  "Property": "销售人员完成率"
+                                  "Property": "Salesperson Completion Rate"
                                 }
                               },
                               "Right": {
@@ -213,7 +213,7 @@
                 }
               }
             ],
-            "metadata": "_Measures.销售人员完成率"
+            "metadata": "_Measures.Salesperson Completion Rate"
           }
         }
       ],
@@ -242,7 +242,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.销售人员8月目标"
+            "metadata": "_Measures.Salesperson Aug Target"
           }
         }
       ]

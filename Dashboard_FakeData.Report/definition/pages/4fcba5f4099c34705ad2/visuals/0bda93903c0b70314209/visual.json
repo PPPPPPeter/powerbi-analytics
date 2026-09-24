@@ -23,11 +23,11 @@
                       "Entity": "ProductCatalogAll"
                     }
                   },
-                  "Property": "积压状态列"
+                  "Property": "Overstock Status Col"
                 }
               },
-              "queryRef": "ProductCatalogAll.积压状态列",
-              "nativeQueryRef": "积压状态列",
+              "queryRef": "ProductCatalogAll.Overstock Status Col",
+              "nativeQueryRef": "Overstock Status Col",
               "active": true
             }
           ]
@@ -153,7 +153,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'积压状态'"
+                  "Value": "'Overstock Status'"
                 }
               }
             },

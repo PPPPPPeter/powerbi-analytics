@@ -23,11 +23,11 @@
                       "Entity": "ProductCatalogAll"
                     }
                   },
-                  "Property": "品牌"
+                  "Property": "Brand"
                 }
               },
-              "queryRef": "DimBrand.品牌",
-              "nativeQueryRef": "品牌"
+              "queryRef": "DimBrand.Brand",
+              "nativeQueryRef": "Brand"
             },
             {
               "field": {
@@ -37,12 +37,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "品牌销售占比"
+                  "Property": "Brand Sales Share"
                 }
               },
-              "queryRef": "_Measures.品牌销售占比",
-              "nativeQueryRef": "销售占比",
-              "displayName": "销售占比",
+              "queryRef": "_Measures.Brand Sales Share",
+              "nativeQueryRef": "Sales Share",
+              "displayName": "Sales Share",
               "format": "0.00%;-0.00%;0.00%"
             },
             {
@@ -53,12 +53,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "品牌毛利贡献占比"
+                  "Property": "Brand Gross Profit Contribution Share"
                 }
               },
-              "queryRef": "_Measures.品牌毛利贡献占比",
-              "nativeQueryRef": "毛利贡献占比",
-              "displayName": "毛利贡献占比",
+              "queryRef": "_Measures.Brand Gross Profit Contribution Share",
+              "nativeQueryRef": "Gross Profit Contribution Share",
+              "displayName": "Gross Profit Contribution Share",
               "format": "0.00%;-0.00%;0.00%"
             }
           ]
@@ -74,7 +74,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "品牌销售占比"
+                "Property": "Brand Sales Share"
               }
             },
             "direction": "Descending"
@@ -114,7 +114,7 @@
                                       "Entity": "_Measures"
                                     }
                                   },
-                                  "Property": "品牌毛利贡献占比"
+                                  "Property": "Brand Gross Profit Contribution Share"
                                 }
                               },
                               "Right": {
@@ -145,7 +145,7 @@
                 }
               }
             ],
-            "metadata": "_Measures.品牌毛利贡献占比"
+            "metadata": "_Measures.Brand Gross Profit Contribution Share"
           }
         }
       ],
@@ -174,7 +174,7 @@
             }
           },
           "selector": {
-            "metadata": "DimBrand.品牌"
+            "metadata": "DimBrand.Brand"
           }
         },
         {
@@ -188,7 +188,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.品牌销售占比"
+            "metadata": "_Measures.Brand Sales Share"
           }
         },
         {
@@ -202,7 +202,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.品牌毛利贡献占比"
+            "metadata": "_Measures.Brand Gross Profit Contribution Share"
           }
         }
       ],
@@ -227,7 +227,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'品牌贡献占比排名'"
+                  "Value": "'Brand Contribution Ranking'"
                 }
               }
             },

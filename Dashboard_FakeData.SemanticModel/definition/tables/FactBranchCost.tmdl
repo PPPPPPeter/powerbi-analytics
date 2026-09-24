@@ -1,7 +1,7 @@
 table FactBranchCost
 	lineageTag: 2d687104-897e-4783-80af-f70bdeb39b8e
 
-	measure 分公司销售额（不含运费和服务费） =
+	measure 'Branch Sales (Excl Freight and Service Fees)' =
 			
 			CALCULATE (
 			    SUM ( FactBranchCost[amount] ),
@@ -16,15 +16,15 @@ table FactBranchCost
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 分公司销售占比 =
+	measure 'Branch Sales Share' =
 			
 			VAR CurrentSales =
-			    [分公司销售额（不含运费和服务费）]
+			    [Branch Sales (Excl Freight and Service Fees)]
 			VAR AllCompanySales =
 			    CALCULATE(
-			        [分公司销售额（不含运费和服务费）],
+			        [Branch Sales (Excl Freight and Service Fees)],
 			        REMOVEFILTERS(FactBranchCost[company]),
-			        REMOVEFILTERS(DimCustomerAll[客户名称])
+			        REMOVEFILTERS(DimCustomerAll[Customer Name])
 			    )
 			RETURN
 			    DIVIDE(CurrentSales, AllCompanySales)
@@ -32,11 +32,11 @@ table FactBranchCost
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 分公司上月销售额 =
+	measure 'Branch Last Month Sales' =
 			
 			COALESCE(
 			    CALCULATE(
-			        [分公司销售额（不含运费和服务费）],
+			        [Branch Sales (Excl Freight and Service Fees)],
 			        DATEADD(DimDate[Date], -1, MONTH)
 			    ),
 			    0
@@ -45,21 +45,21 @@ table FactBranchCost
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 分公司月环比 =
+	measure 'Branch MoM' =
 			
 			DIVIDE(
-			    [分公司销售额（不含运费和服务费）] - [分公司上月销售额],
-			    [分公司上月销售额],
+			    [Branch Sales (Excl Freight and Service Fees)] - [Branch Last Month Sales],
+			    [Branch Last Month Sales],
 			    0
 			)
 		lineageTag: b1b497c8-dd4e-44e7-b4ea-12ae90dfa78b
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 分公司上年同期销售额 =
+	measure 'Branch Last Year Same Period Sales' =
 			
 			CALCULATE(
-			    [分公司销售额（不含运费和服务费）],
+			    [Branch Sales (Excl Freight and Service Fees)],
 			    DATEADD(
 			        DimDate[Date],
 			        -1,
@@ -70,57 +70,57 @@ table FactBranchCost
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 分公司销售同比 =
+	measure 'Branch Sales YoY' =
 			
 			DIVIDE(
-			    [分公司销售额（不含运费和服务费）] - [分公司上年同期销售额],
-			    [分公司上年同期销售额],
+			    [Branch Sales (Excl Freight and Service Fees)] - [Branch Last Year Same Period Sales],
+			    [Branch Last Year Same Period Sales],
 			    0
 			)
 		lineageTag: f38cf50e-73f3-4e78-98eb-9968792427b1
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 分公司活跃客户 =
+	measure 'Branch Active Customers' =
 			
 			COUNTROWS(
 			    FILTER(
 			        VALUES(FactBranchCost[customer_no]),
 			        NOT ISBLANK(FactBranchCost[customer_no])
 			            && FactBranchCost[customer_no] <> ""
-			            && CALCULATE([分公司销售额（不含运费和服务费）]) > 0
+			            && CALCULATE([Branch Sales (Excl Freight and Service Fees)]) > 0
 			    )
 			)
 		formatString: 0
 		lineageTag: 289acafb-7c4f-41d5-aaae-7973838e9942
 
-	measure 分公司订单数 =
+	measure 'Branch Order Count' =
 			
-			DISTINCTCOUNT(FactBranchCost[分公司订单键])
+			DISTINCTCOUNT(FactBranchCost[Branch Order Key])
 		formatString: 0
 		lineageTag: fd7f78bd-2fbe-4636-9d55-d07e7ffb74a0
 
-	measure 分公司活跃SKU =
+	measure 'Branch Active SKUs' =
 			
 			COUNTROWS(
 			    FILTER(
 			        VALUES(FactBranchCost[Ref Num]),
 			        NOT ISBLANK(FactBranchCost[Ref Num])
 			            && FactBranchCost[Ref Num] <> ""
-			            && CALCULATE([分公司销售额（不含运费和服务费）]) > 0
+			            && CALCULATE([Branch Sales (Excl Freight and Service Fees)]) > 0
 			    )
 			)
 		formatString: 0
 		lineageTag: 38c886af-66ad-437b-938a-008b8ccce47f
 
-	measure 分公司品牌销售占比 =
+	measure 'Branch Brand Sales Share' =
 			
 			VAR CurrentBrandSales =
-			    [分公司销售额（不含运费和服务费）]
+			    [Branch Sales (Excl Freight and Service Fees)]
 			VAR BranchTotalSales =
 			    CALCULATE(
-			        [分公司销售额（不含运费和服务费）],
-			        REMOVEFILTERS(ProductCatalogAll[品牌])
+			        [Branch Sales (Excl Freight and Service Fees)],
+			        REMOVEFILTERS(ProductCatalogAll[Brand])
 			    )
 			RETURN
 			    DIVIDE(
@@ -132,35 +132,35 @@ table FactBranchCost
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 分公司基准成本 =
+	measure 'Branch Base Cost' =
 			
-			SUM(FactBranchCost[基准成本])
+			SUM(FactBranchCost[Base Cost])
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: 20c436c7-566d-46dc-9705-d41d06eefe42
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 产品价格_毛利 = ```
+	measure 'Product Price_Gross Profit' = ```
 			
-			    [分公司销售额（不含运费和服务费）]
-			        - [产品价格_基准成本]
+			    [Branch Sales (Excl Freight and Service Fees)]
+			        - [Product Price_Base Cost]
 			```
 		lineageTag: bf7f6306-5c52-4d8a-be31-951ed0dea3f6
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 产品价格_毛利率 =
+	measure 'Product Price_Gross Margin' =
 			
 			DIVIDE (
-			    [产品价格_毛利],
-			    [分公司销售额（不含运费和服务费）],
+			    [Product Price_Gross Profit],
+			    [Branch Sales (Excl Freight and Service Fees)],
 			    BLANK ()
 			)
 		lineageTag: 5806a4df-f4f8-4450-b9ba-c88ad48ac190
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 分公司销售数量 =
+	measure 'Branch Sales Qty' =
 			
 			CALCULATE (
 			    SUM ( FactBranchCost[quantity] ),
@@ -175,13 +175,13 @@ table FactBranchCost
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 产品价格_加权平均成交价 =
+	measure 'Product Price_Weighted Avg Selling Price' =
 			
 			VAR SalesAmount =
-			    [分公司销售额（不含运费和服务费）]
+			    [Branch Sales (Excl Freight and Service Fees)]
 			
 			VAR SalesQuantity =
-			    [分公司销售数量]
+			    [Branch Sales Qty]
 			
 			RETURN
 			    IF (
@@ -194,7 +194,7 @@ table FactBranchCost
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 分公司上月销售数量 =
+	measure 'Branch Last Month Sales Qty' =
 			
 			VAR CurrentDate =
 			    MAX(DimDate[Date])
@@ -206,7 +206,7 @@ table FactBranchCost
 			    CurrentMonthStart - 1
 			RETURN
 			    CALCULATE(
-			        [分公司销售数量],
+			        [Branch Sales Qty],
 			        REMOVEFILTERS(DimDate),
 			        DATESBETWEEN(
 			            DimDate[Date],
@@ -218,12 +218,12 @@ table FactBranchCost
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 分公司销量月环比 =
+	measure 'Branch Volume MoM' =
 			
 			VAR CurrentQuantity =
-			    [分公司销售数量]
+			    [Branch Sales Qty]
 			VAR PreviousQuantity =
-			    [分公司上月销售数量]
+			    [Branch Last Month Sales Qty]
 			RETURN
 			    IF(
 			        ISBLANK(PreviousQuantity)
@@ -238,13 +238,13 @@ table FactBranchCost
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 所选品牌订单数 =
+	measure 'Selected Brand Orders' =
 			
 			VAR SelectedBrands =
-			    VALUES ( ProductCatalogAll[品牌] )
+			    VALUES ( ProductCatalogAll[Brand] )
 			RETURN
 			CALCULATE (
-			    [分公司订单数],
+			    [Branch Order Count],
 			
 			    REMOVEFILTERS ( ProductCatalogAll ),
 			    REMOVEFILTERS ( ProductCatalog ),
@@ -258,10 +258,10 @@ table FactBranchCost
 		formatString: 0
 		lineageTag: 0ebd1e1f-af22-46a4-a382-c7dc599c7a0e
 
-	measure 客户本期订单数 =
+	measure 'Customer Current Period Orders' =
 			
 			CALCULATE (
-			    [分公司订单数],
+			    [Branch Order Count],
 			
 			    REMOVEFILTERS ( ProductCatalogAll ),
 			    REMOVEFILTERS ( ProductCatalog ),
@@ -275,16 +275,16 @@ table FactBranchCost
 		formatString: 0
 		lineageTag: c98551a1-95fa-4e3e-9c4c-0d13b8f311a6
 
-	measure 品牌未铺货客户标记 =
+	measure 'Brand Undistributed Customer Flag' =
 			
 			VAR HasBrand =
-			    HASONEVALUE ( ProductCatalogAll[品牌] )
+			    HASONEVALUE ( ProductCatalogAll[Brand] )
 			
 			VAR CustomerOrders =
-			    COALESCE ( [客户本期订单数], 0 )
+			    COALESCE ( [Customer Current Period Orders], 0 )
 			
 			VAR BrandOrders =
-			    COALESCE ( [所选品牌订单数], 0 )
+			    COALESCE ( [Selected Brand Orders], 0 )
 			
 			RETURN
 			IF (
@@ -295,21 +295,21 @@ table FactBranchCost
 		formatString: 0
 		lineageTag: d0d94949-2707-4d51-b3c9-e5a32198f23a
 
-	measure 分公司上月订单数 =
+	measure 'Branch Last Month Orders' =
 			
 			CALCULATE(
-			    [分公司订单数],
+			    [Branch Order Count],
 			    DATEADD(DimDate[Date], -1, MONTH)
 			)
 		formatString: 0
 		lineageTag: 63aae6c1-fb18-4725-a088-7148d3e2c159
 
-	measure 分公司订单数月环比 =
+	measure 'Branch Orders MoM' =
 			
 			VAR CurrentOrders =
-			    [分公司订单数]
+			    [Branch Order Count]
 			VAR PreviousOrders =
-			    [分公司上月订单数]
+			    [Branch Last Month Orders]
 			RETURN
 			    IF(
 			        ISBLANK(PreviousOrders)
@@ -324,16 +324,16 @@ table FactBranchCost
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 品牌已铺货客户标记 =
+	measure 'Brand Distributed Customer Flag' =
 			
 			VAR HasBrand =
-			    HASONEVALUE ( ProductCatalogAll[品牌] )
+			    HASONEVALUE ( ProductCatalogAll[Brand] )
 			
 			VAR CustomerOrders =
-			    COALESCE ( [客户本期订单数], 0 )
+			    COALESCE ( [Customer Current Period Orders], 0 )
 			
 			VAR BrandOrders =
-			    COALESCE ( [所选品牌订单数], 0 )
+			    COALESCE ( [Selected Brand Orders], 0 )
 			
 			RETURN
 			IF (
@@ -344,18 +344,18 @@ table FactBranchCost
 		formatString: 0
 		lineageTag: 9bd20f3e-a0ad-4e76-a460-7137cc1df58d
 
-	measure 销售已铺货客户数 =
+	measure 'Sales Distributed Customer Count' =
 			
 			COUNTROWS(
 			    FILTER(
-			        VALUES(DimCustomerAll[客户编号]),
-			        CALCULATE([分公司销售额（不含运费和服务费）]) > 0
+			        VALUES(DimCustomerAll[Customer ID]),
+			        CALCULATE([Branch Sales (Excl Freight and Service Fees)]) > 0
 			    )
 			)
 		formatString: 0
 		lineageTag: e6add068-024c-4c7c-8231-5220bcc1401d
 
-	measure 销售已铺货SKU数 =
+	measure 'Sales Distributed SKU Count' =
 			
 			CALCULATE(
 			    DISTINCTCOUNT(FactBranchCost[Ref Num]),
@@ -365,22 +365,22 @@ table FactBranchCost
 		formatString: 0
 		lineageTag: b0c6f272-d63a-4011-9b89-b555cee1083f
 
-	measure 销售客户铺货率 =
+	measure 'Sales Customer Distribution Rate' =
 			
 			DIVIDE(
-			    [销售已铺货客户数],
-			    [销售负责客户数],
+			    [Sales Distributed Customer Count],
+			    [Salesperson Customer Count],
 			    0
 			)
 		lineageTag: e2017523-74cb-4fc6-aacb-32837f123846
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 本期目标客户数 =
+	measure 'Current Period Target Customers' =
 			
 			VAR CustomerList =
 			    CALCULATETABLE (
-			        VALUES ( DimCustomerAll[客户编号] ),
+			        VALUES ( DimCustomerAll[Customer ID] ),
 			        REMOVEFILTERS ( ProductCatalogAll ),
 			        REMOVEFILTERS ( ProductCatalog ),
 			        REMOVEFILTERS ( DimProductAll )
@@ -389,7 +389,7 @@ table FactBranchCost
 			SUMX (
 			    CustomerList,
 			    IF (
-			        CALCULATE ( [客户本期订单数] ) > 0,
+			        CALCULATE ( [Customer Current Period Orders] ) > 0,
 			        1,
 			        0
 			    )
@@ -397,10 +397,10 @@ table FactBranchCost
 		formatString: 0
 		lineageTag: bee9c0ce-ed10-48bf-aef1-d03546a670f8
 
-	measure 公司经营SKU标记 =
+	measure 'Company SKU Flag' =
 			
 			VAR SelectedCompanies =
-			    VALUES ( DimCustomerAll[公司] )
+			    VALUES ( DimCustomerAll[Company] )
 			
 			VAR HistoricalSales =
 			    CALCULATE (
@@ -409,11 +409,11 @@ table FactBranchCost
 			        FactBranchCost[Ref Num] <> BLANK (),
 			        FactBranchCost[amount] > 0,
 			
-			        -- 清除客户维度筛选
+			        -- clear customer dimension filters
 			        REMOVEFILTERS ( DimCustomerAll ),
 			        REMOVEFILTERS ( DimCustomerNJ ),
 			
-			        -- 清除事实表中的客户和销售人员筛选
+			        -- clear customer and salesperson filters on the fact table
 			        REMOVEFILTERS (
 			            FactBranchCost[customer_no],
 			            FactBranchCost[customer_name],
@@ -424,7 +424,7 @@ table FactBranchCost
 			            FactBranchCost[rep]
 			        ),
 			
-			        -- 不受日期筛选影响
+			        -- not affected by date filters
 			        REMOVEFILTERS ( DimDate ),
 			
 			        REMOVEFILTERS (
@@ -434,7 +434,7 @@ table FactBranchCost
 			            FactBranchCost[year]
 			        ),
 			
-			        -- 恢复公司选择
+			        -- restore company selection
 			        TREATAS (
 			            SelectedCompanies,
 			            FactBranchCost[company]
@@ -446,19 +446,19 @@ table FactBranchCost
 		formatString: 0
 		lineageTag: 3accec6d-53ec-4bb2-99c5-a7eea11da07c
 
-	measure 公司经营SKU总数 =
+	measure 'Company SKU Total' =
 			
 			SUMX (
 			    VALUES ( FactBranchCost[Ref Num] ),
-			    [公司经营SKU标记]
+			    [Company SKU Flag]
 			)
 		formatString: 0
 		lineageTag: fdf22673-6d4b-4a22-aac7-349e6111b2a7
 
-	measure 本期已铺货SKU标记 =
+	measure 'Current Period Distributed SKU Flag' =
 			
 			VAR SelectedCompanies =
-			    VALUES ( DimCustomerAll[公司] )
+			    VALUES ( DimCustomerAll[Company] )
 			
 			VAR SelectedCustomers =
 			    VALUES ( FactBranchCost[customer_no] )
@@ -468,7 +468,7 @@ table FactBranchCost
 			
 			VAR IsCompanySKU =
 			    CALCULATE (
-			        [公司经营SKU标记],
+			        [Company SKU Flag],
 			
 			        REMOVEFILTERS ( DimCustomerAll ),
 			        REMOVEFILTERS ( DimCustomerNJ ),
@@ -481,24 +481,24 @@ table FactBranchCost
 			
 			VAR CurrentQuantity =
 			    CALCULATE (
-			        SUM ( FactSalesAll[数量_1] ),
+			        SUM ( FactSalesAll[Quantity_1] ),
 			
 			        REMOVEFILTERS ( DimCustomerAll ),
 			        REMOVEFILTERS ( DimCustomerNJ ),
 			
 			        TREATAS (
 			            SelectedCompanies,
-			            FactSalesAll[公司]
+			            FactSalesAll[Company]
 			        ),
 			
 			        TREATAS (
 			            SelectedCustomers,
-			            FactSalesAll[合作伙伴/参考]
+			            FactSalesAll[Partner/Reference]
 			        ),
 			
 			        TREATAS (
 			            SelectedSKUs,
-			            FactSalesAll[产品/内部参考号]
+			            FactSalesAll[Product/Internal Reference]
 			        )
 			    )
 			
@@ -511,10 +511,10 @@ table FactBranchCost
 		formatString: 0
 		lineageTag: 89233c9f-c9bd-4723-bd68-bee803d0304f
 
-	measure 本期未铺货SKU标记 =
+	measure 'Current Period Undistributed SKU Flag' =
 			
 			VAR SelectedCompanies =
-			    VALUES ( DimCustomerAll[公司] )
+			    VALUES ( DimCustomerAll[Company] )
 			
 			VAR SelectedCustomers =
 			    VALUES ( FactBranchCost[customer_no] )
@@ -524,7 +524,7 @@ table FactBranchCost
 			
 			VAR IsCompanySKU =
 			    CALCULATE (
-			        [公司经营SKU标记],
+			        [Company SKU Flag],
 			
 			        REMOVEFILTERS ( DimCustomerAll ),
 			        REMOVEFILTERS ( DimCustomerNJ ),
@@ -537,24 +537,24 @@ table FactBranchCost
 			
 			VAR CurrentQuantity =
 			    CALCULATE (
-			        SUM ( FactSalesAll[数量_1] ),
+			        SUM ( FactSalesAll[Quantity_1] ),
 			
 			        REMOVEFILTERS ( DimCustomerAll ),
 			        REMOVEFILTERS ( DimCustomerNJ ),
 			
 			        TREATAS (
 			            SelectedCompanies,
-			            FactSalesAll[公司]
+			            FactSalesAll[Company]
 			        ),
 			
 			        TREATAS (
 			            SelectedCustomers,
-			            FactSalesAll[合作伙伴/参考]
+			            FactSalesAll[Partner/Reference]
 			        ),
 			
 			        TREATAS (
 			            SelectedSKUs,
-			            FactSalesAll[产品/内部参考号]
+			            FactSalesAll[Product/Internal Reference]
 			        )
 			    )
 			
@@ -567,16 +567,16 @@ table FactBranchCost
 		formatString: 0
 		lineageTag: bfaf6737-0ab4-4933-ad14-501ccbe1f83f
 
-	measure 毛利率趋势_近3月 =
+	measure 'Gross Margin Trend_Last 3 Months' =
 			
 			VAR CurrentMonthKey =
-			    MAX ( DimDate[年月排序] )
+			    MAX ( DimDate[Year Month Sort] )
 			
 			VAR VisibleMonths =
 			    SUMMARIZE (
 			        ALLSELECTED ( DimDate ),
-			        DimDate[年月],
-			        DimDate[年月排序]
+			        DimDate[Year Month],
+			        DimDate[Year Month Sort]
 			    )
 			
 			VAR Last3VisibleMonths =
@@ -584,31 +584,31 @@ table FactBranchCost
 			        3,
 			        FILTER (
 			            VisibleMonths,
-			            DimDate[年月排序] <= CurrentMonthKey
+			            DimDate[Year Month Sort] <= CurrentMonthKey
 			        ),
-			        DimDate[年月排序],
+			        DimDate[Year Month Sort],
 			        DESC
 			    )
 			
 			RETURN
 			    AVERAGEX (
 			        Last3VisibleMonths,
-			        CALCULATE ( [产品价格_毛利率] )
+			        CALCULATE ( [Product Price_Gross Margin] )
 			    )
 		lineageTag: f1852e99-e562-40ea-a74c-690315100deb
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 分公司销售数量趋势_近3月 =
+	measure 'Branch Sales Qty Trend_Last 3 Months' =
 			
 			VAR CurrentMonthKey =
-			    MAX ( DimDate[年月排序] )
+			    MAX ( DimDate[Year Month Sort] )
 			
 			VAR VisibleMonths =
 			    SUMMARIZE (
 			        ALLSELECTED ( DimDate ),
-			        DimDate[年月],
-			        DimDate[年月排序]
+			        DimDate[Year Month],
+			        DimDate[Year Month Sort]
 			    )
 			
 			VAR Last3VisibleMonths =
@@ -616,25 +616,25 @@ table FactBranchCost
 			        3,
 			        FILTER (
 			            VisibleMonths,
-			            DimDate[年月排序] <= CurrentMonthKey
+			            DimDate[Year Month Sort] <= CurrentMonthKey
 			        ),
-			        DimDate[年月排序],
+			        DimDate[Year Month Sort],
 			        DESC
 			    )
 			
 			RETURN
 			    AVERAGEX (
 			        Last3VisibleMonths,
-			        CALCULATE ( [分公司销售数量] )
+			        CALCULATE ( [Branch Sales Qty] )
 			    )
 		lineageTag: c5362be3-895e-4e5e-a0c6-0d7044408283
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 产品价格_基准成本 =
+	measure 'Product Price_Base Cost' =
 			
 			CALCULATE (
-			    SUM ( FactBranchCost[基准成本] ),
+			    SUM ( FactBranchCost[Base Cost] ),
 			    KEEPFILTERS (
 			        NOT (
 			            FactBranchCost[Ref Num]
@@ -647,12 +647,12 @@ table FactBranchCost
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure State销售占比 =
+	measure 'State Sales Share' =
 			
 			DIVIDE (
-			    [分公司销售额（不含运费和服务费）],
+			    [Branch Sales (Excl Freight and Service Fees)],
 			    CALCULATE (
-			        [分公司销售额（不含运费和服务费）],
+			        [Branch Sales (Excl Freight and Service Fees)],
 			        REMOVEFILTERS ( FactBranchCost[state] )
 			    )
 			)
@@ -854,44 +854,44 @@ table FactBranchCost
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	column 基准成本单价
+	column 'Base Unit Cost'
 		dataType: decimal
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: aeac6c7d-e7aa-48f9-85cf-3d454866b7eb
 		summarizeBy: sum
-		sourceColumn: 基准成本单价
+		sourceColumn: Base Unit Cost
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	column 基准成本
+	column 'Base Cost'
 		dataType: decimal
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: a9fced5f-661b-4db6-a240-af39cea6219f
 		summarizeBy: sum
-		sourceColumn: 基准成本
+		sourceColumn: Base Cost
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	column 基准毛利额
+	column 'Base Gross Profit'
 		dataType: decimal
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		lineageTag: 44ea3998-ca9e-4613-9a3d-64d15d9c2cea
 		summarizeBy: sum
-		sourceColumn: 基准毛利额
+		sourceColumn: Base Gross Profit
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	column 基准毛利率
+	column 'Base Gross Margin'
 		dataType: double
 		lineageTag: 840ced2f-9a1b-4d5d-b626-0e38c8850cda
 		summarizeBy: sum
-		sourceColumn: 基准毛利率
+		sourceColumn: Base Gross Margin
 
 		annotation SummarizationSetBy = Automatic
 
@@ -940,7 +940,7 @@ table FactBranchCost
 
 		annotation SummarizationSetBy = Automatic
 
-	column 客户地址 =
+	column 'Customer Address' =
 			
 			VAR CustomerCity =
 			    TRIM(
@@ -969,7 +969,7 @@ table FactBranchCost
 
 		annotation SummarizationSetBy = Automatic
 
-	column 客户渠道 =
+	column 'Customer Channel' =
 			
 			VAR SalespersonName =
 			    UPPER(
@@ -992,19 +992,19 @@ table FactBranchCost
 			RETURN
 			    SWITCH(
 			        TRUE(),
-			        SalespersonName = "MAINSTREAM", "主流",
+			        SalespersonName = "MAINSTREAM", "Mainstream",
 			        CustomerName IN {
 			            "Harbor Spice Co",
 			            "Summit Seasoning, LLC"
-			        }, "代理",
-			        "亚裔"
+			        }, "Agent",
+			        "Asian"
 			    )
 		lineageTag: 41df5686-1f13-427d-827f-30933834c9d1
 		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 
-	column 分公司订单键 =
+	column 'Branch Order Key' =
 			
 			VAR CompanyName =
 			    TRIM(COALESCE(FactBranchCost[company], ""))
@@ -1021,7 +1021,7 @@ table FactBranchCost
 
 		annotation SummarizationSetBy = Automatic
 
-	column 客户公司Key =
+	column 'Customer Company Key' =
 			
 			VAR CustomerNumber =
 			    TRIM (
@@ -1051,28 +1051,28 @@ table FactBranchCost
 
 		annotation SummarizationSetBy = Automatic
 
-	column 订单创建人
+	column 'Order Creator'
 		dataType: string
 		lineageTag: fc26795d-f923-49b9-87a2-15b7b94c6326
 		summarizeBy: none
-		sourceColumn: 订单创建人
+		sourceColumn: Order Creator
 
 		annotation SummarizationSetBy = Automatic
 
-	column 订单参考号
+	column 'Order Reference No'
 		dataType: string
 		lineageTag: f08f3f92-0db5-4832-8060-50ff1cf48fb6
 		summarizeBy: none
-		sourceColumn: 订单参考号
+		sourceColumn: Order Reference No
 
 		annotation SummarizationSetBy = Automatic
 
-	column 完整地址
+	column 'Full Address'
 		dataType: string
 		lineageTag: d2f68418-aafb-4fc6-ba3f-291a64f994f8
 		dataCategory: Address
 		summarizeBy: none
-		sourceColumn: 完整地址
+		sourceColumn: Full Address
 
 		annotation SummarizationSetBy = Automatic
 
@@ -1107,19 +1107,19 @@ table FactBranchCost
 				            [PromoteAllScalars = true]
 				        ),
 				
-				    // 将 CSV 字段名转换为 FactBranchCost 使用的标准字段名
+				    // Map CSV field names to the FactBranchCost standard field names
 				    RenamedColumns =
 				        Table.RenameColumns(
 				            PromotedHeaders,
 				            {
 				                {"lnvoice No", "Invoice No"},
-				                {"purchase_price", "基准成本单价"},
-				                {"cogs", "基准成本"},
-				                {"Gross Profit", "基准毛利额"},
-				                {"Gross Margin", "基准毛利率"},
-				                {"Sales Order Line / Created By", "订单创建人"},
-				                {"Sales Order Line / Order Reference", "订单参考号"},
-				                {"Partner / Complete Address","完整地址"}
+				                {"purchase_price", "Base Unit Cost"},
+				                {"cogs", "Base Cost"},
+				                {"Gross Profit", "Base Gross Profit"},
+				                {"Gross Margin", "Base Gross Margin"},
+				                {"Sales Order Line / Created By", "Order Creator"},
+				                {"Sales Order Line / Order Reference", "Order Reference No"},
+				                {"Partner / Complete Address","Full Address"}
 				            },
 				            MissingField.Ignore
 				        ),
@@ -1130,8 +1130,8 @@ table FactBranchCost
 				        "Sub-Category (CN)", "shelf life", "customer_name", "customer_no",
 				        "sales leader", "salesperson", "rep", "customer_type", "city",
 				        "state", "Create User", "race", "quantity", "discount_price",
-				        "amount", "基准成本单价", "基准成本", "基准毛利额", "基准毛利率",
-				        "month", "week", "year", "company", "Warehouse","订单创建人","订单参考号","完整地址"
+				        "amount", "Base Unit Cost", "Base Cost", "Base Gross Profit", "Base Gross Margin",
+				        "month", "week", "year", "company", "Warehouse","Order Creator","Order Reference No","Full Address"
 				    },
 				
 				    SelectedColumns =
@@ -1159,7 +1159,7 @@ table FactBranchCost
 				                    "Sub-Category (CN)", "customer_name", "customer_no",
 				                    "sales leader", "salesperson", "rep", "customer_type",
 				                    "city", "state", "Create User", "race", "company",
-				                    "Warehouse","订单创建人","订单参考号","完整地址"
+				                    "Warehouse","Order Creator","Order Reference No","Full Address"
 				                },
 				                (ColumnName as text) =>
 				                    {
@@ -1179,7 +1179,7 @@ table FactBranchCost
 				            List.Transform(
 				                {
 				                    "shelf life", "quantity", "discount_price", "amount",
-				                    "基准成本单价", "基准成本", "基准毛利额", "基准毛利率",
+				                    "Base Unit Cost", "Base Cost", "Base Gross Profit", "Base Gross Margin",
 				                    "month", "week", "year"
 				                },
 				                (ColumnName as text) =>
@@ -1240,10 +1240,10 @@ table FactBranchCost
 				                {"quantity", type number},
 				                {"discount_price", type number},
 				                {"amount", Currency.Type},
-				                {"基准成本单价", Currency.Type},
-				                {"基准成本", Currency.Type},
-				                {"基准毛利额", Currency.Type},
-				                {"基准毛利率", Percentage.Type},
+				                {"Base Unit Cost", Currency.Type},
+				                {"Base Cost", Currency.Type},
+				                {"Base Gross Profit", Currency.Type},
+				                {"Base Gross Margin", Percentage.Type},
 				                {"month", Int64.Type},
 				                {"week", Int64.Type},
 				                {"year", Int64.Type},
@@ -1253,7 +1253,7 @@ table FactBranchCost
 				            "en-US"
 				        ),
 				    #"Filtered Rows" = Table.SelectRows(ChangedTypes, each not Text.Contains([customer_name], "Employee")),
-				    #"Trimmed Text" = Table.TransformColumns(#"Filtered Rows",{{"完整地址", Text.Trim, type text}})
+				    #"Trimmed Text" = Table.TransformColumns(#"Filtered Rows",{{"Full Address", Text.Trim, type text}})
 				in
 				    #"Trimmed Text"
 

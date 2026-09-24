@@ -23,12 +23,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "订单创建人销售额"
+                  "Property": "Order Creator Sales"
                 }
               },
-              "queryRef": "_Measures.订单创建人销售额",
-              "nativeQueryRef": "销售额",
-              "displayName": "销售额"
+              "queryRef": "_Measures.Order Creator Sales",
+              "nativeQueryRef": "Sales",
+              "displayName": "Sales"
             },
             {
               "field": {
@@ -38,11 +38,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "总销售完成率"
+                  "Property": "Total Sales Completion Rate"
                 }
               },
-              "queryRef": "_Measures.总销售完成率",
-              "nativeQueryRef": "总销售完成率",
+              "queryRef": "_Measures.Total Sales Completion Rate",
+              "nativeQueryRef": "Total Sales Completion Rate",
               "format": "0.00%;-0.00%;0.00%"
             },
             {
@@ -53,11 +53,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "往年同期同比"
+                  "Property": "Prior Year Same Period YoY"
                 }
               },
-              "queryRef": "_Measures.同期同比",
-              "nativeQueryRef": "同期同比",
+              "queryRef": "_Measures.Same Period YoY",
+              "nativeQueryRef": "Same Period YoY",
               "format": "0.00%;-0.00%;0.00%"
             },
             {
@@ -82,12 +82,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "选定年份销售额"
+                  "Property": "Selected Year Sales"
                 }
               },
-              "queryRef": "_Measures.选定年份销售额",
-              "nativeQueryRef": "本年度销售额",
-              "displayName": "本年度销售额"
+              "queryRef": "_Measures.Selected Year Sales",
+              "nativeQueryRef": "This Year Sales",
+              "displayName": "This Year Sales"
             },
             {
               "field": {
@@ -97,12 +97,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "总销售额距离目标"
+                  "Property": "Total Sales Gap to Target"
                 }
               },
-              "queryRef": "_Measures.总销售额距离目标",
-              "nativeQueryRef": "总销售vs目标",
-              "displayName": "总销售vs目标"
+              "queryRef": "_Measures.Total Sales Gap to Target",
+              "nativeQueryRef": "Total Sales vs Target",
+              "displayName": "Total Sales vs Target"
             },
             {
               "field": {
@@ -112,11 +112,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "月环比"
+                  "Property": "MoM"
                 }
               },
-              "queryRef": "_Measures.月环比",
-              "nativeQueryRef": "月环比",
+              "queryRef": "_Measures.MoM",
+              "nativeQueryRef": "MoM",
               "format": "0.00%;-0.00%;0.00%"
             },
             {
@@ -127,11 +127,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Top Sale 占比"
+                  "Property": "Top Sale Share"
                 }
               },
-              "queryRef": "_Measures.Top Sale 占比",
-              "nativeQueryRef": "Top Sale 占比",
+              "queryRef": "_Measures.Top Sale Share",
+              "nativeQueryRef": "Top Sale Share",
               "format": "0.00%;-0.00%;0.00%"
             }
           ]
@@ -147,7 +147,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "订单创建人销售额"
+                "Property": "Order Creator Sales"
               }
             },
             "direction": "Descending"
@@ -239,7 +239,7 @@
                           "Entity": "_Measures"
                         }
                       },
-                      "Property": "总销售额距离目标颜色"
+                      "Property": "Total Sales Gap Color"
                     }
                   }
                 }
@@ -254,7 +254,7 @@
                 }
               }
             ],
-            "metadata": "_Measures.总销售额距离目标"
+            "metadata": "_Measures.Total Sales Gap to Target"
           }
         },
         {
@@ -268,7 +268,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.总销售额距离目标"
+            "metadata": "_Measures.Total Sales Gap to Target"
           }
         },
         {
@@ -283,7 +283,7 @@
                           "Entity": "_Measures"
                         }
                       },
-                      "Property": "销售完成率颜色"
+                      "Property": "Sales Completion Color"
                     }
                   }
                 }
@@ -298,7 +298,7 @@
                 }
               }
             ],
-            "metadata": "_Measures.总销售完成率"
+            "metadata": "_Measures.Total Sales Completion Rate"
           }
         },
         {
@@ -312,7 +312,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.总销售完成率"
+            "metadata": "_Measures.Total Sales Completion Rate"
           }
         },
         {
@@ -327,7 +327,7 @@
                           "Entity": "_Measures"
                         }
                       },
-                      "Property": "往年同比颜色"
+                      "Property": "Prior Year YoY Color"
                     }
                   }
                 }
@@ -342,7 +342,7 @@
                 }
               }
             ],
-            "metadata": "_Measures.同期同比"
+            "metadata": "_Measures.Same Period YoY"
           }
         },
         {
@@ -356,7 +356,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.同期同比"
+            "metadata": "_Measures.Same Period YoY"
           }
         },
         {
@@ -371,7 +371,7 @@
                           "Entity": "_Measures"
                         }
                       },
-                      "Property": "月环比颜色"
+                      "Property": "MoM Color"
                     }
                   }
                 }
@@ -386,7 +386,7 @@
                 }
               }
             ],
-            "metadata": "_Measures.月环比"
+            "metadata": "_Measures.MoM"
           }
         }
       ],

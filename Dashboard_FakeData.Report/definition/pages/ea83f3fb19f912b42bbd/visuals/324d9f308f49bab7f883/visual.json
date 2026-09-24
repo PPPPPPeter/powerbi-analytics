@@ -23,11 +23,11 @@
                       "Entity": "FactSalesTarget"
                     }
                   },
-                  "Property": "冰淇淋总目标"
+                  "Property": "Ice Cream Total Target"
                 }
               },
-              "queryRef": "FactSalesTarget.冰淇淋总目标",
-              "nativeQueryRef": "冰淇淋总目标"
+              "queryRef": "FactSalesTarget.Ice Cream Total Target",
+              "nativeQueryRef": "Ice Cream Total Target"
             }
           ]
         },
@@ -41,11 +41,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "冰淇淋完成率"
+                  "Property": "Ice Cream Completion Rate"
                 }
               },
-              "queryRef": "_Measures.冰淇淋完成率",
-              "nativeQueryRef": "冰淇淋完成率",
+              "queryRef": "_Measures.Ice Cream Completion Rate",
+              "nativeQueryRef": "Ice Cream Completion Rate",
               "format": "0.00%;-0.00%;0.00%"
             }
           ]
@@ -60,11 +60,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "冰淇淋销售额"
+                  "Property": "Ice Cream Sales"
                 }
               },
-              "queryRef": "_Measures.冰淇淋销售额",
-              "nativeQueryRef": "冰淇淋销售额"
+              "queryRef": "_Measures.Ice Cream Sales",
+              "nativeQueryRef": "Ice Cream Sales"
             }
           ]
         }
@@ -79,7 +79,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "冰淇淋销售额"
+                "Property": "Ice Cream Sales"
               }
             },
             "direction": "Descending"
@@ -102,7 +102,7 @@
                           "Entity": "_Measures"
                         }
                       },
-                      "Property": "销售完成度Gauge颜色"
+                      "Property": "Sales Completion Gauge Color"
                     }
                   }
                 }
@@ -191,7 +191,7 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "冰淇淋完成率标签"
+                  "Property": "Ice Cream Completion Label"
                 }
               }
             },

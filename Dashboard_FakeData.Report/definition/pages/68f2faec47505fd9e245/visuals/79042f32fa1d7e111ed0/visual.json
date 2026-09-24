@@ -23,11 +23,11 @@
                       "Entity": "DimProductAll"
                     }
                   },
-                  "Property": "产品分类"
+                  "Property": "Product Class"
                 }
               },
-              "queryRef": "DimProductAll.产品分类",
-              "nativeQueryRef": "产品分类",
+              "queryRef": "DimProductAll.Product Class",
+              "nativeQueryRef": "Product Class",
               "active": true
             }
           ]
@@ -153,7 +153,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'产品种类'"
+                  "Value": "'Product Variety'"
                 }
               }
             },

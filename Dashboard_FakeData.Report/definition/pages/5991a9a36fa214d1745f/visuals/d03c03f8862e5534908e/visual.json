@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "铺货分析_已铺货SKU数量"
+                  "Property": "Distribution Analysis_Distributed SKU Qty"
                 }
               },
-              "queryRef": "_Measures.铺货分析_已铺货SKU数量",
-              "nativeQueryRef": "铺货分析_已铺货SKU数量",
+              "queryRef": "_Measures.Distribution Analysis_Distributed SKU Qty",
+              "nativeQueryRef": "Distribution Analysis_Distributed SKU Qty",
               "format": "G"
             },
             {
@@ -38,11 +38,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "铺货分析_未铺货SKU数量"
+                  "Property": "Distribution Analysis_Undistributed SKU Qty"
                 }
               },
-              "queryRef": "_Measures.铺货分析_未铺货SKU数量",
-              "nativeQueryRef": "铺货分析_未铺货SKU数量",
+              "queryRef": "_Measures.Distribution Analysis_Undistributed SKU Qty",
+              "nativeQueryRef": "Distribution Analysis_Undistributed SKU Qty",
               "format": "G"
             },
             {
@@ -53,11 +53,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "铺货分析_库存SKU总数"
+                  "Property": "Distribution Analysis_Stock SKU Total"
                 }
               },
-              "queryRef": "_Measures.铺货分析_库存SKU总数",
-              "nativeQueryRef": "铺货分析_库存SKU总数",
+              "queryRef": "_Measures.Distribution Analysis_Stock SKU Total",
+              "nativeQueryRef": "Distribution Analysis_Stock SKU Total",
               "format": "G"
             }
           ]
@@ -73,7 +73,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "铺货分析_已铺货SKU数量"
+                "Property": "Distribution Analysis_Distributed SKU Qty"
               }
             },
             "direction": "Descending"

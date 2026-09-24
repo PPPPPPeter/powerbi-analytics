@@ -23,11 +23,11 @@
                       "Entity": "ProductCatalogAll"
                     }
                   },
-                  "Property": "品牌"
+                  "Property": "Brand"
                 }
               },
-              "queryRef": "ProductCatalogAll.品牌",
-              "nativeQueryRef": "品牌1"
+              "queryRef": "ProductCatalogAll.Brand",
+              "nativeQueryRef": "Brand1"
             },
             {
               "field": {
@@ -37,12 +37,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "分公司订单数"
+                  "Property": "Branch Order Count"
                 }
               },
-              "queryRef": "FactBranchCost.分公司订单数",
-              "nativeQueryRef": "订单数",
-              "displayName": "订单数"
+              "queryRef": "FactBranchCost.Branch Order Count",
+              "nativeQueryRef": "Order Count",
+              "displayName": "Order Count"
             },
             {
               "field": {
@@ -52,12 +52,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "分公司销售额（不含运费和服务费）"
+                  "Property": "Branch Sales (Excl Freight and Service Fees)"
                 }
               },
-              "queryRef": "FactBranchCost.分公司销售额",
-              "nativeQueryRef": "销售额",
-              "displayName": "销售额"
+              "queryRef": "FactBranchCost.Branch Sales",
+              "nativeQueryRef": "Sales",
+              "displayName": "Sales"
             },
             {
               "field": {
@@ -67,12 +67,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "分公司销售同比"
+                  "Property": "Branch Sales YoY"
                 }
               },
-              "queryRef": "FactBranchCost.分公司销售同比",
-              "nativeQueryRef": "同比",
-              "displayName": "同比",
+              "queryRef": "FactBranchCost.Branch Sales YoY",
+              "nativeQueryRef": "YoY",
+              "displayName": "YoY",
               "format": "0.00%;-0.00%;0.00%"
             },
             {
@@ -83,12 +83,12 @@
                       "Entity": "DimCreator"
                     }
                   },
-                  "Property": "分公司月环比 average per 年月"
+                  "Property": "Branch MoM average per Year Month"
                 }
               },
-              "queryRef": "DimCreator.分公司月环比 average per 年月",
-              "nativeQueryRef": "平均环比",
-              "displayName": "平均环比",
+              "queryRef": "DimCreator.Branch MoM average per Year Month",
+              "nativeQueryRef": "Avg MoM",
+              "displayName": "Avg MoM",
               "format": "0.00%;-0.00%;0.00%"
             },
             {
@@ -99,12 +99,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "产品价格_毛利"
+                  "Property": "Product Price_Gross Profit"
                 }
               },
-              "queryRef": "FactBranchCost.分公司毛利",
-              "nativeQueryRef": "毛利",
-              "displayName": "毛利"
+              "queryRef": "FactBranchCost.Branch Gross Profit",
+              "nativeQueryRef": "Gross Profit",
+              "displayName": "Gross Profit"
             },
             {
               "field": {
@@ -114,12 +114,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "产品价格_毛利率"
+                  "Property": "Product Price_Gross Margin"
                 }
               },
-              "queryRef": "FactBranchCost.分公司毛利率",
-              "nativeQueryRef": "毛利率",
-              "displayName": "毛利率",
+              "queryRef": "FactBranchCost.Branch Gross Margin",
+              "nativeQueryRef": "Gross Margin",
+              "displayName": "Gross Margin",
               "format": "0.00%;-0.00%;0.00%"
             }
           ]
@@ -135,7 +135,7 @@
                     "Entity": "FactBranchCost"
                   }
                 },
-                "Property": "分公司销售额（不含运费和服务费）"
+                "Property": "Branch Sales (Excl Freight and Service Fees)"
               }
             },
             "direction": "Descending"
@@ -156,7 +156,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.分公司销售额"
+            "metadata": "FactBranchCost.Branch Sales"
           }
         },
         {
@@ -170,7 +170,7 @@
             }
           },
           "selector": {
-            "metadata": "ProductCatalogAll.品牌"
+            "metadata": "ProductCatalogAll.Brand"
           }
         },
         {
@@ -184,7 +184,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.分公司销售同比"
+            "metadata": "FactBranchCost.Branch Sales YoY"
           }
         },
         {
@@ -198,7 +198,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.分公司订单数"
+            "metadata": "FactBranchCost.Branch Order Count"
           }
         },
         {
@@ -212,7 +212,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.分公司毛利"
+            "metadata": "FactBranchCost.Branch Gross Profit"
           }
         },
         {
@@ -226,7 +226,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.分公司毛利率"
+            "metadata": "FactBranchCost.Branch Gross Margin"
           }
         }
       ],
@@ -288,7 +288,7 @@
                                       "Entity": "FactBranchCost"
                                     }
                                   },
-                                  "Property": "分公司销售同比"
+                                  "Property": "Branch Sales YoY"
                                 }
                               },
                               "Right": {
@@ -319,7 +319,7 @@
                 }
               }
             ],
-            "metadata": "FactBranchCost.分公司销售同比"
+            "metadata": "FactBranchCost.Branch Sales YoY"
           }
         },
         {
@@ -341,7 +341,7 @@
                                       "Entity": "DimCreator"
                                     }
                                   },
-                                  "Property": "分公司月环比 average per 年月"
+                                  "Property": "Branch MoM average per Year Month"
                                 }
                               },
                               "Right": {
@@ -372,7 +372,7 @@
                 }
               }
             ],
-            "metadata": "DimCreator.分公司月环比 average per 年月"
+            "metadata": "DimCreator.Branch MoM average per Year Month"
           }
         },
         {
@@ -394,7 +394,7 @@
                                       "Entity": "FactBranchCost"
                                     }
                                   },
-                                  "Property": "产品价格_毛利率"
+                                  "Property": "Product Price_Gross Margin"
                                 }
                               },
                               "Right": {
@@ -425,7 +425,7 @@
                 }
               }
             ],
-            "metadata": "FactBranchCost.分公司毛利率"
+            "metadata": "FactBranchCost.Branch Gross Margin"
           }
         }
       ],
@@ -455,7 +455,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'品牌销售情况'"
+                  "Value": "'Brand Sales Performance'"
                 }
               }
             },
@@ -521,7 +521,7 @@
                 "Entity": "FactBranchCost"
               }
             },
-            "Property": "分公司销售额（不含运费和服务费）"
+            "Property": "Branch Sales (Excl Freight and Service Fees)"
           }
         },
         "type": "Advanced",
@@ -548,7 +548,7 @@
                               "Source": "f1"
                             }
                           },
-                          "Property": "分公司销售额（不含运费和服务费）"
+                          "Property": "Branch Sales (Excl Freight and Service Fees)"
                         }
                       },
                       "Right": {

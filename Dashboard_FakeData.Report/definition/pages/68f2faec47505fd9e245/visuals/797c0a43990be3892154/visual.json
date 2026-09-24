@@ -23,11 +23,11 @@
                       "Entity": "FactInventoryLot"
                     }
                   },
-                  "Property": "批次/序列号码"
+                  "Property": "Lot/Serial Number"
                 }
               },
-              "queryRef": "FactInventoryLot.批次/序列号码",
-              "nativeQueryRef": "批次/序列号码"
+              "queryRef": "FactInventoryLot.Lot/Serial Number",
+              "nativeQueryRef": "Lot/Serial Number"
             },
             {
               "field": {
@@ -37,11 +37,11 @@
                       "Entity": "FactInventoryLot"
                     }
                   },
-                  "Property": "产品/名称"
+                  "Property": "Product/Name"
                 }
               },
-              "queryRef": "FactInventoryLot.产品/名称",
-              "nativeQueryRef": "产品/名称"
+              "queryRef": "FactInventoryLot.Product/Name",
+              "nativeQueryRef": "Product/Name"
             },
             {
               "field": {
@@ -51,12 +51,12 @@
                       "Entity": "FactInventoryLot"
                     }
                   },
-                  "Property": "有效期"
+                  "Property": "Expiry Date"
                 }
               },
-              "queryRef": "FactInventoryLot.有效期",
-              "nativeQueryRef": "有效期至",
-              "displayName": "有效期至",
+              "queryRef": "FactInventoryLot.Expiry Date",
+              "nativeQueryRef": "Expires On",
+              "displayName": "Expires On",
               "format": "d"
             },
             {
@@ -67,11 +67,11 @@
                       "Entity": "FactInventoryLot"
                     }
                   },
-                  "Property": "距有效期天数"
+                  "Property": "Days to Expiry"
                 }
               },
-              "queryRef": "FactInventoryLot.距有效期天数",
-              "nativeQueryRef": "距有效期天数"
+              "queryRef": "FactInventoryLot.Days to Expiry",
+              "nativeQueryRef": "Days to Expiry"
             },
             {
               "field": {
@@ -83,15 +83,15 @@
                           "Entity": "FactInventoryLot"
                         }
                       },
-                      "Property": "保质期进度"
+                      "Property": "Shelf Life Progress"
                     }
                   },
                   "Function": 4
                 }
               },
-              "queryRef": "Sum(FactInventoryLot.保质期进度)",
-              "nativeQueryRef": "Max of 保质期进度",
-              "displayName": "保质期进度",
+              "queryRef": "Sum(FactInventoryLot.Shelf Life Progress)",
+              "nativeQueryRef": "Max of Shelf Life Progress",
+              "displayName": "Shelf Life Progress",
               "format": "0.00%;-0.00%;0.00%"
             },
             {
@@ -104,15 +104,15 @@
                           "Entity": "FactInventoryLot"
                         }
                       },
-                      "Property": "在手数量"
+                      "Property": "On Hand Qty"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(FactInventoryLot.在手数量)",
-              "nativeQueryRef": "在手数量",
-              "displayName": "在手数量"
+              "queryRef": "Sum(FactInventoryLot.On Hand Qty)",
+              "nativeQueryRef": "On Hand Qty",
+              "displayName": "On Hand Qty"
             },
             {
               "field": {
@@ -122,12 +122,12 @@
                       "Entity": "FactInventoryLot"
                     }
                   },
-                  "Property": "产品/计量单位"
+                  "Property": "Product/Unit of Measure"
                 }
               },
-              "queryRef": "FactInventoryLot.产品/计量单位",
-              "nativeQueryRef": "计量单位",
-              "displayName": "计量单位"
+              "queryRef": "FactInventoryLot.Product/Unit of Measure",
+              "nativeQueryRef": "Unit of Measure",
+              "displayName": "Unit of Measure"
             },
             {
               "field": {
@@ -139,15 +139,15 @@
                           "Entity": "FactInventoryLot"
                         }
                       },
-                      "Property": "产品/有效期"
+                      "Property": "Product/Expiry Date"
                     }
                   },
                   "Function": 1
                 }
               },
-              "queryRef": "Sum(FactInventoryLot.产品/有效期)",
-              "nativeQueryRef": "保质期",
-              "displayName": "保质期",
+              "queryRef": "Sum(FactInventoryLot.Product/Expiry Date)",
+              "nativeQueryRef": "Shelf Life",
+              "displayName": "Shelf Life",
               "format": "0"
             }
           ]
@@ -165,7 +165,7 @@
                         "Entity": "FactInventoryLot"
                       }
                     },
-                    "Property": "在手数量"
+                    "Property": "On Hand Qty"
                   }
                 },
                 "Function": 0
@@ -212,7 +212,7 @@
                 }
               }
             ],
-            "metadata": "Sum(FactInventoryLot.保质期进度)"
+            "metadata": "Sum(FactInventoryLot.Shelf Life Progress)"
           }
         },
         {
@@ -225,7 +225,7 @@
                 }
               }
             ],
-            "metadata": "Sum(FactInventoryLot.保质期进度)"
+            "metadata": "Sum(FactInventoryLot.Shelf Life Progress)"
           }
         }
       ],
@@ -267,7 +267,7 @@
             }
           },
           "selector": {
-            "metadata": "Sum(FactInventoryLot.产品/有效期)"
+            "metadata": "Sum(FactInventoryLot.Product/Expiry Date)"
           }
         },
         {
@@ -281,7 +281,7 @@
             }
           },
           "selector": {
-            "metadata": "FactInventoryLot.批次/序列号码"
+            "metadata": "FactInventoryLot.Lot/Serial Number"
           }
         },
         {
@@ -295,7 +295,7 @@
             }
           },
           "selector": {
-            "metadata": "FactInventoryLot.产品/名称"
+            "metadata": "FactInventoryLot.Product/Name"
           }
         },
         {
@@ -309,7 +309,7 @@
             }
           },
           "selector": {
-            "metadata": "FactInventoryLot.有效期"
+            "metadata": "FactInventoryLot.Expiry Date"
           }
         }
       ]
@@ -321,7 +321,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'产品各批次信息'"
+                  "Value": "'Product Lot Details'"
                 }
               }
             },
@@ -387,7 +387,7 @@
                 "Entity": "FactInventoryLot"
               }
             },
-            "Property": "距有效期天数"
+            "Property": "Days to Expiry"
           }
         },
         "type": "Advanced",
@@ -412,7 +412,7 @@
                           "Source": "f"
                         }
                       },
-                      "Property": "距有效期天数"
+                      "Property": "Days to Expiry"
                     }
                   },
                   "Right": {
@@ -437,7 +437,7 @@
                     "Entity": "FactInventoryLot"
                   }
                 },
-                "Property": "在手数量"
+                "Property": "On Hand Qty"
               }
             },
             "Function": 0
@@ -467,7 +467,7 @@
                               "Source": "f"
                             }
                           },
-                          "Property": "在手数量"
+                          "Property": "On Hand Qty"
                         }
                       },
                       "Function": 0
@@ -493,7 +493,7 @@
                 "Entity": "FactInventoryLot"
               }
             },
-            "Property": "批次/序列号码"
+            "Property": "Lot/Serial Number"
           }
         },
         "type": "Categorical"
@@ -507,7 +507,7 @@
                 "Entity": "FactInventoryLot"
               }
             },
-            "Property": "有效期"
+            "Property": "Expiry Date"
           }
         },
         "type": "Categorical"
@@ -523,7 +523,7 @@
                     "Entity": "FactInventoryLot"
                   }
                 },
-                "Property": "保质期进度"
+                "Property": "Shelf Life Progress"
               }
             },
             "Function": 4
@@ -540,7 +540,7 @@
                 "Entity": "FactInventoryLot"
               }
             },
-            "Property": "产品/计量单位"
+            "Property": "Product/Unit of Measure"
           }
         },
         "type": "Categorical"
@@ -556,7 +556,7 @@
                     "Entity": "FactInventoryLot"
                   }
                 },
-                "Property": "产品/有效期"
+                "Property": "Product/Expiry Date"
               }
             },
             "Function": 1
@@ -573,7 +573,7 @@
                 "Entity": "FactInventoryLot"
               }
             },
-            "Property": "产品/名称"
+            "Property": "Product/Name"
           }
         },
         "type": "Categorical"

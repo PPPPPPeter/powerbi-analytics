@@ -23,11 +23,11 @@
                       "Entity": "FactInventoryLot"
                     }
                   },
-                  "Property": "有效期状态"
+                  "Property": "Expiry Status"
                 }
               },
-              "queryRef": "FactInventoryLot.有效期状态",
-              "nativeQueryRef": "有效期状态",
+              "queryRef": "FactInventoryLot.Expiry Status",
+              "nativeQueryRef": "Expiry Status",
               "active": true
             }
           ]
@@ -82,7 +82,7 @@
                                       "Source": "f"
                                     }
                                   },
-                                  "Property": "有效期状态"
+                                  "Property": "Expiry Status"
                                 }
                               }
                             ],
@@ -90,28 +90,28 @@
                               [
                                 {
                                   "Literal": {
-                                    "Value": "'91-180天到期'"
+                                    "Value": "'91-180 Days to Expiry'"
                                   }
                                 }
                               ],
                               [
                                 {
                                   "Literal": {
-                                    "Value": "'已过期'"
+                                    "Value": "'Expired'"
                                   }
                                 }
                               ],
                               [
                                 {
                                   "Literal": {
-                                    "Value": "'正常'"
+                                    "Value": "'Normal'"
                                   }
                                 }
                               ],
                               [
                                 {
                                   "Literal": {
-                                    "Value": "'无有效期'"
+                                    "Value": "'No Expiry Date'"
                                   }
                                 }
                               ]
@@ -220,7 +220,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'产品状态'"
+                  "Value": "'Product Status'"
                 }
               }
             },

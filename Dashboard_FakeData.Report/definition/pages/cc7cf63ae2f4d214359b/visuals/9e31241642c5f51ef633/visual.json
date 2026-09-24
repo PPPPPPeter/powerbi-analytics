@@ -27,8 +27,8 @@
                 }
               },
               "queryRef": "FactBranchCost.state",
-              "nativeQueryRef": "州",
-              "displayName": "州"
+              "nativeQueryRef": "State",
+              "displayName": "State"
             },
             {
               "field": {
@@ -38,12 +38,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "分公司销售额（不含运费和服务费）"
+                  "Property": "Branch Sales (Excl Freight and Service Fees)"
                 }
               },
-              "queryRef": "FactBranchCost.分公司销售额（不含运费和服务费）",
-              "nativeQueryRef": "销售额",
-              "displayName": "销售额"
+              "queryRef": "FactBranchCost.Branch Sales (Excl Freight and Service Fees)",
+              "nativeQueryRef": "Sales",
+              "displayName": "Sales"
             },
             {
               "field": {
@@ -53,12 +53,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "State销售占比"
+                  "Property": "State Sales Share"
                 }
               },
-              "queryRef": "FactBranchCost.State销售占比",
-              "nativeQueryRef": "销售占比",
-              "displayName": "销售占比"
+              "queryRef": "FactBranchCost.State Sales Share",
+              "nativeQueryRef": "Sales Share",
+              "displayName": "Sales Share"
             }
           ]
         }
@@ -73,7 +73,7 @@
                     "Entity": "FactBranchCost"
                   }
                 },
-                "Property": "分公司销售额（不含运费和服务费）"
+                "Property": "Branch Sales (Excl Freight and Service Fees)"
               }
             },
             "direction": "Descending"
@@ -95,7 +95,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.分公司销售额（不含运费和服务费）"
+            "metadata": "FactBranchCost.Branch Sales (Excl Freight and Service Fees)"
           }
         },
         {
@@ -160,7 +160,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'区域销售额占比'"
+                  "Value": "'Regional Sales Share'"
                 }
               }
             },
@@ -247,7 +247,7 @@
                 "Entity": "FactBranchCost"
               }
             },
-            "Property": "分公司销售额（不含运费和服务费）"
+            "Property": "Branch Sales (Excl Freight and Service Fees)"
           }
         },
         "type": "Advanced"
@@ -261,7 +261,7 @@
                 "Entity": "FactBranchCost"
               }
             },
-            "Property": "State销售占比"
+            "Property": "State Sales Share"
           }
         },
         "type": "Advanced"

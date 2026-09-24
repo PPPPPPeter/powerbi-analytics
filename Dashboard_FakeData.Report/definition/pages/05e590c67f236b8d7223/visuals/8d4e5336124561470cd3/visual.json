@@ -23,11 +23,11 @@
                       "Entity": "DimCustomerAll"
                     }
                   },
-                  "Property": "客户名称"
+                  "Property": "Customer Name"
                 }
               },
-              "queryRef": "DimCustomerAll.客户名称",
-              "nativeQueryRef": "客户名称"
+              "queryRef": "DimCustomerAll.Customer Name",
+              "nativeQueryRef": "Customer Name"
             },
             {
               "field": {
@@ -37,11 +37,11 @@
                       "Entity": "DimCustomerAll"
                     }
                   },
-                  "Property": "销售人员"
+                  "Property": "Salesperson"
                 }
               },
-              "queryRef": "DimCustomerAll.销售人员",
-              "nativeQueryRef": "销售人员"
+              "queryRef": "DimCustomerAll.Salesperson",
+              "nativeQueryRef": "Salesperson"
             }
           ]
         }
@@ -100,7 +100,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomerAll.客户名称"
+            "metadata": "DimCustomerAll.Customer Name"
           }
         },
         {
@@ -114,7 +114,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomerAll.销售人员"
+            "metadata": "DimCustomerAll.Salesperson"
           }
         }
       ],
@@ -144,7 +144,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'未铺货客户'"
+                  "Value": "'Undistributed Customers'"
                 }
               }
             },
@@ -210,7 +210,7 @@
                 "Entity": "_Measures"
               }
             },
-            "Property": "品牌客户_已铺货客户标记"
+            "Property": "Brand Customer_Distributed Customer Flag"
           }
         },
         "type": "Advanced",
@@ -235,7 +235,7 @@
                           "Source": "_"
                         }
                       },
-                      "Property": "品牌客户_已铺货客户标记"
+                      "Property": "Brand Customer_Distributed Customer Flag"
                     }
                   },
                   "Right": {

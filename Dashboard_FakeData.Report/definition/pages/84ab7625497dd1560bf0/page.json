@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
   "name": "84ab7625497dd1560bf0",
-  "displayName": "销售详情总览",
+  "displayName": "Sales Detail Overview",
   "displayOption": "FitToPage",
   "height": 1080,
   "width": 1920,

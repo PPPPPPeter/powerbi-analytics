@@ -23,11 +23,11 @@
                       "Entity": "DimDate"
                     }
                   },
-                  "Property": "年月"
+                  "Property": "Year Month"
                 }
               },
-              "queryRef": "DimDate.年月",
-              "nativeQueryRef": "年月",
+              "queryRef": "DimDate.Year Month",
+              "nativeQueryRef": "Year Month",
               "active": true
             }
           ]
@@ -42,11 +42,11 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "产品价格_毛利"
+                  "Property": "Product Price_Gross Profit"
                 }
               },
-              "queryRef": "FactBranchCost.分公司毛利",
-              "nativeQueryRef": "产品价格_毛利"
+              "queryRef": "FactBranchCost.Branch Gross Profit",
+              "nativeQueryRef": "Product Price_Gross Profit"
             }
           ]
         },
@@ -60,12 +60,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "产品价格_加权平均成交价"
+                  "Property": "Product Price_Weighted Avg Selling Price"
                 }
               },
-              "queryRef": "FactBranchCost.分公司加权平均成交价",
-              "nativeQueryRef": "加权平均成交价",
-              "displayName": "加权平均成交价",
+              "queryRef": "FactBranchCost.Branch Weighted Avg Selling Price",
+              "nativeQueryRef": "Weighted Avg Selling Price",
+              "displayName": "Weighted Avg Selling Price",
               "format": "\\$#,0.00;(\\$#,0.00);\\$#,0.00"
             }
           ]
@@ -80,12 +80,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "分公司销售数量"
+                  "Property": "Branch Sales Qty"
                 }
               },
-              "queryRef": "FactBranchCost.分公司销售数量",
-              "nativeQueryRef": "销售数量",
-              "displayName": "销售数量"
+              "queryRef": "FactBranchCost.Branch Sales Qty",
+              "nativeQueryRef": "Sales Qty",
+              "displayName": "Sales Qty"
             },
             {
               "field": {
@@ -95,12 +95,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "分公司销售数量趋势_近3月"
+                  "Property": "Branch Sales Qty Trend_Last 3 Months"
                 }
               },
-              "queryRef": "FactBranchCost.分公司销售数量趋势_近3月",
-              "nativeQueryRef": "销售数量趋势_近3月",
-              "displayName": "销售数量趋势_近3月"
+              "queryRef": "FactBranchCost.Branch Sales Qty Trend_Last 3 Months",
+              "nativeQueryRef": "Sales Qty Trend_Last 3 Months",
+              "displayName": "Sales Qty Trend_Last 3 Months"
             }
           ]
         }
@@ -115,7 +115,7 @@
                     "Entity": "DimDate"
                   }
                 },
-                "Property": "年月"
+                "Property": "Year Month"
               }
             },
             "direction": "Ascending"
@@ -211,7 +211,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.分公司加权平均成交价"
+            "metadata": "FactBranchCost.Branch Weighted Avg Selling Price"
           }
         },
         {
@@ -232,7 +232,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.分公司销售数量趋势_近3月"
+            "metadata": "FactBranchCost.Branch Sales Qty Trend_Last 3 Months"
           }
         }
       ],
@@ -283,7 +283,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.分公司销售数量趋势_近3月"
+            "metadata": "FactBranchCost.Branch Sales Qty Trend_Last 3 Months"
           }
         }
       ]
@@ -295,7 +295,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'产品销量 vs 平均成交价'"
+                  "Value": "'Product Volume vs Avg Selling Price'"
                 }
               }
             },

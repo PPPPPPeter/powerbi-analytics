@@ -23,11 +23,11 @@
                       "Entity": "DimProductAll"
                     }
                   },
-                  "Property": "品牌"
+                  "Property": "Brand"
                 }
               },
-              "queryRef": "DimProductNJ.品牌",
-              "nativeQueryRef": "品牌"
+              "queryRef": "DimProductNJ.Brand",
+              "nativeQueryRef": "Brand"
             }
           ]
         }
@@ -54,7 +54,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'品牌搜索'"
+                  "Value": "'Brand Search'"
                 }
               }
             },

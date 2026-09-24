@@ -23,11 +23,11 @@
                       "Entity": "DimDate"
                     }
                   },
-                  "Property": "年份"
+                  "Property": "Year"
                 }
               },
-              "queryRef": "DimDate.年份",
-              "nativeQueryRef": "年份",
+              "queryRef": "DimDate.Year",
+              "nativeQueryRef": "Year",
               "active": true
             },
             {
@@ -38,11 +38,11 @@
                       "Entity": "DimDate"
                     }
                   },
-                  "Property": "年月"
+                  "Property": "Year Month"
                 }
               },
-              "queryRef": "DimDate.年月",
-              "nativeQueryRef": "年月",
+              "queryRef": "DimDate.Year Month",
+              "nativeQueryRef": "Year Month",
               "active": true
             }
           ]
@@ -58,7 +58,7 @@
                     "Entity": "DimDate"
                   }
                 },
-                "Property": "年月"
+                "Property": "Year Month"
               }
             },
             "direction": "Ascending"
@@ -75,7 +75,7 @@
         "levels": [
           {
             "queryRefs": [
-              "DimDate.年份"
+              "DimDate.Year"
             ],
             "isCollapsed": true,
             "identityKeys": [
@@ -86,7 +86,7 @@
                       "Entity": "DimDate"
                     }
                   },
-                  "Property": "年份"
+                  "Property": "Year"
                 }
               }
             ],
@@ -94,7 +94,7 @@
           },
           {
             "queryRefs": [
-              "DimDate.年月"
+              "DimDate.Year Month"
             ],
             "isCollapsed": true,
             "isPinned": true
@@ -222,7 +222,7 @@
                                       "Source": "d"
                                     }
                                   },
-                                  "Property": "年份"
+                                  "Property": "Year"
                                 }
                               }
                             ],
@@ -249,7 +249,7 @@
                                           "Source": "d"
                                         }
                                       },
-                                      "Property": "年份"
+                                      "Property": "Year"
                                     }
                                   },
                                   {
@@ -259,7 +259,7 @@
                                           "Source": "d"
                                         }
                                       },
-                                      "Property": "年月"
+                                      "Property": "Year Month"
                                     }
                                   }
                                 ],
@@ -329,7 +329,7 @@
                                   "Entity": "DimDate"
                                 }
                               },
-                              "Property": "年份"
+                              "Property": "Year"
                             }
                           },
                           {
@@ -339,7 +339,7 @@
                                   "Entity": "DimDate"
                                 }
                               },
-                              "Property": "年月"
+                              "Property": "Year Month"
                             }
                           }
                         ],
@@ -446,7 +446,7 @@
                                       "Entity": "DimDate"
                                     }
                                   },
-                                  "Property": "年份"
+                                  "Property": "Year"
                                 }
                               }
                             },
@@ -458,7 +458,7 @@
                                       "Entity": "DimDate"
                                     }
                                   },
-                                  "Property": "年月"
+                                  "Property": "Year Month"
                                 }
                               }
                             }
@@ -522,7 +522,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'日期'"
+                  "Value": "'Date'"
                 }
               }
             },

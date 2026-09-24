@@ -1,800 +1,800 @@
 {
 "categories": [
 {
-"category": "冷冻和冷藏食品",
-"subcategory": "冰淇淋",
+"category": "Frozen & Chilled Foods",
+"subcategory": "Ice Cream",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "FE",
 "weight": 5
 },
 {
-"category": "面条类干货",
-"subcategory": "即食面",
+"category": "Dry Noodles",
+"subcategory": "Instant Noodles",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "D",
 "weight": 5
 },
 {
-"category": "饮料",
-"subcategory": "气泡水",
+"category": "Beverages",
+"subcategory": "Sparkling Water",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "A",
 "weight": 5
 },
 {
-"category": "冷冻和冷藏食品",
-"subcategory": "饺子",
+"category": "Frozen & Chilled Foods",
+"subcategory": "Dumplings",
 "shelf_life": 450,
 "unit": "Case",
 "prefix": "FA",
 "weight": 5
 },
 {
-"category": "调味品",
-"subcategory": "辣椒调味品",
+"category": "Seasonings",
+"subcategory": "Chili Seasonings",
 "shelf_life": 1080,
 "unit": "Case",
 "prefix": "E",
 "weight": 5
 },
 {
-"category": "调味品",
-"subcategory": "蒜",
+"category": "Seasonings",
+"subcategory": "Garlic",
 "shelf_life": 1080,
 "unit": "Bag",
 "prefix": "E",
 "weight": 5
 },
 {
-"category": "调味品",
-"subcategory": "味精&调味粉",
+"category": "Seasonings",
+"subcategory": "MSG&Seasoning Powder",
 "shelf_life": 720,
 "unit": "Case",
 "prefix": "G",
 "weight": 5
 },
 {
-"category": "面条类干货",
-"subcategory": "米纸",
+"category": "Dry Noodles",
+"subcategory": "Rice Paper",
 "shelf_life": 720,
 "unit": "Case",
 "prefix": "D",
 "weight": 5
 },
 {
-"category": "糖果零食",
-"subcategory": "膨化/面制零食",
+"category": "Candy & Snacks",
+"subcategory": "Puffed/Flour Snacks",
 "shelf_life": 270,
 "unit": "Case",
 "prefix": "B",
 "weight": 5
 },
 {
-"category": "糖果零食",
-"subcategory": "饼干酥饼&蛋糕",
+"category": "Candy & Snacks",
+"subcategory": "Biscuits & Pastries&Cakes",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "B",
 "weight": 5
 },
 {
-"category": "饮料",
-"subcategory": "即饮茶",
+"category": "Beverages",
+"subcategory": "Ready-to-Drink Tea",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "A",
 "weight": 5
 },
 {
-"category": "调味品",
-"subcategory": "调味汁",
+"category": "Seasonings",
+"subcategory": "Sauces",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "G",
 "weight": 5
 },
 {
-"category": "粮食作物",
-"subcategory": "米",
+"category": "Grains",
+"subcategory": "Rice",
 "shelf_life": 720,
 "unit": "Case",
 "prefix": "F",
 "weight": 5
 },
 {
-"category": "饮料",
-"subcategory": "植物饮料",
+"category": "Beverages",
+"subcategory": "Plant-Based Drinks",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "A",
 "weight": 5
 },
 {
-"category": "美容 & 健康 & 居家",
-"subcategory": "护肤品",
+"category": "Beauty & Health & Home",
+"subcategory": "Skin Care",
 "shelf_life": 1095,
 "unit": "each",
 "prefix": "VSC",
 "weight": 5
 },
 {
-"category": "蔬菜类干货",
-"subcategory": "枣",
+"category": "Dried Vegetables",
+"subcategory": "Jujube",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "L",
 "weight": 4
 },
 {
-"category": "糖果零食",
-"subcategory": "调味素食零食",
+"category": "Candy & Snacks",
+"subcategory": "Seasoned Vegetarian Snacks",
 "shelf_life": 240,
 "unit": "Case",
 "prefix": "B",
 "weight": 4
 },
 {
-"category": "蜂蜜果酱",
-"subcategory": "黄糖",
+"category": "Honey & Jam",
+"subcategory": "Brown Sugar",
 "shelf_life": 1080,
 "unit": "Case",
 "prefix": "E",
 "weight": 4
 },
 {
-"category": "调味品",
-"subcategory": "调味混合佐料",
+"category": "Seasonings",
+"subcategory": "Seasoning Mixes",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "G",
 "weight": 4
 },
 {
-"category": "调味品",
-"subcategory": "酱油",
+"category": "Seasonings",
+"subcategory": "Soy Sauce",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "G",
 "weight": 4
 },
 {
-"category": "美容 & 健康 & 居家",
-"subcategory": "理肤泉",
+"category": "Beauty & Health & Home",
+"subcategory": "Derma Care",
 "shelf_life": 1095,
 "unit": "each",
 "prefix": "VFM",
 "weight": 4
 },
 {
-"category": "面条类干货",
-"subcategory": "即食米粉",
+"category": "Dry Noodles",
+"subcategory": "Instant Rice Noodles",
 "shelf_life": 720,
 "unit": "Case",
 "prefix": "D",
 "weight": 4
 },
 {
-"category": "面粉&淀粉类",
-"subcategory": "淀粉",
+"category": "Flour&Starches",
+"subcategory": "Starch",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "F",
 "weight": 4
 },
 {
-"category": "美容 & 健康 & 居家",
-"subcategory": "洗发用品",
+"category": "Beauty & Health & Home",
+"subcategory": "Hair Care",
 "shelf_life": 1095,
 "unit": "each",
 "prefix": "VHB",
 "weight": 4
 },
 {
-"category": "蔬菜类干货",
-"subcategory": "腌制产品",
+"category": "Dried Vegetables",
+"subcategory": "Pickled Products",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "H",
 "weight": 4
 },
 {
-"category": "罐头干货",
-"subcategory": "罐头海产",
+"category": "Canned & Dry Goods",
+"subcategory": "Canned Seafood",
 "shelf_life": 1080,
 "unit": "Case",
 "prefix": "G",
 "weight": 4
 },
 {
-"category": "饮料",
-"subcategory": "乳酸菌饮料",
+"category": "Beverages",
+"subcategory": "Probiotic Drinks",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "A",
 "weight": 4
 },
 {
-"category": "糖果零食",
-"subcategory": "糖果",
+"category": "Candy & Snacks",
+"subcategory": "Candy",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "B",
 "weight": 4
 },
 {
-"category": "粮食作物",
-"subcategory": "花生",
+"category": "Grains",
+"subcategory": "Peanuts",
 "shelf_life": 1080,
 "unit": "Case",
 "prefix": "F",
 "weight": 4
 },
 {
-"category": "调味品",
-"subcategory": "辣椒酱",
+"category": "Seasonings",
+"subcategory": "Chili Sauce",
 "shelf_life": 720,
 "unit": "Case",
 "prefix": "G",
 "weight": 4
 },
 {
-"category": "美容 & 健康 & 居家",
-"subcategory": "个人护理",
+"category": "Beauty & Health & Home",
+"subcategory": "Personal Care",
 "shelf_life": 1095,
 "unit": "each",
 "prefix": "VPC",
 "weight": 4
 },
 {
-"category": "调味品",
-"subcategory": "蚝油",
+"category": "Seasonings",
+"subcategory": "Oyster Sauce",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "G",
 "weight": 4
 },
 {
-"category": "食用油",
-"subcategory": "花生油",
+"category": "Cooking Oil",
+"subcategory": "Peanut Oil",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "I",
 "weight": 4
 },
 {
-"category": "冷冻和冷藏食品",
-"subcategory": "冷冻海鲜",
+"category": "Frozen & Chilled Foods",
+"subcategory": "Frozen Seafood",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "FB",
 "weight": 4
 },
 {
-"category": "食用油",
-"subcategory": "花椒油",
+"category": "Cooking Oil",
+"subcategory": "Sichuan Pepper Oil",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "I",
 "weight": 4
 },
 {
-"category": "冲泡类",
-"subcategory": "冲泡粉/块",
+"category": "Instant Drinks",
+"subcategory": "Drink Powder/Blocks",
 "shelf_life": 720,
 "unit": "Case",
 "prefix": "C",
 "weight": 4
 },
 {
-"category": "调味品",
-"subcategory": "蘸酱",
+"category": "Seasonings",
+"subcategory": "Dipping Sauce",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "G",
 "weight": 4
 },
 {
-"category": "饮料",
-"subcategory": "椰子水",
+"category": "Beverages",
+"subcategory": "Coconut Water",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "A",
 "weight": 3
 },
 {
-"category": "糖果零食",
-"subcategory": "月饼",
+"category": "Candy & Snacks",
+"subcategory": "Mooncakes",
 "shelf_life": 180,
 "unit": "Case",
 "prefix": "M",
 "weight": 3
 },
 {
-"category": "粮食作物",
-"subcategory": "杂粮",
+"category": "Grains",
+"subcategory": "Mixed Grains",
 "shelf_life": 1080,
 "unit": "Case",
 "prefix": "F",
 "weight": 3
 },
 {
-"category": "蔬菜类干货",
-"subcategory": "蘑菇",
+"category": "Dried Vegetables",
+"subcategory": "Mushrooms",
 "shelf_life": 720,
 "unit": "Case",
 "prefix": "L",
 "weight": 3
 },
 {
-"category": "粮食作物",
-"subcategory": "面粉",
+"category": "Grains",
+"subcategory": "Flour",
 "shelf_life": 720,
 "unit": "Case",
 "prefix": "F",
 "weight": 3
 },
 {
-"category": "面条类干货",
-"subcategory": "面条",
+"category": "Dry Noodles",
+"subcategory": "Noodles",
 "shelf_life": 720,
 "unit": "Case",
 "prefix": "D",
 "weight": 3
 },
 {
-"category": "汤&即食餐",
-"subcategory": "八宝粥",
+"category": "Soup&Ready Meals",
+"subcategory": "Eight Treasure Porridge",
 "shelf_life": 720,
 "unit": "Case",
 "prefix": "J",
 "weight": 3
 },
 {
-"category": "饮料",
-"subcategory": "果汁",
+"category": "Beverages",
+"subcategory": "Juice",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "A",
 "weight": 3
 },
 {
-"category": "美容 & 健康 & 居家",
-"subcategory": "家安",
+"category": "Beauty & Health & Home",
+"subcategory": "Home Cleaning",
 "shelf_life": 1095,
 "unit": "each",
 "prefix": "VHK",
 "weight": 3
 },
 {
-"category": "美容 & 健康 & 居家",
-"subcategory": "沐浴 & 身体护理",
+"category": "Beauty & Health & Home",
+"subcategory": "Bath & Body Care",
 "shelf_life": 1095,
 "unit": "each",
 "prefix": "VHB",
 "weight": 3
 },
 {
-"category": "糖果零食",
-"subcategory": "米果&爆米花",
+"category": "Candy & Snacks",
+"subcategory": "Rice Crackers&Popcorn",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "B",
 "weight": 3
 },
 {
-"category": "糖果零食",
-"subcategory": "调味豆制品零食",
+"category": "Candy & Snacks",
+"subcategory": "Seasoned Soy Snacks",
 "shelf_life": 300,
 "unit": "Case",
 "prefix": "B",
 "weight": 3
 },
 {
-"category": "糖果零食",
-"subcategory": "面包",
+"category": "Candy & Snacks",
+"subcategory": "Bread",
 "shelf_life": 180,
 "unit": "Case",
 "prefix": "M",
 "weight": 3
 },
 {
-"category": "蛋",
-"subcategory": "皮蛋",
+"category": "Eggs",
+"subcategory": "Century Eggs",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "H",
 "weight": 3
 },
 {
-"category": "面条类干货",
-"subcategory": "米粉",
+"category": "Dry Noodles",
+"subcategory": "Rice Noodles",
 "shelf_life": 720,
 "unit": "Case",
 "prefix": "D",
 "weight": 3
 },
 {
-"category": "糖果零食",
-"subcategory": "海苔 & 干海带",
+"category": "Candy & Snacks",
+"subcategory": "Seaweed Snacks & Dried Kelp",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "B",
 "weight": 3
 },
 {
-"category": "蔬菜类干货",
-"subcategory": "腐竹",
+"category": "Dried Vegetables",
+"subcategory": "Tofu Skin",
 "shelf_life": 720,
 "unit": "Case",
 "prefix": "L",
 "weight": 3
 },
 {
-"category": "面条类干货",
-"subcategory": "粉丝",
+"category": "Dry Noodles",
+"subcategory": "Vermicelli",
 "shelf_life": 300,
 "unit": "Case",
 "prefix": "D",
 "weight": 3
 },
 {
-"category": "蛋",
-"subcategory": "咸蛋",
+"category": "Eggs",
+"subcategory": "Salted Eggs",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "H",
 "weight": 3
 },
 {
-"category": "消耗品",
-"subcategory": "包装",
+"category": "Consumables",
+"subcategory": "Packaging",
 "shelf_life": 1080,
 "unit": "Case",
 "prefix": "Z",
 "weight": 3
 },
 {
-"category": "蔬菜类干货",
-"subcategory": "木耳",
+"category": "Dried Vegetables",
+"subcategory": "Wood Ear Mushroom",
 "shelf_life": 1080,
 "unit": "Case",
 "prefix": "L",
 "weight": 3
 },
 {
-"category": "蔬果",
-"subcategory": "蔬菜",
+"category": "Fruit & Vegetables",
+"subcategory": "Vegetables",
 "shelf_life": 60,
 "unit": "Case",
 "prefix": "R",
 "weight": 3
 },
 {
-"category": "糖果零食",
-"subcategory": "膨化食品",
+"category": "Candy & Snacks",
+"subcategory": "Puffed Snacks",
 "shelf_life": 270,
 "unit": "Case",
 "prefix": "B",
 "weight": 3
 },
 {
-"category": "糖果零食",
-"subcategory": "坚果",
+"category": "Candy & Snacks",
+"subcategory": "Nuts",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "L",
 "weight": 3
 },
 {
-"category": "调味品",
-"subcategory": "黄豆酱",
+"category": "Seasonings",
+"subcategory": "Soybean Paste",
 "shelf_life": 720,
 "unit": "Case",
 "prefix": "G",
 "weight": 3
 },
 {
-"category": "美容 & 健康 & 居家",
-"subcategory": "母婴用品",
+"category": "Beauty & Health & Home",
+"subcategory": "Baby Products",
 "shelf_life": 1095,
 "unit": "each",
 "prefix": "VBB",
 "weight": 3
 },
 {
-"category": "美容 & 健康 & 居家",
-"subcategory": "居家用品",
+"category": "Beauty & Health & Home",
+"subcategory": "Household Goods",
 "shelf_life": 1095,
 "unit": "each",
 "prefix": "VHK",
 "weight": 3
 },
 {
-"category": "糖果零食",
-"subcategory": "瓜子",
+"category": "Candy & Snacks",
+"subcategory": "Sunflower Seeds",
 "shelf_life": 450,
 "unit": "Case",
 "prefix": "B",
 "weight": 3
 },
 {
-"category": "调味品",
-"subcategory": "豆瓣酱",
+"category": "Seasonings",
+"subcategory": "Bean Paste",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "G",
 "weight": 3
 },
 {
-"category": "糖果零食",
-"subcategory": "蜜饯果干",
+"category": "Candy & Snacks",
+"subcategory": "Preserved & Dried Fruit",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "B",
 "weight": 3
 },
 {
-"category": "美容 & 健康 & 居家",
-"subcategory": "健康 & 营养冲剂",
+"category": "Beauty & Health & Home",
+"subcategory": "Health & Nutrition Drinks",
 "shelf_life": 1095,
 "unit": "each",
 "prefix": "VHS",
 "weight": 3
 },
 {
-"category": "饮料",
-"subcategory": "牛奶",
+"category": "Beverages",
+"subcategory": "Milk",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "A",
 "weight": 3
 },
 {
-"category": "食用油",
-"subcategory": "菜籽油",
+"category": "Cooking Oil",
+"subcategory": "Rapeseed Oil",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "I",
 "weight": 3
 },
 {
-"category": "饮料",
-"subcategory": "椰奶",
+"category": "Beverages",
+"subcategory": "Coconut Milk",
 "shelf_life": 1080,
 "unit": "Case",
 "prefix": "A",
 "weight": 3
 },
 {
-"category": "冷冻和冷藏食品",
-"subcategory": "冷冻蔬菜",
+"category": "Frozen & Chilled Foods",
+"subcategory": "Frozen Vegetables",
 "shelf_life": 730,
 "unit": "Case",
 "prefix": "FD",
 "weight": 3
 },
 {
-"category": "饮料",
-"subcategory": "奶茶",
+"category": "Beverages",
+"subcategory": "Milk Tea",
 "shelf_life": 270,
 "unit": "Case",
 "prefix": "A",
 "weight": 3
 },
 {
-"category": "美容 & 健康 & 居家",
-"subcategory": "化妆品",
+"category": "Beauty & Health & Home",
+"subcategory": "Cosmetics",
 "shelf_life": 1095,
 "unit": "each",
 "prefix": "VMU",
 "weight": 3
 },
 {
-"category": "饮料",
-"subcategory": "豆奶",
+"category": "Beverages",
+"subcategory": "Soy Milk",
 "shelf_life": 375,
 "unit": "Case",
 "prefix": "A",
 "weight": 2
 },
 {
-"category": "冷冻和冷藏食品",
-"subcategory": "即食餐",
+"category": "Frozen & Chilled Foods",
+"subcategory": "Ready Meals",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "FA",
 "weight": 2
 },
 {
-"category": "蔬菜类干货",
-"subcategory": "豆腐乳",
+"category": "Dried Vegetables",
+"subcategory": "Fermented Tofu",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "K",
 "weight": 2
 },
 {
-"category": "蜂蜜果酱",
-"subcategory": "白糖",
+"category": "Honey & Jam",
+"subcategory": "White Sugar",
 "shelf_life": 1080,
 "unit": "Case",
 "prefix": "E",
 "weight": 2
 },
 {
-"category": "糖果零食",
-"subcategory": "果冻&布丁&麻薯",
+"category": "Candy & Snacks",
+"subcategory": "Jelly&Pudding&Mochi",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "J",
 "weight": 2
 },
 {
-"category": "饮料",
-"subcategory": "电解质饮料",
+"category": "Beverages",
+"subcategory": "Electrolyte Drinks",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "A",
 "weight": 2
 },
 {
-"category": "美容 & 健康 & 居家",
-"subcategory": "服装 & 服饰",
+"category": "Beauty & Health & Home",
+"subcategory": "Apparel & Accessories",
 "shelf_life": 3650,
 "unit": "each",
 "prefix": "VCA",
 "weight": 2
 },
 {
-"category": "调味品",
-"subcategory": "海鲜酱",
+"category": "Seasonings",
+"subcategory": "Hoisin Sauce",
 "shelf_life": 1080,
 "unit": "Case",
 "prefix": "G",
 "weight": 2
 },
 {
-"category": "调味品",
-"subcategory": "烧烤酱",
+"category": "Seasonings",
+"subcategory": "BBQ Sauce",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "CJ",
 "weight": 2
 },
 {
-"category": "冷冻和冷藏食品",
-"subcategory": "冷冻糕饼&煎饼&烤饼",
+"category": "Frozen & Chilled Foods",
+"subcategory": "Frozen Pastries&Pancakes&Baked Pancakes",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "FA",
 "weight": 2
 },
 {
-"category": "汤&即食餐",
-"subcategory": "汤底",
+"category": "Soup&Ready Meals",
+"subcategory": "Soup Base",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "G",
 "weight": 2
 },
 {
-"category": "调味品",
-"subcategory": "黑胡椒",
+"category": "Seasonings",
+"subcategory": "Black Pepper",
 "shelf_life": 1000,
 "unit": "Case",
 "prefix": "E",
 "weight": 2
 },
 {
-"category": "冷冻和冷藏食品",
-"subcategory": "冷冻素食",
+"category": "Frozen & Chilled Foods",
+"subcategory": "Frozen Vegetarian",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "FA",
 "weight": 2
 },
 {
-"category": "冷冻和冷藏食品",
-"subcategory": "粽子&米制糕饼",
+"category": "Frozen & Chilled Foods",
+"subcategory": "Zongzi&Rice Cakes",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "FA",
 "weight": 2
 },
 {
-"category": "食用油",
-"subcategory": "芝麻油",
+"category": "Cooking Oil",
+"subcategory": "Sesame Oil",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "I",
 "weight": 2
 },
 {
-"category": "饮料",
-"subcategory": "饮料",
+"category": "Beverages",
+"subcategory": "Beverages",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "A",
 "weight": 2
 },
 {
-"category": "调味品",
-"subcategory": "葱",
+"category": "Seasonings",
+"subcategory": "Scallion",
 "shelf_life": 720,
 "unit": "Case",
 "prefix": "E",
 "weight": 2
 },
 {
-"category": "美容 & 健康 & 居家",
-"subcategory": "口腔护理",
+"category": "Beauty & Health & Home",
+"subcategory": "Oral Care",
 "shelf_life": 1095,
 "unit": "each",
 "prefix": "VPC",
 "weight": 2
 },
 {
-"category": "冷冻和冷藏食品",
-"subcategory": "即食面",
+"category": "Frozen & Chilled Foods",
+"subcategory": "Instant Noodles",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "D",
 "weight": 2
 },
 {
-"category": "糖果零食",
-"subcategory": "调味海鲜零食",
+"category": "Candy & Snacks",
+"subcategory": "Seasoned Seafood Snacks",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "B",
 "weight": 2
 },
 {
-"category": "冷冻和冷藏食品",
-"subcategory": "冷冻牛肉",
+"category": "Frozen & Chilled Foods",
+"subcategory": "Frozen Beef",
 "shelf_life": 360,
 "unit": "LB",
 "prefix": "FG",
 "weight": 2
 },
 {
-"category": "美容 & 健康 & 居家",
-"subcategory": "时尚珠宝",
+"category": "Beauty & Health & Home",
+"subcategory": "Fashion Jewelry",
 "shelf_life": 3650,
 "unit": "each",
 "prefix": "VCA",
 "weight": 2
 },
 {
-"category": "糖果零食",
-"subcategory": "派",
+"category": "Candy & Snacks",
+"subcategory": "Pie",
 "shelf_life": 300,
 "unit": "Case",
 "prefix": "B",
 "weight": 2
 },
 {
-"category": "美容 & 健康 & 居家",
-"subcategory": "眼部护理",
+"category": "Beauty & Health & Home",
+"subcategory": "Eye Care",
 "shelf_life": 1095,
 "unit": "each",
 "prefix": "VPC",
 "weight": 2
 },
 {
-"category": "糖果零食",
-"subcategory": "蛋类零食",
+"category": "Candy & Snacks",
+"subcategory": "Egg Snacks",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "B",
 "weight": 2
 },
 {
-"category": "汤&即食餐",
-"subcategory": "即食餐",
+"category": "Soup&Ready Meals",
+"subcategory": "Ready Meals",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "FA",
@@ -802,55 +802,55 @@
 },
 {
 "category": "Beauty & Health & Home",
-"subcategory": "护肤品",
+"subcategory": "Skin Care",
 "shelf_life": 1095,
 "unit": "each",
 "prefix": "VSC",
 "weight": 2
 },
 {
-"category": "罐头干货",
-"subcategory": "罐头蔬菜",
+"category": "Canned & Dry Goods",
+"subcategory": "Canned Vegetables",
 "shelf_life": 1080,
 "unit": "Case",
 "prefix": "P",
 "weight": 2
 },
 {
-"category": "面粉&淀粉类",
-"subcategory": "混合粉 & 油炸粉",
+"category": "Flour&Starches",
+"subcategory": "Flour Mix & Frying Batter Mix",
 "shelf_life": 730,
 "unit": "Case",
 "prefix": "F",
 "weight": 2
 },
 {
-"category": "蛋",
-"subcategory": "鹌鹑蛋",
+"category": "Eggs",
+"subcategory": "Quail Eggs",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "B",
 "weight": 2
 },
 {
-"category": "美容 & 健康 & 居家",
-"subcategory": "电子产品",
+"category": "Beauty & Health & Home",
+"subcategory": "Electronics",
 "shelf_life": 1095,
 "unit": "each",
 "prefix": "VEL",
 "weight": 2
 },
 {
-"category": "蔬果",
-"subcategory": "水果",
+"category": "Fruit & Vegetables",
+"subcategory": "Fruit",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "R",
 "weight": 2
 },
 {
-"category": "食用油",
-"subcategory": "豆油",
+"category": "Cooking Oil",
+"subcategory": "Soybean Oil",
 "shelf_life": 1080,
 "unit": "Case",
 "prefix": "I",
@@ -858,15 +858,15 @@
 },
 {
 "category": "Beauty & Health & Home",
-"subcategory": "理肤泉",
+"subcategory": "Derma Care",
 "shelf_life": 1095,
 "unit": "each",
 "prefix": "VFM",
 "weight": 2
 },
 {
-"category": "美容 & 健康 & 居家",
-"subcategory": "美加净",
+"category": "Beauty & Health & Home",
+"subcategory": "Hand & Body Care",
 "shelf_life": 1095,
 "unit": "each",
 "prefix": "VHB",
@@ -881,104 +881,104 @@
 "weight": 2
 },
 {
-"category": "冷冻和冷藏食品",
-"subcategory": "包子",
+"category": "Frozen & Chilled Foods",
+"subcategory": "Steamed Buns",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "FA",
 "weight": 2
 },
 {
-"category": "调味品",
-"subcategory": "醋",
+"category": "Seasonings",
+"subcategory": "Vinegar",
 "shelf_life": 720,
 "unit": "Case",
 "prefix": "G",
 "weight": 1
 },
 {
-"category": "饮料",
-"subcategory": "咖啡",
+"category": "Beverages",
+"subcategory": "Coffee",
 "shelf_life": 720,
 "unit": "Case",
 "prefix": "C",
 "weight": 1
 },
 {
-"category": "冷冻和冷藏食品",
-"subcategory": "馒头&花卷&面团",
+"category": "Frozen & Chilled Foods",
+"subcategory": "Steamed Bread&Flower Rolls&Dough",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "FA",
 "weight": 1
 },
 {
-"category": "调味品",
-"subcategory": "料酒",
+"category": "Seasonings",
+"subcategory": "Cooking Wine",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "G",
 "weight": 1
 },
 {
-"category": "调味品",
-"subcategory": "孜然",
+"category": "Seasonings",
+"subcategory": "Cumin",
 "shelf_life": 1080,
 "unit": "Case",
 "prefix": "E",
 "weight": 1
 },
 {
-"category": "饮料",
-"subcategory": "牛奶饮料",
+"category": "Beverages",
+"subcategory": "Milk Drinks",
 "shelf_life": 240,
 "unit": "Case",
 "prefix": "A",
 "weight": 1
 },
 {
-"category": "饮料",
-"subcategory": "酸奶",
+"category": "Beverages",
+"subcategory": "Yogurt",
 "shelf_life": 240,
 "unit": "Case",
 "prefix": "A",
 "weight": 1
 },
 {
-"category": "冷冻和冷藏食品",
-"subcategory": "汤圆",
+"category": "Frozen & Chilled Foods",
+"subcategory": "Glutinous Rice Balls",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "FA",
 "weight": 1
 },
 {
-"category": "调味品",
-"subcategory": "花椒调味品",
+"category": "Seasonings",
+"subcategory": "Sichuan Pepper Seasonings",
 "shelf_life": 1080,
 "unit": "Case",
 "prefix": "E",
 "weight": 1
 },
 {
-"category": "蜂蜜果酱",
-"subcategory": "糖浆",
+"category": "Honey & Jam",
+"subcategory": "Syrup",
 "shelf_life": 720,
 "unit": "Case",
 "prefix": "G",
 "weight": 1
 },
 {
-"category": "饮料",
-"subcategory": "冲泡粉/块",
+"category": "Beverages",
+"subcategory": "Drink Powder/Blocks",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "C",
 "weight": 1
 },
 {
-"category": "蔬菜类干货",
-"subcategory": "素食肉",
+"category": "Dried Vegetables",
+"subcategory": "Vegetarian Meat",
 "shelf_life": 720,
 "unit": "Case",
 "prefix": "F",
@@ -993,16 +993,16 @@
 "weight": 1
 },
 {
-"category": "饮料",
-"subcategory": "即饮咖啡",
+"category": "Beverages",
+"subcategory": "Ready-to-Drink Coffee",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "A",
 "weight": 1
 },
 {
-"category": "蜂蜜果酱",
-"subcategory": "果酱",
+"category": "Honey & Jam",
+"subcategory": "Jam",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "G",
@@ -1025,16 +1025,16 @@
 "weight": 1
 },
 {
-"category": "调味品",
-"subcategory": "芝麻酱",
+"category": "Seasonings",
+"subcategory": "Sesame Paste",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "G",
 "weight": 1
 },
 {
-"category": "厨房用品",
-"subcategory": "洗涤剂",
+"category": "Kitchenware",
+"subcategory": "Detergent",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "Z",
@@ -1049,16 +1049,16 @@
 "weight": 1
 },
 {
-"category": "饮料",
-"subcategory": "茶",
+"category": "Beverages",
+"subcategory": "Tea",
 "shelf_life": 720,
 "unit": "Case",
 "prefix": "C",
 "weight": 1
 },
 {
-"category": "冷冻和冷藏食品",
-"subcategory": "冷冻鸡肉",
+"category": "Frozen & Chilled Foods",
+"subcategory": "Frozen Chicken",
 "shelf_life": 360,
 "unit": "Case",
 "prefix": "CJ",
@@ -1073,8 +1073,8 @@
 "weight": 1
 },
 {
-"category": "罐头干货",
-"subcategory": "罐头水果",
+"category": "Canned & Dry Goods",
+"subcategory": "Canned Fruit",
 "shelf_life": 1080,
 "unit": "Case",
 "prefix": "X",
@@ -1090,23 +1090,23 @@
 },
 {
 "category": "Beauty & Health & Home",
-"subcategory": "家安",
+"subcategory": "Home Cleaning",
 "shelf_life": 3650,
 "unit": "each",
 "prefix": "VHK",
 "weight": 1
 },
 {
-"category": "面条类干货",
-"subcategory": "即食土豆粉",
+"category": "Dry Noodles",
+"subcategory": "Instant Potato Noodles",
 "shelf_life": 300,
 "unit": "Case",
 "prefix": "G",
 "weight": 1
 },
 {
-"category": "饮料",
-"subcategory": "果汁饮料",
+"category": "Beverages",
+"subcategory": "Juice Drinks",
 "shelf_life": 540,
 "unit": "Case",
 "prefix": "A",
@@ -1121,8 +1121,8 @@
 "weight": 1
 },
 {
-"category": "饮料",
-"subcategory": "风味牛奶",
+"category": "Beverages",
+"subcategory": "Flavored Milk",
 "shelf_life": 270,
 "unit": "Case",
 "prefix": "X",
@@ -1154,23 +1154,23 @@
 },
 {
 "category": "Beauty & Health & Home",
-"subcategory": "美加净",
+"subcategory": "Hand & Body Care",
 "shelf_life": 1095,
 "unit": "each",
 "prefix": "VHB",
 "weight": 1
 },
 {
-"category": "调味品",
-"subcategory": "盐",
+"category": "Seasonings",
+"subcategory": "Salt",
 "shelf_life": 1800,
 "unit": "Case",
 "prefix": "CJ",
 "weight": 1
 },
 {
-"category": "糖果零食",
-"subcategory": "芝士奶酪零食",
+"category": "Candy & Snacks",
+"subcategory": "Cheese Snacks",
 "shelf_life": 270,
 "unit": "Case",
 "prefix": "B",

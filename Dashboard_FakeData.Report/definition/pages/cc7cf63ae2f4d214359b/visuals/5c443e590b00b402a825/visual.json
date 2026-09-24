@@ -23,11 +23,11 @@
                       "Entity": "DimDate"
                     }
                   },
-                  "Property": "年月"
+                  "Property": "Year Month"
                 }
               },
-              "queryRef": "DimDate.年月",
-              "nativeQueryRef": "年月",
+              "queryRef": "DimDate.Year Month",
+              "nativeQueryRef": "Year Month",
               "active": true
             }
           ]
@@ -42,11 +42,11 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "客户渠道"
+                  "Property": "Customer Channel"
                 }
               },
-              "queryRef": "FactBranchCost.客户渠道",
-              "nativeQueryRef": "客户渠道"
+              "queryRef": "FactBranchCost.Customer Channel",
+              "nativeQueryRef": "Customer Channel"
             }
           ]
         },
@@ -60,11 +60,11 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "分公司销售额（不含运费和服务费）"
+                  "Property": "Branch Sales (Excl Freight and Service Fees)"
                 }
               },
-              "queryRef": "FactBranchCost.分公司销售额（不含运费和服务费）",
-              "nativeQueryRef": "分公司销售额（不含运费和服务费）"
+              "queryRef": "FactBranchCost.Branch Sales (Excl Freight and Service Fees)",
+              "nativeQueryRef": "Branch Sales (Excl Freight and Service Fees)"
             }
           ]
         },
@@ -78,11 +78,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "月环比"
+                  "Property": "MoM"
                 }
               },
-              "queryRef": "_Measures.月环比",
-              "nativeQueryRef": "月环比",
+              "queryRef": "_Measures.MoM",
+              "nativeQueryRef": "MoM",
               "format": "0.00%;-0.00%;0.00%"
             },
             {
@@ -93,11 +93,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "往年同期同比"
+                  "Property": "Prior Year Same Period YoY"
                 }
               },
-              "queryRef": "_Measures.往年同期同比",
-              "nativeQueryRef": "往年同期同比",
+              "queryRef": "_Measures.Prior Year Same Period YoY",
+              "nativeQueryRef": "Prior Year Same Period YoY",
               "format": "0.00%;-0.00%;0.00%"
             }
           ]
@@ -113,7 +113,7 @@
                     "Entity": "DimDate"
                   }
                 },
-                "Property": "年月"
+                "Property": "Year Month"
               }
             },
             "direction": "Ascending"
@@ -242,7 +242,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.往年同期同比"
+            "metadata": "_Measures.Prior Year Same Period YoY"
           }
         },
         {
@@ -260,7 +260,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.月环比"
+            "metadata": "_Measures.MoM"
           }
         }
       ],
@@ -332,7 +332,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.月环比"
+            "metadata": "_Measures.MoM"
           }
         },
         {
@@ -358,12 +358,12 @@
                             "Entity": "FactBranchCost"
                           }
                         },
-                        "Property": "客户渠道"
+                        "Property": "Customer Channel"
                       }
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'主流'"
+                        "Value": "'Mainstream'"
                       }
                     }
                   }
@@ -423,7 +423,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.往年同期同比"
+            "metadata": "_Measures.Prior Year Same Period YoY"
           }
         },
         {
@@ -445,7 +445,7 @@
                                       "Entity": "_Measures"
                                     }
                                   },
-                                  "Property": "月环比"
+                                  "Property": "MoM"
                                 }
                               },
                               "Right": {
@@ -472,7 +472,7 @@
                                       "Entity": "_Measures"
                                     }
                                   },
-                                  "Property": "月环比"
+                                  "Property": "MoM"
                                 }
                               },
                               "Right": {
@@ -503,7 +503,7 @@
                 }
               }
             ],
-            "metadata": "_Measures.月环比"
+            "metadata": "_Measures.MoM"
           }
         },
         {
@@ -525,7 +525,7 @@
                                       "Entity": "_Measures"
                                     }
                                   },
-                                  "Property": "往年同期同比"
+                                  "Property": "Prior Year Same Period YoY"
                                 }
                               },
                               "Right": {
@@ -552,7 +552,7 @@
                                       "Entity": "_Measures"
                                     }
                                   },
-                                  "Property": "往年同期同比"
+                                  "Property": "Prior Year Same Period YoY"
                                 }
                               },
                               "Right": {
@@ -583,7 +583,7 @@
                 }
               }
             ],
-            "metadata": "_Measures.往年同期同比"
+            "metadata": "_Measures.Prior Year Same Period YoY"
           }
         }
       ],
@@ -635,7 +635,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'客户种类销量'"
+                  "Value": "'Customer Kind Volume'"
                 }
               }
             },

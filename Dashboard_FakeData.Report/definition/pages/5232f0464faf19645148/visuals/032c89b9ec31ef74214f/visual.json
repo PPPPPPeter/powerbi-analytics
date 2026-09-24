@@ -23,11 +23,11 @@
                       "Entity": "DimCustomerAll"
                     }
                   },
-                  "Property": "客户名称"
+                  "Property": "Customer Name"
                 }
               },
-              "queryRef": "DimCustomerAll.客户名称",
-              "nativeQueryRef": "客户名称"
+              "queryRef": "DimCustomerAll.Customer Name",
+              "nativeQueryRef": "Customer Name"
             },
             {
               "field": {
@@ -37,11 +37,11 @@
                       "Entity": "DimCustomerAll"
                     }
                   },
-                  "Property": "销售人员"
+                  "Property": "Salesperson"
                 }
               },
-              "queryRef": "DimCustomerAll.销售人员",
-              "nativeQueryRef": "销售人员"
+              "queryRef": "DimCustomerAll.Salesperson",
+              "nativeQueryRef": "Salesperson"
             },
             {
               "field": {
@@ -51,11 +51,11 @@
                       "Entity": "DimCustomerAll"
                     }
                   },
-                  "Property": "客户类型"
+                  "Property": "Customer Type"
                 }
               },
-              "queryRef": "DimCustomerAll.客户类型",
-              "nativeQueryRef": "客户类型"
+              "queryRef": "DimCustomerAll.Customer Type",
+              "nativeQueryRef": "Customer Type"
             },
             {
               "field": {
@@ -65,12 +65,12 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "客户销售额_全部分公司"
+                  "Property": "Customer Sales_All Branches"
                 }
               },
-              "queryRef": "DimCustomer.客户销售额_全部分公司",
-              "nativeQueryRef": "销售额",
-              "displayName": "销售额"
+              "queryRef": "DimCustomer.Customer Sales_All Branches",
+              "nativeQueryRef": "Sales",
+              "displayName": "Sales"
             },
             {
               "field": {
@@ -80,12 +80,12 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "客户毛利率_全部分公司"
+                  "Property": "Customer Gross Margin_All Branches"
                 }
               },
-              "queryRef": "DimCustomerNJ.客户毛利率_全部分公司",
-              "nativeQueryRef": "毛利率",
-              "displayName": "毛利率",
+              "queryRef": "DimCustomerNJ.Customer Gross Margin_All Branches",
+              "nativeQueryRef": "Gross Margin",
+              "displayName": "Gross Margin",
               "format": "0.00%;-0.00%;0.00%"
             },
             {
@@ -96,12 +96,12 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "客户净购买SKU数量_全部分公司"
+                  "Property": "Customer Net SKU Qty_All Branches"
                 }
               },
-              "queryRef": "DimCustomer.客户净购买SKU数量_全部分公司",
-              "nativeQueryRef": "SKU数量",
-              "displayName": "SKU数量"
+              "queryRef": "DimCustomer.Customer Net SKU Qty_All Branches",
+              "nativeQueryRef": "SKU Qty",
+              "displayName": "SKU Qty"
             },
             {
               "field": {
@@ -111,12 +111,12 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "客户购买频率_全部分公司"
+                  "Property": "Customer Purchase Frequency_All Branches"
                 }
               },
-              "queryRef": "DimCustomer.客户购买频率_全部分公司",
-              "nativeQueryRef": "订单数",
-              "displayName": "订单数"
+              "queryRef": "DimCustomer.Customer Purchase Frequency_All Branches",
+              "nativeQueryRef": "Order Count",
+              "displayName": "Order Count"
             },
             {
               "field": {
@@ -126,11 +126,11 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "客户退货率"
+                  "Property": "Customer Return Rate"
                 }
               },
-              "queryRef": "DimCustomer.客户退货率",
-              "nativeQueryRef": "客户退货率",
+              "queryRef": "DimCustomer.Customer Return Rate",
+              "nativeQueryRef": "Customer Return Rate",
               "format": "0.00%;-0.00%;0.00%"
             },
             {
@@ -141,11 +141,11 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "客户综合评分"
+                  "Property": "Customer Overall Score"
                 }
               },
-              "queryRef": "DimCustomer.客户综合评分",
-              "nativeQueryRef": "客户综合评分"
+              "queryRef": "DimCustomer.Customer Overall Score",
+              "nativeQueryRef": "Customer Overall Score"
             },
             {
               "field": {
@@ -155,11 +155,11 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "客户等级"
+                  "Property": "Customer Grade"
                 }
               },
-              "queryRef": "DimCustomer.客户等级",
-              "nativeQueryRef": "客户等级"
+              "queryRef": "DimCustomer.Customer Grade",
+              "nativeQueryRef": "Customer Grade"
             }
           ]
         }
@@ -174,7 +174,7 @@
                     "Entity": "DimCustomerNJ"
                   }
                 },
-                "Property": "客户销售额_全部分公司"
+                "Property": "Customer Sales_All Branches"
               }
             },
             "direction": "Descending"
@@ -234,7 +234,7 @@
                                       "Entity": "DimCustomerNJ"
                                     }
                                   },
-                                  "Property": "客户退货率"
+                                  "Property": "Customer Return Rate"
                                 }
                               },
                               "Right": {
@@ -263,7 +263,7 @@
                                           "Entity": "DimCustomerNJ"
                                         }
                                       },
-                                      "Property": "客户退货率"
+                                      "Property": "Customer Return Rate"
                                     }
                                   },
                                   "Right": {
@@ -283,7 +283,7 @@
                                           "Entity": "DimCustomerNJ"
                                         }
                                       },
-                                      "Property": "客户退货率"
+                                      "Property": "Customer Return Rate"
                                     }
                                   },
                                   "Right": {
@@ -312,7 +312,7 @@
                                       "Entity": "DimCustomerNJ"
                                     }
                                   },
-                                  "Property": "客户退货率"
+                                  "Property": "Customer Return Rate"
                                 }
                               },
                               "Right": {
@@ -339,7 +339,7 @@
                                       "Entity": "DimCustomerNJ"
                                     }
                                   },
-                                  "Property": "客户退货率"
+                                  "Property": "Customer Return Rate"
                                 }
                               },
                               "Right": {
@@ -370,7 +370,7 @@
                 }
               }
             ],
-            "metadata": "DimCustomer.客户退货率"
+            "metadata": "DimCustomer.Customer Return Rate"
           }
         },
         {
@@ -392,7 +392,7 @@
                                       "Entity": "DimCustomerNJ"
                                     }
                                   },
-                                  "Property": "客户毛利率_全部分公司"
+                                  "Property": "Customer Gross Margin_All Branches"
                                 }
                               },
                               "Right": {
@@ -419,7 +419,7 @@
                                       "Entity": "DimCustomerNJ"
                                     }
                                   },
-                                  "Property": "客户毛利率_全部分公司"
+                                  "Property": "Customer Gross Margin_All Branches"
                                 }
                               },
                               "Right": {
@@ -450,7 +450,7 @@
                 }
               }
             ],
-            "metadata": "DimCustomerNJ.客户毛利率_全部分公司"
+            "metadata": "DimCustomerNJ.Customer Gross Margin_All Branches"
           }
         }
       ],
@@ -511,7 +511,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomerAll.客户名称"
+            "metadata": "DimCustomerAll.Customer Name"
           }
         },
         {
@@ -525,7 +525,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomer.客户等级"
+            "metadata": "DimCustomer.Customer Grade"
           }
         },
         {
@@ -539,7 +539,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomer.客户综合评分"
+            "metadata": "DimCustomer.Customer Overall Score"
           }
         },
         {
@@ -553,7 +553,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomer.客户购买频率_全部分公司"
+            "metadata": "DimCustomer.Customer Purchase Frequency_All Branches"
           }
         },
         {
@@ -567,7 +567,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomer.客户净购买SKU数量_全部分公司"
+            "metadata": "DimCustomer.Customer Net SKU Qty_All Branches"
           }
         },
         {
@@ -581,7 +581,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomerNJ.客户毛利率_全部分公司"
+            "metadata": "DimCustomerNJ.Customer Gross Margin_All Branches"
           }
         },
         {
@@ -595,7 +595,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomer.客户销售额_全部分公司"
+            "metadata": "DimCustomer.Customer Sales_All Branches"
           }
         }
       ]
@@ -607,7 +607,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'客户数据'"
+                  "Value": "'Customer Data'"
                 }
               }
             },
@@ -674,7 +674,7 @@
                 "Entity": "FactSalesAll"
               }
             },
-            "Property": "合作伙伴/销售员"
+            "Property": "Partner/Sales Rep"
           }
         },
         "type": "Categorical",
@@ -690,7 +690,7 @@
                 "Entity": "DimCustomerNJ"
               }
             },
-            "Property": "客户等级"
+            "Property": "Customer Grade"
           }
         },
         "type": "Advanced",
@@ -717,7 +717,7 @@
                               "Source": "d"
                             }
                           },
-                          "Property": "客户等级"
+                          "Property": "Customer Grade"
                         }
                       },
                       "Right": {
@@ -743,7 +743,7 @@
                 "Entity": "DimCustomerNJ"
               }
             },
-            "Property": "客户销售额_全部分公司"
+            "Property": "Customer Sales_All Branches"
           }
         },
         "type": "Advanced",
@@ -770,7 +770,7 @@
                               "Source": "d"
                             }
                           },
-                          "Property": "客户销售额_全部分公司"
+                          "Property": "Customer Sales_All Branches"
                         }
                       },
                       "Right": {
@@ -796,7 +796,7 @@
                 "Entity": "DimCustomerNJ"
               }
             },
-            "Property": "客户毛利_全部分公司"
+            "Property": "Customer Gross Profit_All Branches"
           }
         },
         "type": "Advanced",
@@ -812,7 +812,7 @@
                 "Entity": "DimCustomerNJ"
               }
             },
-            "Property": "客户净购买SKU数量_全部分公司"
+            "Property": "Customer Net SKU Qty_All Branches"
           }
         },
         "type": "Advanced"
@@ -827,7 +827,7 @@
                 "Entity": "DimCustomerNJ"
               }
             },
-            "Property": "客户购买频率_全部分公司"
+            "Property": "Customer Purchase Frequency_All Branches"
           }
         },
         "type": "Advanced"
@@ -842,7 +842,7 @@
                 "Entity": "DimCustomerNJ"
               }
             },
-            "Property": "客户退货率"
+            "Property": "Customer Return Rate"
           }
         },
         "type": "Advanced"
@@ -857,7 +857,7 @@
                 "Entity": "DimCustomerNJ"
               }
             },
-            "Property": "客户综合评分"
+            "Property": "Customer Overall Score"
           }
         },
         "type": "Advanced"
@@ -872,7 +872,7 @@
                 "Entity": "DimCustomerAll"
               }
             },
-            "Property": "客户名称"
+            "Property": "Customer Name"
           }
         },
         "type": "Categorical"
@@ -887,7 +887,7 @@
                 "Entity": "DimCustomerAll"
               }
             },
-            "Property": "客户类型"
+            "Property": "Customer Type"
           }
         },
         "type": "Categorical"
@@ -902,7 +902,7 @@
                 "Entity": "DimCustomerAll"
               }
             },
-            "Property": "销售人员"
+            "Property": "Salesperson"
           }
         },
         "type": "Categorical"

@@ -1,20 +1,20 @@
 table DimCustomerServiceTime
 	lineageTag: bf7b1408-0684-4a8e-b0f8-70313bb1f841
 
-	column 客户类型
+	column 'Customer Type'
 		dataType: string
 		lineageTag: a467f83b-1233-4922-b395-58b35240f4a9
 		summarizeBy: none
-		sourceColumn: 客户类型
+		sourceColumn: Customer Type
 
 		annotation SummarizationSetBy = Automatic
 
-	column 单次服务分钟
+	column 'Minutes per Visit'
 		dataType: int64
 		formatString: 0
 		lineageTag: 6cd4450f-b1d0-4b0f-9db0-ad90458abb24
 		summarizeBy: sum
-		sourceColumn: 单次服务分钟
+		sourceColumn: Minutes per Visit
 
 		annotation SummarizationSetBy = Automatic
 
@@ -22,8 +22,8 @@ table DimCustomerServiceTime
 		mode: import
 		source =
 				let
-				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WCs/Iz0ktTsxJLVLSUTIzUIrViVYKLi1ILcpNLMpOLdF3L8pPTi2qBEqamIIlg1JLEjNzgHxjCN8/TzegKDU3szgVpAZiQEBGIlB/MkiXMUTEVdc5Pzc3tSgZpAooFAsA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [客户类型 = _t, 单次服务分钟 = _t]),
-				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"客户类型", type text}, {"单次服务分钟", Int64.Type}})
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WCs/Iz0ktTsxJLVLSUTIzUIrViVYKLi1ILcpNLMpOLdF3L8pPTi2qBEqamIIlg1JLEjNzgHxjCN8/TzegKDU3szgVpAZiQEBGIlB/MkiXMUTEVdc5Pzc3tSgZpAooFAsA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Customer Type = _t, Minutes per Visit = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Customer Type", type text}, {"Minutes per Visit", Int64.Type}})
 				in
 				    #"Changed Type"
 

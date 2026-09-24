@@ -1,11 +1,11 @@
 table DimSalesperson
 	lineageTag: 675e571f-3a1e-4552-8c24-ab9edb31b78b
 
-	column 销售人员
+	column Salesperson
 		lineageTag: f3f720ac-3209-40e2-b6cc-d81ebd1cb11e
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [销售人员]
+		sourceColumn: [Salesperson]
 
 		annotation SummarizationSetBy = Automatic
 
@@ -16,18 +16,18 @@ table DimSalesperson
 				DISTINCT(
 				    UNION(
 				        ROW(
-				            "销售人员",
-				            "未知人员"
+				            "Salesperson",
+				            "Unknown Person"
 				        ),
 				        SELECTCOLUMNS(
 				            FactBranchCost,
-				            "销售人员",
+				            "Salesperson",
 				            FactBranchCost[salesperson]
 				        ),
 				        SELECTCOLUMNS(
 				            FactSalesTarget,
-				            "销售人员",
-				            FactSalesTarget[销售人员]
+				            "Salesperson",
+				            FactSalesTarget[Salesperson]
 				        )
 				    )
 				)

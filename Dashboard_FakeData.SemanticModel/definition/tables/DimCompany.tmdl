@@ -1,11 +1,11 @@
 table DimCompany
 	lineageTag: b0f859d7-ec78-473c-a2ff-353273394b90
 
-	column 公司
+	column Company
 		lineageTag: d0222e2c-6e4b-4572-a44b-b397f567611d
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [公司]
+		sourceColumn: [Company]
 
 		annotation SummarizationSetBy = Automatic
 
@@ -17,15 +17,15 @@ table DimCompany
 				    UNION (
 				        SELECTCOLUMNS (
 				            FactBranchCost,
-				            "公司", FactBranchCost[company]
+				            "Company", FactBranchCost[company]
 				        ),
 				        SELECTCOLUMNS (
 				            FactInventoryLot,
-				            "公司", FactInventoryLot[公司]
+				            "Company", FactInventoryLot[Company]
 				        ),
 				        SELECTCOLUMNS (
 				            FactPurchaseOrder,
-				            "公司", FactPurchaseOrder[订单行/公司]
+				            "Company", FactPurchaseOrder[Order Line/Company]
 				        )
 				    )
 				)

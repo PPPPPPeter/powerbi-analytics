@@ -110,7 +110,7 @@ table LocalDateTable_35eb8bdd-026e-4ae6-8be0-0ffea8af5df2
 
 	partition LocalDateTable_35eb8bdd-026e-4ae6-8be0-0ffea8af5df2 = calculated
 		mode: import
-		source = Calendar(Date(Year(MIN('FactInventoryAll'[有效期])), 1, 1), Date(Year(MAX('FactInventoryAll'[有效期])), 12, 31))
+		source = Calendar(Date(Year(MIN('FactInventoryAll'[Expiry Date])), 1, 1), Date(Year(MAX('FactInventoryAll'[Expiry Date])), 12, 31))
 
 	annotation __PBI_LocalDateTable = true
 

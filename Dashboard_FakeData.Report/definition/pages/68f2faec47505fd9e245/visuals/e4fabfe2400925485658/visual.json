@@ -23,11 +23,11 @@
                       "Entity": "DimCompany"
                     }
                   },
-                  "Property": "公司"
+                  "Property": "Company"
                 }
               },
-              "queryRef": "DimCompany.公司",
-              "nativeQueryRef": "公司",
+              "queryRef": "DimCompany.Company",
+              "nativeQueryRef": "Company",
               "active": true
             }
           ]
@@ -138,7 +138,7 @@
                                   "Source": "d"
                                 }
                               },
-                              "Property": "公司"
+                              "Property": "Company"
                             }
                           }
                         ],
@@ -201,7 +201,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'公司'"
+                  "Value": "'Company'"
                 }
               }
             },

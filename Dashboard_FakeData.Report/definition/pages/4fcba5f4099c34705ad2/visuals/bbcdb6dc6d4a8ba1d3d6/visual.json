@@ -23,13 +23,13 @@
                       "Entity": "ProductCatalogAll"
                     }
                   },
-                  "Property": "补货状态列"
+                  "Property": "Reorder Status Col"
                 }
               },
-              "queryRef": "ProductCatalogAll.补货状态列",
-              "nativeQueryRef": "补货状态",
+              "queryRef": "ProductCatalogAll.Reorder Status Col",
+              "nativeQueryRef": "Reorder Status",
               "active": true,
-              "displayName": "补货状态"
+              "displayName": "Reorder Status"
             }
           ]
         }
@@ -147,7 +147,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'补货状态'"
+                  "Value": "'Reorder Status'"
                 }
               }
             },

@@ -212,7 +212,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'日期'"
+                  "Value": "'Date'"
                 }
               }
             },
@@ -247,7 +247,7 @@
       ]
     },
     "syncGroup": {
-      "groupName": "日期",
+      "groupName": "Date",
       "fieldChanges": true,
       "filterChanges": true
     },

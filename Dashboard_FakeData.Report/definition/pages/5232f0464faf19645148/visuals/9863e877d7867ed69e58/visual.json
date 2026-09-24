@@ -23,11 +23,11 @@
                       "Entity": "DimCustomerAll"
                     }
                   },
-                  "Property": "客户名称"
+                  "Property": "Customer Name"
                 }
               },
-              "queryRef": "DimCustomerAll.客户名称",
-              "nativeQueryRef": "客户名称"
+              "queryRef": "DimCustomerAll.Customer Name",
+              "nativeQueryRef": "Customer Name"
             },
             {
               "field": {
@@ -37,11 +37,11 @@
                       "Entity": "DimCustomerAll"
                     }
                   },
-                  "Property": "客户类型"
+                  "Property": "Customer Type"
                 }
               },
-              "queryRef": "DimCustomerAll.客户类型",
-              "nativeQueryRef": "客户类型"
+              "queryRef": "DimCustomerAll.Customer Type",
+              "nativeQueryRef": "Customer Type"
             },
             {
               "field": {
@@ -51,12 +51,12 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "客户销售额得分"
+                  "Property": "Customer Sales Score"
                 }
               },
-              "queryRef": "DimCustomer.客户销售额得分",
-              "nativeQueryRef": "销售额得分",
-              "displayName": "销售额得分"
+              "queryRef": "DimCustomer.Customer Sales Score",
+              "nativeQueryRef": "Sales Score",
+              "displayName": "Sales Score"
             },
             {
               "field": {
@@ -66,12 +66,12 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "客户退货表现得分"
+                  "Property": "Customer Return Performance Score"
                 }
               },
-              "queryRef": "DimCustomer.客户退货表现得分",
-              "nativeQueryRef": "退货表现得分",
-              "displayName": "退货表现得分"
+              "queryRef": "DimCustomer.Customer Return Performance Score",
+              "nativeQueryRef": "Return Performance Score",
+              "displayName": "Return Performance Score"
             },
             {
               "field": {
@@ -81,12 +81,12 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "客户毛利得分"
+                  "Property": "Customer Gross Profit Score"
                 }
               },
-              "queryRef": "DimCustomer.客户毛利得分",
-              "nativeQueryRef": "毛利得分",
-              "displayName": "毛利得分"
+              "queryRef": "DimCustomer.Customer Gross Profit Score",
+              "nativeQueryRef": "Gross Profit Score",
+              "displayName": "Gross Profit Score"
             },
             {
               "field": {
@@ -96,12 +96,12 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "客户购买频率得分"
+                  "Property": "Customer Purchase Frequency Score"
                 }
               },
-              "queryRef": "DimCustomer.客户购买频率得分",
-              "nativeQueryRef": "购买频率得分",
-              "displayName": "购买频率得分"
+              "queryRef": "DimCustomer.Customer Purchase Frequency Score",
+              "nativeQueryRef": "Purchase Frequency Score",
+              "displayName": "Purchase Frequency Score"
             },
             {
               "field": {
@@ -111,12 +111,12 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "客户SKU数量得分"
+                  "Property": "Customer SKU Qty Score"
                 }
               },
-              "queryRef": "DimCustomer.客户SKU数量得分",
-              "nativeQueryRef": "SKU数量得分",
-              "displayName": "SKU数量得分"
+              "queryRef": "DimCustomer.Customer SKU Qty Score",
+              "nativeQueryRef": "SKU Qty Score",
+              "displayName": "SKU Qty Score"
             },
             {
               "field": {
@@ -126,12 +126,12 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "客户综合评分"
+                  "Property": "Customer Overall Score"
                 }
               },
-              "queryRef": "DimCustomer.客户综合评分",
-              "nativeQueryRef": "综合评分",
-              "displayName": "综合评分"
+              "queryRef": "DimCustomer.Customer Overall Score",
+              "nativeQueryRef": "Overall Score",
+              "displayName": "Overall Score"
             }
           ]
         }
@@ -146,7 +146,7 @@
                     "Entity": "DimCustomerNJ"
                   }
                 },
-                "Property": "客户综合评分"
+                "Property": "Customer Overall Score"
               }
             },
             "direction": "Descending"
@@ -219,7 +219,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomerAll.客户名称"
+            "metadata": "DimCustomerAll.Customer Name"
           }
         },
         {
@@ -233,7 +233,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomerAll.客户类型"
+            "metadata": "DimCustomerAll.Customer Type"
           }
         }
       ]
@@ -245,7 +245,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'客户评分细节'"
+                  "Value": "'Customer Score Details'"
                 }
               }
             },

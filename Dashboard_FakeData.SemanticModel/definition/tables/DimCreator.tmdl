@@ -1,9 +1,9 @@
 table DimCreator
 	lineageTag: 41905e57-3837-4dab-8f6d-0e338ef4e658
 
-	measure 平均月环比 =
+	measure 'Avg Monthly MoM' =
 			
-			AVERAGEX(VALUES(DimDate[年月]), CALCULATE([月环比]))
+			AVERAGEX(VALUES(DimDate[Year Month]), CALCULATE([MoM]))
 		lineageTag: 0040d177-bceb-4a75-917e-406e174aad9d
 
 		extendedProperty MeasureTemplate =
@@ -14,9 +14,9 @@ table DimCreator
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure '分公司月环比 average per 年月' =
+	measure 'Branch MoM average per Year Month' =
 			
-			AVERAGEX(KEEPFILTERS(VALUES('DimDate'[年月])), CALCULATE([分公司月环比]))
+			AVERAGEX(KEEPFILTERS(VALUES('DimDate'[Year Month])), CALCULATE([Branch MoM]))
 		lineageTag: 99821af4-653d-4908-a23e-d079e631a561
 
 		extendedProperty MeasureTemplate =
@@ -27,11 +27,11 @@ table DimCreator
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 订单创建人
+	column 'Order Creator'
 		lineageTag: 1da5dd1c-d4ea-4528-807a-7850ea0aa6d9
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [订单创建人]
+		sourceColumn: [Order Creator]
 
 		annotation SummarizationSetBy = Automatic
 
@@ -43,11 +43,11 @@ table DimCreator
 				    UNION (
 				        SELECTCOLUMNS (
 				            FactBranchCost,
-				            "订单创建人", FactBranchCost[订单创建人]
+				            "Order Creator", FactBranchCost[Order Creator]
 				        ),
 				        SELECTCOLUMNS (
 				            FactSalesTarget,
-				            "订单创建人", FactSalesTarget[销售人员]
+				            "Order Creator", FactSalesTarget[Salesperson]
 				        )
 				    )
 				)

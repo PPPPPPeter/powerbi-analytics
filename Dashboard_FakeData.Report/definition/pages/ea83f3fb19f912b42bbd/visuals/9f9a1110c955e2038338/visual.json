@@ -23,11 +23,11 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "客户渠道"
+                  "Property": "Customer Channel"
                 }
               },
-              "queryRef": "FactBranchCost.客户渠道",
-              "nativeQueryRef": "客户渠道",
+              "queryRef": "FactBranchCost.Customer Channel",
+              "nativeQueryRef": "Customer Channel",
               "active": true
             }
           ]
@@ -146,7 +146,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'客户种类'"
+                  "Value": "'Customer Kind'"
                 }
               }
             },

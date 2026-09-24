@@ -23,11 +23,11 @@
                       "Entity": "DimCustomerAll"
                     }
                   },
-                  "Property": "销售人员"
+                  "Property": "Salesperson"
                 }
               },
-              "queryRef": "DimCustomerAll.销售人员",
-              "nativeQueryRef": "销售人员",
+              "queryRef": "DimCustomerAll.Salesperson",
+              "nativeQueryRef": "Salesperson",
               "active": true
             }
           ]
@@ -42,11 +42,11 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "销售人员总周负荷"
+                  "Property": "Salesperson Total Weekly Load"
                 }
               },
-              "queryRef": "DimCustomer.销售人员总周负荷",
-              "nativeQueryRef": "销售人员总周负荷"
+              "queryRef": "DimCustomer.Salesperson Total Weekly Load",
+              "nativeQueryRef": "Salesperson Total Weekly Load"
             }
           ]
         },
@@ -60,11 +60,11 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "销售人员产能利用率"
+                  "Property": "Salesperson Capacity Utilization"
                 }
               },
-              "queryRef": "DimCustomer.销售人员产能利用率",
-              "nativeQueryRef": "销售人员产能利用率",
+              "queryRef": "DimCustomer.Salesperson Capacity Utilization",
+              "nativeQueryRef": "Salesperson Capacity Utilization",
               "format": "0.00%;-0.00%;0.00%"
             }
           ]
@@ -80,7 +80,7 @@
                     "Entity": "DimCustomerNJ"
                   }
                 },
-                "Property": "销售人员产能利用率"
+                "Property": "Salesperson Capacity Utilization"
               }
             },
             "direction": "Descending"
@@ -130,7 +130,7 @@
             "displayName": {
               "expr": {
                 "Literal": {
-                  "Value": "'满负荷'"
+                  "Value": "'Full Load'"
                 }
               }
             },
@@ -184,7 +184,7 @@
             "displayName": {
               "expr": {
                 "Literal": {
-                  "Value": "'超负荷'"
+                  "Value": "'Overloaded'"
                 }
               }
             },
@@ -239,7 +239,7 @@
                           "Entity": "DimCustomerNJ"
                         }
                       },
-                      "Property": "销售人员产能颜色"
+                      "Property": "Salesperson Capacity Color"
                     }
                   }
                 }
@@ -310,7 +310,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'销售人员产能利用率'"
+                  "Value": "'Salesperson Capacity Utilization'"
                 }
               }
             },
@@ -376,7 +376,7 @@
                 "Entity": "DimCustomerNJ"
               }
             },
-            "Property": "销售人员产能利用率"
+            "Property": "Salesperson Capacity Utilization"
           }
         },
         "type": "Advanced",
@@ -401,7 +401,7 @@
                           "Source": "d"
                         }
                       },
-                      "Property": "销售人员产能利用率"
+                      "Property": "Salesperson Capacity Utilization"
                     }
                   },
                   "Right": {
@@ -424,7 +424,7 @@
                 "Entity": "DimCustomerAll"
               }
             },
-            "Property": "销售人员"
+            "Property": "Salesperson"
           }
         },
         "type": "Advanced",
@@ -451,7 +451,7 @@
                               "Source": "d1"
                             }
                           },
-                          "Property": "销售人员"
+                          "Property": "Salesperson"
                         }
                       },
                       "Right": {

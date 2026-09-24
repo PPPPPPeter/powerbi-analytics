@@ -42,11 +42,11 @@
                       "Entity": "DimProductAll"
                     }
                   },
-                  "Property": "积压库存金额"
+                  "Property": "Overstock Value"
                 }
               },
-              "queryRef": "DimProductNJ.积压库存金额",
-              "nativeQueryRef": "积压库存金额"
+              "queryRef": "DimProductNJ.Overstock Value",
+              "nativeQueryRef": "Overstock Value"
             }
           ]
         }
@@ -61,7 +61,7 @@
                     "Entity": "DimProductAll"
                   }
                 },
-                "Property": "积压库存金额"
+                "Property": "Overstock Value"
               }
             },
             "direction": "Descending"
@@ -84,7 +84,7 @@
                           "Entity": "DimProductAll"
                         }
                       },
-                      "Property": "积压风险颜色"
+                      "Property": "Overstock Risk Color"
                     }
                   }
                 }
@@ -110,7 +110,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'积压库存'"
+                  "Value": "'Overstock Inventory'"
                 }
               }
             }
@@ -157,7 +157,7 @@
                 "Entity": "DimProductAll"
               }
             },
-            "Property": "积压库存金额"
+            "Property": "Overstock Value"
           }
         },
         "type": "Advanced",
@@ -182,7 +182,7 @@
                           "Source": "d"
                         }
                       },
-                      "Property": "积压库存金额"
+                      "Property": "Overstock Value"
                     }
                   },
                   "Right": {

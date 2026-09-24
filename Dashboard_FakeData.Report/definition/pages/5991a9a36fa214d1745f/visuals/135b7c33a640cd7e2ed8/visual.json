@@ -23,11 +23,11 @@
                       "Entity": "ProductCatalogAll"
                     }
                   },
-                  "Property": "品牌"
+                  "Property": "Brand"
                 }
               },
-              "queryRef": "ProductCatalogAll.品牌",
-              "nativeQueryRef": "品牌"
+              "queryRef": "ProductCatalogAll.Brand",
+              "nativeQueryRef": "Brand"
             }
           ]
         }

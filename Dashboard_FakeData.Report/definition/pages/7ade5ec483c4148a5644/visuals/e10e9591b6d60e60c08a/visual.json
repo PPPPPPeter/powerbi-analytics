@@ -23,11 +23,11 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "客户名称"
+                  "Property": "Customer Name"
                 }
               },
-              "queryRef": "DimCustomerNJ.客户名称",
-              "nativeQueryRef": "客户名称"
+              "queryRef": "DimCustomerNJ.Customer Name",
+              "nativeQueryRef": "Customer Name"
             }
           ]
         }

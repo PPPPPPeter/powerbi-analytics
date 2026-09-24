@@ -23,11 +23,11 @@
                       "Entity": "DimCustomerAll"
                     }
                   },
-                  "Property": "销售人员"
+                  "Property": "Salesperson"
                 }
               },
-              "queryRef": "DimCustomerAll.销售人员",
-              "nativeQueryRef": "销售人员"
+              "queryRef": "DimCustomerAll.Salesperson",
+              "nativeQueryRef": "Salesperson"
             },
             {
               "field": {
@@ -37,12 +37,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "分公司销售额（不含运费和服务费）"
+                  "Property": "Branch Sales (Excl Freight and Service Fees)"
                 }
               },
-              "queryRef": "FactBranchCost.分公司销售额",
-              "nativeQueryRef": "销售额",
-              "displayName": "销售额"
+              "queryRef": "FactBranchCost.Branch Sales",
+              "nativeQueryRef": "Sales",
+              "displayName": "Sales"
             }
           ]
         }
@@ -57,7 +57,7 @@
                     "Entity": "FactBranchCost"
                   }
                 },
-                "Property": "分公司销售额（不含运费和服务费）"
+                "Property": "Branch Sales (Excl Freight and Service Fees)"
               }
             },
             "direction": "Descending"
@@ -122,7 +122,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomerAll.销售人员"
+            "metadata": "DimCustomerAll.Salesperson"
           }
         }
       ]
@@ -134,7 +134,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'销售'"
+                  "Value": "'Sales'"
                 }
               }
             },

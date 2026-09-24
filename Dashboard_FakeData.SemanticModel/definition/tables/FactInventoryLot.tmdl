@@ -1,20 +1,20 @@
 table FactInventoryLot
 	lineageTag: ed3bf3c8-065d-4a32-aa21-e863113dc28f
 
-	measure 预计损失金额 = SUM(FactInventoryLot[在手数量])*SUM(FactInventoryLot[产品/基准成本])
+	measure 'Estimated Loss Value' = SUM(FactInventoryLot[On Hand Qty])*SUM(FactInventoryLot[Product/Base Cost])
 		lineageTag: d135fb6f-980a-4b6d-9e44-831a103e60da
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 距有效期天数 =
+	measure 'Days to Expiry' =
 			
 			VAR ExpiryDate =
 			    CALCULATE(
-			        MIN(FactInventoryLot[有效期])
+			        MIN(FactInventoryLot[Expiry Date])
 			        )
 			RETURN
 			    IF(
-			        NOT HASONEVALUE(FactInventoryLot[批次/序列号码])
+			        NOT HASONEVALUE(FactInventoryLot[Lot/Serial Number])
 			            || ISBLANK(ExpiryDate),
 			        BLANK(),
 			        DATEDIFF(
@@ -26,85 +26,85 @@ table FactInventoryLot
 		formatString: 0
 		lineageTag: f51ff150-005d-4812-9495-25f905eb969b
 
-	column 批次/序列号码
+	column 'Lot/Serial Number'
 		dataType: string
 		lineageTag: 5a23dad4-3c69-4b38-b537-567b5d8a2971
 		summarizeBy: none
-		sourceColumn: 批次/序列号码
+		sourceColumn: Lot/Serial Number
 
 		annotation SummarizationSetBy = Automatic
 
-	column 内部参考号
+	column 'Internal Reference'
 		dataType: string
 		lineageTag: 9773644d-60d7-488c-9717-856c7bc5c195
 		summarizeBy: none
-		sourceColumn: 内部参考号
+		sourceColumn: Internal Reference
 
 		annotation SummarizationSetBy = Automatic
 
-	column 产品/内部参考号
+	column 'Product/Internal Reference'
 		dataType: string
 		lineageTag: 68fb1a59-8e49-44cc-ae63-6a7909a4be4f
 		summarizeBy: none
-		sourceColumn: 产品/内部参考号
+		sourceColumn: Product/Internal Reference
 
 		annotation SummarizationSetBy = Automatic
 
-	column 产品/名称
+	column 'Product/Name'
 		dataType: string
 		lineageTag: 619747f3-a12d-4dc0-aa98-9c20f42afede
 		summarizeBy: none
-		sourceColumn: 产品/名称
+		sourceColumn: Product/Name
 
 		annotation SummarizationSetBy = Automatic
 
-	column 产品/产品类别/上级名称
+	column 'Product/Product Category/Parent Name'
 		dataType: string
 		lineageTag: 05cd1c3f-7e68-4206-9edd-1b7eba52d877
 		summarizeBy: none
-		sourceColumn: 产品/产品类别/上级名称
+		sourceColumn: Product/Product Category/Parent Name
 
 		annotation SummarizationSetBy = Automatic
 
-	column 产品/产品类别/中文名称
+	column 'Product/Product Category/Category Name'
 		dataType: string
 		lineageTag: e8b84cb8-1a67-470e-95ff-b775eeaa37c9
 		summarizeBy: none
-		sourceColumn: 产品/产品类别/中文名称
+		sourceColumn: Product/Product Category/Category Name
 
 		annotation SummarizationSetBy = Automatic
 
-	column '产品/CN 品牌'
+	column 'Product/CN Brand'
 		dataType: string
 		lineageTag: ac3c73bc-6133-4598-8836-f038039ca214
 		summarizeBy: none
-		sourceColumn: 产品/CN 品牌
+		sourceColumn: Product/CN Brand
 
 		annotation SummarizationSetBy = Automatic
 
-	column 显示名称
+	column 'Display Name'
 		dataType: string
 		lineageTag: 0e57f34b-836a-41a3-b870-69c1271e60ec
 		summarizeBy: none
-		sourceColumn: 显示名称
+		sourceColumn: Display Name
 
 		annotation SummarizationSetBy = Automatic
 
-	column 在手数量
+	column 'On Hand Qty'
 		dataType: int64
 		formatString: 0
 		lineageTag: d030762e-282d-495f-a2c8-2b83c2bb3e79
 		summarizeBy: sum
-		sourceColumn: 在手数量
+		sourceColumn: On Hand Qty
 
 		annotation SummarizationSetBy = Automatic
 
-	column 有效期
+	column 'Expiry Date'
 		dataType: dateTime
 		formatString: Short Date
 		lineageTag: 8c4c9ebb-9071-402f-a215-c0e2be06f2c1
 		summarizeBy: none
-		sourceColumn: 有效期
+		sourceColumn: Expiry Date
 
 		variation Variation
 			isDefault
@@ -115,111 +115,111 @@ table FactInventoryLot
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	column 产品/批次可用
+	column 'Product/Lot Available'
 		dataType: double
 		lineageTag: 30c8e65e-bce2-495c-8746-573bdae78ce5
 		summarizeBy: sum
-		sourceColumn: 产品/批次可用
+		sourceColumn: Product/Lot Available
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 产品/预测数量
+	column 'Product/Forecast Qty'
 		dataType: double
 		lineageTag: aa2d2466-7fbf-4155-aa37-10404e43a34c
 		summarizeBy: sum
-		sourceColumn: 产品/预测数量
+		sourceColumn: Product/Forecast Qty
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 产品/打板
+	column 'Product/Pallet'
 		dataType: string
 		lineageTag: d2e6df71-f705-46ee-a352-fc64c25e63c7
 		summarizeBy: none
-		sourceColumn: 产品/打板
+		sourceColumn: Product/Pallet
 
 		annotation SummarizationSetBy = Automatic
 
-	column 产品/计量单位
+	column 'Product/Unit of Measure'
 		dataType: string
 		lineageTag: bd65d10a-4f06-4592-bc9a-adab67d1f025
 		summarizeBy: none
-		sourceColumn: 产品/计量单位
+		sourceColumn: Product/Unit of Measure
 
 		annotation SummarizationSetBy = Automatic
 
-	column 产品/基准成本
+	column 'Product/Base Cost'
 		dataType: double
 		lineageTag: b6096da7-1d2c-4f6c-86e3-0479c497f3af
 		summarizeBy: sum
-		sourceColumn: 产品/基准成本
+		sourceColumn: Product/Base Cost
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 活动
+	column Activity
 		dataType: string
 		lineageTag: 59b24922-d7d6-4259-a677-2e0860831359
 		summarizeBy: none
-		sourceColumn: 活动
+		sourceColumn: Activity
 
 		annotation SummarizationSetBy = Automatic
 
-	column 产品/有效期
+	column 'Product/Expiry Date'
 		dataType: int64
 		formatString: 0
 		lineageTag: 1ee53e2c-5700-4bbc-b683-781ac6368734
 		summarizeBy: sum
-		sourceColumn: 产品/有效期
+		sourceColumn: Product/Expiry Date
 
 		annotation SummarizationSetBy = Automatic
 
-	column 产品/销售价格
+	column 'Product/Sales Price'
 		dataType: double
 		lineageTag: 6ab72660-4ea9-40b6-9a2f-c3378f81fd29
 		summarizeBy: sum
-		sourceColumn: 产品/销售价格
+		sourceColumn: Product/Sales Price
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 有效期状态 =
+	column 'Expiry Status' =
 			
 			VAR DaysLeft =
-			    FactInventoryLot[距有效期天数]
+			    FactInventoryLot[Days to Expiry]
 			RETURN
 			    SWITCH(
 			        TRUE(),
-			        ISBLANK(DaysLeft), "无有效期",
-			        DaysLeft <= 0, "已过期",
-			        DaysLeft <= 30, "30天内到期",
-			        DaysLeft <= 90, "31-90天到期",
-			        DaysLeft <= 180, "91-180天到期",
-			        "正常"
+			        ISBLANK(DaysLeft), "No Expiry Date",
+			        DaysLeft <= 0, "Expired",
+			        DaysLeft <= 30, "Expires Within 30 Days",
+			        DaysLeft <= 90, "31-90 Days to Expiry",
+			        DaysLeft <= 180, "91-180 Days to Expiry",
+			        "Normal"
 			    )
 		lineageTag: f1043dc4-c1af-4aa2-b1f9-dc8e134a28aa
 		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 
-	column 保质期进度 =
+	column 'Shelf Life Progress' =
 			
 			VAR ShelfLifeDays =
-			    FactInventoryLot[产品/有效期]
+			    FactInventoryLot[Product/Expiry Date]
 			VAR RemainingDays =
 			    DATEDIFF(
 			        TODAY(),
-			        FactInventoryLot[有效期],
+			        FactInventoryLot[Expiry Date],
 			        DAY
 			    )
 			RETURN
 			    IF(
-			        ISBLANK(FactInventoryLot[有效期])
+			        ISBLANK(FactInventoryLot[Expiry Date])
 			            || ISBLANK(ShelfLifeDays)
 			            || ShelfLifeDays <= 0,
 			        BLANK(),
@@ -241,11 +241,11 @@ table FactInventoryLot
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 公司
+	column Company
 		dataType: string
 		lineageTag: e0bd6938-eec9-4c97-aefb-337491ec0a0e
 		summarizeBy: none
-		sourceColumn: 公司
+		sourceColumn: Company
 
 		annotation SummarizationSetBy = Automatic
 
@@ -255,7 +255,7 @@ table FactInventoryLot
 				let
 				    Source = Csv.Document((if Text.StartsWith(DataRoot, "http") then Web.Contents(DataRoot & "/inventory_lots.csv") else File.Contents(DataRoot & "\inventory_lots.csv")),[Delimiter=",", Columns=19, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
 				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"批次/序列号码", type text}, {"内部参考号", type text}, {"产品/内部参考号", type text}, {"产品/名称", type text}, {"产品/产品类别/上级名称", type text}, {"产品/产品类别/中文名称", type text}, {"产品/CN 品牌", type text}, {"显示名称", type text}, {"在手数量", Int64.Type}, {"有效期", type date}, {"产品/批次可用", type number}, {"产品/预测数量", type number}, {"产品/打板", type text}, {"产品/计量单位", type text}, {"产品/基准成本", type number}, {"活动", type text}, {"产品/有效期", Int64.Type}, {"产品/销售价格", type number}})
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Lot/Serial Number", type text}, {"Internal Reference", type text}, {"Product/Internal Reference", type text}, {"Product/Name", type text}, {"Product/Product Category/Parent Name", type text}, {"Product/Product Category/Category Name", type text}, {"Product/CN Brand", type text}, {"Display Name", type text}, {"On Hand Qty", Int64.Type}, {"Expiry Date", type date}, {"Product/Lot Available", type number}, {"Product/Forecast Qty", type number}, {"Product/Pallet", type text}, {"Product/Unit of Measure", type text}, {"Product/Base Cost", type number}, {"Activity", type text}, {"Product/Expiry Date", Int64.Type}, {"Product/Sales Price", type number}})
 				in
 				    #"Changed Type"
 

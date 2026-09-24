@@ -23,11 +23,11 @@
                       "Entity": "DimCustomerAll"
                     }
                   },
-                  "Property": "客户名称"
+                  "Property": "Customer Name"
                 }
               },
-              "queryRef": "DimCustomerAll.客户名称",
-              "nativeQueryRef": "客户名称",
+              "queryRef": "DimCustomerAll.Customer Name",
+              "nativeQueryRef": "Customer Name",
               "active": true
             }
           ]
@@ -44,14 +44,14 @@
                           "Entity": "DimCustomerAll"
                         }
                       },
-                      "Property": "销售人员"
+                      "Property": "Salesperson"
                     }
                   },
                   "Function": 3
                 }
               },
-              "queryRef": "Min(DimCustomerAll.销售人员)",
-              "nativeQueryRef": "First 销售人员"
+              "queryRef": "Min(DimCustomerAll.Salesperson)",
+              "nativeQueryRef": "First Salesperson"
             }
           ]
         },
@@ -65,11 +65,11 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "分公司销售额（不含运费和服务费）"
+                  "Property": "Branch Sales (Excl Freight and Service Fees)"
                 }
               },
-              "queryRef": "FactBranchCost.分公司销售额（不含运费和服务费）",
-              "nativeQueryRef": "分公司销售额（不含运费和服务费）"
+              "queryRef": "FactBranchCost.Branch Sales (Excl Freight and Service Fees)",
+              "nativeQueryRef": "Branch Sales (Excl Freight and Service Fees)"
             }
           ]
         }
@@ -84,7 +84,7 @@
                     "Entity": "FactBranchCost"
                   }
                 },
-                "Property": "分公司销售额（不含运费和服务费）"
+                "Property": "Branch Sales (Excl Freight and Service Fees)"
               }
             },
             "direction": "Descending"
@@ -142,7 +142,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'产品在售客户排名'"
+                  "Value": "'Product Customer Ranking'"
                 }
               }
             },

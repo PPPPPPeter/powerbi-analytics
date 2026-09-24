@@ -23,11 +23,11 @@
                       "Entity": "ProductCatalogAll"
                     }
                   },
-                  "Property": "品牌"
+                  "Property": "Brand"
                 }
               },
-              "queryRef": "ProductCatalogAll.品牌",
-              "nativeQueryRef": "品牌"
+              "queryRef": "ProductCatalogAll.Brand",
+              "nativeQueryRef": "Brand"
             },
             {
               "field": {
@@ -37,12 +37,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "品牌客户_未铺货客户数"
+                  "Property": "Brand Customer_Undistributed Customers"
                 }
               },
-              "queryRef": "_Measures.品牌客户_未铺货客户数",
-              "nativeQueryRef": "未铺货客户",
-              "displayName": "未铺货客户"
+              "queryRef": "_Measures.Brand Customer_Undistributed Customers",
+              "nativeQueryRef": "Undistributed Customers",
+              "displayName": "Undistributed Customers"
             },
             {
               "field": {
@@ -52,12 +52,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "品牌客户_铺货率"
+                  "Property": "Brand Customer_Distribution Rate"
                 }
               },
-              "queryRef": "_Measures.品牌客户_铺货率",
-              "nativeQueryRef": "铺货率1",
-              "displayName": "铺货率",
+              "queryRef": "_Measures.Brand Customer_Distribution Rate",
+              "nativeQueryRef": "Distribution Rate1",
+              "displayName": "Distribution Rate",
               "format": "0.00%;-0.00%;0.00%"
             },
             {
@@ -68,12 +68,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "分公司销售额（不含运费和服务费）"
+                  "Property": "Branch Sales (Excl Freight and Service Fees)"
                 }
               },
-              "queryRef": "FactBranchCost.分公司销售额",
-              "nativeQueryRef": "销售额",
-              "displayName": "销售额"
+              "queryRef": "FactBranchCost.Branch Sales",
+              "nativeQueryRef": "Sales",
+              "displayName": "Sales"
             },
             {
               "field": {
@@ -83,12 +83,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "产品价格_毛利率"
+                  "Property": "Product Price_Gross Margin"
                 }
               },
-              "queryRef": "FactBranchCost.分公司毛利率",
-              "nativeQueryRef": "毛利率",
-              "displayName": "毛利率",
+              "queryRef": "FactBranchCost.Branch Gross Margin",
+              "nativeQueryRef": "Gross Margin",
+              "displayName": "Gross Margin",
               "format": "0.00%;-0.00%;0.00%"
             },
             {
@@ -99,12 +99,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "分公司销售同比"
+                  "Property": "Branch Sales YoY"
                 }
               },
-              "queryRef": "FactBranchCost.分公司销售同比",
-              "nativeQueryRef": "销售同比",
-              "displayName": "销售同比",
+              "queryRef": "FactBranchCost.Branch Sales YoY",
+              "nativeQueryRef": "Sales YoY",
+              "displayName": "Sales YoY",
               "format": "0.00%;-0.00%;0.00%"
             },
             {
@@ -115,12 +115,12 @@
                       "Entity": "DimCreator"
                     }
                   },
-                  "Property": "分公司月环比 average per 年月"
+                  "Property": "Branch MoM average per Year Month"
                 }
               },
-              "queryRef": "DimCreator.分公司月环比 average per 年月",
-              "nativeQueryRef": "平均月环比",
-              "displayName": "平均月环比",
+              "queryRef": "DimCreator.Branch MoM average per Year Month",
+              "nativeQueryRef": "Avg Monthly MoM",
+              "displayName": "Avg Monthly MoM",
               "format": "0.00%;-0.00%;0.00%"
             }
           ]
@@ -136,7 +136,7 @@
                     "Entity": "FactBranchCost"
                   }
                 },
-                "Property": "分公司销售额（不含运费和服务费）"
+                "Property": "Branch Sales (Excl Freight and Service Fees)"
               }
             },
             "direction": "Descending"
@@ -176,7 +176,7 @@
                                       "Entity": "FactBranchCost"
                                     }
                                   },
-                                  "Property": "产品价格_毛利率"
+                                  "Property": "Product Price_Gross Margin"
                                 }
                               },
                               "Right": {
@@ -207,7 +207,7 @@
                 }
               }
             ],
-            "metadata": "FactBranchCost.分公司毛利率"
+            "metadata": "FactBranchCost.Branch Gross Margin"
           }
         },
         {
@@ -229,7 +229,7 @@
                                       "Entity": "FactBranchCost"
                                     }
                                   },
-                                  "Property": "分公司销售同比"
+                                  "Property": "Branch Sales YoY"
                                 }
                               },
                               "Right": {
@@ -260,7 +260,7 @@
                 }
               }
             ],
-            "metadata": "FactBranchCost.分公司销售同比"
+            "metadata": "FactBranchCost.Branch Sales YoY"
           }
         },
         {
@@ -282,7 +282,7 @@
                                       "Entity": "DimCreator"
                                     }
                                   },
-                                  "Property": "分公司月环比 average per 年月"
+                                  "Property": "Branch MoM average per Year Month"
                                 }
                               },
                               "Right": {
@@ -313,7 +313,7 @@
                 }
               }
             ],
-            "metadata": "DimCreator.分公司月环比 average per 年月"
+            "metadata": "DimCreator.Branch MoM average per Year Month"
           }
         }
       ],
@@ -356,7 +356,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.分公司毛利率"
+            "metadata": "FactBranchCost.Branch Gross Margin"
           }
         },
         {
@@ -370,7 +370,7 @@
             }
           },
           "selector": {
-            "metadata": "ProductCatalogAll.品牌"
+            "metadata": "ProductCatalogAll.Brand"
           }
         },
         {
@@ -384,7 +384,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.分公司销售额"
+            "metadata": "FactBranchCost.Branch Sales"
           }
         },
         {
@@ -398,7 +398,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.分公司销售同比"
+            "metadata": "FactBranchCost.Branch Sales YoY"
           }
         },
         {
@@ -412,7 +412,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCreator.分公司月环比 average per 年月"
+            "metadata": "DimCreator.Branch MoM average per Year Month"
           }
         },
         {
@@ -426,7 +426,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.品牌客户_未铺货客户数"
+            "metadata": "_Measures.Brand Customer_Undistributed Customers"
           }
         }
       ],
@@ -464,7 +464,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'选择品牌'"
+                  "Value": "'Select Brand'"
                 }
               }
             },

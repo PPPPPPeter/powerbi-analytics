@@ -51,11 +51,11 @@
                       "Entity": "DimProductAll"
                     }
                   },
-                  "Property": "计量单位"
+                  "Property": "Unit of Measure"
                 }
               },
-              "queryRef": "DimProduct.计量单位",
-              "nativeQueryRef": "计量单位"
+              "queryRef": "DimProduct.Unit of Measure",
+              "nativeQueryRef": "Unit of Measure"
             },
             {
               "field": {
@@ -65,11 +65,11 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "分公司销售数量"
+                  "Property": "Branch Sales Qty"
                 }
               },
-              "queryRef": "FactBranchCost.分公司销售数量",
-              "nativeQueryRef": "分公司销售数量"
+              "queryRef": "FactBranchCost.Branch Sales Qty",
+              "nativeQueryRef": "Branch Sales Qty"
             }
           ]
         }
@@ -84,7 +84,7 @@
                     "Entity": "FactBranchCost"
                   }
                 },
-                "Property": "分公司销售数量"
+                "Property": "Branch Sales Qty"
               }
             },
             "direction": "Descending"
@@ -148,7 +148,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'清泉产品销售箱数'"
+                  "Value": "'QINGQUAN Cases Sold'"
                 }
               }
             },
@@ -196,7 +196,7 @@
                 "Entity": "DimProductAll"
               }
             },
-            "Property": "品牌"
+            "Property": "Brand"
           }
         },
         "type": "Categorical",
@@ -221,7 +221,7 @@
                             "Source": "d"
                           }
                         },
-                        "Property": "品牌"
+                        "Property": "Brand"
                       }
                     }
                   ],
@@ -229,7 +229,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'清泉'"
+                          "Value": "'QINGQUAN'"
                         }
                       }
                     ]
@@ -250,7 +250,7 @@
                 "Entity": "DimProductAll"
               }
             },
-            "Property": "产品名称"
+            "Property": "Product Name"
           }
         },
         "type": "Advanced",
@@ -276,12 +276,12 @@
                               "Source": "d"
                             }
                           },
-                          "Property": "产品名称"
+                          "Property": "Product Name"
                         }
                       },
                       "Right": {
                         "Literal": {
-                          "Value": "'茉莉'"
+                          "Value": "'Jasmine'"
                         }
                       }
                     }
@@ -302,7 +302,7 @@
                 "Entity": "DimProductAll"
               }
             },
-            "Property": "计量单位"
+            "Property": "Unit of Measure"
           }
         },
         "type": "Categorical",
@@ -327,7 +327,7 @@
                             "Source": "d"
                           }
                         },
-                        "Property": "计量单位"
+                        "Property": "Unit of Measure"
                       }
                     }
                   ],

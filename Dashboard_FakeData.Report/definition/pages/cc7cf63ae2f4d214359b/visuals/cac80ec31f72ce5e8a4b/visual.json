@@ -23,11 +23,11 @@
                       "Entity": "DimDate"
                     }
                   },
-                  "Property": "年月"
+                  "Property": "Year Month"
                 }
               },
-              "queryRef": "DimDate.年月",
-              "nativeQueryRef": "年月",
+              "queryRef": "DimDate.Year Month",
+              "nativeQueryRef": "Year Month",
               "active": true
             }
           ]
@@ -42,12 +42,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "分公司销售额（不含运费和服务费）"
+                  "Property": "Branch Sales (Excl Freight and Service Fees)"
                 }
               },
-              "queryRef": "FactBranchCost.分公司销售额",
-              "nativeQueryRef": "销售额",
-              "displayName": "销售额"
+              "queryRef": "FactBranchCost.Branch Sales",
+              "nativeQueryRef": "Sales",
+              "displayName": "Sales"
             }
           ]
         },
@@ -61,12 +61,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "分公司月环比"
+                  "Property": "Branch MoM"
                 }
               },
-              "queryRef": "FactBranchCost.分公司月环比",
-              "nativeQueryRef": "月环比",
-              "displayName": "月环比",
+              "queryRef": "FactBranchCost.Branch MoM",
+              "nativeQueryRef": "MoM",
+              "displayName": "MoM",
               "format": "0.00%;-0.00%;0.00%"
             },
             {
@@ -77,11 +77,11 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "分公司销售同比"
+                  "Property": "Branch Sales YoY"
                 }
               },
-              "queryRef": "FactBranchCost.分公司销售同比",
-              "nativeQueryRef": "分公司销售同比",
+              "queryRef": "FactBranchCost.Branch Sales YoY",
+              "nativeQueryRef": "Branch Sales YoY",
               "format": "0.00%;-0.00%;0.00%"
             }
           ]
@@ -97,7 +97,7 @@
                     "Entity": "DimDate"
                   }
                 },
-                "Property": "年月"
+                "Property": "Year Month"
               }
             },
             "direction": "Ascending"
@@ -234,7 +234,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.分公司销售额"
+            "metadata": "FactBranchCost.Branch Sales"
           }
         },
         {
@@ -248,7 +248,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.分公司月环比"
+            "metadata": "FactBranchCost.Branch MoM"
           }
         },
         {
@@ -262,7 +262,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.分公司销售同比"
+            "metadata": "FactBranchCost.Branch Sales YoY"
           }
         },
         {
@@ -284,7 +284,7 @@
                                       "Entity": "FactBranchCost"
                                     }
                                   },
-                                  "Property": "分公司销售同比"
+                                  "Property": "Branch Sales YoY"
                                 }
                               },
                               "Right": {
@@ -311,7 +311,7 @@
                                       "Entity": "FactBranchCost"
                                     }
                                   },
-                                  "Property": "分公司销售同比"
+                                  "Property": "Branch Sales YoY"
                                 }
                               },
                               "Right": {
@@ -342,7 +342,7 @@
                 }
               }
             ],
-            "metadata": "FactBranchCost.分公司销售同比"
+            "metadata": "FactBranchCost.Branch Sales YoY"
           }
         },
         {
@@ -364,7 +364,7 @@
                                       "Entity": "FactBranchCost"
                                     }
                                   },
-                                  "Property": "分公司月环比"
+                                  "Property": "Branch MoM"
                                 }
                               },
                               "Right": {
@@ -391,7 +391,7 @@
                                       "Entity": "FactBranchCost"
                                     }
                                   },
-                                  "Property": "分公司月环比"
+                                  "Property": "Branch MoM"
                                 }
                               },
                               "Right": {
@@ -422,7 +422,7 @@
                 }
               }
             ],
-            "metadata": "FactBranchCost.分公司月环比"
+            "metadata": "FactBranchCost.Branch MoM"
           }
         }
       ],
@@ -454,7 +454,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'销售额趋势'"
+                  "Value": "'Sales Trend'"
                 }
               }
             },
@@ -520,7 +520,7 @@
                 "Entity": "DimDate"
               }
             },
-            "Property": "年月"
+            "Property": "Year Month"
           }
         },
         "type": "Categorical",

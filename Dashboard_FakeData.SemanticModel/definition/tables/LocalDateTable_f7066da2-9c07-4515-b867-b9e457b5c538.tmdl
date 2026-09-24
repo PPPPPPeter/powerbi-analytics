@@ -110,7 +110,7 @@ table LocalDateTable_f7066da2-9c07-4515-b867-b9e457b5c538
 
 	partition LocalDateTable_f7066da2-9c07-4515-b867-b9e457b5c538 = calculated
 		mode: import
-		source = Calendar(Date(Year(MIN('FactPurchaseOrder'[订单行/确认日期])), 1, 1), Date(Year(MAX('FactPurchaseOrder'[订单行/确认日期])), 12, 31))
+		source = Calendar(Date(Year(MIN('FactPurchaseOrder'[Order Line/Confirmed Date])), 1, 1), Date(Year(MAX('FactPurchaseOrder'[Order Line/Confirmed Date])), 12, 31))
 
 	annotation __PBI_LocalDateTable = true
 

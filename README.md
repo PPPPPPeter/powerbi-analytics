@@ -100,19 +100,19 @@ https://raw.githubusercontent.com/PPPPPPeter/powerbi-analytics/main/Data
 
 ## Report pages
 
-| # | Page | English name | Question it answers | Main visuals |
-|---|---|---|---|---|
-| 1 | 总览 | Overview | How are sales, orders, customers and SKUs trending vs last month and last year, by company and region? | Combo trend charts, company and customer-type pie charts, map, brand contribution table |
-| 2 | 品牌 - 产品 铺货情况 | Brand – product distribution | For a brand, which in-stock SKUs were actually sold this period, and which were not? | Distributed / not-distributed SKU tables, distribution rate card |
-| 3 | 品牌 - 客户 铺货情况 | Brand – customer distribution | Which target customers bought a brand, which did not, and how does each salesperson cover it? | Distributed / not-distributed customer tables by salesperson |
-| 4 | 产品价格 | Product pricing | How do selling price, cost and margin move over time for each product? | Price vs margin and price vs volume combo charts, product table |
-| 5 | 紧急库存 | Urgent inventory | What stock has expired or will expire soon, and what might run out? | Expiry-status bar chart, batch detail and urgent-product tables |
-| 6 | SKU总览 | SKU overview | What should be reordered, how much, and what is overstocked? | Five risk cards, reorder and overstock top-N charts, 13-column SKU detail table |
-| 7 | 客户详情总览 | Customer detail | What is each customer's purchase history, last order date and trend? | Sales trend chart, customer detail tables |
-| 8 | 客户评级 | Customer grading | Which customers are A / B / C / D, and how is each salesperson's portfolio graded? | Grade matrix by salesperson, score-detail table |
-| 9 | 销售详情总览 | Sales detail | How do sales break down by salesperson, brand and category? | Bar chart, matrices, trend chart |
-| 10 | 销售KPI | Sales KPI | Is each salesperson on track against the monthly target, including ice cream vs other products? | Completion gauges, target vs actual table, trend chart |
-| 11 | 清泉销售总览 | Single-brand view (清泉) | How is one key brand selling, by product and by customer? | Product and customer tables |
+| # | Page | Question it answers | Main visuals |
+|---|---|---|---|
+| 1 | Overview | How are sales, orders, customers and SKUs trending vs last month and last year, by company and region? | Combo trend charts, company and customer-type pie charts, map, brand contribution table |
+| 2 | Brand - Product Distribution | For a brand, which in-stock SKUs were actually sold this period, and which were not? | Distributed / undistributed product tables, distribution rate card |
+| 3 | Brand - Customer Distribution | Which target customers bought a brand, which did not, and how does each salesperson cover it? | Distributed / undistributed customer tables by salesperson |
+| 4 | Product Pricing | How do selling price, cost and margin move over time for each product? | Gross margin vs selling price and volume vs selling price combo charts, product table |
+| 5 | Urgent Inventory | What stock has expired or will expire soon, and what might run out? | Expiry-status bar chart, lot detail and urgent-product tables |
+| 6 | SKU Overview | What should be reordered, how much, and what is overstocked? | Five risk cards, reorder and overstock top-N charts, 13-column SKU detail table |
+| 7 | Customer Detail Overview | What is each customer's purchase history, last order date and trend? | Sales trend chart, customer detail tables |
+| 8 | Customer Rating | Which customers are A / B / C / D, and how is each salesperson's portfolio graded? | Grade matrix by salesperson, score-detail table |
+| 9 | Sales Detail Overview | How do sales break down by salesperson, brand and category? | Bar chart, matrices, trend chart |
+| 10 | Sales KPI | Is each salesperson on track against the monthly target, including ice cream vs other products? | Completion gauges, target vs actual table, trend chart |
+| 11 | QINGQUAN Sales Overview | How is one key brand (the fictional brand QINGQUAN) selling, by product and by customer? | Product and customer tables |
 
 Most pages have slicers for **company, date (year / month), product category, brand,
 customer type and salesperson**.
@@ -172,27 +172,27 @@ from the fact tables.
 
 ## Key analytics
 
-### 1. SKU replenishment engine (`SKU总览`, `紧急库存`)
+### 1. SKU replenishment engine (SKU Overview, Urgent Inventory)
 
 A reorder-point / order-up-to policy written entirely in DAX:
 
 | Step | Measure | Logic |
 |---|---|---|
-| Daily demand | 补货日均销量 | Higher of the 30-day and 90-day average net sales (negatives set to 0) |
-| Lead time | SKU补货提前期 | P80 of actual order-to-arrival days. Fallback order: the SKU's own history (≥ 5 samples) → main supplier → company-wide → 14 days |
-| Safety stock | 安全库存数量 | Daily demand × 7 days |
-| Reorder point | 再订货点 | Daily demand × lead time + safety stock |
-| Stock position | 库存位置 | On hand + open purchase orders in transit |
-| Target stock | 目标库存数量 | Daily demand × (lead time + 7 + 45 days) |
-| Suggested order | 建议补货数量 | Target stock − stock position, only when stock position ≤ reorder point |
-| Status | 补货状态 | No sales · stock but no sales · out of stock · out of stock with order in transit · reorder needed · normal |
-| Overstock | 积压库存数量 / 金额 | Stock above 90 days of demand, valued at base cost |
-| Expiry risk | 未来90天临期数量 / 金额 | Quantity and value expiring within 90 days, lot by lot |
+| Daily demand | Reorder Daily Demand | Higher of the 30-day and 90-day average net sales (negatives set to 0) |
+| Lead time | SKU Reorder Lead Time | P80 of actual order-to-arrival days. Fallback order: the SKU's own history (≥ 5 samples) → main supplier → company-wide → 14 days |
+| Safety stock | Safety Stock Qty | Daily demand × 7 days |
+| Reorder point | Reorder Point | Daily demand × lead time + safety stock |
+| Stock position | Stock Position | On hand + open purchase orders in transit |
+| Target stock | Target Stock Qty | Daily demand × (lead time + 7 + 45 days) |
+| Suggested order | Suggested Order Qty | Target stock − stock position, only when stock position ≤ reorder point |
+| Status | Reorder Status | No sales · stock but no sales · out of stock · out of stock with order in transit · reorder needed · normal |
+| Overstock | Overstock Qty / Overstock Value | Stock above 90 days of demand, valued at base cost |
+| Expiry risk | Next 90 Days Expiring Qty / Value | Quantity and value expiring within 90 days, lot by lot |
 
 The P80 (80th percentile) lead time protects against late deliveries without planning for
 the worst case, and it is measured from purchase history instead of guessed.
 
-### 2. Customer scoring and grading (`客户评级`)
+### 2. Customer scoring and grading (Customer Rating)
 
 Each customer gets a 0–100 score by comparing them with all customers of the same type
 (percentile-based), with different weights for retail and wholesale:
@@ -208,13 +208,13 @@ Each customer gets a 0–100 score by comparing them with all customers of the s
 Grade **A** ≥ 80, **B** ≥ 65, then C and D. A customer with zero or negative gross profit
 cannot be graded A.
 
-### 3. Distribution coverage (`品牌 - 产品 / 客户 铺货情况`)
+### 3. Distribution coverage (Brand - Product / Customer Distribution)
 
 For a selected brand and period: in-stock SKUs vs SKUs actually sold, target customers vs
 customers who bought, and the resulting distribution rates by salesperson. This produces
 ready-made target lists of customers who have never bought a brand.
 
-### 4. Sales KPI and trends (`销售KPI`, `总览`)
+### 4. Sales KPI and trends (Sales KPI, Overview)
 
 Target vs actual and completion % per salesperson and per order creator; year-over-year
 and month-over-month for sales, quantity and orders; ice cream and non-ice-cream
@@ -228,16 +228,16 @@ All files are in [`Data/`](Data). CSV files are UTF-8 with a header row.
 
 | File | Rows | Size | Content |
 |---|---:|---:|---|
-| `branch_sales.csv` | 65,741 | 31 MB | Invoice lines for 5 companies: product, customer, salesperson, quantity, price, amount, base cost, gross profit |
-| `sales_invoice_lines.csv` | 51,454 | 26 MB | Invoice lines in accounting-export format (invoices and refunds) for 3 companies |
-| `inventory_lots.csv` | 3,428 | 0.8 MB | Stock lots with expiry date, on-hand quantity, pallet size and base cost |
-| `branch_inventory.xlsx` | sheet `库存明细` | 0.1 MB | Stock by company, SKU and expiry date |
-| `purchase_order_lines.csv` | 17,340 | 4.1 MB | Purchase order lines: SKU, supplier, quantity, received quantity, dates, status |
-| `purchase_tracking.csv` | 5,876 | 0.4 MB | One row per purchase order: created, shipped and arrived dates |
-| `sales_targets_monthly.xlsx` | sheets `KPI按月`, `原始数据` | < 0.1 MB | Monthly sales target per salesperson for 2026 |
+| `branch_sales.csv` | 60,822 | 24 MB | Invoice lines for 5 companies: product, customer, salesperson, quantity, price, amount, base cost, gross profit |
+| `sales_invoice_lines.csv` | 46,349 | 20 MB | Invoice lines in accounting-export format (invoices and refunds) for 3 companies |
+| `inventory_lots.csv` | 3,413 | 0.8 MB | Stock lots with expiry date, on-hand quantity, pallet size and base cost |
+| `branch_inventory.xlsx` | sheet `Inventory Detail` | 0.1 MB | Stock by company, SKU and expiry date |
+| `purchase_order_lines.csv` | 17,450 | 3.9 MB | Purchase order lines: SKU, supplier, quantity, received quantity, dates, status |
+| `purchase_tracking.csv` | 5,446 | 0.4 MB | One row per purchase order: created, shipped and arrived dates |
+| `sales_targets_monthly.xlsx` | sheets `KPI by Month`, `Raw Data` | < 0.1 MB | Monthly sales target per salesperson for 2026 |
 
-Column names are in Chinese or English exactly as exported by the ERP system, because the
-Power Query steps depend on them.
+Column names follow the typical ERP export layout (for example `Order Line/Order Reference`),
+because the Power Query steps depend on them.
 
 ---
 
@@ -245,7 +245,7 @@ Power Query steps depend on them.
 
 **What is fictional:** the five companies of the "Crestline" group (New Jersey, Pacific,
 Chicago, Houston, Northwest) and their warehouses, all customers (447), salespeople,
-purchasing staff, suppliers (26), brands (99), products (601), prices, costs, quantities,
+purchasing staff, suppliers (26), brands (99), products (576), prices, costs, quantities,
 dates and lead times.
 
 **What is real (for realism only):** US city and state names, and a generic product category

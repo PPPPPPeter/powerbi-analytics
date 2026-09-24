@@ -23,11 +23,11 @@
                       "Entity": "DimCustomerAll"
                     }
                   },
-                  "Property": "客户名称"
+                  "Property": "Customer Name"
                 }
               },
-              "queryRef": "DimCustomerAll.客户名称",
-              "nativeQueryRef": "客户名称1"
+              "queryRef": "DimCustomerAll.Customer Name",
+              "nativeQueryRef": "Customer Name1"
             },
             {
               "field": {
@@ -37,11 +37,11 @@
                       "Entity": "DimCustomerAll"
                     }
                   },
-                  "Property": "销售人员"
+                  "Property": "Salesperson"
                 }
               },
-              "queryRef": "DimCustomerAll.销售人员",
-              "nativeQueryRef": "销售人员"
+              "queryRef": "DimCustomerAll.Salesperson",
+              "nativeQueryRef": "Salesperson"
             },
             {
               "field": {
@@ -51,12 +51,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "分公司订单数"
+                  "Property": "Branch Order Count"
                 }
               },
-              "queryRef": "FactBranchCost.分公司订单数",
-              "nativeQueryRef": "订单数",
-              "displayName": "订单数"
+              "queryRef": "FactBranchCost.Branch Order Count",
+              "nativeQueryRef": "Order Count",
+              "displayName": "Order Count"
             },
             {
               "field": {
@@ -66,12 +66,12 @@
                       "Entity": "DimCustomerAll"
                     }
                   },
-                  "Property": "分公司客户上次下单日期"
+                  "Property": "Branch Customer Last Order Date"
                 }
               },
-              "queryRef": "DimCustomerAll.分公司客户上次下单日期",
-              "nativeQueryRef": "上次下单日期",
-              "displayName": "上次下单日期"
+              "queryRef": "DimCustomerAll.Branch Customer Last Order Date",
+              "nativeQueryRef": "Last Order Date",
+              "displayName": "Last Order Date"
             },
             {
               "field": {
@@ -81,11 +81,11 @@
                       "Entity": "DimCustomerAll"
                     }
                   },
-                  "Property": "距离上次下单天数"
+                  "Property": "Days Since Last Order"
                 }
               },
-              "queryRef": "DimCustomerAll.距离上次下单天数",
-              "nativeQueryRef": "距离上次下单天数"
+              "queryRef": "DimCustomerAll.Days Since Last Order",
+              "nativeQueryRef": "Days Since Last Order"
             },
             {
               "field": {
@@ -95,12 +95,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "分公司销售额（不含运费和服务费）"
+                  "Property": "Branch Sales (Excl Freight and Service Fees)"
                 }
               },
-              "queryRef": "FactBranchCost.分公司销售额",
-              "nativeQueryRef": "销售额",
-              "displayName": "销售额"
+              "queryRef": "FactBranchCost.Branch Sales",
+              "nativeQueryRef": "Sales",
+              "displayName": "Sales"
             },
             {
               "field": {
@@ -110,12 +110,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "分公司销售同比"
+                  "Property": "Branch Sales YoY"
                 }
               },
-              "queryRef": "FactBranchCost.分公司销售同比",
-              "nativeQueryRef": "销售同比",
-              "displayName": "销售同比",
+              "queryRef": "FactBranchCost.Branch Sales YoY",
+              "nativeQueryRef": "Sales YoY",
+              "displayName": "Sales YoY",
               "format": "0.00%;-0.00%;0.00%"
             },
             {
@@ -126,12 +126,12 @@
                       "Entity": "DimCreator"
                     }
                   },
-                  "Property": "分公司月环比 average per 年月"
+                  "Property": "Branch MoM average per Year Month"
                 }
               },
-              "queryRef": "DimCreator.分公司月环比 average per 年月",
-              "nativeQueryRef": "销售额平均月环比",
-              "displayName": "销售额平均月环比",
+              "queryRef": "DimCreator.Branch MoM average per Year Month",
+              "nativeQueryRef": "Sales Avg Monthly MoM",
+              "displayName": "Sales Avg Monthly MoM",
               "format": "0.00%;-0.00%;0.00%"
             }
           ]
@@ -147,7 +147,7 @@
                     "Entity": "FactBranchCost"
                   }
                 },
-                "Property": "分公司销售额（不含运费和服务费）"
+                "Property": "Branch Sales (Excl Freight and Service Fees)"
               }
             },
             "direction": "Descending"
@@ -207,7 +207,7 @@
                                       "Entity": "FactBranchCost"
                                     }
                                   },
-                                  "Property": "分公司销售同比"
+                                  "Property": "Branch Sales YoY"
                                 }
                               },
                               "Right": {
@@ -238,7 +238,7 @@
                 }
               }
             ],
-            "metadata": "FactBranchCost.分公司销售同比"
+            "metadata": "FactBranchCost.Branch Sales YoY"
           }
         },
         {
@@ -260,7 +260,7 @@
                                       "Entity": "DimCreator"
                                     }
                                   },
-                                  "Property": "分公司月环比 average per 年月"
+                                  "Property": "Branch MoM average per Year Month"
                                 }
                               },
                               "Right": {
@@ -291,7 +291,7 @@
                 }
               }
             ],
-            "metadata": "DimCreator.分公司月环比 average per 年月"
+            "metadata": "DimCreator.Branch MoM average per Year Month"
           }
         }
       ],
@@ -352,7 +352,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.分公司销售额"
+            "metadata": "FactBranchCost.Branch Sales"
           }
         },
         {
@@ -366,7 +366,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.分公司订单数"
+            "metadata": "FactBranchCost.Branch Order Count"
           }
         },
         {
@@ -380,7 +380,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomerAll.分公司客户上次下单日期"
+            "metadata": "DimCustomerAll.Branch Customer Last Order Date"
           }
         },
         {
@@ -394,7 +394,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.分公司销售同比"
+            "metadata": "FactBranchCost.Branch Sales YoY"
           }
         },
         {
@@ -408,7 +408,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomerAll.销售人员"
+            "metadata": "DimCustomerAll.Salesperson"
           }
         },
         {
@@ -422,7 +422,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomerAll.客户名称"
+            "metadata": "DimCustomerAll.Customer Name"
           }
         }
       ]
@@ -434,7 +434,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'客户数据'"
+                  "Value": "'Customer Data'"
                 }
               }
             },
@@ -501,7 +501,7 @@
                 "Entity": "DimCustomerAll"
               }
             },
-            "Property": "客户名称"
+            "Property": "Customer Name"
           }
         },
         "type": "Categorical"
@@ -516,7 +516,7 @@
                 "Entity": "DimCustomerAll"
               }
             },
-            "Property": "销售人员"
+            "Property": "Salesperson"
           }
         },
         "type": "Categorical"
@@ -531,7 +531,7 @@
                 "Entity": "FactBranchCost"
               }
             },
-            "Property": "分公司订单数"
+            "Property": "Branch Order Count"
           }
         },
         "type": "Advanced"
@@ -546,7 +546,7 @@
                 "Entity": "FactBranchCost"
               }
             },
-            "Property": "分公司销售额（不含运费和服务费）"
+            "Property": "Branch Sales (Excl Freight and Service Fees)"
           }
         },
         "type": "Advanced"
@@ -561,7 +561,7 @@
                 "Entity": "FactBranchCost"
               }
             },
-            "Property": "分公司月环比"
+            "Property": "Branch MoM"
           }
         },
         "type": "Advanced",
@@ -577,7 +577,7 @@
                 "Entity": "FactBranchCost"
               }
             },
-            "Property": "分公司销售同比"
+            "Property": "Branch Sales YoY"
           }
         },
         "type": "Advanced"

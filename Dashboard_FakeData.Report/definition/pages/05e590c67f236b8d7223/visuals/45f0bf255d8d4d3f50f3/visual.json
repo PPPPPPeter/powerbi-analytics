@@ -23,11 +23,11 @@
                       "Entity": "DimCustomerAll"
                     }
                   },
-                  "Property": "客户名称"
+                  "Property": "Customer Name"
                 }
               },
-              "queryRef": "DimCustomerAll.客户名称",
-              "nativeQueryRef": "客户名称"
+              "queryRef": "DimCustomerAll.Customer Name",
+              "nativeQueryRef": "Customer Name"
             },
             {
               "field": {
@@ -37,12 +37,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "分公司销售额（不含运费和服务费）"
+                  "Property": "Branch Sales (Excl Freight and Service Fees)"
                 }
               },
-              "queryRef": "FactBranchCost.分公司销售额",
-              "nativeQueryRef": "销售额",
-              "displayName": "销售额"
+              "queryRef": "FactBranchCost.Branch Sales",
+              "nativeQueryRef": "Sales",
+              "displayName": "Sales"
             }
           ]
         }
@@ -57,7 +57,7 @@
                     "Entity": "FactBranchCost"
                   }
                 },
-                "Property": "分公司销售额（不含运费和服务费）"
+                "Property": "Branch Sales (Excl Freight and Service Fees)"
               }
             },
             "direction": "Descending"
@@ -118,7 +118,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.分公司销售额"
+            "metadata": "FactBranchCost.Branch Sales"
           }
         },
         {
@@ -132,7 +132,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomerAll.客户名称"
+            "metadata": "DimCustomerAll.Customer Name"
           }
         }
       ],
@@ -162,7 +162,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'已铺货客户'"
+                  "Value": "'Distributed Customers'"
                 }
               }
             },
@@ -228,7 +228,7 @@
                 "Entity": "_Measures"
               }
             },
-            "Property": "品牌客户_已铺货客户标记"
+            "Property": "Brand Customer_Distributed Customer Flag"
           }
         },
         "type": "Advanced",
@@ -253,7 +253,7 @@
                           "Source": "_"
                         }
                       },
-                      "Property": "品牌客户_已铺货客户标记"
+                      "Property": "Brand Customer_Distributed Customer Flag"
                     }
                   },
                   "Right": {

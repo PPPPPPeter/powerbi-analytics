@@ -23,11 +23,11 @@
                       "Entity": "DimDate"
                     }
                   },
-                  "Property": "年月"
+                  "Property": "Year Month"
                 }
               },
-              "queryRef": "DimDate.年月",
-              "nativeQueryRef": "年月",
+              "queryRef": "DimDate.Year Month",
+              "nativeQueryRef": "Year Month",
               "active": true
             }
           ]
@@ -42,11 +42,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "订单创建人销售额"
+                  "Property": "Order Creator Sales"
                 }
               },
-              "queryRef": "_Measures.订单创建人销售额",
-              "nativeQueryRef": "订单创建人销售额"
+              "queryRef": "_Measures.Order Creator Sales",
+              "nativeQueryRef": "Order Creator Sales"
             }
           ]
         },
@@ -60,11 +60,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "月环比"
+                  "Property": "MoM"
                 }
               },
-              "queryRef": "_Measures.月环比",
-              "nativeQueryRef": "月环比",
+              "queryRef": "_Measures.MoM",
+              "nativeQueryRef": "MoM",
               "format": "0.00%;-0.00%;0.00%"
             }
           ]
@@ -135,7 +135,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.订单创建人销售额"
+            "metadata": "_Measures.Order Creator Sales"
           }
         },
         {
@@ -149,7 +149,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.月环比"
+            "metadata": "_Measures.MoM"
           }
         },
         {
@@ -171,7 +171,7 @@
                                       "Entity": "_Measures"
                                     }
                                   },
-                                  "Property": "月环比"
+                                  "Property": "MoM"
                                 }
                               },
                               "Right": {
@@ -198,7 +198,7 @@
                                       "Entity": "_Measures"
                                     }
                                   },
-                                  "Property": "月环比"
+                                  "Property": "MoM"
                                 }
                               },
                               "Right": {
@@ -229,7 +229,7 @@
                 }
               }
             ],
-            "metadata": "_Measures.月环比"
+            "metadata": "_Measures.MoM"
           }
         }
       ]
@@ -267,7 +267,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'订单创建人销售额趋势'"
+                  "Value": "'Order Creator Sales Trend'"
                 }
               }
             },
@@ -320,7 +320,7 @@
                 "Entity": "DimDate"
               }
             },
-            "Property": "年月"
+            "Property": "Year Month"
           }
         },
         "type": "Categorical",
@@ -345,7 +345,7 @@
                             "Source": "d"
                           }
                         },
-                        "Property": "年月"
+                        "Property": "Year Month"
                       }
                     }
                   ],

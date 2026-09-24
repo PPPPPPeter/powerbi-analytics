@@ -9,43 +9,43 @@ table ProductCatalog
 
 		annotation SummarizationSetBy = Automatic
 
-	column 产品名称
+	column 'Product Name'
 		lineageTag: d484106a-2c7c-4bf6-9924-9d6b98dea071
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [产品名称]
+		sourceColumn: [Product Name]
 
 		annotation SummarizationSetBy = Automatic
 
-	column 品牌
+	column Brand
 		lineageTag: 639d4f24-ffde-483e-90ac-7d819551a226
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [品牌]
+		sourceColumn: [Brand]
 
 		annotation SummarizationSetBy = Automatic
 
-	column 产品大类
+	column 'Product Group'
 		lineageTag: 27a47e74-0195-4f75-a16f-044d2318ee0d
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [产品大类]
+		sourceColumn: [Product Group]
 
 		annotation SummarizationSetBy = Automatic
 
-	column 产品类别
+	column 'Product Category'
 		lineageTag: 9d3a4d10-dbf0-4f1d-bc84-e9da235e0372
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [产品类别]
+		sourceColumn: [Product Category]
 
 		annotation SummarizationSetBy = Automatic
 
-	column 计量单位
+	column 'Unit of Measure'
 		lineageTag: 403a8927-9602-410b-b226-1a1ce7a47049
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [计量单位]
+		sourceColumn: [Unit of Measure]
 
 		annotation SummarizationSetBy = Automatic
 
@@ -57,11 +57,11 @@ table ProductCatalog
 				    SELECTCOLUMNS(
 				        DimProductAll,
 				        "SKU", DimProductAll[SKU],
-				        "产品名称", DimProductAll[产品名称],
-				        "品牌", DimProductAll[品牌],
-				        "产品大类", DimProductAll[产品大类],
-				        "产品类别", DimProductAll[产品类别],
-				        "计量单位", DimProductAll[计量单位]
+				        "Product Name", DimProductAll[Product Name],
+				        "Brand", DimProductAll[Brand],
+				        "Product Group", DimProductAll[Product Group],
+				        "Product Category", DimProductAll[Product Category],
+				        "Unit of Measure", DimProductAll[Unit of Measure]
 				    )
 				)
 

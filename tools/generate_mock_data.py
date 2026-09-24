@@ -75,26 +75,22 @@ STREETS = ["MAIN ST", "BROADWAY", "OAK AVE", "PARK AVE", "ELM ST", "CENTER ST", 
            "RIVER RD", "HILLSIDE AVE", "MARKET ST", "UNION TPKE", "SUNSET BLVD", "LAKE ST", "HIGHLAND AVE",
            "COMMERCE DR", "INDUSTRIAL WAY", "ROUTE 1", "GARDEN ST", "MAPLE AVE"]
 
-SYL = [("金", "Jin"), ("福", "Fu"), ("源", "Yuan"), ("禾", "He"), ("山", "Shan"), ("岭", "Ling"), ("青", "Qing"),
-       ("丰", "Feng"), ("嘉", "Jia"), ("乐", "Le"), ("晨", "Chen"), ("星", "Xing"), ("悦", "Yue"), ("味", "Wei"),
-       ("鲜", "Xian"), ("香", "Xiang"), ("田", "Tian"), ("湾", "Wan"), ("川", "Chuan"), ("松", "Song"), ("竹", "Zhu"),
-       ("梅", "Mei"), ("兰", "Lan"), ("安", "An"), ("宝", "Bao"), ("顺", "Shun"), ("瑞", "Rui"), ("润", "Run"),
-       ("谷", "Gu"), ("园", "Yuan"), ("喜", "Xi"), ("友", "You"), ("亮", "Liang"), ("辰", "Chen"), ("溪", "Xi"),
-       ("峰", "Feng"), ("云", "Yun"), ("鹿", "Lu"), ("桥", "Qiao"), ("舟", "Zhou"), ("橙", "Cheng"), ("麦", "Mai")]
-FLAVORS = [("原味", "Original"), ("香辣", "Spicy"), ("麻辣", "Mala"), ("芒果", "Mango"), ("草莓", "Strawberry"),
-           ("蜜桃", "Peach"), ("荔枝", "Lychee"), ("葡萄", "Grape"), ("柠檬", "Lemon"), ("抹茶", "Matcha"),
-           ("牛奶", "Milk"), ("椰子", "Coconut"), ("蜂蜜", "Honey"), ("海盐", "Sea Salt"), ("烧烤", "BBQ"),
-           ("番茄", "Tomato"), ("酸菜", "Pickled Vegetable"), ("牛肉", "Beef"), ("鸡肉", "Chicken"), ("海鲜", "Seafood"),
-           ("蒜香", "Garlic"), ("五香", "Five Spice"), ("红枣", "Jujube"), ("绿茶", "Green Tea"), ("乌龙", "Oolong"),
-           ("桂花", "Osmanthus"), ("菠萝", "Pineapple"), ("哈密瓜", "Melon"), ("香草", "Vanilla"),
-           ("巧克力", "Chocolate"), ("红豆", "Red Bean"), ("玉米", "Corn"), ("芋头", "Taro"), ("黑糖", "Brown Sugar")]
-CAT_NOUN = {"饮料": "Drink", "糖果零食": "Snack", "面条类干货": "Noodles", "调味品": "Seasoning",
-            "冷冻和冷藏食品": "Frozen Food", "美容 & 健康 & 居家": "Care", "粮食作物": "Grain",
-            "蔬菜类干货": "Dried Vegetables", "蜂蜜果酱": "Spread", "面粉&淀粉类": "Flour", "罐头干货": "Canned Food",
-            "食用油": "Oil", "冲泡类": "Instant Drink", "汤&即食餐": "Instant Meal", "蛋": "Eggs"}
-PRICE_RANGE = {"饮料": (12, 32), "糖果零食": (18, 48), "面条类干货": (16, 42), "调味品": (14, 60),
-               "冷冻和冷藏食品": (38, 72), "美容 & 健康 & 居家": (3, 26), "粮食作物": (15, 60),
-               "蔬菜类干货": (25, 120)}
+SYL = [("Jin", "Jin"), ("Fu", "Fu"), ("Yuan", "Yuan"), ("He", "He"), ("Shan", "Shan"), ("Ling", "Ling"), ("Qing", "Qing"),
+       ("Feng", "Feng"), ("Jia", "Jia"), ("Le", "Le"), ("Chen", "Chen"), ("Xing", "Xing"), ("Yue", "Yue"), ("Wei", "Wei"),
+       ("Xian", "Xian"), ("Xiang", "Xiang"), ("Tian", "Tian"), ("Wan", "Wan"), ("Chuan", "Chuan"), ("Song", "Song"), ("Zhu", "Zhu"),
+       ("Mei", "Mei"), ("Lan", "Lan"), ("An", "An"), ("Bao", "Bao"), ("Shun", "Shun"), ("Rui", "Rui"), ("Run", "Run"),
+       ("Gu", "Gu"), ("Yuan", "Yuan"), ("Xi", "Xi"), ("You", "You"), ("Liang", "Liang"), ("Chen", "Chen"), ("Xi", "Xi"),
+       ("Feng", "Feng"), ("Yun", "Yun"), ("Lu", "Lu"), ("Qiao", "Qiao"), ("Zhou", "Zhou"), ("Cheng", "Cheng"), ("Mai", "Mai")]
+FLAVORS = [("Original", "Original"), ("Spicy", "Spicy"), ("Mala", "Mala"), ("Mango", "Mango"), ("Strawberry", "Strawberry"),
+           ("Peach", "Peach"), ("Lychee", "Lychee"), ("Grape", "Grape"), ("Lemon", "Lemon"), ("Matcha", "Matcha"),
+           ("Milk", "Milk"), ("Coconut", "Coconut"), ("Honey", "Honey"), ("Sea Salt", "Sea Salt"), ("BBQ", "BBQ"),
+           ("Tomato", "Tomato"), ("Pickled Vegetable", "Pickled Vegetable"), ("Beef", "Beef"), ("Chicken", "Chicken"), ("Seafood", "Seafood"),
+           ("Garlic Flavor", "Garlic"), ("Five Spice", "Five Spice"), ("Red Jujube", "Jujube"), ("Green Tea", "Green Tea"), ("Oolong", "Oolong"),
+           ("Osmanthus", "Osmanthus"), ("Pineapple", "Pineapple"), ("Hami Melon", "Melon"), ("Vanilla", "Vanilla"),
+           ("Chocolate", "Chocolate"), ("Red Bean", "Red Bean"), ("Corn", "Corn"), ("Taro", "Taro"), ("Black Sugar", "Brown Sugar")]
+PRICE_RANGE = {"Beverages": (12, 32), "Candy & Snacks": (18, 48), "Dry Noodles": (16, 42), "Seasonings": (14, 60),
+               "Frozen & Chilled Foods": (38, 72), "Beauty & Health & Home": (3, 26), "Grains": (15, 60),
+               "Dried Vegetables": (25, 120)}
 # generated names that happen to match real-world brands
 AVOID_BRANDS = {"YOUJIA"}
 SUPPLIER_PLACES = ["Donghai", "Xinglin", "Baiyun", "Qinglan", "Hengshan", "Jiangbei", "Nanxi", "Yuhua", "Taoyuan",
@@ -145,7 +141,8 @@ def build_products():
             a, b = rng.sample(SYL, 2)
             cn, en = a[0] + b[0], (a[1] + b[1].lower())
         used_cn.add(cn)
-        br = dict(cn=cn, en=en.upper() if rng.random() < 0.4 else en, category=category)
+        en = en.upper() if rng.random() < 0.4 else en
+        br = dict(cn=en, en=en, category=category)
         brands.append(br)
         return br
 
@@ -161,42 +158,42 @@ def build_products():
             return f"{rng.choice([60, 100, 150, 200, 250, 400, 500])}ml"
         if unit == "Bag":
             return f"1bag*{rng.choice([5, 10, 20, 25, 50])}lb"
-        if cat == "饮料":
+        if cat == "Beverages":
             return f"{rng.choice([12, 15, 20, 24])}btls*{rng.choice([280, 330, 480, 500, 1500])}ml"
-        if sub == "冰淇淋":
+        if sub == "Ice Cream":
             return f"{rng.choice([8, 6, 24])}boxes*{rng.choice([3, 4])}bags*{rng.choice([72, 88, 90])}ml"
         return f"{rng.choice([6, 8, 10, 12, 20, 24, 30])}bags*{rng.choice([70, 100, 150, 200, 400, 500, 1000])}g"
 
     def make(br, sub_row, flavor, extra_cn=""):
         cat, sub, unit = sub_row["category"], sub_row["subcategory"], sub_row["unit"]
-        noun = "Frozen Dessert" if sub == "冰淇淋" else CAT_NOUN.get(cat, "Food")
-        name = f"{br['en']} {flavor[1]} {noun} | {br['cn']} {flavor[0]}{extra_cn}{sub} {pack(cat, unit, sub)}"
+        extra = f" {extra_cn}" if extra_cn else ""
+        name = f"{br['en']} {flavor[1]}{extra} {sub} {pack(cat, unit, sub)}"
         lo, hi = PRICE_RANGE.get(cat, (15, 55))
         price = round(rng.uniform(lo, hi) * 2) / 2
         cost = round(price * rng.uniform(0.66, 0.9), 3)
         products.append(dict(ref=code(sub_row["prefix"]), name=name, brand=br, cat=cat, sub=sub, unit=unit,
                              shelf=sub_row["shelf_life"], price=price, cost=cost,
-                             pop=rng.paretovariate(1.3), ice=(sub == "冰淇淋")))
+                             pop=rng.paretovariate(1.3), ice=(sub == "Ice Cream")))
 
     subs = {r["subcategory"]: r for r in TAX["categories"]}
-    # stand-in brand for the single-brand report page (brand filter "清泉", product-name exclusion "茉莉")
-    qq = new_brand("饮料", "清泉", "QINGQUAN")
-    for i, (sub, fl) in enumerate([(s, f) for s in ("即饮茶", "植物饮料") for f in FLAVORS[5:12]]):
-        make(qq, subs[sub], fl, "茉莉" if i in (1, 8) else "")
+    # stand-in brand for the single-brand report page (brand filter "QINGQUAN", product-name exclusion "Jasmine")
+    qq = new_brand("Beverages", "QINGQUAN", "QINGQUAN")
+    for i, (sub, fl) in enumerate([(s, f) for s in ("Ready-to-Drink Tea", "Plant-Based Drinks") for f in FLAVORS[5:12]]):
+        make(qq, subs[sub], fl, "Jasmine" if i in (1, 8) else "")
     for p in products:
         p["pop"] *= 3
     # ice cream brands
     for _ in range(3):
-        br = new_brand("冷冻和冷藏食品")
+        br = new_brand("Frozen & Chilled Foods")
         for fl in rng.sample(FLAVORS[3:12] + FLAVORS[25:34], rng.randint(8, 12)):
-            make(br, subs["冰淇淋"], fl)
+            make(br, subs["Ice Cream"], fl)
     for p in products:
         if p["ice"]:
             p["pop"] *= 4
     # everything else
     by_cat = defaultdict(list)
     for r in TAX["categories"]:
-        if r["subcategory"] != "冰淇淋":
+        if r["subcategory"] != "Ice Cream":
             by_cat[r["category"]].append(r)
     cat_weight = {c: sum(r["weight"] for r in rs) for c, rs in by_cat.items()}
     for _ in range(95):
@@ -210,11 +207,11 @@ def build_products():
 
 
 FEES = [
-    dict(ref="Sales Discount", name="折扣"),
+    dict(ref="Sales Discount", name="Discount"),
     dict(ref="C-1", name="C-1"),
-    dict(ref="SHH", name="运费 Shipping & Handling"),
+    dict(ref="SHH", name="Freight Shipping & Handling"),
     dict(ref="Service Fee", name="Service Fee"),
-    dict(ref="RDC", name="RDC至收货点运费"),
+    dict(ref="RDC", name="RDC to Delivery Point Freight"),
 ]
 
 
@@ -257,7 +254,7 @@ def build_people_and_customers(products):
                 customers.append(new_customer(co, nm, "Wholesaler", rng.choice(nj), reps, seq))
                 seq += 1
     for c in customers:
-        pool = [p for p in products if not (c["type"] == "Pharmacy" and p["cat"] != "美容 & 健康 & 居家")]
+        pool = [p for p in products if not (c["type"] == "Pharmacy" and p["cat"] != "Beauty & Health & Home")]
         size = {"Wholesaler": 140, "Supermarket/Grocery": 110, "E-Commerce": 70}.get(c["type"], 45)
         size = max(8, int(size * rng.uniform(0.4, 1.4)))
         chosen = set()
@@ -302,7 +299,7 @@ def season(p, d):
     m = d.month
     if p["ice"]:
         return [0.25, 0.3, 0.55, 0.9, 1.6, 2.2, 2.4, 2.2, 1.3, 0.7, 0.35, 0.3][m - 1]
-    if p["cat"] == "饮料":
+    if p["cat"] == "Beverages":
         return [0.7, 0.75, 0.9, 1.0, 1.15, 1.3, 1.35, 1.3, 1.05, 0.9, 0.8, 0.85][m - 1]
     return [1.1, 1.25, 0.95, 0.95, 1.0, 0.95, 0.95, 1.0, 1.0, 1.05, 1.1, 1.2][m - 1]
 
@@ -416,11 +413,11 @@ def write_branch_sales(lines, path):
 
 
 def write_sales_all(lines, path):
-    header = ["数量", "发票/账单日期", "产品/内部参考号", "产品/名称", "产品/CN 品牌", "产品/产品类别/中文名称",
-              "产品/产品类别/上级名称", "产品/计量单位", "产品/基准成本", "合作伙伴", "合作伙伴/参考", "合作伙伴/销售员",
-              "合作伙伴/客户类型", "合作伙伴/完整地址", "合作伙伴/城市", "合作伙伴/省/州", "销售订单行/订单参考号",
-              "销售订单行/客户", "销售订单行/销售人员", "销售订单行/创建人", "销售订单行/仓库", "数量", "单价",
-              "折扣后单价", "小计", "Type", "公司", "会计科目/类型"]
+    header = ["Quantity", "Invoice/Bill Date", "Product/Internal Reference", "Product/Name", "Product/CN Brand", "Product/Product Category/Category Name",
+              "Product/Product Category/Parent Name", "Product/Unit of Measure", "Product/Base Cost", "Partner", "Partner/Reference", "Partner/Sales Rep",
+              "Partner/Customer Type", "Partner/Full Address", "Partner/City", "Partner/Province/State", "Sales Order Line/Order Reference No",
+              "Sales Order Line/Customer", "Sales Order Line/Salesperson", "Sales Order Line/Created By", "Sales Order Line/Warehouse", "Quantity", "Unit Price",
+              "Discounted Unit Price", "Subtotal", "Type", "Company", "Account/Type"]
     with open(path, "w", encoding="utf-8-sig", newline="") as f:
         w = csv.writer(f, lineterminator="\r\n", quoting=csv.QUOTE_ALL)
         w.writerow(header)
@@ -439,7 +436,7 @@ def write_sales_all(lines, path):
                 p["unit"] if product else "Units", fmt_float(p["cost"]) if product else "0.0",
                 c["name"], c["no"], c["partner_rep"], c["type"], c["address"], c["city"], c["state"],
                 l["so"], c["name"], c["rep"], l["creator"], l["wh"],
-                fmt_float(qty), fmt_float(price), fmt_float(price), sub, ttype, c["company"], "收入",
+                fmt_float(qty), fmt_float(price), fmt_float(price), sub, ttype, c["company"], "Revenue",
             ])
 
 
@@ -486,9 +483,9 @@ def write_lots(lots, transit, path):
     for l in lots:
         avail[l["co"], l["p"]["ref"]] += l["qty"]
     pallet = {}
-    header = ["批次/序列号码", "内部参考号", "产品/内部参考号", "产品/名称", "产品/产品类别/上级名称", "产品/产品类别/中文名称",
-              "产品/CN 品牌", "显示名称", "在手数量", "有效期", "产品/批次可用", "产品/预测数量", "产品/打板",
-              "产品/计量单位", "产品/基准成本", "活动", "产品/有效期", "产品/销售价格", "公司"]
+    header = ["Lot/Serial Number", "Internal Reference", "Product/Internal Reference", "Product/Name", "Product/Product Category/Parent Name", "Product/Product Category/Category Name",
+              "Product/CN Brand", "Display Name", "On Hand Qty", "Expiry Date", "Product/Lot Available", "Product/Forecast Qty", "Product/Pallet",
+              "Product/Unit of Measure", "Product/Base Cost", "Activity", "Product/Expiry Date", "Product/Sales Price", "Company"]
     with open(path, "w", encoding="utf-8-sig", newline="") as f:
         w = csv.writer(f, lineterminator="\r\n", quoting=csv.QUOTE_ALL)
         w.writerow(header)
@@ -502,7 +499,7 @@ def write_lots(lots, transit, path):
                 l["lot"], "", p["ref"], p["name"], p["cat"], p["sub"], p["brand"]["cn"],
                 f"{l['exp'].strftime('%m-%d-%Y')}/0.0", fmt_float(l["qty"]), l["exp"].isoformat(),
                 fmt_float(avail[key]), fmt_float(avail[key] + transit.get(key, 0)), pallet[p["ref"]], p["unit"],
-                fmt_float(p["cost"]), "已到警报日期" if l["exp"] <= AS_OF + timedelta(days=60) and l["qty"] > 0 else "",
+                fmt_float(p["cost"]), "Alert Date Reached" if l["exp"] <= AS_OF + timedelta(days=60) and l["qty"] > 0 else "",
                 str(p["shelf"]), fmt_float(999.0 if rng.random() < 0.03 else p["price"]), l["co"],
             ])
 
@@ -510,8 +507,8 @@ def write_lots(lots, transit, path):
 def write_branch_inventory(lots, path):
     wb = Workbook()
     ws = wb.active
-    ws.title = "库存明细"
-    ws.append(["位置/仓库", "Brand", "产品/名称", "Ref Num", "批次/序列号码/有效期", "year_month", "数量1"])
+    ws.title = "Inventory Detail"
+    ws.append(["Location/Warehouse", "Brand", "Product/Name", "Ref Num", "Lot/Serial Number/Expiry Date", "year_month", "Quantity1"])
     agg = defaultdict(int)
     for l in lots:
         if l["qty"] > 0:
@@ -601,13 +598,13 @@ def build_purchasing(brands, products, demand, buyers):
 def write_po(po_lines, supplements, po_path, sup_path):
     with open(po_path, "w", encoding="utf-8-sig", newline="") as f:
         w = csv.writer(f, lineterminator="\r\n", quoting=csv.QUOTE_ALL)
-        w.writerow(["订单行/订单关联", "订单行/产品", "订单行/单价", "订单行/数量", "订单行/已接收数量", "订单行/小计",
-                    "订单行/确认日期", "订单行/预计到货时间", "订单行/合作伙伴", "订单行/公司", "订单行/创建人",
-                    "订单行/状态", "订单行/订单关联/实际发货日期"])
+        w.writerow(["Order Line/Order Reference", "Order Line/Product", "Order Line/Unit Price", "Order Line/Quantity", "Order Line/Received Qty", "Order Line/Subtotal",
+                    "Order Line/Confirmed Date", "Order Line/Expected Arrival Time", "Order Line/Partner", "Order Line/Company", "Order Line/Created By",
+                    "Order Line/Status", "Order Line/Order Reference/Actual Ship Date"])
         w.writerows(po_lines)
     with open(sup_path, "w", encoding="utf-8-sig", newline="") as f:
         w = csv.writer(f, lineterminator="\r\n", quoting=csv.QUOTE_ALL)
-        w.writerow(["ID", "订单关联", "创建日期", "实际发货日期", "到达"])
+        w.writerow(["ID", "Order Reference", "Created Date", "Actual Ship Date", "Arrival"])
         for s in supplements:
             w.writerow([s["id"], s["ref"], s["created"].strftime("%Y-%m-%d %H:%M:%S"),
                         s["shipped"].isoformat() if s["shipped"] else "",
@@ -624,8 +621,8 @@ def write_targets(lines, reps, path):
             monthly[l["creator"], l["date"].month] += sign * l["qty"] * l["price"]
     wb = Workbook()
     ws = wb.active
-    ws.title = "KPI按月"
-    ws.append(["月份日期", "YearMonth", "年份", "月份", "销售人员", "KPI目标", "公司"])
+    ws.title = "KPI by Month"
+    ws.append(["Month Date", "YearMonth", "Year", "Month", "Salesperson", "KPI Target", "Company"])
     raw = []
     people = [r for r in reps[nj] if r != "MAINSTREAM"]
     for r in people:
@@ -637,8 +634,8 @@ def write_targets(lines, reps, path):
             targets[m] = max(t, 10000)
             ws.append([datetime(2026, m, 1), f"2026-{m:02d}", 2026, m, r, targets[m], nj])
         raw.append([r, targets[8], targets[9]])
-    ws2 = wb.create_sheet("原始数据")
-    ws2.append(["Customer/Salesperson", "8月任务", "9月任务"])
+    ws2 = wb.create_sheet("Raw Data")
+    ws2.append(["Customer/Salesperson", "Aug Target", "Sep Target"])
     for row in raw:
         ws2.append(row)
     wb.save(path)
@@ -669,7 +666,7 @@ def main():
     write_targets(lines, reps, OUT / "sales_targets_monthly.xlsx")
     print(f"brands {len(brands)}, products {len(products)}, customers {len(customers)}, sales lines {len(lines)}, "
           f"lots {len(lots)}, PO lines {len(po_lines)}, POs {len(supplements)}")
-    print(f"suggested 冰淇淋总目标 = {ice_cream_target(lines)}")
+    print(f"suggested Ice Cream Total Target = {ice_cream_target(lines)}")
 
 
 if __name__ == "__main__":

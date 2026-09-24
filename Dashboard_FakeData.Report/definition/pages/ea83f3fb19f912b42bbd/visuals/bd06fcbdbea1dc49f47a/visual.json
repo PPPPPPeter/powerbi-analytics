@@ -23,11 +23,11 @@
                       "Entity": "DimCreator"
                     }
                   },
-                  "Property": "订单创建人"
+                  "Property": "Order Creator"
                 }
               },
-              "queryRef": "DimCreator.订单创建人",
-              "nativeQueryRef": "订单创建人1"
+              "queryRef": "DimCreator.Order Creator",
+              "nativeQueryRef": "Order Creator1"
             },
             {
               "field": {
@@ -37,11 +37,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "订单创建人销售额"
+                  "Property": "Order Creator Sales"
                 }
               },
-              "queryRef": "_Measures.订单创建人销售额",
-              "nativeQueryRef": "订单创建人销售额"
+              "queryRef": "_Measures.Order Creator Sales",
+              "nativeQueryRef": "Order Creator Sales"
             },
             {
               "field": {
@@ -51,12 +51,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "订单创建人销售占比"
+                  "Property": "Order Creator Sales Share"
                 }
               },
-              "queryRef": "_Measures.订单创建人销售占比",
-              "nativeQueryRef": "销售占比",
-              "displayName": "销售占比",
+              "queryRef": "_Measures.Order Creator Sales Share",
+              "nativeQueryRef": "Sales Share",
+              "displayName": "Sales Share",
               "format": "0.00%;-0.00%;0.00%"
             },
             {
@@ -69,15 +69,15 @@
                           "Entity": "FactSalesTarget"
                         }
                       },
-                      "Property": "KPI目标"
+                      "Property": "KPI Target"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(FactSalesTarget.KPI目标)",
-              "nativeQueryRef": "KPI目标",
-              "displayName": "KPI目标",
+              "queryRef": "Sum(FactSalesTarget.KPI Target)",
+              "nativeQueryRef": "KPI Target",
+              "displayName": "KPI Target",
               "format": "\\$#,0.###############;(\\$#,0.###############);\\$#,0.###############"
             },
             {
@@ -88,11 +88,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "订单创建人完成率"
+                  "Property": "Order Creator Completion Rate"
                 }
               },
-              "queryRef": "_Measures.订单创建人完成率",
-              "nativeQueryRef": "订单创建人完成率",
+              "queryRef": "_Measures.Order Creator Completion Rate",
+              "nativeQueryRef": "Order Creator Completion Rate",
               "format": "0.00%;-0.00%;0.00%"
             }
           ]
@@ -108,7 +108,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "订单创建人销售额"
+                "Property": "Order Creator Sales"
               }
             },
             "direction": "Descending"
@@ -161,7 +161,7 @@
                                       "Entity": "_Measures"
                                     }
                                   },
-                                  "Property": "订单创建人完成率"
+                                  "Property": "Order Creator Completion Rate"
                                 }
                               },
                               "Right": {
@@ -179,7 +179,7 @@
                                                       "Entity": "_Measures"
                                                     }
                                                   },
-                                                  "Property": "订单创建人完成率"
+                                                  "Property": "Order Creator Completion Rate"
                                                 }
                                               },
                                               "Scope": [
@@ -208,7 +208,7 @@
                                                       "Entity": "_Measures"
                                                     }
                                                   },
-                                                  "Property": "订单创建人完成率"
+                                                  "Property": "Order Creator Completion Rate"
                                                 }
                                               },
                                               "Scope": [
@@ -246,7 +246,7 @@
                                       "Entity": "_Measures"
                                     }
                                   },
-                                  "Property": "订单创建人完成率"
+                                  "Property": "Order Creator Completion Rate"
                                 }
                               },
                               "Right": {
@@ -273,7 +273,7 @@
                                       "Entity": "_Measures"
                                     }
                                   },
-                                  "Property": "订单创建人完成率"
+                                  "Property": "Order Creator Completion Rate"
                                 }
                               },
                               "Right": {
@@ -304,7 +304,7 @@
                 }
               }
             ],
-            "metadata": "_Measures.订单创建人完成率"
+            "metadata": "_Measures.Order Creator Completion Rate"
           }
         }
       ],
@@ -333,7 +333,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.订单创建人销售占比"
+            "metadata": "_Measures.Order Creator Sales Share"
           }
         },
         {
@@ -347,7 +347,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.订单创建人销售额"
+            "metadata": "_Measures.Order Creator Sales"
           }
         }
       ]

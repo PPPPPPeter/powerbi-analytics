@@ -25,15 +25,15 @@
                           "Entity": "FactSalesTarget"
                         }
                       },
-                      "Property": "KPI目标"
+                      "Property": "KPI Target"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(FactSalesTarget.KPI目标)",
-              "nativeQueryRef": "KPI目标",
-              "displayName": "KPI目标"
+              "queryRef": "Sum(FactSalesTarget.KPI Target)",
+              "nativeQueryRef": "KPI Target",
+              "displayName": "KPI Target"
             }
           ]
         },
@@ -47,11 +47,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "订单创建人销售额"
+                  "Property": "Order Creator Sales"
                 }
               },
-              "queryRef": "_Measures.订单创建人销售额",
-              "nativeQueryRef": "订单创建人销售额"
+              "queryRef": "_Measures.Order Creator Sales",
+              "nativeQueryRef": "Order Creator Sales"
             }
           ]
         }
@@ -66,7 +66,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "订单创建人销售额"
+                "Property": "Order Creator Sales"
               }
             },
             "direction": "Descending"
@@ -89,7 +89,7 @@
                           "Entity": "_Measures"
                         }
                       },
-                      "Property": "销售完成度Gauge颜色"
+                      "Property": "Sales Completion Gauge Color"
                     }
                   }
                 }
@@ -152,7 +152,7 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "非冰淇淋完成率标签"
+                  "Property": "Non-Ice Cream Completion Label"
                 }
               }
             },

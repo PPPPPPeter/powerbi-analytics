@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "客户详情",
+                    "value": "Customer Detail",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "Arial",
@@ -39,7 +39,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "截至2026-09-22",
+                    "value": "As of 2026-09-22",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "Arial",

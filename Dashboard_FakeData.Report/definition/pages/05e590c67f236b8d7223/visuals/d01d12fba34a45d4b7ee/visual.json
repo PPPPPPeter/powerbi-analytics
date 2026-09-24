@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "品牌客户_已铺货客户数"
+                  "Property": "Brand Customer_Distributed Customers"
                 }
               },
-              "queryRef": "_Measures.品牌客户_已铺货客户数",
-              "nativeQueryRef": "品牌客户_已铺货客户数"
+              "queryRef": "_Measures.Brand Customer_Distributed Customers",
+              "nativeQueryRef": "Brand Customer_Distributed Customers"
             },
             {
               "field": {
@@ -37,11 +37,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "品牌客户_未铺货客户数"
+                  "Property": "Brand Customer_Undistributed Customers"
                 }
               },
-              "queryRef": "_Measures.品牌客户_未铺货客户数",
-              "nativeQueryRef": "品牌客户_未铺货客户数"
+              "queryRef": "_Measures.Brand Customer_Undistributed Customers",
+              "nativeQueryRef": "Brand Customer_Undistributed Customers"
             }
           ]
         }
@@ -56,7 +56,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "品牌客户_已铺货客户数"
+                "Property": "Brand Customer_Distributed Customers"
               }
             },
             "direction": "Descending"

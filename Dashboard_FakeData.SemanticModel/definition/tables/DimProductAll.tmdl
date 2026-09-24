@@ -1,14 +1,14 @@
 table DimProductAll
 	lineageTag: a28afcbc-c3c5-4b90-af31-67223d06166b
 
-	measure 客户未铺货标记 =
+	measure 'Customer Undistributed Flag' =
 			
 			VAR CurrentSKU =
 			    SELECTEDVALUE ( FactBranchCost[Ref Num] )
 			
 			VAR IsCompanySKU =
 			    CALCULATE (
-			        [公司经营SKU标记],
+			        [Company SKU Flag],
 			        KEEPFILTERS (
 			            TREATAS (
 			                { CurrentSKU },
@@ -39,11 +39,11 @@ table DimProductAll
 		formatString: 0
 		lineageTag: 4e90d8ea-4116-403f-9d53-3da551208f87
 
-	measure 品牌未铺货客户数 =
+	measure 'Brand Undistributed Customer Count' =
 			
 			VAR CustomerList =
 			    CALCULATETABLE (
-			        VALUES ( DimCustomerAll[客户编号] ),
+			        VALUES ( DimCustomerAll[Customer ID] ),
 			        REMOVEFILTERS ( ProductCatalogAll ),
 			        REMOVEFILTERS ( ProductCatalog ),
 			        REMOVEFILTERS ( DimProductAll )
@@ -51,16 +51,16 @@ table DimProductAll
 			RETURN
 			SUMX (
 			    CustomerList,
-			    CALCULATE ( [品牌未铺货客户标记] )
+			    CALCULATE ( [Brand Undistributed Customer Flag] )
 			)
 		formatString: 0
 		lineageTag: ae41cac3-bbeb-43db-a199-a6d8a0f52676
 
-	measure 品牌已铺货客户数 =
+	measure 'Brand Distributed Customer Count' =
 			
 			VAR CustomerList =
 			    CALCULATETABLE (
-			        VALUES ( DimCustomerAll[客户编号] ),
+			        VALUES ( DimCustomerAll[Customer ID] ),
 			        REMOVEFILTERS ( ProductCatalogAll ),
 			        REMOVEFILTERS ( ProductCatalog ),
 			        REMOVEFILTERS ( DimProductAll )
@@ -68,40 +68,40 @@ table DimProductAll
 			RETURN
 			SUMX (
 			    CustomerList,
-			    CALCULATE ( [品牌已铺货客户标记] )
+			    CALCULATE ( [Brand Distributed Customer Flag] )
 			)
 		formatString: 0
 		lineageTag: ca0ad5b6-de51-4e73-af10-134f181c2e26
 
-	measure 品牌客户铺货率 =
+	measure 'Brand Customer Distribution Rate' =
 			
 			DIVIDE (
-			    [品牌已铺货客户数],
-			    [本期目标客户数]
+			    [Brand Distributed Customer Count],
+			    [Current Period Target Customers]
 			)
 		lineageTag: aac12488-be90-4b14-a64a-9b84de50c613
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 当前库存数量 =
+	measure 'Current Stock Qty' =
 			
 			CALCULATE (
-			    SUM ( FactInventoryLot[在手数量] ),
-			    FactInventoryLot[在手数量] > 0
+			    SUM ( FactInventoryLot[On Hand Qty] ),
+			    FactInventoryLot[On Hand Qty] > 0
 			)
 		formatString: 0
 		lineageTag: c4a9e965-3dcc-4e57-b0b5-fb168579de64
 
-	measure 在途采购数量 =
+	measure 'In Transit Purchase Qty' =
 			
 			COALESCE (
 			    CALCULATE (
-			        SUM ( FactPurchaseOrder[未接收数量] ),
+			        SUM ( FactPurchaseOrder[Unreceived Qty] ),
 			        KEEPFILTERS (
-			            FactPurchaseOrder[采购记录类型] = "正常采购"
+			            FactPurchaseOrder[Purchase Record Type] = "Normal Purchase"
 			        ),
 			        KEEPFILTERS (
-			            FactPurchaseOrder[未接收数量] > 0
+			            FactPurchaseOrder[Unreceived Qty] > 0
 			        )
 			    ),
 			    0
@@ -109,19 +109,19 @@ table DimProductAll
 		formatString: 0
 		lineageTag: dbfb88a5-8148-42b0-9f6e-3670e9787c9f
 
-	measure SKU库存分析显示标记 =
+	measure 'SKU Inventory Analysis Display Flag' =
 			
 			VAR InventoryQty =
-			    COALESCE ( [当前库存数量], 0 )
+			    COALESCE ( [Current Stock Qty], 0 )
 			
 			VAR Sales30Qty =
-			    COALESCE ( [近30天销售数量], 0 )
+			    COALESCE ( [Last 30 Days Sales Qty], 0 )
 			
 			VAR Sales90Qty =
-			    COALESCE ( [近90天销售数量], 0 )
+			    COALESCE ( [Last 90 Days Sales Qty], 0 )
 			
 			VAR TransitQty =
-			    COALESCE ( [在途采购数量], 0 )
+			    COALESCE ( [In Transit Purchase Qty], 0 )
 			
 			RETURN
 			    IF (
@@ -135,20 +135,20 @@ table DimProductAll
 		formatString: 0
 		lineageTag: a190edb2-b41e-4650-ac51-dc1b52f7b498
 
-	measure 近30天有效销售数量 =
+	measure 'Last 30 Days Net Sales Qty' =
 			
 			MAX (
-			    COALESCE ( [近30天销售数量], 0 ),
+			    COALESCE ( [Last 30 Days Sales Qty], 0 ),
 			    0
 			)
 		lineageTag: c4f8e02c-14f8-4591-a4a3-bd93220efac8
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 近30天日均销量 =
+	measure 'Last 30 Days Avg Daily Sales' =
 			
 			DIVIDE (
-			    [近30天有效销售数量],
+			    [Last 30 Days Net Sales Qty],
 			    30,
 			    0
 			)
@@ -156,37 +156,37 @@ table DimProductAll
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 在途采购数量NJ =
+	measure 'In Transit Purchase Qty NJ' =
 			
 			COALESCE (
-			    [在途采购数量],
+			    [In Transit Purchase Qty],
 			    0
 			)
 		lineageTag: 8a9e6966-1c9c-4c9f-9edd-221888307e0c
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure SKU补货提前期天数 =
+	measure 'SKU Reorder Lead Time Days' =
 			
 			ROUND (
-			    [SKU补货提前期],
+			    [SKU Reorder Lead Time],
 			    1
 			)
 		lineageTag: a84760bc-c7e3-43a1-a7f8-6525c9ef1891
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 近90天有效销售数量 =
+	measure 'Last 90 Days Net Sales Qty' =
 			
-			MAX ( COALESCE ( [近90天销售数量], 0 ), 0 )
+			MAX ( COALESCE ( [Last 90 Days Sales Qty], 0 ), 0 )
 		lineageTag: 547dc905-1025-40cc-982c-39ff293af458
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 近三个月日均销量 =
+	measure 'Last 3 Months Avg Daily Sales' =
 			
 			DIVIDE (
-			    [近三个月销量],
+			    [Last 3 Months Volume],
 			    90,
 			    0
 			)
@@ -194,155 +194,155 @@ table DimProductAll
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 补货日均销量 =
+	measure 'Reorder Daily Demand' =
 			
-			MAX ( [近30天日均销量], [近三个月日均销量] )
+			MAX ( [Last 30 Days Avg Daily Sales], [Last 3 Months Avg Daily Sales] )
 		lineageTag: 23a44b92-2fd5-4952-9ef6-6a1150a6ee6b
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 安全库存天数 = 7
+	measure 'Safety Stock Days' = 7
 		formatString: 0
 		lineageTag: b9356a0d-e5ef-4d2b-a40e-7c76990e8b48
 
-	measure 提前期需求量 =
+	measure 'Lead Time Demand' =
 			
-			[补货日均销量] * [SKU补货提前期天数]
+			[Reorder Daily Demand] * [SKU Reorder Lead Time Days]
 		lineageTag: f7cb4b57-ec54-4fc1-93b3-76fec3a66314
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 安全库存数量 =
+	measure 'Safety Stock Qty' =
 			
-			[补货日均销量] * [安全库存天数]
+			[Reorder Daily Demand] * [Safety Stock Days]
 		lineageTag: d72218af-d1bf-4e0f-a405-2ce935e9910a
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 再订货点 =
+	measure 'Reorder Point' =
 			
-			[提前期需求量] + [安全库存数量]
+			[Lead Time Demand] + [Safety Stock Qty]
 		lineageTag: 2f2eec0b-454e-40eb-aafc-0c8a84850731
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 库存位置 =
+	measure 'Stock Position' =
 			
-			COALESCE ( [当前库存数量], 0 )
-			    + [在途采购数量]
+			COALESCE ( [Current Stock Qty], 0 )
+			    + [In Transit Purchase Qty]
 		lineageTag: 2d4e1553-0d93-4fd6-8d02-b64077616578
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 当前库存可售天数 =
+	measure 'Current Stock Days of Cover' =
 			
 			VAR DailySales =
-			    [近三个月日均销量]
+			    [Last 3 Months Avg Daily Sales]
 			
 			RETURN
 			    IF (
 			        DailySales > 0,
-			        DIVIDE ( [当前库存数量], DailySales ),
+			        DIVIDE ( [Current Stock Qty], DailySales ),
 			        BLANK ()
 			    )
 		lineageTag: 288b9695-d919-4d1f-8366-1c1123ff8127
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 含在途库存覆盖天数 =
+	measure 'Stock Cover Days Incl In Transit' =
 			
 			IF (
-			    [补货日均销量] > 0,
-			    DIVIDE ( [库存位置], [补货日均销量] ),
+			    [Reorder Daily Demand] > 0,
+			    DIVIDE ( [Stock Position], [Reorder Daily Demand] ),
 			    0
 			)
 		lineageTag: 35a28646-c3ff-4f79-a228-5858c405b503
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 目标库存天数 = 45
+	measure 'Target Stock Days' = 45
 		formatString: 0
 		lineageTag: 01c2e2f9-d9a1-46db-aa69-b9f080e85431
 
-	measure 目标库存数量 =
+	measure 'Target Stock Qty' =
 			
-			[补货日均销量]
-			    * ( [SKU补货提前期天数] + [安全库存天数] + [目标库存天数] )
+			[Reorder Daily Demand]
+			    * ( [SKU Reorder Lead Time Days] + [Safety Stock Days] + [Target Stock Days] )
 		lineageTag: a3c52120-d0d3-4ff0-b695-aee8bdcd2b97
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 建议补货数量 =
+	measure 'Suggested Order Qty' =
 			
 			IF (
-			    [库存位置] <= [再订货点],
-			    ROUNDUP ( MAX ( [目标库存数量] - [库存位置], 0 ), 0 ),
+			    [Stock Position] <= [Reorder Point],
+			    ROUNDUP ( MAX ( [Target Stock Qty] - [Stock Position], 0 ), 0 ),
 			    0
 			)
 		lineageTag: 3bcd06d6-1372-42ef-bfd0-83d467d3ce81
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 预计断货日期 =
+	measure 'Projected Stockout Date' =
 			
-			VAR CoverDays = [当前库存可售天数]
+			VAR CoverDays = [Current Stock Days of Cover]
 			RETURN
 			    IF (
 			        NOT ISBLANK ( CoverDays ),
-			        [库存分析基准日] + ROUNDUP ( CoverDays, 0 )
+			        [Inventory As-of Date] + ROUNDUP ( CoverDays, 0 )
 			    )
 		formatString: Short Date
 		lineageTag: ead9e401-e720-4a9c-9ab5-a658b386a675
 
-	measure 补货状态 =
+	measure 'Reorder Status' =
 			
-			VAR DailySales = [补货日均销量]
-			VAR InventoryQty = COALESCE ( [当前库存数量], 0 )
-			VAR PositionQty = [库存位置]
-			VAR ReorderPointQty = [再订货点]
+			VAR DailySales = [Reorder Daily Demand]
+			VAR InventoryQty = COALESCE ( [Current Stock Qty], 0 )
+			VAR PositionQty = [Stock Position]
+			VAR ReorderPointQty = [Reorder Point]
 			RETURN
 			    SWITCH (
 			        TRUE (),
-			        DailySales <= 0 && InventoryQty > 0, "无销量库存",
-			        DailySales <= 0, "无销量",
-			        InventoryQty <= 0 && [在途采购数量] <= 0, "已断货",
-			        InventoryQty <= 0 && [在途采购数量] > 0, "断货待到货",
-			        PositionQty <= ReorderPointQty, "需要补货",
-			        "库存正常"
+			        DailySales <= 0 && InventoryQty > 0, "Stock Without Sales",
+			        DailySales <= 0, "No Sales",
+			        InventoryQty <= 0 && [In Transit Purchase Qty] <= 0, "Out of Stock",
+			        InventoryQty <= 0 && [In Transit Purchase Qty] > 0, "Out of Stock - Order In Transit",
+			        PositionQty <= ReorderPointQty, "Reorder Needed",
+			        "Stock Normal"
 			    )
 		lineageTag: 47bd8108-ba9c-4a47-9c8f-a31628ac82c5
 
-	measure 积压判断天数 = 90
+	measure 'Overstock Threshold Days' = 90
 		formatString: 0
 		lineageTag: 8d1493c9-81d0-4878-942f-aedc48e66f0d
 
-	measure 积压库存数量 =
+	measure 'Overstock Qty' =
 			
 			VAR InventoryQty =
-			    COALESCE ( [当前库存数量], 0 )
+			    COALESCE ( [Current Stock Qty], 0 )
 			
 			VAR AllowedQty =
-			    [补货日均销量] * [积压判断天数]
+			    [Reorder Daily Demand] * [Overstock Threshold Days]
 			
 			RETURN
 			    SWITCH (
 			        TRUE (),
 			        InventoryQty <= 0, 0,
-			        [补货日均销量] <= 0, InventoryQty,
+			        [Reorder Daily Demand] <= 0, InventoryQty,
 			        MAX ( InventoryQty - AllowedQty, 0 )
 			    )
 		lineageTag: 749a5715-31ab-40db-ad5e-4acb68891c7b
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 单位基准成本 =
+	measure 'Unit Base Cost' =
 			
 			VAR SelectedSKUs =
 			    VALUES ( ProductCatalogAll[SKU] )
 			
 			RETURN
 			    CALCULATE (
-			        MAX ( FactBranchCost[基准成本] ),
+			        MAX ( FactBranchCost[Base Cost] ),
 			        TREATAS (
 			            SelectedSKUs,
 			            FactBranchCost[Ref Num]
@@ -352,54 +352,54 @@ table DimProductAll
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 积压库存金额 =
+	measure 'Overstock Value' =
 			
-			[积压库存数量] * [单位基准成本]
+			[Overstock Qty] * [Unit Base Cost]
 		lineageTag: 5a93ce1b-8203-4ad5-9b0a-862d3459f61e
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 未来90天临期数量 =
+	measure 'Next 90 Days Expiring Qty' =
 			
-			VAR BaseDate = [库存分析基准日]
+			VAR BaseDate = [Inventory As-of Date]
 			VAR SelectedSKUs = VALUES ( ProductCatalogAll[SKU] )
 			RETURN
 			    CALCULATE (
-			        SUM ( FactInventoryLot[在手数量] ),
+			        SUM ( FactInventoryLot[On Hand Qty] ),
 			        REMOVEFILTERS ( DimProductAll ),
-			        TREATAS ( SelectedSKUs, FactInventoryLot[产品/内部参考号] ),
-			        FactInventoryLot[在手数量] > 0,
-			        FactInventoryLot[有效期] >= BaseDate,
-			        FactInventoryLot[有效期] <= BaseDate + 90
+			        TREATAS ( SelectedSKUs, FactInventoryLot[Product/Internal Reference] ),
+			        FactInventoryLot[On Hand Qty] > 0,
+			        FactInventoryLot[Expiry Date] >= BaseDate,
+			        FactInventoryLot[Expiry Date] <= BaseDate + 90
 			    )
 		formatString: 0
 		lineageTag: 3b044bff-3267-4702-a132-c34fcf95c826
 
-	measure 未来90天临期金额 =
+	measure 'Next 90 Days Expiring Value' =
 			
 			VAR BaseDate =
-			    [库存分析基准日]
+			    [Inventory As-of Date]
 			
 			RETURN
 			    CALCULATE (
 			        SUMX (
 			            FactInventoryLot,
-			            FactInventoryLot[在手数量]
-			                * FactInventoryLot[产品/基准成本]
+			            FactInventoryLot[On Hand Qty]
+			                * FactInventoryLot[Product/Base Cost]
 			        ),
-			        FactInventoryLot[在手数量] > 0,
-			        FactInventoryLot[有效期] >= BaseDate,
-			        FactInventoryLot[有效期] <= BaseDate + 90
+			        FactInventoryLot[On Hand Qty] > 0,
+			        FactInventoryLot[Expiry Date] >= BaseDate,
+			        FactInventoryLot[Expiry Date] <= BaseDate + 90
 			    )
 		lineageTag: a5e41b69-a912-45d7-a01f-087ef597c5c5
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 紧急补货SKU数 =
+	measure 'Urgent Reorder SKU Count' =
 			
 			VAR CompanySKUs =
 			    CROSSJOIN (
-			        VALUES ( DimCompany[公司] ),
+			        VALUES ( DimCompany[Company] ),
 			        VALUES ( ProductCatalogAll[SKU] )
 			    )
 			
@@ -407,55 +407,55 @@ table DimProductAll
 			    COUNTROWS (
 			        FILTER (
 			            CompanySKUs,
-			            [SKU库存分析显示标记] = 1
-			                && [补货状态]
+			            [SKU Inventory Analysis Display Flag] = 1
+			                && [Reorder Status]
 			                    IN {
-			                        "已断货",
-			                        "断货待到货",
-			                        "需要补货"
+			                        "Out of Stock",
+			                        "Out of Stock - Order In Transit",
+			                        "Reorder Needed"
 			                    }
 			        )
 			    )
 		formatString: 0
 		lineageTag: 0c9d50da-4b3a-4f38-8cbe-8eac61089e0e
 
-	measure 未来60天可能断货SKU数 =
+	measure 'Next 60 Days Possible Stockout SKU Count' =
 			
 			COUNTROWS (
 			    FILTER (
 			        VALUES ( ProductCatalogAll[SKU] ),
-			        [SKU库存分析显示标记] = 1
-			            && COALESCE ( [当前库存数量], 0 ) > 0
-			            && [补货日均销量] > 0
-			            && [当前库存可售天数] <= 60
+			        [SKU Inventory Analysis Display Flag] = 1
+			            && COALESCE ( [Current Stock Qty], 0 ) > 0
+			            && [Reorder Daily Demand] > 0
+			            && [Current Stock Days of Cover] <= 60
 			    )
 			)
 		formatString: 0
 		lineageTag: 5ca9d1f4-d39e-4c15-b3e2-af739e820774
 
-	measure 积压SKU数 =
+	measure 'Overstock SKU Count' =
 			
 			COUNTROWS (
 			    FILTER (
 			        VALUES ( ProductCatalogAll[SKU] ),
-			        [积压库存数量] > 0
+			        [Overstock Qty] > 0
 			    )
 			)
 		formatString: 0
 		lineageTag: 17ffd16c-dbab-4744-ba94-502a8b1d1741
 
-	measure 临期风险SKU数 =
+	measure 'Near Expiry Risk SKU Count' =
 			
 			COUNTROWS (
 			    FILTER (
 			        VALUES ( ProductCatalogAll[SKU] ),
-			        [未来90天临期数量] > 0
+			        [Next 90 Days Expiring Qty] > 0
 			    )
 			)
 		formatString: 0
 		lineageTag: a4985c8c-0ae2-4e19-b0df-368d4ad92dae
 
-	measure 风险库存金额 =
+	measure 'At-Risk Stock Value' =
 			
 			SUMX (
 			    VALUES ( ProductCatalogAll[SKU] ),
@@ -467,19 +467,19 @@ table DimProductAll
 			        CALCULATE (
 			            SUMX (
 			                FactInventoryLot,
-			                FactInventoryLot[在手数量]
-			                    * FactInventoryLot[产品/基准成本]
+			                FactInventoryLot[On Hand Qty]
+			                    * FactInventoryLot[Product/Base Cost]
 			            ),
-			            FactInventoryLot[在手数量] > 0,
+			            FactInventoryLot[On Hand Qty] > 0,
 			            TREATAS (
 			                { SelectedSKU },
-			                FactInventoryLot[产品/内部参考号]
+			                FactInventoryLot[Product/Internal Reference]
 			            )
 			        )
 			
 			    VAR CalculatedRiskAmount =
-			        COALESCE ( [积压库存金额], 0 )
-			            + COALESCE ( [未来90天临期金额], 0 )
+			        COALESCE ( [Overstock Value], 0 )
+			            + COALESCE ( [Next 90 Days Expiring Value], 0 )
 			
 			    RETURN
 			        MIN (
@@ -491,53 +491,53 @@ table DimProductAll
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 补货紧急程度颜色 =
+	measure 'Reorder Urgency Color' =
 			
 			SWITCH (
 			    TRUE (),
-			    [当前库存数量] <= 0
-			        && [在途采购数量] <= 0, "#B91C1C",
-			    [当前库存数量] <= 0, "#EA580C",
-			    [当前库存可售天数] <= 60, "#F59E0B",
+			    [Current Stock Qty] <= 0
+			        && [In Transit Purchase Qty] <= 0, "#B91C1C",
+			    [Current Stock Qty] <= 0, "#EA580C",
+			    [Current Stock Days of Cover] <= 60, "#F59E0B",
 			    "#3B82F6"
 			)
 		lineageTag: b387c4e3-fb1b-4ba1-ab41-964bb0c2deea
 
-	measure 积压风险颜色 =
+	measure 'Overstock Risk Color' =
 			
 			SWITCH (
 			    TRUE (),
-			    [补货日均销量] <= 0, "#7C3AED",
-			    [当前库存可售天数] > 180, "#B91C1C",
-			    [当前库存可售天数] > 90, "#F59E0B",
+			    [Reorder Daily Demand] <= 0, "#7C3AED",
+			    [Current Stock Days of Cover] > 180, "#B91C1C",
+			    [Current Stock Days of Cover] > 90, "#F59E0B",
 			    "#64748B"
 			)
 		lineageTag: 413b45f5-9976-4e51-8814-a6b2deb67572
 
-	measure 60天预计销量 =
+	measure '60-Day Projected Sales' =
 			
-			[近三个月日均销量] * 60
+			[Last 3 Months Avg Daily Sales] * 60
 		lineageTag: 12b2d9d6-8b9f-41d6-a387-680b549bdbcb
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 60天后预计库存 =
+	measure 'Projected Stock After 60 Days' =
 			
-			[当前库存数量] - [60天预计销量]
+			[Current Stock Qty] - [60-Day Projected Sales]
 		lineageTag: a8ed6b37-08d7-49c1-bc5a-3b8d9f884fb8
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 60天内断货标记 =
+	measure 'Stockout Within 60 Days Flag' =
 			
 			VAR CurrentInventory =
-			    COALESCE ( [当前库存数量], 0 )
+			    COALESCE ( [Current Stock Qty], 0 )
 			
 			VAR DailySales =
-			    [近三个月日均销量]
+			    [Last 3 Months Avg Daily Sales]
 			
 			VAR AvailableDays =
-			    [当前库存可售天数]
+			    [Current Stock Days of Cover]
 			
 			RETURN
 			    IF (
@@ -550,143 +550,143 @@ table DimProductAll
 		formatString: 0
 		lineageTag: 7c95eba6-59fa-4094-9176-854abca64c2b
 
-	measure 60天内断货状态 =
+	measure 'Stockout Within 60 Days Status' =
 			
 			SWITCH (
 			    TRUE (),
-			    COALESCE ( [当前库存数量], 0 ) <= 0, "已断货",
-			    [60天内断货标记] = 1, "60天内预计断货",
-			    [近三个月日均销量] <= 0, "无近期销量",
-			    "库存充足"
+			    COALESCE ( [Current Stock Qty], 0 ) <= 0, "Out of Stock",
+			    [Stockout Within 60 Days Flag] = 1, "Projected Stockout Within 60 Days",
+			    [Last 3 Months Avg Daily Sales] <= 0, "No Recent Sales",
+			    "Stock Sufficient"
 			)
 		lineageTag: a1d7da86-0c1e-4b16-893b-53a162e358c3
 
-	measure 已过期库存数量 =
+	measure 'Expired Stock Qty' =
 			
 			VAR BaseDate =
-			    [库存分析基准日]
+			    [Inventory As-of Date]
 			
 			RETURN
 			    CALCULATE (
-			        SUM ( FactInventoryLot[在手数量] ),
-			        FactInventoryLot[在手数量] > 0,
-			        FactInventoryLot[有效期] < BaseDate
+			        SUM ( FactInventoryLot[On Hand Qty] ),
+			        FactInventoryLot[On Hand Qty] > 0,
+			        FactInventoryLot[Expiry Date] < BaseDate
 			    )
 		formatString: 0
 		lineageTag: a1816d9a-3666-406d-8a53-faa65b0d7219
 
-	measure 临期库存标记 =
+	measure 'Near Expiry Stock Flag' =
 			
 			IF (
-			    COALESCE ( [未来90天临期数量], 0 ) > 0,
+			    COALESCE ( [Next 90 Days Expiring Qty], 0 ) > 0,
 			    1,
 			    0
 			)
 		formatString: 0
 		lineageTag: 326d281b-cc45-4ffc-bf87-3c61ae2c5718
 
-	column 产品名称
+	column 'Product Name'
 		lineageTag: eed8ef6a-d8fe-4265-bbe2-8fc5207c8767
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [产品名称]
+		sourceColumn: [Product Name]
 
 		annotation SummarizationSetBy = Automatic
 
-	column 品牌
+	column Brand
 		lineageTag: 5e908a18-9d70-4c0f-a198-4ed99c9e47ce
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [品牌]
+		sourceColumn: [Brand]
 
 		annotation SummarizationSetBy = Automatic
 
-	column 产品大类
+	column 'Product Group'
 		lineageTag: 96d71c45-30d2-45aa-911a-9eeecd52200e
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [产品大类]
+		sourceColumn: [Product Group]
 
 		annotation SummarizationSetBy = Automatic
 
-	column 产品类别
+	column 'Product Category'
 		lineageTag: 36890b63-29a3-443d-8763-fa0cd45edbb2
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [产品类别]
+		sourceColumn: [Product Category]
 
 		annotation SummarizationSetBy = Automatic
 
-	column 计量单位
+	column 'Unit of Measure'
 		lineageTag: 515ffc17-9855-43a5-9208-c3ad75a785b4
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [计量单位]
+		sourceColumn: [Unit of Measure]
 
 		annotation SummarizationSetBy = Automatic
 
-	column 当前基准成本
+	column 'Current Base Cost'
 		lineageTag: a4af7ffa-8389-4aba-8489-0066e7751a7f
 		summarizeBy: sum
 		isNameInferred
-		sourceColumn: [当前基准成本]
+		sourceColumn: [Current Base Cost]
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 销售价格
+	column 'Sales Price'
 		lineageTag: bc32fec1-3ad5-495d-9061-5a487c994075
 		summarizeBy: sum
 		isNameInferred
-		sourceColumn: [销售价格]
+		sourceColumn: [Sales Price]
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 保质期天数
+	column 'Shelf Life Days'
 		formatString: 0
 		lineageTag: 6d68fd4c-1728-4a42-b4b7-f2b217c6a4e3
 		summarizeBy: sum
 		isNameInferred
-		sourceColumn: [保质期天数]
+		sourceColumn: [Shelf Life Days]
 
 		annotation SummarizationSetBy = Automatic
 
 	column SKU
 		lineageTag: 704e30a2-77f2-4bf7-b3a9-fd8b96da2600
 		summarizeBy: none
-		sourceColumn: FactInventoryLot[产品/内部参考号]
+		sourceColumn: FactInventoryLot[Product/Internal Reference]
 
 		annotation SummarizationSetBy = Automatic
 
-	column 产品分类 =
+	column 'Product Class' =
 			
 			VAR ProductCategory =
-			    TRIM ( COALESCE ( DimProductAll[产品类别], "" ) )
+			    TRIM ( COALESCE ( DimProductAll[Product Category], "" ) )
 			VAR ProductGroup =
-			    TRIM ( COALESCE ( DimProductAll[产品大类], "" ) )
+			    TRIM ( COALESCE ( DimProductAll[Product Group], "" ) )
 			RETURN
 			    SWITCH (
 			        TRUE(),
-			        ProductCategory = "冰淇淋", "冰淇淋",
+			        ProductCategory = "Ice Cream", "Ice Cream",
 			        ProductGroup IN {
 			            "Beauty & Health & Home",
-			            "美容 & 健康 & 居家"
-			        }, "美妆",
-			        "其他"
+			            "Beauty & Health & Home"
+			        }, "Beauty",
+			        "Other"
 			    )
 		lineageTag: 30c63395-c845-4d90-8b75-6ee50a4da667
 		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 
-	column 公司
+	column Company
 		lineageTag: 6d96fed7-7d22-43ca-84e0-759c9b207192
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [公司]
+		sourceColumn: [Company]
 
 		annotation SummarizationSetBy = Automatic
 
@@ -697,37 +697,37 @@ table DimProductAll
 				SUMMARIZE(
 				    FILTER(
 				        FactInventoryLot,
-				        NOT ISBLANK(FactInventoryLot[产品/内部参考号])
-				            && FactInventoryLot[产品/内部参考号] <> ""
+				        NOT ISBLANK(FactInventoryLot[Product/Internal Reference])
+				            && FactInventoryLot[Product/Internal Reference] <> ""
 				    ),
-				    FactInventoryLot[产品/内部参考号],
+				    FactInventoryLot[Product/Internal Reference],
 				
-				    "产品名称",
-				        MAX(FactInventoryLot[产品/名称]),
+				    "Product Name",
+				        MAX(FactInventoryLot[Product/Name]),
 				
-				    "产品大类",
-				        MAX(FactInventoryLot[产品/产品类别/上级名称]),
+				    "Product Group",
+				        MAX(FactInventoryLot[Product/Product Category/Parent Name]),
 				
-				    "产品类别",
-				        MAX(FactInventoryLot[产品/产品类别/中文名称]),
+				    "Product Category",
+				        MAX(FactInventoryLot[Product/Product Category/Category Name]),
 				
-				    "品牌",
-				        MAX(FactInventoryLot[产品/CN 品牌]),
+				    "Brand",
+				        MAX(FactInventoryLot[Product/CN Brand]),
 				
-				    "保质期天数",
-				        MAX(FactInventoryLot[产品/有效期]),
+				    "Shelf Life Days",
+				        MAX(FactInventoryLot[Product/Expiry Date]),
 				
-				    "计量单位",
-				        MAX(FactInventoryLot[产品/计量单位]),
+				    "Unit of Measure",
+				        MAX(FactInventoryLot[Product/Unit of Measure]),
 				
-				    "当前基准成本",
-				        MAX(FactInventoryLot[产品/基准成本]),
+				    "Current Base Cost",
+				        MAX(FactInventoryLot[Product/Base Cost]),
 				
-				    "销售价格",
-				        MAX(FactInventoryLot[产品/销售价格]),
+				    "Sales Price",
+				        MAX(FactInventoryLot[Product/Sales Price]),
 				
-				    "公司",
-				        MAX(FactInventoryLot[公司])
+				    "Company",
+				        MAX(FactInventoryLot[Company])
 				)
 
 	annotation PBI_Id = b4ecfb937a174cea96b3fa90cbc2f778

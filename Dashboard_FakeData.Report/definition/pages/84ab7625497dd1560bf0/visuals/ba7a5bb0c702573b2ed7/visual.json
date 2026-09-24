@@ -23,11 +23,11 @@
                       "Entity": "DimDate"
                     }
                   },
-                  "Property": "年月"
+                  "Property": "Year Month"
                 }
               },
-              "queryRef": "DimDate.年月",
-              "nativeQueryRef": "年月",
+              "queryRef": "DimDate.Year Month",
+              "nativeQueryRef": "Year Month",
               "active": true
             }
           ]
@@ -42,12 +42,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "分公司销售额（不含运费和服务费）"
+                  "Property": "Branch Sales (Excl Freight and Service Fees)"
                 }
               },
-              "queryRef": "FactBranchCost.分公司销售额（不含运费和服务费）",
-              "nativeQueryRef": "销售额",
-              "displayName": "销售额"
+              "queryRef": "FactBranchCost.Branch Sales (Excl Freight and Service Fees)",
+              "nativeQueryRef": "Sales",
+              "displayName": "Sales"
             }
           ]
         },
@@ -61,12 +61,12 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "分公司月环比"
+                  "Property": "Branch MoM"
                 }
               },
-              "queryRef": "FactBranchCost.分公司月环比",
-              "nativeQueryRef": "月环比",
-              "displayName": "月环比",
+              "queryRef": "FactBranchCost.Branch MoM",
+              "nativeQueryRef": "MoM",
+              "displayName": "MoM",
               "format": "0.00%;-0.00%;0.00%"
             },
             {
@@ -77,12 +77,12 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "客户毛利率_全部分公司"
+                  "Property": "Customer Gross Margin_All Branches"
                 }
               },
-              "queryRef": "DimCustomerNJ.客户毛利率_全部分公司",
-              "nativeQueryRef": "毛利率",
-              "displayName": "毛利率",
+              "queryRef": "DimCustomerNJ.Customer Gross Margin_All Branches",
+              "nativeQueryRef": "Gross Margin",
+              "displayName": "Gross Margin",
               "format": "0.00%;-0.00%;0.00%"
             }
           ]
@@ -239,7 +239,7 @@
             }
           },
           "selector": {
-            "metadata": "FactBranchCost.分公司月环比"
+            "metadata": "FactBranchCost.Branch MoM"
           }
         },
         {
@@ -260,7 +260,7 @@
             }
           },
           "selector": {
-            "metadata": "DimCustomerNJ.客户毛利率_全部分公司"
+            "metadata": "DimCustomerNJ.Customer Gross Margin_All Branches"
           }
         },
         {
@@ -282,7 +282,7 @@
                                       "Entity": "FactBranchCost"
                                     }
                                   },
-                                  "Property": "分公司月环比"
+                                  "Property": "Branch MoM"
                                 }
                               },
                               "Right": {
@@ -309,7 +309,7 @@
                                       "Entity": "FactBranchCost"
                                     }
                                   },
-                                  "Property": "分公司月环比"
+                                  "Property": "Branch MoM"
                                 }
                               },
                               "Right": {
@@ -340,7 +340,7 @@
                 }
               }
             ],
-            "metadata": "FactBranchCost.分公司月环比"
+            "metadata": "FactBranchCost.Branch MoM"
           }
         },
         {
@@ -362,7 +362,7 @@
                                       "Entity": "DimCustomerNJ"
                                     }
                                   },
-                                  "Property": "客户毛利率_全部分公司"
+                                  "Property": "Customer Gross Margin_All Branches"
                                 }
                               },
                               "Right": {
@@ -389,7 +389,7 @@
                                       "Entity": "DimCustomerNJ"
                                     }
                                   },
-                                  "Property": "客户毛利率_全部分公司"
+                                  "Property": "Customer Gross Margin_All Branches"
                                 }
                               },
                               "Right": {
@@ -420,7 +420,7 @@
                 }
               }
             ],
-            "metadata": "DimCustomerNJ.客户毛利率_全部分公司"
+            "metadata": "DimCustomerNJ.Customer Gross Margin_All Branches"
           }
         }
       ],
@@ -452,7 +452,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'本年销售额趋势'"
+                  "Value": "'This Year Sales Trend'"
                 }
               }
             },
@@ -518,7 +518,7 @@
                 "Entity": "DimDate"
               }
             },
-            "Property": "年月"
+            "Property": "Year Month"
           }
         },
         "type": "Categorical",
@@ -543,7 +543,7 @@
                             "Source": "d"
                           }
                         },
-                        "Property": "年月"
+                        "Property": "Year Month"
                       }
                     }
                   ],

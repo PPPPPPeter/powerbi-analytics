@@ -1,11 +1,11 @@
 table ProductCatalogAll
 	lineageTag: 6f7bf495-9c39-4563-938c-2e0e879ee66f
 
-	column 品牌
+	column Brand
 		lineageTag: 9094247f-655d-4d87-a18a-fa37ef7c4237
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [品牌]
+		sourceColumn: [Brand]
 
 		annotation SummarizationSetBy = Automatic
 
@@ -17,122 +17,122 @@ table ProductCatalogAll
 
 		annotation SummarizationSetBy = Automatic
 
-	column 产品名称
+	column 'Product Name'
 		lineageTag: 619dd6be-ad0e-4a7d-a4d0-c9a8bdf9d43c
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [产品名称]
+		sourceColumn: [Product Name]
 
 		annotation SummarizationSetBy = Automatic
 
-	column 产品大类
+	column 'Product Group'
 		lineageTag: eb374546-c08b-4841-bd74-93fcc3e9658b
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [产品大类]
+		sourceColumn: [Product Group]
 
 		annotation SummarizationSetBy = Automatic
 
-	column 产品类别
+	column 'Product Category'
 		lineageTag: 4f114f0d-4550-4ab2-9cf7-934eb3687472
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [产品类别]
+		sourceColumn: [Product Category]
 
 		annotation SummarizationSetBy = Automatic
 
-	column 产品分类 =
+	column 'Product Class' =
 			
 			VAR ProductCategory =
-			    TRIM ( COALESCE ( ProductCatalogAll[产品类别], "" ) )
+			    TRIM ( COALESCE ( ProductCatalogAll[Product Category], "" ) )
 			VAR ProductGroup =
-			    TRIM ( COALESCE ( ProductCatalogAll[产品大类], "" ) )
+			    TRIM ( COALESCE ( ProductCatalogAll[Product Group], "" ) )
 			RETURN
 			    SWITCH (
 			        TRUE(),
-			        ProductCategory = "冰淇淋", "冰淇淋",
+			        ProductCategory = "Ice Cream", "Ice Cream",
 			        ProductGroup IN {
 			            "Beauty & Health & Home",
-			            "美容 & 健康 & 居家"
-			        }, "美妆",
-			        "其他"
+			            "Beauty & Health & Home"
+			        }, "Beauty",
+			        "Other"
 			    )
 		lineageTag: e92cf290-ed41-4013-980a-d606ab59b7bf
 		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 
-	column 补货状态列 =
+	column 'Reorder Status Col' =
 			
 			VAR DailySales =
-			    CALCULATE ( [补货日均销量] )
+			    CALCULATE ( [Reorder Daily Demand] )
 			VAR InventoryQty =
-			    COALESCE ( CALCULATE ( [当前库存数量] ), 0 )
+			    COALESCE ( CALCULATE ( [Current Stock Qty] ), 0 )
 			VAR TransitQty =
-			    COALESCE ( CALCULATE ( [在途采购数量NJ] ), 0 )
+			    COALESCE ( CALCULATE ( [In Transit Purchase Qty NJ] ), 0 )
 			VAR InventoryPosition =
 			    InventoryQty + TransitQty
 			VAR ReorderPointQty =
-			    COALESCE ( CALCULATE ( [再订货点] ), 0 )
+			    COALESCE ( CALCULATE ( [Reorder Point] ), 0 )
 			VAR CoverDays =
-			    CALCULATE ( [当前库存可售天数] )
+			    CALCULATE ( [Current Stock Days of Cover] )
 			RETURN
 			    SWITCH (
 			        TRUE (),
 			
 			        DailySales <= 0 && InventoryQty > 0,
-			            "无销量库存",
+			            "Stock Without Sales",
 			
 			        DailySales <= 0,
-			            "无销量",
+			            "No Sales",
 			
 			        InventoryQty <= 0 && TransitQty <= 0,
-			            "已断货且无在途",
+			            "Out of Stock - None In Transit",
 			
 			        InventoryQty <= 0 && TransitQty > 0,
-			            "已断货但有在途",
+			            "Out of Stock - Some In Transit",
 			
 			        CoverDays <= 14,
-			            "14天内可能断货",
+			            "Possible Stockout Within 14 Days",
 			
 			        InventoryPosition <= ReorderPointQty,
-			            "一般补货需求",
+			            "Regular Reorder Need",
 			
-			        "库存正常"
+			        "Stock Normal"
 			    )
 		lineageTag: 8073a9ee-7210-49f0-9d35-8ec7e54f8c5e
 		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 
-	column 积压状态列 =
+	column 'Overstock Status Col' =
 			
 			VAR DailySales =
-			    CALCULATE ( [补货日均销量] )
+			    CALCULATE ( [Reorder Daily Demand] )
 			VAR InventoryQty =
-			    COALESCE ( CALCULATE ( [当前库存数量] ), 0 )
+			    COALESCE ( CALCULATE ( [Current Stock Qty] ), 0 )
 			VAR CoverDays =
-			    CALCULATE ( [当前库存可售天数] )
+			    CALCULATE ( [Current Stock Days of Cover] )
 			RETURN
 			    SWITCH (
 			        TRUE (),
 			
 			        InventoryQty <= 0,
-			            "无库存",
+			            "No Stock",
 			
 			        DailySales <= 0 && InventoryQty > 0,
-			            "无销量库存",
+			            "Stock Without Sales",
 			
 			        CoverDays > 180,
-			            "严重积压",
+			            "Severe Overstock",
 			
 			        CoverDays > 120,
-			            "积压",
+			            "Overstock",
 			
 			        CoverDays > 90,
-			            "库存偏高",
+			            "High Stock",
 			
-			        "正常"
+			        "Normal"
 			    )
 		lineageTag: 0de755d7-c19e-4e88-bb2e-552c7582a961
 		summarizeBy: none
@@ -154,20 +154,20 @@ table ProductCatalogAll
 				    SUMMARIZE (
 				        ValidRows,
 				        FactBranchCost[Ref Num],
-				        "产品名称汇总",
+				        "Product Name Summary",
 				            MAX ( FactBranchCost[product_name] ),
-				        "品牌汇总",
+				        "Brand Summary",
 				            MAX ( FactBranchCost[brand_cn_name] ),
-				        "产品大类汇总",
+				        "Product Group Summary",
 				            MAX ( FactBranchCost[Category (CN)] ),
-				        "产品类别汇总",
+				        "Product Category Summary",
 				            MAX ( FactBranchCost[Sub-Category (CN)] )
 				    ),
 				    "SKU", FactBranchCost[Ref Num],
-				    "产品名称", [产品名称汇总],
-				    "品牌", [品牌汇总],
-				    "产品大类", [产品大类汇总],
-				    "产品类别", [产品类别汇总]
+				    "Product Name", [Product Name Summary],
+				    "Brand", [Brand Summary],
+				    "Product Group", [Product Group Summary],
+				    "Product Category", [Product Category Summary]
 				)
 
 	annotation PBI_Id = c7d4f2f8279140f69e719c554c771265

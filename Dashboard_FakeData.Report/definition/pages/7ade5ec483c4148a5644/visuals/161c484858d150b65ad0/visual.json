@@ -23,11 +23,11 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "客户渠道"
+                  "Property": "Customer Channel"
                 }
               },
-              "queryRef": "FactBranchCost.客户渠道",
-              "nativeQueryRef": "客户渠道",
+              "queryRef": "FactBranchCost.Customer Channel",
+              "nativeQueryRef": "Customer Channel",
               "active": true
             }
           ]
@@ -73,7 +73,7 @@
                                   "Source": "f"
                                 }
                               },
-                              "Property": "客户渠道"
+                              "Property": "Customer Channel"
                             }
                           }
                         ],
@@ -81,7 +81,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'亚裔'"
+                                "Value": "'Asian'"
                               }
                             }
                           ]
@@ -188,7 +188,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'客户种族'"
+                  "Value": "'Customer Ethnicity'"
                 }
               }
             },

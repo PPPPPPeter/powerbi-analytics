@@ -23,11 +23,11 @@
                       "Entity": "DimCustomerNJ"
                     }
                   },
-                  "Property": "客户类型"
+                  "Property": "Customer Type"
                 }
               },
-              "queryRef": "DimCustomer.客户类型",
-              "nativeQueryRef": "客户类型",
+              "queryRef": "DimCustomer.Customer Type",
+              "nativeQueryRef": "Customer Type",
               "active": true
             }
           ]
@@ -107,7 +107,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'客户类型'"
+                  "Value": "'Customer Type'"
                 }
               }
             },
