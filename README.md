@@ -245,11 +245,12 @@ Power Query steps depend on them.
 
 **What is fictional:** the five companies of the "Crestline" group (New Jersey, Pacific,
 Chicago, Houston, Northwest) and their warehouses, all customers (447), salespeople,
-purchasing staff, suppliers (26), brands (99), products (601), street addresses, prices,
-costs, quantities, dates and lead times.
+purchasing staff, suppliers (26), brands (99), products (601), prices, costs, quantities,
+dates and lead times.
 
-**What is real (for realism only):** US city / state / ZIP combinations (so the map works)
-and a generic product category tree.
+**What is real (for realism only):** US city and state names, and a generic product category
+tree. Customer addresses contain only city and state (for example `FLUSHING, New York`), with
+no street or ZIP code, so the customer map works at city level.
 
 **Built-in patterns** so every page has something to show:
 

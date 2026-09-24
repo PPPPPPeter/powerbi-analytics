@@ -269,6 +269,12 @@ def build_people_and_customers(products):
     return reps, buyers, pickers, leaders, customers
 
 
+def city_state_address(city, state):
+    # Street and ZIP are drawn but not used, so the random sequence (and the rest of the data) stays the same.
+    rng.randint(10, 9899), rng.choice(STREETS), rng.randint(1000, 9999)
+    return f"{city}, {state}"
+
+
 def new_customer(co, name, ctype, g, reps, seq):
     st = g["state"].replace(" (US)", "")
     ab = STATE_ABBR.get(st, "US")
@@ -284,7 +290,7 @@ def new_customer(co, name, ctype, g, reps, seq):
     return dict(
         company=co["name"], name=name, type=ctype, city=city, state=g["state"],
         no=f"US-{ab}{city.replace(' ', '')[:3].upper()}-{rng.randint(10, 9999)}",
-        address=f"{rng.randint(10, 9899)} {rng.choice(STREETS)},{city}, {st} {g['zip']}-{rng.randint(1000, 9999)},United States",
+        address=city_state_address(city, st),
         race=pick(RACES) if name not in ("Harbor Spice Co", "Summit Seasoning, LLC") else "", rep=rep,
         partner_rep=rep if rng.random() > 0.35 else "", start=start, end=end, freq=freq,
         big=ctype == "Wholesaler", disc=rng.uniform(0.08, 0.2) if ctype == "Wholesaler" else rng.uniform(0, 0.08),
