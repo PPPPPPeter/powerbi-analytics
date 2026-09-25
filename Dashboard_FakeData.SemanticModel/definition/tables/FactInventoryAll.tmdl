@@ -113,7 +113,7 @@ table FactInventoryAll
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Product/Name'
+	column Product/Name
 		dataType: string
 		lineageTag: 1ba5088c-7224-413f-8318-7ae9f5e631f9
 		summarizeBy: none

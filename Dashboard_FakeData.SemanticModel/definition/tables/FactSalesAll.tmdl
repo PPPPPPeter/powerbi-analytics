@@ -17,7 +17,7 @@ table FactSalesAll
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Product/Name'
+	column Product/Name
 		dataType: string
 		lineageTag: 315d6afd-402e-4f57-bdba-5234faaaef9e
 		summarizeBy: none
@@ -65,7 +65,7 @@ table FactSalesAll
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Partner/Reference'
+	column Partner/Reference
 		dataType: string
 		lineageTag: be1cd5ca-cff1-421a-b8bf-0c9730689a10
 		summarizeBy: none
@@ -97,7 +97,7 @@ table FactSalesAll
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Partner/City'
+	column Partner/City
 		dataType: string
 		lineageTag: d973d85e-74b3-4d04-8fa5-3ab100d5c323
 		summarizeBy: none
@@ -105,7 +105,7 @@ table FactSalesAll
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Partner/Province/State'
+	column Partner/Province/State
 		dataType: string
 		lineageTag: 046f8bce-4d9b-4e58-8739-ca95067ab83a
 		summarizeBy: none
@@ -256,7 +256,7 @@ table FactSalesAll
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 'Account/Type'
+	column Account/Type
 		dataType: string
 		lineageTag: 1769e0ea-ab07-4f0c-b5a3-593239465771
 		summarizeBy: none

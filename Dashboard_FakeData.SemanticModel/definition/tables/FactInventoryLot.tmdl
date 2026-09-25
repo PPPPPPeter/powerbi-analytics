@@ -50,7 +50,7 @@ table FactInventoryLot
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Product/Name'
+	column Product/Name
 		dataType: string
 		lineageTag: 619747f3-a12d-4dc0-aa98-9c20f42afede
 		summarizeBy: none
@@ -135,7 +135,7 @@ table FactInventoryLot
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 'Product/Pallet'
+	column Product/Pallet
 		dataType: string
 		lineageTag: d2e6df71-f705-46ee-a352-fc64c25e63c7
 		summarizeBy: none

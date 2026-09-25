@@ -654,13 +654,6 @@ table DimProductAll
 
 		annotation SummarizationSetBy = Automatic
 
-	column SKU
-		lineageTag: 704e30a2-77f2-4bf7-b3a9-fd8b96da2600
-		summarizeBy: none
-		sourceColumn: FactInventoryLot[Product/Internal Reference]
-
-		annotation SummarizationSetBy = Automatic
-
 	column 'Product Class' =
 			
 			VAR ProductCategory =
@@ -687,6 +680,13 @@ table DimProductAll
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Company]
+
+		annotation SummarizationSetBy = Automatic
+
+	column SKU
+		lineageTag: 704e30a2-77f2-4bf7-b3a9-fd8b96da2600
+		summarizeBy: none
+		sourceColumn: FactInventoryLot[Product/Internal Reference]
 
 		annotation SummarizationSetBy = Automatic
 

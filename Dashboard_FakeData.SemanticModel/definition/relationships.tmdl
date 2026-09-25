@@ -1,7 +1,7 @@
 relationship 77f8dfae-ac84-4c3f-8996-d357afd9942a
 	joinOnDateBehavior: datePartOnly
 	fromColumn: FactInventoryLot.'Expiry Date'
-	toColumn: 'LocalDateTable_cbdd9f09-e630-4f65-b4e5-17481f8142bc'.Date
+	toColumn: LocalDateTable_cbdd9f09-e630-4f65-b4e5-17481f8142bc.Date
 
 relationship 7bed634b-6ba3-2a23-5d1b-dd13ccc0c117
 	fromColumn: FactBranchCost.'Ref Num'
@@ -10,7 +10,7 @@ relationship 7bed634b-6ba3-2a23-5d1b-dd13ccc0c117
 relationship 04ba6dfa-7980-436e-bcf1-4849b355100b
 	joinOnDateBehavior: datePartOnly
 	fromColumn: FactInventoryAll.'Expiry Date'
-	toColumn: 'LocalDateTable_35eb8bdd-026e-4ae6-8be0-0ffea8af5df2'.Date
+	toColumn: LocalDateTable_35eb8bdd-026e-4ae6-8be0-0ffea8af5df2.Date
 
 relationship 96ba6443-548d-c857-da56-626d3e7cedac
 	fromColumn: FactBranchCost.'Invoice Date'
@@ -23,7 +23,7 @@ relationship 5655c0c5-4ac4-bc3a-bf5f-4dcd6946c1b4
 relationship 8625bb64-d3b1-4878-bf95-878995f72f65
 	joinOnDateBehavior: datePartOnly
 	fromColumn: DimCustomerAll.'Customer First Order Date'
-	toColumn: 'LocalDateTable_3f18ea92-57f6-46b8-bec8-769ab1e7ab9f'.Date
+	toColumn: LocalDateTable_3f18ea92-57f6-46b8-bec8-769ab1e7ab9f.Date
 
 relationship a7aa527f-7246-6fa9-6223-32bb3606586c
 	fromColumn: FactBranchCost.'Order Creator'
@@ -69,62 +69,62 @@ relationship 1e5307ac-40e0-04a0-c03f-bfe48c3db02b
 relationship f7d36921-c625-40a0-a44b-0279706c07fa
 	joinOnDateBehavior: datePartOnly
 	fromColumn: DimCustomerNJ.'Customer First Order Date'
-	toColumn: 'LocalDateTable_72cebef0-949b-483f-8d5b-30d0dbb027fb'.Date
+	toColumn: LocalDateTable_72cebef0-949b-483f-8d5b-30d0dbb027fb.Date
 
 relationship 22d00cc3-b58d-4a1b-90c7-f4ae3a4dff73
 	joinOnDateBehavior: datePartOnly
 	fromColumn: FactPurchaseOrder.'Order Line/Confirmed Date'
-	toColumn: 'LocalDateTable_f7066da2-9c07-4515-b867-b9e457b5c538'.Date
+	toColumn: LocalDateTable_f7066da2-9c07-4515-b867-b9e457b5c538.Date
 
 relationship 4cf92213-27d5-48bb-bb5e-d475c2ede5bd
 	joinOnDateBehavior: datePartOnly
 	fromColumn: FactPurchaseOrder.'Order Line/Expected Arrival Time'
-	toColumn: 'LocalDateTable_f1e76bae-a9ad-4d6f-9264-eeb2c1929e05'.Date
+	toColumn: LocalDateTable_f1e76bae-a9ad-4d6f-9264-eeb2c1929e05.Date
 
 relationship a279a163-2daf-4f4e-9ea0-9e20ce826a88
 	joinOnDateBehavior: datePartOnly
 	fromColumn: FactPurchaseOrder.'Order Line/Order Reference/Actual Ship Date'
-	toColumn: 'LocalDateTable_386c7b45-d32c-4bf3-9fa3-d11c0d8264c0'.Date
+	toColumn: LocalDateTable_386c7b45-d32c-4bf3-9fa3-d11c0d8264c0.Date
 
 relationship 94a49b70-07d1-40eb-a2db-e32d66319703
 	joinOnDateBehavior: datePartOnly
 	fromColumn: PurchaseSupplement.'Purchase Created Date'
-	toColumn: 'LocalDateTable_a7ee464b-b7ac-4b49-a112-d36d906344f4'.Date
+	toColumn: LocalDateTable_a7ee464b-b7ac-4b49-a112-d36d906344f4.Date
 
 relationship 084c7935-57b5-4962-a391-8c6927025377
 	joinOnDateBehavior: datePartOnly
 	fromColumn: PurchaseSupplement.'Actual Ship Date'
-	toColumn: 'LocalDateTable_9d622cf0-4654-4ef3-b293-18d0ebb8dd0c'.Date
+	toColumn: LocalDateTable_9d622cf0-4654-4ef3-b293-18d0ebb8dd0c.Date
 
 relationship 50d9dfbc-a091-4ba8-9458-d08ce4ba1743
 	joinOnDateBehavior: datePartOnly
 	fromColumn: PurchaseSupplement.'Actual Arrival Date'
-	toColumn: 'LocalDateTable_940fa20f-0f6e-4ac3-bbc1-a6a4b46d9ba1'.Date
+	toColumn: LocalDateTable_940fa20f-0f6e-4ac3-bbc1-a6a4b46d9ba1.Date
 
 relationship 0bb4f8c9-690a-4b02-b293-c20449543e29
 	joinOnDateBehavior: datePartOnly
 	fromColumn: FactPurchaseOrder.'Actual Ship Date'
-	toColumn: 'LocalDateTable_a4b66483-c236-4cc3-8084-5e5cda2f0387'.Date
+	toColumn: LocalDateTable_a4b66483-c236-4cc3-8084-5e5cda2f0387.Date
 
 relationship 42ef53b9-2b06-4f4a-8a28-dab3045a36ff
 	joinOnDateBehavior: datePartOnly
 	fromColumn: FactPurchaseOrder.'Actual Arrival Date'
-	toColumn: 'LocalDateTable_8375bf58-4851-4d14-b0b6-8c2dc4bb969d'.Date
+	toColumn: LocalDateTable_8375bf58-4851-4d14-b0b6-8c2dc4bb969d.Date
 
 relationship c2390acd-2ab7-4564-a11a-0b3c433cd178
 	joinOnDateBehavior: datePartOnly
 	fromColumn: FactPurchaseLeadTime.'Order Line/Confirmed Date'
-	toColumn: 'LocalDateTable_fef2350d-8b3e-4a81-a008-0ad4412bedb5'.Date
+	toColumn: LocalDateTable_fef2350d-8b3e-4a81-a008-0ad4412bedb5.Date
 
 relationship 6c81eb1d-8bea-4b9a-a990-ddb44f1caafb
 	joinOnDateBehavior: datePartOnly
 	fromColumn: FactPurchaseLeadTime.'Actual Arrival Date'
-	toColumn: 'LocalDateTable_0218d3a2-b738-4a5d-be70-bfff97eb7439'.Date
+	toColumn: LocalDateTable_0218d3a2-b738-4a5d-be70-bfff97eb7439.Date
 
 relationship dc241fa7-233e-4133-8c6a-4fad2868a274
 	joinOnDateBehavior: datePartOnly
 	fromColumn: FactPurchaseLeadTime.'Order Line/Expected Arrival Time'
-	toColumn: 'LocalDateTable_c5d63006-5b33-46b9-9e7c-789a88d28cf5'.Date
+	toColumn: LocalDateTable_c5d63006-5b33-46b9-9e7c-789a88d28cf5.Date
 
 relationship 1ff3d3f8-ec1d-2ee9-903e-09fc5c3ea126
 	fromColumn: FactPurchaseOrder.SKU
@@ -137,15 +137,15 @@ relationship 2bd6dc3b-a6eb-e1ac-7048-95d572f8dd7c
 relationship 71725ef9-0e46-455d-a57c-e2b86232baaa
 	joinOnDateBehavior: datePartOnly
 	fromColumn: FactPurchaseOrder.'Final Actual Ship Date'
-	toColumn: 'LocalDateTable_045e5c35-79d3-4290-901e-f3a740b02b19'.Date
+	toColumn: LocalDateTable_045e5c35-79d3-4290-901e-f3a740b02b19.Date
 
 relationship dedee0b2-8ac3-4856-8a2d-856b6eb25b07
 	joinOnDateBehavior: datePartOnly
 	fromColumn: FactPurchaseLeadTime.'Final Actual Ship Date'
-	toColumn: 'LocalDateTable_4ab586c8-8cee-4663-9c2f-376669771f0b'.Date
+	toColumn: LocalDateTable_4ab586c8-8cee-4663-9c2f-376669771f0b.Date
 
 relationship cfd56c3d-c929-0739-b208-9d3d953e337b
-	fromColumn: FactSalesAll.'Partner/Reference'
+	fromColumn: FactSalesAll.Partner/Reference
 	toColumn: DimCustomerNJ.'Customer ID'
 
 relationship a9e8491e-3981-f723-a504-70edd5fc4c9f

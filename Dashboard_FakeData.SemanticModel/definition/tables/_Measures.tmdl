@@ -882,7 +882,7 @@ table _Measures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column '1'
+	column 1
 		dataType: string
 		lineageTag: 2897ed68-ec07-44d3-8113-270827447399
 		summarizeBy: none

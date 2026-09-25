@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "74dc6e335e8b5bbe866d",
+  "name": "59f5757303b2091ac230",
   "position": {
-    "x": 867.192118226601,
+    "x": 607.832512315271,
     "y": 17.29064039408867,
-    "z": 11000,
+    "z": 13002,
     "height": 100,
     "width": 260,
-    "tabOrder": 11000
+    "tabOrder": 13002
   },
   "visual": {
     "visualType": "slicer",
@@ -29,11 +29,62 @@
               "queryRef": "FactBranchCost.company",
               "nativeQueryRef": "company",
               "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactBranchCost"
+                    }
+                  },
+                  "Property": "salesperson"
+                }
+              },
+              "queryRef": "FactBranchCost.salesperson",
+              "nativeQueryRef": "salesperson",
+              "active": false
             }
           ]
         }
       }
     },
+    "expansionStates": [
+      {
+        "roles": [
+          "Values"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "FactBranchCost.company"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactBranchCost"
+                    }
+                  },
+                  "Property": "company"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "FactBranchCost.salesperson"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
     "objects": {
       "data": [
         {
@@ -153,7 +204,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Company'"
+                  "Value": "'Salesperson'"
                 }
               }
             },

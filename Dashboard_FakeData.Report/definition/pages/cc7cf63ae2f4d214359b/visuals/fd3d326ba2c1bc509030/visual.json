@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "74dc6e335e8b5bbe866d",
+  "name": "fd3d326ba2c1bc509030",
   "position": {
-    "x": 867.192118226601,
-    "y": 17.29064039408867,
-    "z": 11000,
-    "height": 100,
-    "width": 260,
-    "tabOrder": 11000
+    "x": 307.2413793103448,
+    "y": 7.980295566502463,
+    "z": 13003,
+    "height": 99.75369458128078,
+    "width": 300.5911330049261,
+    "tabOrder": 13003
   },
   "visual": {
-    "visualType": "slicer",
+    "visualType": "textSlicer",
     "query": {
       "queryState": {
         "Values": {
@@ -23,115 +23,30 @@
                       "Entity": "FactBranchCost"
                     }
                   },
-                  "Property": "company"
+                  "Property": "brand_cn_name"
                 }
               },
-              "queryRef": "FactBranchCost.company",
-              "nativeQueryRef": "company",
-              "active": true
+              "queryRef": "FactBranchCost.brand_cn_name",
+              "nativeQueryRef": "Brand",
+              "displayName": "Brand"
             }
           ]
         }
       }
     },
     "objects": {
-      "data": [
-        {
-          "properties": {
-            "mode": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Dropdown'"
-                }
-              }
-            },
-            "isInvertedSelectionMode": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
       "general": [
         {
           "properties": {}
         }
       ],
-      "selection": [
+      "dropdown": [
         {
           "properties": {
-            "selectAllCheckboxEnabled": {
+            "filterMode": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "singleSelect": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "strictSingleSelect": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "selectionIcon": [
-        {
-          "properties": {}
-        },
-        {
-          "properties": {
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default",
-            "hierarchyMatching": 1
-          }
-        }
-      ],
-      "header": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "items": [
-        {
-          "properties": {
-            "textSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "14D"
+                  "Value": "'Filter_Is_Any'"
                 }
               }
             }
@@ -153,7 +68,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Company'"
+                  "Value": "'Brand'"
                 }
               }
             },

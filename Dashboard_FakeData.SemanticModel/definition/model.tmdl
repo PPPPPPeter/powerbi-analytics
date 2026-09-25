@@ -53,4 +53,5 @@ ref table LocalDateTable_4ab586c8-8cee-4663-9c2f-376669771f0b
 ref table DimCustomerServiceTime
 ref table DimCompany
 
+ref cultureInfo en-US
 
