@@ -9,7 +9,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["DataRoot","PurchaseOrderLines","FactSalesTarget","FactSalesAll","FactInventoryLot","_Measures","FactBranchCost","FactInventoryAll","FactPurchaseOrder","PurchaseSupplement","FactPurchaseLeadTime","DimCustomerServiceTime"]
+annotation PBI_QueryOrder = ["DataRoot","PurchaseOrderLines","FactSalesTarget","FactSalesAll","FactInventoryLot","_Measures","FactBranchCost","FactInventoryAll","FactPurchaseOrder","PurchaseSupplement","FactPurchaseLeadTime","DimCustomerServiceTime","SalesManagerMap"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
