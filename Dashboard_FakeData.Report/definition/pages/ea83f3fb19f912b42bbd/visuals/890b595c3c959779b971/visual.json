@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "890b595c3c959779b971",
   "position": {
-    "x": 1603.4042553191489,
-    "y": 16.048632218844986,
+    "x": 1651.9211822660097,
+    "y": 17.29064039408867,
     "z": 5000,
     "height": 100,
-    "width": 300,
+    "width": 250,
     "tabOrder": 5000
   },
   "visual": {
@@ -79,6 +79,18 @@
               "DimDate.Year Month"
             ],
             "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimDate"
+                    }
+                  },
+                  "Property": "Year Month"
+                }
+              }
+            ],
             "isPinned": true
           }
         ],
@@ -92,7 +104,19 @@
                   }
                 }
               ],
-              "isToggled": true
+              "isToggled": true,
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'2026-09'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
             },
             {
               "identityValues": [

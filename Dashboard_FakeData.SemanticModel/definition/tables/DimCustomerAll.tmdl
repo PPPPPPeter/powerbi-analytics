@@ -131,12 +131,22 @@ table DimCustomerAll
 
 	column 'New Customer Since 2026-08-01 Flag' =
 			
-			IF(
-			    NOT ISBLANK(DimCustomerAll[Customer First Order Date])
-			        && DimCustomerAll[Customer First Order Date] > DATE(2026, 8, 1),
-			    1,
-			    0
-			)
+			VAR MaxInvoiceDate =
+			    MAX ( FactBranchCost[Invoice Date] )    -- last invoice date in the data
+			VAR PrevMonthStart =
+			    EOMONTH ( MaxInvoiceDate, -2 ) + 1      -- first day of the previous month
+			VAR PrevMonthEnd =
+			    EOMONTH ( MaxInvoiceDate, -1 )          -- last day of the previous month
+			VAR FirstOrder =
+			    DimCustomerAll[Customer First Order Date]
+			RETURN
+			    IF (
+			        NOT ISBLANK ( FirstOrder )
+			            && FirstOrder >= PrevMonthStart
+			            && FirstOrder <= PrevMonthEnd,
+			        1,
+			        0
+			    )
 		lineageTag: 7e3cf246-e8db-4079-8d58-dee1f8554200
 		summarizeBy: sum
 

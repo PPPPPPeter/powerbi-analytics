@@ -1,7 +1,7 @@
 # Sales & Operations Analytics Dashboard (Power BI)
 
 An end-to-end Power BI project for a multi-company Asian food distributor. It turns raw
-ERP exports into an 11-page report covering **sales performance, sales targets, customer
+ERP exports into a 12-page report covering **sales performance, sales targets, customer
 grading, brand distribution, pricing and margin, inventory risk and purchasing lead times**.
 
 The project is stored in Power BI's text-based **PBIP / TMDL** format, so every table,
@@ -103,25 +103,27 @@ https://raw.githubusercontent.com/PPPPPPeter/powerbi-analytics/main/Data
 | # | Page | Question it answers | Main visuals |
 |---|---|---|---|
 | 1 | Overview | How are sales, orders, customers and SKUs trending vs last month and last year, by company and region? | Combo trend charts, company and customer-type pie charts, map, brand contribution table |
-| 2 | Brand - Product Distribution | For a brand, which in-stock SKUs were actually sold this period, and which were not? | Distributed / undistributed product tables, distribution rate card |
-| 3 | Brand - Customer Distribution | Which target customers bought a brand, which did not, and how does each salesperson cover it? | Distributed / undistributed customer tables by salesperson |
-| 4 | Product Pricing | How do selling price, cost and margin move over time for each product? | Gross margin vs selling price and volume vs selling price combo charts, product table |
-| 5 | Urgent Inventory | What stock has expired or will expire soon, and what might run out? | Expiry-status bar chart, lot detail and urgent-product tables |
-| 6 | SKU Overview | What should be reordered, how much, and what is overstocked? | Five risk cards, reorder and overstock top-N charts, 13-column SKU detail table |
-| 7 | Customer Detail Overview | What is each customer's purchase history, last order date and trend? | Sales trend chart, customer detail tables |
-| 8 | Customer Rating | Which customers are A / B / C / D, and how is each salesperson's portfolio graded? | Grade matrix by salesperson, score-detail table |
-| 9 | Sales Detail Overview | How do sales break down by salesperson, brand and category? | Bar chart, matrices, trend chart |
-| 10 | Sales KPI | Is each salesperson on track against the monthly target, including ice cream vs other products? | Completion gauges, target vs actual table, trend chart |
-| 11 | QINGQUAN Sales Overview | How is one key brand (the fictional brand QINGQUAN) selling, by product and by customer? | Product and customer tables |
+| 2 | Sales Lead Overview | How is each sales manager's team selling and tracking against target? | Sales manager slicer, KPI cards, sales trend by manager, top customers, map, completion gauges and order-creator target table |
+| 3 | Brand - Product Distribution | For a brand, which in-stock SKUs were actually sold this period, and which were not? | Distributed / undistributed product tables, distribution rate card |
+| 4 | Brand - Customer Distribution | Which target customers bought a brand, which did not, and how does each salesperson cover it? | Distributed / undistributed customer tables by salesperson |
+| 5 | Product Pricing | How do selling price, cost and margin move over time for each product? | Gross margin vs selling price and volume vs selling price combo charts, product table |
+| 6 | Urgent Inventory | What stock has expired or will expire soon, and what might run out? | Expiry-status bar chart, lot detail and urgent-product tables |
+| 7 | SKU Overview | What should be reordered, how much, and what is overstocked? | Five risk cards, reorder and overstock top-N charts, 13-column SKU detail table |
+| 8 | Customer Detail Overview | What is each customer's purchase history, last order date and trend? | Sales trend chart, customer detail tables |
+| 9 | Customer Rating | Which customers are A / B / C / D, and how is each salesperson's portfolio graded? | Grade matrix by salesperson, score-detail table |
+| 10 | Sales Detail Overview | How do sales break down by salesperson, brand and category? | Bar chart, matrices, trend chart |
+| 11 | Sales KPI | Is each salesperson on track against the monthly target, including ice cream vs other products? | Completion gauges, target vs actual table, trend chart |
+| 12 | QINGQUAN Sales Overview | How is one key brand (the fictional brand QINGQUAN) selling, by product and by customer? | Product and customer tables |
 
 Most pages have slicers for **company, date (year / month), product category, brand,
-customer type and salesperson**.
+customer type and salesperson**. The Sales Lead Overview, Customer Detail, Sales Detail and
+Sales KPI pages also have a **sales manager** slicer.
 
 ---
 
 ## Data model
 
-**Size:** 21 business tables, 194 DAX measures, 43 relationships (plus auto-generated date tables).
+**Size:** 22 business tables, 194 DAX measures, 44 relationships (plus auto-generated date tables).
 
 ```mermaid
 flowchart LR
@@ -133,6 +135,7 @@ flowchart LR
         E[purchase_order_lines.csv]
         F[purchase_tracking.csv]
         G[sales_targets_monthly.xlsx]
+        H[sales_manager_map.csv]
     end
     P((DataRoot<br/>parameter))
     P -.-> Files
@@ -144,8 +147,9 @@ flowchart LR
     F --> PS[PurchaseSupplement] --> FPO
     FPO --> FLT[FactPurchaseLeadTime]
     G --> FST[FactSalesTarget]
+    H --> SMM[SalesManagerMap] -.->|filters| FST
     FBC & FSA & FIL & FIA & FPO & FLT & FST --> DAX[DAX measures<br/>and calculated tables]
-    DAX --> R[11 report pages]
+    DAX --> R[12 report pages]
 ```
 
 ### Fact tables
@@ -167,6 +171,11 @@ flowchart LR
 `DimSalesperson`, `DimCreator`, `DimVisitCycle`, `DimCustomerServiceTime`, and `_Measures`
 (a table that only holds report measures). Most dimensions are DAX calculated tables built
 from the fact tables.
+
+`SalesManagerMap` (from `sales_manager_map.csv`) links sales managers to salespeople. A
+salesperson who covers customers in two managers' regions appears under both, so the table
+is a many-to-many bridge to `DimCreator` (both-direction filter). Selecting a manager filters
+targets and order-creator sales to that team without duplicating any target rows.
 
 ---
 
@@ -218,7 +227,8 @@ ready-made target lists of customers who have never bought a brand.
 
 Target vs actual and completion % per salesperson and per order creator; year-over-year
 and month-over-month for sales, quantity and orders; ice cream and non-ice-cream
-completion shown separately; conditional-formatting colours driven by measures.
+completion shown separately; conditional-formatting colours driven by measures. A sales
+manager slicer (through `SalesManagerMap`) narrows targets and sales to one team.
 
 ---
 
@@ -235,6 +245,7 @@ All files are in [`Data/`](Data). CSV files are UTF-8 with a header row.
 | `purchase_order_lines.csv` | 17,450 | 3.9 MB | Purchase order lines: SKU, supplier, quantity, received quantity, dates, status |
 | `purchase_tracking.csv` | 5,446 | 0.4 MB | One row per purchase order: created, shipped and arrived dates |
 | `sales_targets_monthly.xlsx` | sheets `KPI by Month`, `Raw Data` | < 0.1 MB | Monthly sales target per salesperson for 2026 |
+| `sales_manager_map.csv` | 31 | < 0.1 MB | Sales manager → salesperson pairs (a salesperson can have two managers) |
 
 Column names follow the typical ERP export layout (for example `Order Line/Order Reference`),
 because the Power Query steps depend on them.
@@ -259,7 +270,8 @@ no street or ZIP code, so the customer map works at city level.
 - Ice-cream costs rise from December 2025, pushing ice-cream margin close to zero in 2026
   while other products stay near 14%.
 - Refunds, discounts, freight and service-fee lines, and occasional free-of-charge lines.
-- New customers (including some after 1 August 2026) and customers who stopped ordering.
+- New customers (including some in the month before the last sales date, which the
+  "new customer" flag counts) and customers who stopped ordering.
 - Inventory in every state: out of stock, low, normal, overstocked, no recent sales,
   expired and expiring within 90 days.
 - Supplier lead times from about 3 to 75 days; roughly 5% of purchase orders still in transit.
@@ -269,6 +281,7 @@ no street or ZIP code, so the customer map works at city level.
 ```bash
 pip install openpyxl
 python tools/generate_mock_data.py
+python tools/make_sales_manager_map.py
 ```
 
 The script is seeded (`SEED = 2026`), so it produces identical files every time. Edit the
@@ -298,9 +311,10 @@ constants at the top of the script to change the output:
 │       ├── relationships.tmdl           all relationships
 │       ├── model.tmdl                   model settings
 │       └── tables/*.tmdl                one file per table: columns, measures, Power Query
-├── Data/                                fictional source data (7 files)
+├── Data/                                fictional source data (8 files)
 ├── tools/
-│   ├── generate_mock_data.py            regenerates everything in Data/
+│   ├── generate_mock_data.py            regenerates the sales, inventory, purchasing and target files
+│   ├── make_sales_manager_map.py        builds sales_manager_map.csv from the generated sales
 │   └── taxonomy.json                    category tree and US locations
 ├── .gitignore                           excludes the local data cache and user settings
 └── README.md

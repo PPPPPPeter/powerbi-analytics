@@ -3,10 +3,10 @@
   "name": "60100c9bda301116143e",
   "position": {
     "x": 13.300492610837438,
-    "y": 246.05911330049261,
+    "y": 246.0591133004926,
     "z": 12000,
     "height": 405.66502463054184,
-    "width": 528.02955665024626,
+    "width": 528.0295566502463,
     "tabOrder": 12000
   },
   "visual": {
@@ -269,34 +269,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "ef4b9ebbc5378725c836",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FactBranchCost"
-              }
-            },
-            "Property": "Branch Sales (Excl Freight and Service Fees)"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "660a474700e1b02b4098",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimCustomerNJ"
-              }
-            },
-            "Property": "Customer Gross Profit_All Branches"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

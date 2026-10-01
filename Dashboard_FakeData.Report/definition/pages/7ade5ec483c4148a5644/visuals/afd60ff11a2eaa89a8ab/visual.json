@@ -1,9 +1,9 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "afd60ff11a2eaa89a8ab",
   "position": {
-    "x": 21.497550734779566,
-    "y": 634.17774667599724,
+    "x": 22.610837438423644,
+    "y": 630.4433497536945,
     "z": 4000,
     "height": 421.889433170049,
     "width": 1881.035689293212,
@@ -15,6 +15,20 @@
       "queryState": {
         "Values": {
           "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCustomerAll"
+                    }
+                  },
+                  "Property": "Customer ID"
+                }
+              },
+              "queryRef": "DimCustomerAll.Customer ID",
+              "nativeQueryRef": "Customer ID"
+            },
             {
               "field": {
                 "Column": {
@@ -42,6 +56,34 @@
               },
               "queryRef": "DimCustomerAll.Salesperson",
               "nativeQueryRef": "Salesperson"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCustomerAll"
+                    }
+                  },
+                  "Property": "Sales Leader"
+                }
+              },
+              "queryRef": "DimCustomerAll.Sales Leader",
+              "nativeQueryRef": "Sales Manager"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCustomerAll"
+                    }
+                  },
+                  "Property": "State"
+                }
+              },
+              "queryRef": "DimCustomerAll.State",
+              "nativeQueryRef": "State"
             },
             {
               "field": {
@@ -100,7 +142,8 @@
               },
               "queryRef": "FactBranchCost.Branch Sales",
               "nativeQueryRef": "Sales",
-              "displayName": "Sales"
+              "displayName": "Sales",
+              "format": "\\$#,0.00;(\\$#,0.00);\\$#,0.00"
             },
             {
               "field": {
@@ -130,8 +173,8 @@
                 }
               },
               "queryRef": "DimCreator.Branch MoM average per Year Month",
-              "nativeQueryRef": "Sales Avg Monthly MoM",
-              "displayName": "Sales Avg Monthly MoM",
+              "nativeQueryRef": "Avg Monthly MoM",
+              "displayName": "Avg Monthly MoM",
               "format": "0.00%;-0.00%;0.00%"
             }
           ]
@@ -346,7 +389,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "233.10170664997833D"
+                  "Value": "193.23442196042038D"
                 }
               }
             }
@@ -360,7 +403,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "206.2200068419351D"
+                  "Value": "95.97294213330719D"
                 }
               }
             }
@@ -374,7 +417,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "212.64918043009123D"
+                  "Value": "140.72894909406264D"
                 }
               }
             }
@@ -388,7 +431,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "212.3887908476885D"
+                  "Value": "118.1783587742339D"
                 }
               }
             }
@@ -402,7 +445,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "278.5833812113989D"
+                  "Value": "193.3313125091533D"
                 }
               }
             }
@@ -416,13 +459,69 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "325.4819453047596D"
+                  "Value": "269.70033110653975D"
                 }
               }
             }
           },
           "selector": {
             "metadata": "DimCustomerAll.Customer Name"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "158.07882126995045D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DimCustomerAll.Customer ID"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "161.75764791642555D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DimCustomerAll.Sales Leader"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "190.84729164014487D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DimCustomerAll.State"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "130.77832574118048D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DimCreator.Branch MoM average per Year Month"
           }
         }
       ]
@@ -578,6 +677,90 @@
               }
             },
             "Property": "Branch Sales YoY"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "56fe8967d7a5bc2d6baa",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCustomerAll"
+              }
+            },
+            "Property": "Customer ID"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d6103f5e7219771541a4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCustomerAll"
+              }
+            },
+            "Property": "Sales Leader"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "149644906c345a168588",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCustomerAll"
+              }
+            },
+            "Property": "State"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "57d7b04cc9a509cace65",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCustomerAll"
+              }
+            },
+            "Property": "Branch Customer Last Order Date"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "38beb2fb241b60d03776",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCustomerAll"
+              }
+            },
+            "Property": "Days Since Last Order"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "280748d90d64264d9177",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCreator"
+              }
+            },
+            "Property": "Branch MoM average per Year Month"
           }
         },
         "type": "Advanced"

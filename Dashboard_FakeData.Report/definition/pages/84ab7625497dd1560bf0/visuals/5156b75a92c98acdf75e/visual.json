@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "5156b75a92c98acdf75e",
   "position": {
-    "x": 1004.1871921182266,
-    "y": 17.290640394088669,
+    "x": 1100.3248259860788,
+    "y": 17.819025522041763,
     "z": 5000,
     "height": 100,
-    "width": 300,
+    "width": 250,
     "tabOrder": 5000
   },
   "visual": {
@@ -275,5 +275,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2745900c340d54300391",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactBranchCost"
+              }
+            },
+            "Property": "Customer Channel"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

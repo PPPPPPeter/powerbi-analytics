@@ -1,9 +1,9 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "92ad5e39c54f0af4b183",
   "position": {
     "x": 453.4746404239213,
-    "y": 145.34443603330811,
+    "y": 145.3444360333081,
     "z": 4000,
     "height": 424.40575321725964,
     "width": 1449.0840272520818,
@@ -29,6 +29,21 @@
               "queryRef": "FactBranchCost.customer_name",
               "nativeQueryRef": "Customer",
               "displayName": "Customer"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactBranchCost"
+                    }
+                  },
+                  "Property": "customer_no"
+                }
+              },
+              "queryRef": "FactBranchCost.customer_no",
+              "nativeQueryRef": "Customer ID",
+              "displayName": "Customer ID"
             },
             {
               "field": {
@@ -378,7 +393,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "406.09731795527824D"
+                  "Value": "268.03432967713513D"
                 }
               }
             }
@@ -441,6 +456,20 @@
           },
           "selector": {
             "metadata": "_Measures.SKU Distribution Rate"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "167.0325510976533D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "FactBranchCost.customer_no"
           }
         }
       ],

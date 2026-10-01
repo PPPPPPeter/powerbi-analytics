@@ -5,8 +5,8 @@
     "x": 21.2807881773399,
     "y": 146.30541871921181,
     "z": 5000,
-    "height": 328.52216748768473,
-    "width": 1214.3349753694581,
+    "height": 328.5221674876847,
+    "width": 1214.334975369458,
     "tabOrder": 5000
   },
   "visual": {
@@ -483,100 +483,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "bdd974230007bb5dc503",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FactInventoryLot"
-              }
-            },
-            "Property": "Lot/Serial Number"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "b6a937198033d3924dd5",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FactInventoryLot"
-              }
-            },
-            "Property": "Expiry Date"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "db22b528d93bb3b017e9",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "FactInventoryLot"
-                  }
-                },
-                "Property": "Shelf Life Progress"
-              }
-            },
-            "Function": 4
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "f194e055d06762cb8a15",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FactInventoryLot"
-              }
-            },
-            "Property": "Product/Unit of Measure"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "c869647f10826e300753",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "FactInventoryLot"
-                  }
-                },
-                "Property": "Product/Expiry Date"
-              }
-            },
-            "Function": 1
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "0babb5c32c010076832b",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FactInventoryLot"
-              }
-            },
-            "Property": "Product/Name"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }

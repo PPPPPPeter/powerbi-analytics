@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "d77dd0ad9f799efc9c15",
   "position": {
-    "x": 1303.0253475061324,
-    "y": 17.269010629599347,
+    "x": 1351.276102088167,
+    "y": 17.819025522041763,
     "z": 2000,
     "height": 100,
-    "width": 300,
+    "width": 250,
     "tabOrder": 2000
   },
   "visual": {
@@ -291,5 +291,23 @@
       "filterChanges": true
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "94da190ec84907c5c278",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "ProductCatalogAll"
+              }
+            },
+            "Property": "Product Class"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

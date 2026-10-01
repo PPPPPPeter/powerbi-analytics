@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "244a485f1b760fef15cd",
   "position": {
     "x": 700.093896713615,
@@ -142,5 +142,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "aa0ac1eba9b578eab247",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCustomerAll"
+              }
+            },
+            "Property": "New Customer Since 2026-08-01 Flag"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

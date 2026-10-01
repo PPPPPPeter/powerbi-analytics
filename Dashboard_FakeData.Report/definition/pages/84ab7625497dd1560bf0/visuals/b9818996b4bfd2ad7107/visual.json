@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "b9818996b4bfd2ad7107",
   "position": {
-    "x": 1603.0769230769231,
-    "y": 16.923076923076923,
+    "x": 1601.3793103448274,
+    "y": 17.29064039408867,
     "z": 3000,
-    "height": 100,
-    "width": 300,
+    "height": 99.75369458128078,
+    "width": 300.5911330049261,
     "tabOrder": 3000
   },
   "visual": {
@@ -23,26 +23,11 @@
                       "Entity": "DimDate"
                     }
                   },
-                  "Property": "Year"
+                  "Property": "Date"
                 }
               },
-              "queryRef": "DimDate.Year",
-              "nativeQueryRef": "Year",
-              "active": true
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DimDate"
-                    }
-                  },
-                  "Property": "Year Month"
-                }
-              },
-              "queryRef": "DimDate.Year Month",
-              "nativeQueryRef": "Year Month",
+              "queryRef": "DimDate.Date",
+              "nativeQueryRef": "Date",
               "active": true
             }
           ]
@@ -58,7 +43,7 @@
                     "Entity": "DimDate"
                   }
                 },
-                "Property": "Year Month"
+                "Property": "Date"
               }
             },
             "direction": "Ascending"
@@ -67,55 +52,6 @@
         "isDefaultSort": true
       }
     },
-    "expansionStates": [
-      {
-        "roles": [
-          "Values"
-        ],
-        "levels": [
-          {
-            "queryRefs": [
-              "DimDate.Year"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DimDate"
-                    }
-                  },
-                  "Property": "Year"
-                }
-              }
-            ],
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "DimDate.Year Month"
-            ],
-            "isCollapsed": true,
-            "isPinned": true
-          }
-        ],
-        "root": {
-          "children": [
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "2026L"
-                  }
-                }
-              ],
-              "isToggled": true
-            }
-          ]
-        }
-      }
-    ],
     "objects": {
       "data": [
         {
@@ -123,21 +59,21 @@
             "startDate": {
               "expr": {
                 "Literal": {
-                  "Value": "datetime'2026-08-01T00:00:00'"
-                }
-              }
-            },
-            "mode": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Dropdown'"
+                  "Value": "datetime'2026-01-01T00:00:00'"
                 }
               }
             },
             "endDate": {
               "expr": {
                 "Literal": {
-                  "Value": "datetime'2026-08-23T00:00:00'"
+                  "Value": "datetime'2026-09-30T00:00:00'"
+                }
+              }
+            },
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Between'"
                 }
               }
             }
@@ -213,242 +149,45 @@
                     "Condition": {
                       "And": {
                         "Left": {
-                          "In": {
-                            "Expressions": [
-                              {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Source": "d"
-                                    }
-                                  },
-                                  "Property": "Year"
-                                }
-                              }
-                            ],
-                            "Values": [
-                              [
-                                {
-                                  "Literal": {
-                                    "Value": "2026L"
+                          "Comparison": {
+                            "ComparisonKind": 2,
+                            "Left": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "d"
                                   }
-                                }
-                              ]
-                            ]
+                                },
+                                "Property": "Date"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "datetime'2026-01-01T00:00:00'"
+                              }
+                            }
                           }
                         },
                         "Right": {
-                          "Not": {
-                            "Expression": {
-                              "In": {
-                                "Expressions": [
-                                  {
-                                    "Column": {
-                                      "Expression": {
-                                        "SourceRef": {
-                                          "Source": "d"
-                                        }
-                                      },
-                                      "Property": "Year"
-                                    }
-                                  },
-                                  {
-                                    "Column": {
-                                      "Expression": {
-                                        "SourceRef": {
-                                          "Source": "d"
-                                        }
-                                      },
-                                      "Property": "Year Month"
-                                    }
+                          "Comparison": {
+                            "ComparisonKind": 3,
+                            "Left": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "d"
                                   }
-                                ],
-                                "Values": [
-                                  [
-                                    {
-                                      "Literal": {
-                                        "Value": "2026L"
-                                      }
-                                    },
-                                    {
-                                      "Literal": {
-                                        "Value": "'2026-11'"
-                                      }
-                                    }
-                                  ],
-                                  [
-                                    {
-                                      "Literal": {
-                                        "Value": "2026L"
-                                      }
-                                    },
-                                    {
-                                      "Literal": {
-                                        "Value": "'2026-12'"
-                                      }
-                                    }
-                                  ],
-                                  [
-                                    {
-                                      "Literal": {
-                                        "Value": "2026L"
-                                      }
-                                    },
-                                    {
-                                      "Literal": {
-                                        "Value": "'2026-10'"
-                                      }
-                                    }
-                                  ]
-                                ]
+                                },
+                                "Property": "Date"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "datetime'2026-10-01T00:00:00'"
                               }
                             }
                           }
                         }
-                      }
-                    },
-                    "Annotations": {
-                      "filterExpressionMetadata": {
-                        "expressions": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Entity": "DimDate"
-                                }
-                              },
-                              "Property": "Year"
-                            }
-                          },
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Entity": "DimDate"
-                                }
-                              },
-                              "Property": "Year Month"
-                            }
-                          }
-                        ],
-                        "decomposedIdentities": {
-                          "values": [
-                            [
-                              {
-                                "0": [
-                                  {
-                                    "Literal": {
-                                      "Value": "2026L"
-                                    }
-                                  }
-                                ]
-                              }
-                            ],
-                            [
-                              {
-                                "0": [
-                                  {
-                                    "Literal": {
-                                      "Value": "2026L"
-                                    }
-                                  }
-                                ]
-                              },
-                              {
-                                "1": [
-                                  {
-                                    "Literal": {
-                                      "Value": "'2026-10'"
-                                    }
-                                  }
-                                ]
-                              }
-                            ],
-                            [
-                              {
-                                "0": [
-                                  {
-                                    "Literal": {
-                                      "Value": "2026L"
-                                    }
-                                  }
-                                ]
-                              },
-                              {
-                                "1": [
-                                  {
-                                    "Literal": {
-                                      "Value": "'2026-11'"
-                                    }
-                                  }
-                                ]
-                              }
-                            ],
-                            [
-                              {
-                                "0": [
-                                  {
-                                    "Literal": {
-                                      "Value": "2026L"
-                                    }
-                                  }
-                                ]
-                              },
-                              {
-                                "1": [
-                                  {
-                                    "Literal": {
-                                      "Value": "'2026-12'"
-                                    }
-                                  }
-                                ]
-                              }
-                            ]
-                          ],
-                          "columns": [
-                            {
-                              "value": {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "DimDate"
-                                    }
-                                  },
-                                  "Property": "Year"
-                                }
-                              }
-                            },
-                            {
-                              "value": {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "DimDate"
-                                    }
-                                  },
-                                  "Property": "Year Month"
-                                }
-                              }
-                            }
-                          ]
-                        },
-                        "valueMap": [
-                          {
-                            "0": "2026"
-                          },
-                          {
-                            "0": "2026",
-                            "1": "2026-10"
-                          },
-                          {
-                            "0": "2026",
-                            "1": "2026-11"
-                          },
-                          {
-                            "0": "2026",
-                            "1": "2026-12"
-                          }
-                        ]
                       }
                     }
                   }

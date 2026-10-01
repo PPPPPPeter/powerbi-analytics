@@ -188,3 +188,8 @@ relationship 2a7c8584-7835-46eb-a3d3-280fa3ddb8cb
 	fromColumn: FactSalesTarget.Company
 	toColumn: DimCompany.Company
 
+relationship SalesManagerMap_Salesperson_DimCreator_OrderCreator
+	crossFilteringBehavior: bothDirections
+	fromColumn: SalesManagerMap.Salesperson
+	toColumn: DimCreator.'Order Creator'
+

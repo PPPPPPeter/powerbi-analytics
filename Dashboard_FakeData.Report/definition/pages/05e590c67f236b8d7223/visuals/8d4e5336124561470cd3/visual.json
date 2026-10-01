@@ -1,9 +1,9 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "8d4e5336124561470cd3",
   "position": {
     "x": 1229.7459584295614,
-    "y": 644.43418013856819,
+    "y": 644.4341801385682,
     "z": 6000,
     "height": 407.94457274826794,
     "width": 478.891454965358,
@@ -28,6 +28,20 @@
               },
               "queryRef": "DimCustomerAll.Customer Name",
               "nativeQueryRef": "Customer Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCustomerAll"
+                    }
+                  },
+                  "Property": "Customer ID"
+                }
+              },
+              "queryRef": "DimCustomerAll.Customer ID",
+              "nativeQueryRef": "Customer ID"
             },
             {
               "field": {
@@ -94,7 +108,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "282.2974205815049D"
+                  "Value": "192.24458204612912D"
                 }
               }
             }
@@ -108,13 +122,27 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "149.07690035976267D"
+                  "Value": "119.52809406948617D"
                 }
               }
             }
           },
           "selector": {
             "metadata": "DimCustomerAll.Salesperson"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "122.51732101616628D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DimCustomerAll.Customer ID"
           }
         }
       ],

@@ -52,6 +52,7 @@ ref table LocalDateTable_045e5c35-79d3-4290-901e-f3a740b02b19
 ref table LocalDateTable_4ab586c8-8cee-4663-9c2f-376669771f0b
 ref table DimCustomerServiceTime
 ref table DimCompany
+ref table SalesManagerMap
 
 ref cultureInfo en-US
 

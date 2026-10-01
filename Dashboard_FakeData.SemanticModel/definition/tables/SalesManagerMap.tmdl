@@ -1,0 +1,30 @@
+/// Many-to-many mapping of sales managers to salespeople, from Data/sales_manager_map.csv (built by tools/make_sales_manager_map.py)
+table SalesManagerMap
+	lineageTag: ccf08bb9-e572-4c4b-8848-fee444c4c302
+
+	column 'Sales Manager'
+		dataType: string
+		lineageTag: e50a7a33-f427-40f8-bec3-312da724ece7
+		summarizeBy: none
+		sourceColumn: Sales Manager
+
+	column Salesperson
+		dataType: string
+		lineageTag: e74fb3fa-144c-461d-886d-977017a2b84a
+		summarizeBy: none
+		sourceColumn: Salesperson
+
+	partition SalesManagerMap = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document((if Text.StartsWith(DataRoot, "http") then Web.Contents(DataRoot & "/sales_manager_map.csv") else File.Contents(DataRoot & "\sales_manager_map.csv")), [Delimiter = ",", Columns = 2, Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Trimmed = Table.TransformColumns(Promoted, {{"Sales Manager", each Text.Trim(_ ?? ""), type text}, {"Salesperson", each Text.Trim(_ ?? ""), type text}}),
+				    Filtered = Table.SelectRows(Trimmed, each [Sales Manager] <> "" and [Salesperson] <> ""),
+				    Distinct = Table.Distinct(Filtered)
+				in
+				    Distinct
+
+	annotation PBI_ResultType = Table
+

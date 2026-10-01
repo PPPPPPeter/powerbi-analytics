@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "5c443e590b00b402a825",
   "position": {
     "x": 1046.7487684729062,
-    "y": 246.05911330049261,
+    "y": 246.0591133004926,
     "z": 10000,
     "height": 405.66502463054184,
-    "width": 857.88177339901472,
+    "width": 857.8817733990147,
     "tabOrder": 10000
   },
   "visual": {
@@ -343,6 +343,20 @@
                   "Value": "13D"
                 }
               }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1000000D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
             }
           },
           "selector": {
@@ -585,6 +599,94 @@
             ],
             "metadata": "_Measures.Prior Year Same Period YoY"
           }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1000000D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FactBranchCost"
+                          }
+                        },
+                        "Property": "Customer Channel"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Asian'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1000000D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FactBranchCost"
+                          }
+                        },
+                        "Property": "Customer Channel"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Agent'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
         }
       ],
       "legend": [
@@ -635,7 +737,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Customer Kind Volume'"
+                  "Value": "'Sales by Customer Kind'"
                 }
               }
             },

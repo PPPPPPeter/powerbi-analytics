@@ -2,7 +2,7 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "059e7a44e382c9178fb2",
   "position": {
-    "x": 1603.0769230769231,
+    "x": 1603.076923076923,
     "y": 16.923076923076923,
     "z": 6000,
     "height": 100,
@@ -313,18 +313,6 @@
                                         "Value": "'2026-12'"
                                       }
                                     }
-                                  ],
-                                  [
-                                    {
-                                      "Literal": {
-                                        "Value": "2026L"
-                                      }
-                                    },
-                                    {
-                                      "Literal": {
-                                        "Value": "'2026-09'"
-                                      }
-                                    }
                                   ]
                                 ]
                               }
@@ -451,26 +439,6 @@
                                   }
                                 ]
                               }
-                            ],
-                            [
-                              {
-                                "0": [
-                                  {
-                                    "Literal": {
-                                      "Value": "2026L"
-                                    }
-                                  }
-                                ]
-                              },
-                              {
-                                "1": [
-                                  {
-                                    "Literal": {
-                                      "Value": "'2026-09'"
-                                    }
-                                  }
-                                ]
-                              }
                             ]
                           ],
                           "columns": [
@@ -521,10 +489,6 @@
                           {
                             "0": "2026",
                             "1": "2026-12"
-                          },
-                          {
-                            "0": "2026",
-                            "1": "2026-09"
                           }
                         ]
                       }

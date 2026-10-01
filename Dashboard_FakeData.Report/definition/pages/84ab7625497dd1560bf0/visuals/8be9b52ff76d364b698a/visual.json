@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "8be9b52ff76d364b698a",
   "position": {
     "x": 22.273781902552205,
@@ -23,17 +23,36 @@
                       "Entity": "DimCustomerAll"
                     }
                   },
-                  "Property": "Customer Name"
+                  "Property": "Customer ID"
                 }
               },
-              "queryRef": "DimCustomerAll.Customer Name",
-              "nativeQueryRef": "Customer Name1",
+              "queryRef": "DimCustomerAll.Customer ID",
+              "nativeQueryRef": "Customer ID",
               "active": true
             }
           ]
         },
         "Values": {
           "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimCustomerAll"
+                        }
+                      },
+                      "Property": "Customer Name"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(DimCustomerAll.Customer Name)",
+              "nativeQueryRef": "Customer Name1"
+            },
             {
               "field": {
                 "Measure": {
@@ -161,9 +180,21 @@
         "levels": [
           {
             "queryRefs": [
-              "DimCustomerAll.Customer Name"
+              "DimCustomerAll.Customer ID"
             ],
             "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCustomerAll"
+                    }
+                  },
+                  "Property": "Customer ID"
+                }
+              }
+            ],
             "isPinned": true
           }
         ],
@@ -339,6 +370,13 @@
                   "Value": "15D"
                 }
               }
+            },
+            "autoExpand": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
@@ -427,6 +465,34 @@
           "selector": {
             "metadata": "DimCustomer.Customer Sales_All Branches"
           }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "171.81992334679973D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(DimCustomerAll.Customer Name)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "152.33178254185037D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DimCustomerAll.Customer ID"
+          }
         }
       ],
       "subTotals": [
@@ -456,6 +522,19 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowTotal": [
+        {
+          "properties": {
+            "applyToHeaders": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "bd3e232688feb2629533",
   "position": {
     "x": 20.983606557377048,
@@ -39,7 +39,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "As of 2026-09-21",
+                    "value": "As of 2026-09-23",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "Arial",

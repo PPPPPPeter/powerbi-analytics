@@ -5,6 +5,21 @@
   "displayOption": "FitToPage",
   "height": 1080,
   "width": 1920,
+  "objects": {
+    "outspacePane": [
+      {
+        "properties": {
+          "width": {
+            "expr": {
+              "Literal": {
+                "Value": "184L"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
   "visualInteractions": [
     {
       "source": "eb8e9a7d97103d747a43",

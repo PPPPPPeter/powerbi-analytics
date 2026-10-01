@@ -3,7 +3,7 @@
   "name": "9e31241642c5f51ef633",
   "position": {
     "x": 13.130699088145896,
-    "y": 665.28875379939211,
+    "y": 665.2887537993921,
     "z": 4000,
     "height": 402.67477203647417,
     "width": 462.49240121580544,
@@ -221,51 +221,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "c02046eb92b7e5a9e937",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FactBranchCost"
-              }
-            },
-            "Property": "state"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "de7dfa67b8c0e3b37a40",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FactBranchCost"
-              }
-            },
-            "Property": "Branch Sales (Excl Freight and Service Fees)"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "726d658b4d0971346e10",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FactBranchCost"
-              }
-            },
-            "Property": "State Sales Share"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

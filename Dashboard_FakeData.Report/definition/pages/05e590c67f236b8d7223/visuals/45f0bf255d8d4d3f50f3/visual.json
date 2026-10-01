@@ -1,9 +1,9 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "45f0bf255d8d4d3f50f3",
   "position": {
-    "x": 789.28406466512706,
-    "y": 644.43418013856819,
+    "x": 789.2840646651271,
+    "y": 644.4341801385682,
     "z": 7000,
     "height": 407.94457274826794,
     "width": 427.15935334872984,
@@ -28,6 +28,20 @@
               },
               "queryRef": "DimCustomerAll.Customer Name",
               "nativeQueryRef": "Customer Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCustomerAll"
+                    }
+                  },
+                  "Property": "Customer ID"
+                }
+              },
+              "queryRef": "DimCustomerAll.Customer ID",
+              "nativeQueryRef": "Customer ID"
             },
             {
               "field": {
@@ -112,7 +126,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "143.06971433298523D"
+                  "Value": "119.41692643606366D"
                 }
               }
             }
@@ -126,13 +140,27 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "239.51754537363442D"
+                  "Value": "162.50696667514526D"
                 }
               }
             }
           },
           "selector": {
             "metadata": "DimCustomerAll.Customer Name"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "98.96118741649707D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DimCustomerAll.Customer ID"
           }
         }
       ],

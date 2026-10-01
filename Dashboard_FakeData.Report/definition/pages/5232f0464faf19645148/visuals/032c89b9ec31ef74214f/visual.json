@@ -1,9 +1,9 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "032c89b9ec31ef74214f",
   "position": {
     "x": 19.363847944142744,
-    "y": 601.76881303335915,
+    "y": 601.7688130333592,
     "z": 3000,
     "height": 458.77424359968967,
     "width": 1882.7618308766484,
@@ -15,6 +15,20 @@
       "queryState": {
         "Values": {
           "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCustomerAll"
+                    }
+                  },
+                  "Property": "Customer ID"
+                }
+              },
+              "queryRef": "DimCustomerAll.Customer ID",
+              "nativeQueryRef": "Customer ID"
+            },
             {
               "field": {
                 "Column": {
@@ -505,7 +519,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "463.6922756666453D"
+                  "Value": "279.38430354580004D"
                 }
               }
             }

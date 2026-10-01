@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "ce5da1505a44e3a817be",
   "position": {
     "x": 387.25173210161665,
-    "y": 644.43418013856819,
+    "y": 644.4341801385682,
     "z": 14000,
     "height": 407.94457274826794,
-    "width": 384.29561200923791,
+    "width": 384.2956120092379,
     "tabOrder": 14000
   },
   "visual": {
@@ -134,7 +134,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sales'"
+                  "Value": "'Select Salesperson'"
                 }
               }
             },

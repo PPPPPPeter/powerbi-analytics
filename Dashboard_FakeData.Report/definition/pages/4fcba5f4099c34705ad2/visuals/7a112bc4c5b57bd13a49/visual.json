@@ -1,11 +1,11 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "7a112bc4c5b57bd13a49",
   "position": {
     "x": 20.358890701468187,
     "y": 306.94942903752036,
     "z": 7000,
-    "height": 748.58075040783035,
+    "height": 748.5807504078304,
     "width": 1431.3866231647635,
     "tabOrder": 7000
   },
@@ -224,7 +224,7 @@
                     "Entity": "DimProductAll"
                   }
                 },
-                "Property": "Last 90 Days Net Sales Qty"
+                "Property": "Current Stock Qty"
               }
             },
             "direction": "Descending"

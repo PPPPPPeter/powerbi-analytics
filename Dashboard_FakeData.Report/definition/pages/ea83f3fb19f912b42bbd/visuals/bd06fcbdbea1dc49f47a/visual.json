@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "bd06fcbdbea1dc49f47a",
   "position": {
-    "x": 949.78723404255322,
-    "y": 401.21580547112461,
+    "x": 949.7872340425532,
+    "y": 401.2158054711246,
     "z": 3000,
-    "height": 659.45288753799389,
-    "width": 952.70516717325222,
+    "height": 659.4528875379939,
+    "width": 952.7051671732522,
     "tabOrder": 3000
   },
   "visual": {
@@ -153,91 +153,6 @@
                         {
                           "Condition": {
                             "Comparison": {
-                              "ComparisonKind": 0,
-                              "Left": {
-                                "Measure": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "_Measures"
-                                    }
-                                  },
-                                  "Property": "Order Creator Completion Rate"
-                                }
-                              },
-                              "Right": {
-                                "RangePercent": {
-                                  "Min": {
-                                    "ScopedEval": {
-                                      "Expression": {
-                                        "Aggregation": {
-                                          "Expression": {
-                                            "ScopedEval": {
-                                              "Expression": {
-                                                "Measure": {
-                                                  "Expression": {
-                                                    "SourceRef": {
-                                                      "Entity": "_Measures"
-                                                    }
-                                                  },
-                                                  "Property": "Order Creator Completion Rate"
-                                                }
-                                              },
-                                              "Scope": [
-                                                {
-                                                  "AllRolesRef": {}
-                                                }
-                                              ]
-                                            }
-                                          },
-                                          "Function": 3
-                                        }
-                                      },
-                                      "Scope": []
-                                    }
-                                  },
-                                  "Max": {
-                                    "ScopedEval": {
-                                      "Expression": {
-                                        "Aggregation": {
-                                          "Expression": {
-                                            "ScopedEval": {
-                                              "Expression": {
-                                                "Measure": {
-                                                  "Expression": {
-                                                    "SourceRef": {
-                                                      "Entity": "_Measures"
-                                                    }
-                                                  },
-                                                  "Property": "Order Creator Completion Rate"
-                                                }
-                                              },
-                                              "Scope": [
-                                                {
-                                                  "AllRolesRef": {}
-                                                }
-                                              ]
-                                            }
-                                          },
-                                          "Function": 4
-                                        }
-                                      },
-                                      "Scope": []
-                                    }
-                                  },
-                                  "Percent": 1
-                                }
-                              }
-                            }
-                          },
-                          "Value": {
-                            "Literal": {
-                              "Value": "'#F49700'"
-                            }
-                          }
-                        },
-                        {
-                          "Condition": {
-                            "Comparison": {
                               "ComparisonKind": 2,
                               "Left": {
                                 "Measure": {
@@ -264,6 +179,57 @@
                         },
                         {
                           "Condition": {
+                            "And": {
+                              "Left": {
+                                "Comparison": {
+                                  "ComparisonKind": 2,
+                                  "Left": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "_Measures"
+                                        }
+                                      },
+                                      "Property": "Order Creator Completion Rate"
+                                    }
+                                  },
+                                  "Right": {
+                                    "Literal": {
+                                      "Value": "0.9D"
+                                    }
+                                  }
+                                }
+                              },
+                              "Right": {
+                                "Comparison": {
+                                  "ComparisonKind": 3,
+                                  "Left": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "_Measures"
+                                        }
+                                      },
+                                      "Property": "Order Creator Completion Rate"
+                                    }
+                                  },
+                                  "Right": {
+                                    "Literal": {
+                                      "Value": "1D"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#F49700'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
                             "Comparison": {
                               "ComparisonKind": 3,
                               "Left": {
@@ -278,7 +244,7 @@
                               },
                               "Right": {
                                 "Literal": {
-                                  "Value": "1D"
+                                  "Value": "0.9D"
                                 }
                               }
                             }

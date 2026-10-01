@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "9be532570fa0b67fe5eb",
   "position": {
-    "x": 1667.8817733990147,
-    "y": 17.290640394088669,
-    "z": 8000,
-    "height": 99.753694581280783,
-    "width": 235.41871921182266,
-    "tabOrder": 8000
+    "x": 1652.2938530734632,
+    "y": 17.27136431784108,
+    "z": 7000,
+    "height": 99.75369458128078,
+    "width": 250,
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "slicer",
@@ -299,18 +299,6 @@
                                         "Value": "'2026-12'"
                                       }
                                     }
-                                  ],
-                                  [
-                                    {
-                                      "Literal": {
-                                        "Value": "2026L"
-                                      }
-                                    },
-                                    {
-                                      "Literal": {
-                                        "Value": "'2026-09'"
-                                      }
-                                    }
                                   ]
                                 ]
                               }
@@ -415,26 +403,6 @@
                                   }
                                 ]
                               }
-                            ],
-                            [
-                              {
-                                "0": [
-                                  {
-                                    "Literal": {
-                                      "Value": "2026L"
-                                    }
-                                  }
-                                ]
-                              },
-                              {
-                                "1": [
-                                  {
-                                    "Literal": {
-                                      "Value": "'2026-09'"
-                                    }
-                                  }
-                                ]
-                              }
                             ]
                           ],
                           "columns": [
@@ -479,10 +447,6 @@
                           {
                             "0": "2026",
                             "1": "2026-12"
-                          },
-                          {
-                            "0": "2026",
-                            "1": "2026-09"
                           }
                         ]
                       }
