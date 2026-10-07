@@ -3,7 +3,7 @@
   "name": "890b595c3c959779b971",
   "position": {
     "x": 1651.9211822660097,
-    "y": 17.290640394088669,
+    "y": 17.29064039408867,
     "z": 5000,
     "height": 100,
     "width": 250,
@@ -117,16 +117,6 @@
                   "isToggled": true
                 }
               ]
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "2025L"
-                  }
-                }
-              ],
-              "isToggled": true
             }
           ]
         }
@@ -259,7 +249,7 @@
                             },
                             {
                               "Literal": {
-                                "Value": "'2026-09'"
+                                "Value": "'2026-10'"
                               }
                             }
                           ]
@@ -306,7 +296,7 @@
                                 "1": [
                                   {
                                     "Literal": {
-                                      "Value": "'2026-09'"
+                                      "Value": "'2026-10'"
                                     }
                                   }
                                 ]
@@ -343,7 +333,7 @@
                         "valueMap": [
                           {
                             "0": "2026",
-                            "1": "2026-09"
+                            "1": "2026-10"
                           }
                         ]
                       }
@@ -418,10 +408,42 @@
       ]
     },
     "syncGroup": {
-      "groupName": "Date1",
+      "groupName": "Date 1",
       "fieldChanges": true,
       "filterChanges": true
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "c8fba7f5bd6d18217658",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimDate"
+              }
+            },
+            "Property": "Year"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "dcc78e183d3912d79c18",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimDate"
+              }
+            },
+            "Property": "Year Month"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

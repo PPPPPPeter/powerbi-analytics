@@ -622,7 +622,7 @@ def write_targets(lines, reps, path):
     wb = Workbook()
     ws = wb.active
     ws.title = "KPI by Month"
-    ws.append(["Month Date", "YearMonth", "Year", "Month", "Salesperson", "KPI Target", "Company"])
+    ws.append(["Month Date", "YearMonth", "Year", "Month", "Salesperson", "KPI Target", "Company", "Ice Cream Target", "Region"])
     raw = []
     people = [r for r in reps[nj] if r != "MAINSTREAM"]
     for r in people:
@@ -632,7 +632,8 @@ def write_targets(lines, reps, path):
         for m in range(1, 13):
             t = int(round(base * rng.uniform(0.9, 1.2) / 5000) * 5000)
             targets[m] = max(t, 10000)
-            ws.append([datetime(2026, m, 1), f"2026-{m:02d}", 2026, m, r, targets[m], nj])
+            ice_cream_target = int(round(targets[m] * 0.2 / 1000) * 1000)
+            ws.append([datetime(2026, m, 1), f"2026-{m:02d}", 2026, m, r, targets[m], nj, ice_cream_target, "Northeast"])
         raw.append([r, targets[8], targets[9]])
     ws2 = wb.create_sheet("Raw Data")
     ws2.append(["Customer/Salesperson", "Aug Target", "Sep Target"])

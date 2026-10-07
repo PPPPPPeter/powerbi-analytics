@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "324d9f308f49bab7f883",
   "position": {
-    "x": 949.78723404255322,
-    "y": 144.43768996960486,
+    "x": 949.90990990991,
+    "y": 144.14414414414415,
     "z": 7000,
     "height": 246.56534954407294,
-    "width": 477.08206686930089,
+    "width": 477.0820668693009,
     "tabOrder": 7000
   },
   "visual": {
@@ -17,17 +17,22 @@
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Aggregation": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "FactSalesTarget"
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FactSalesTarget"
+                        }
+                      },
+                      "Property": "Ice Cream Target"
                     }
                   },
-                  "Property": "Ice Cream Total Target"
+                  "Function": 0
                 }
               },
-              "queryRef": "FactSalesTarget.Ice Cream Total Target",
-              "nativeQueryRef": "Ice Cream Total Target"
+              "queryRef": "CountNonNull(FactSalesTarget.Ice Cream Target)",
+              "nativeQueryRef": "Sum of Ice Cream Target"
             }
           ]
         },

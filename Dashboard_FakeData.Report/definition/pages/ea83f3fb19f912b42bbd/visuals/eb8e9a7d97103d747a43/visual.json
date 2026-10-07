@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "eb8e9a7d97103d747a43",
   "position": {
-    "x": 23.940886699507388,
-    "y": 731.5270935960591,
+    "x": 24.504504504504506,
+    "y": 730.8108108108108,
     "z": 6000,
-    "height": 331.18226600985219,
-    "width": 912.41379310344826,
+    "height": 331.5315315315315,
+    "width": 912.4324324324325,
     "tabOrder": 6000
   },
   "visual": {
@@ -37,11 +37,29 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Salesperson Sales"
+                  "Property": "Salesperson Non-Ice Cream Sales"
                 }
               },
-              "queryRef": "_Measures.Salesperson Sales",
-              "nativeQueryRef": "Salesperson Sales"
+              "queryRef": "_Measures.Salesperson Non-Ice Cream Sales",
+              "nativeQueryRef": "Non-Ice Cream Sales",
+              "displayName": "Non-Ice Cream Sales",
+              "format": "\\$#,0.00;(\\$#,0.00);\\$#,0.00"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Salesperson Ice Cream Sales"
+                }
+              },
+              "queryRef": "_Measures.Salesperson Ice Cream Sales",
+              "nativeQueryRef": "Ice Cream Sales",
+              "displayName": "Ice Cream Sales",
+              "format": "\\$#,0.00;(\\$#,0.00);\\$#,0.00"
             },
             {
               "field": {
@@ -55,24 +73,29 @@
                 }
               },
               "queryRef": "_Measures.Salesperson Sales Share",
-              "nativeQueryRef": "Salesperson Sales Share",
+              "nativeQueryRef": "Sales Share",
+              "displayName": "Sales Share",
               "format": "0.00%;-0.00%;0.00%"
             },
             {
               "field": {
-                "Measure": {
+                "Aggregation": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FactSalesTarget"
+                        }
+                      },
+                      "Property": "Total KPI Target"
                     }
                   },
-                  "Property": "Salesperson Target"
+                  "Function": 0
                 }
               },
-              "queryRef": "_Measures.Salesperson Aug Target",
-              "nativeQueryRef": "KPI Target",
-              "displayName": "KPI Target",
-              "format": "\\$#,0;(\\$#,0);\\$#,0"
+              "queryRef": "Sum(FactSalesTarget.Total KPI Target)",
+              "nativeQueryRef": "Total KPI Target",
+              "displayName": "Total KPI Target"
             },
             {
               "field": {
@@ -86,7 +109,8 @@
                 }
               },
               "queryRef": "_Measures.Salesperson Completion Rate",
-              "nativeQueryRef": "Salesperson Completion Rate",
+              "nativeQueryRef": "Completion Rate",
+              "displayName": "Completion Rate",
               "format": "0.00%;-0.00%;0.00%"
             }
           ]
@@ -102,7 +126,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Salesperson Sales"
+                "Property": "Salesperson Non-Ice Cream Sales"
               }
             },
             "direction": "Descending"
@@ -236,13 +260,55 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "151.832951174674D"
+                  "Value": "110.65850922418119D"
                 }
               }
             }
           },
           "selector": {
-            "metadata": "_Measures.Salesperson Aug Target"
+            "metadata": "_Measures.Salesperson Completion Rate"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "111.56160442741002D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Salesperson Sales Share"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "194.3271056475612D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DimSalesperson.Salesperson"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "155.44144131791936D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Salesperson Non-Ice Cream Sales"
           }
         }
       ]
@@ -281,5 +347,156 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "5d94ce26ebbf8ad014a3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimSalesperson"
+              }
+            },
+            "Property": "Salesperson"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "DimSalesperson",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "d"
+                              }
+                            },
+                            "Property": "Salesperson"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Total'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "00150690360c3a5cb910",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Salesperson Non-Ice Cream Sales"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2c2543256b46b70cc70e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Salesperson Ice Cream Sales"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9cb05854d2ce5f32edc4",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Salesperson Sales Share"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "115208ea8a4c47d6a3e4",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FactSalesTarget"
+                  }
+                },
+                "Property": "Total KPI Target"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "76381cb3b0846fa4f040",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Salesperson Completion Rate"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

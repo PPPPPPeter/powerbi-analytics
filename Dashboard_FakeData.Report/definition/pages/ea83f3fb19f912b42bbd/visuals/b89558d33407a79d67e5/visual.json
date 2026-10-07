@@ -197,39 +197,6 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "f7330b926802a0dc4957",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "FactSalesTarget"
-                  }
-                },
-                "Property": "KPI Target"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "f93c3de84b620c999840",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Order Creator Sales"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
         "name": "3397da7948780c856532",
         "field": {
           "Column": {

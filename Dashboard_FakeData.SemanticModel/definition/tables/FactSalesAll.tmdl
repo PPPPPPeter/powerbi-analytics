@@ -301,7 +301,7 @@ table FactSalesAll
 
 	column Quantity_1
 		dataType: double
-		lineageTag: 6a40eb99-f9a3-40dc-a92d-e4e0bfe1f4f4
+		lineageTag: 071f0f64-3e14-4ef4-96e4-83a4ee60eef0
 		summarizeBy: sum
 		sourceColumn: Quantity_1
 

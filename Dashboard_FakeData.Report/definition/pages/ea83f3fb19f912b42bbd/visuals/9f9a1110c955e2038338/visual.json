@@ -2,7 +2,7 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "9f9a1110c955e2038338",
   "position": {
-    "x": 601.08108108108115,
+    "x": 603.963963963964,
     "y": 15.855855855855856,
     "z": 12000,
     "height": 100,
@@ -188,7 +188,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Customer Kind'"
+                  "Value": "'Customer Type'"
                 }
               }
             },
@@ -275,5 +275,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "b8c3dc2e0675c3e4361c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactBranchCost"
+              }
+            },
+            "Property": "Customer Channel"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

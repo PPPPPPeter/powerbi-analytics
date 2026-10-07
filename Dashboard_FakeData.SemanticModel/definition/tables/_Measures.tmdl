@@ -373,16 +373,18 @@ table _Measures
 			
 			CALCULATE (
 			    [Order Creator Sales],
-			    REMOVEFILTERS ( DimProductAll ),
-			    DimProductAll[Product Class] = "Ice Cream"
+			    KEEPFILTERS ( DimProductAll[Product Class] = "Ice Cream" )
 			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: 9df694da-ade9-4ed6-bfda-4d85562fc565
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
 	measure 'Ice Cream Completion Rate' =
 			
 			DIVIDE (
 			    [Ice Cream Sales],
-			    [Ice Cream Total Target],
+			    SUM ( FactSalesTarget[Ice Cream Target] ),
 			    0
 			)
 		lineageTag: 32ca83a7-2ba0-4355-a853-6113e83607f0
@@ -881,6 +883,39 @@ table _Measures
 		lineageTag: 981cf156-2dc8-4c86-b85b-d4e3454fa4b5
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Salesperson Ice Cream Sales' =
+
+			CALCULATE (
+			    [Salesperson Sales],
+			    KEEPFILTERS ( DimProductAll[Product Class] = "Ice Cream" )
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: c4571ca7-64eb-4531-86c4-d992be331dd6
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Order Creator Non-Ice Cream Sales' =
+
+			CALCULATE (
+			    [Order Creator Sales],
+			    KEEPFILTERS ( DimProductAll[Product Class] <> "Ice Cream" )
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 5184e523-5490-49dc-bd2e-aa4a8df675a9
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Salesperson Non-Ice Cream Sales' =
+
+			CALCULATE (
+			    [Salesperson Sales],
+			    KEEPFILTERS ( DimProductAll[Product Class] <> "Ice Cream" )
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 27743876-0ecd-4cef-9001-73aec4e76f91
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
 	column 1
 		dataType: string

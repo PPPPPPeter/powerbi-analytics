@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "67fdcdd2c951de0868e1",
   "position": {
-    "x": 1401.8719211822659,
-    "y": 15.960591133004925,
+    "x": 1402.5225225225226,
+    "y": 17.2972972972973,
     "z": 8000,
     "height": 100,
     "width": 250,
@@ -57,53 +57,7 @@
       ],
       "general": [
         {
-          "properties": {
-            "filter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "d",
-                    "Entity": "DimProductAll",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "Not": {
-                        "Expression": {
-                          "In": {
-                            "Expressions": [
-                              {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Source": "d"
-                                    }
-                                  },
-                                  "Property": "Product Class"
-                                }
-                              }
-                            ],
-                            "Values": [
-                              [
-                                {
-                                  "Literal": {
-                                    "Value": "'Ice Cream'"
-                                  }
-                                }
-                              ]
-                            ]
-                          }
-                        }
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          }
+          "properties": {}
         }
       ],
       "selection": [
@@ -199,7 +153,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Product Variety'"
+                  "Value": "'Product Class'"
                 }
               }
             },
@@ -290,7 +244,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "1de92c629112442062ce",
+        "name": "874c1c693094a5829f75",
         "field": {
           "Column": {
             "Expression": {

@@ -68,6 +68,32 @@ table FactSalesTarget
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Ice Cream Target'
+		dataType: double
+		lineageTag: 93b9624a-7f32-4bef-94f8-7d25b3eaf33f
+		summarizeBy: sum
+		sourceColumn: Ice Cream Target
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Region
+		dataType: string
+		lineageTag: 82fc45ef-d508-48ac-b73f-64b37dcf087d
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total KPI Target' = [KPI Target] + [Ice Cream Target]
+		lineageTag: eeccb53b-3bee-474e-8254-bf243ed40092
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	partition FactSalesTarget = m
 		mode: import
 		source =
@@ -75,7 +101,7 @@ table FactSalesTarget
 				    Source = Excel.Workbook((if Text.StartsWith(DataRoot, "http") then Web.Contents(DataRoot & "/sales_targets_monthly.xlsx") else File.Contents(DataRoot & "\sales_targets_monthly.xlsx")), null, true),
 				    #"SALES 0824_Sheet" = Source{[Item="KPI by Month",Kind="Sheet"]}[Data],
 				    #"Promoted Headers1" = Table.PromoteHeaders(#"SALES 0824_Sheet", [PromoteAllScalars=true]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers1",{{"Month Date", type date}, {"KPI Target", type number}, {"Company", type text}, {"Salesperson", type text}, {"YearMonth", type text}, {"Year", type text}, {"Month", type text}})
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers1",{{"Month Date", type date}, {"KPI Target", type number}, {"Company", type text}, {"Salesperson", type text}, {"YearMonth", type text}, {"Year", type text}, {"Month", type text}, {"Ice Cream Target", type number}, {"Region", type text}})
 				in
 				    #"Changed Type"
 

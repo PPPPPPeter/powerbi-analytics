@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "e9acf49e7351070318d6",
   "position": {
-    "x": 1151.8226600985222,
-    "y": 17.290640394088669,
+    "x": 1151.7117117117118,
+    "y": 15.855855855855856,
     "z": 11000,
     "height": 100,
     "width": 250,
@@ -81,7 +81,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'Crestline New Jersey Inc'"
+                                "Value": "'OCM Globe Inc'"
                               }
                             }
                           ]
@@ -275,5 +275,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6d193c1db49579a6da8f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCompany"
+              }
+            },
+            "Property": "Company"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

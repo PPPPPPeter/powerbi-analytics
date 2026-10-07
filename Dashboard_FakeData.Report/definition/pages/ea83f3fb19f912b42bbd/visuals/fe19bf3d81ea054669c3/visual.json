@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "fe19bf3d81ea054669c3",
   "position": {
     "x": 21.88449848024316,
     "y": 145.89665653495442,
     "z": 2000,
     "height": 198.419452887538,
-    "width": 914.77203647416411,
+    "width": 914.7720364741641,
     "tabOrder": 2000
   },
   "visual": {
@@ -56,8 +56,8 @@
                   "Property": "Prior Year Same Period YoY"
                 }
               },
-              "queryRef": "_Measures.Same Period YoY",
-              "nativeQueryRef": "Same Period YoY",
+              "queryRef": "_Measures.Prior Year Same Period YoY",
+              "nativeQueryRef": "Prior Year Same Period YoY",
               "format": "0.00%;-0.00%;0.00%"
             },
             {
@@ -86,8 +86,8 @@
                 }
               },
               "queryRef": "_Measures.Selected Year Sales",
-              "nativeQueryRef": "This Year Sales",
-              "displayName": "This Year Sales"
+              "nativeQueryRef": "Current Year Sales",
+              "displayName": "Current Year Sales"
             },
             {
               "field": {
@@ -101,8 +101,8 @@
                 }
               },
               "queryRef": "_Measures.Total Sales Gap to Target",
-              "nativeQueryRef": "Total Sales vs Target",
-              "displayName": "Total Sales vs Target"
+              "nativeQueryRef": "Total Sales vs Total Target",
+              "displayName": "Total Sales vs Total Target"
             },
             {
               "field": {
@@ -127,11 +127,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Top Sale Share"
+                  "Property": "Top Sales Share"
                 }
               },
-              "queryRef": "_Measures.Top Sale Share",
-              "nativeQueryRef": "Top Sale Share",
+              "queryRef": "_Measures.Top Sales Share",
+              "nativeQueryRef": "Top Sales Share",
               "format": "0.00%;-0.00%;0.00%"
             }
           ]
@@ -342,7 +342,7 @@
                 }
               }
             ],
-            "metadata": "_Measures.Same Period YoY"
+            "metadata": "_Measures.Prior Year Same Period YoY"
           }
         },
         {
@@ -356,7 +356,7 @@
             }
           },
           "selector": {
-            "metadata": "_Measures.Same Period YoY"
+            "metadata": "_Measures.Prior Year Same Period YoY"
           }
         },
         {
